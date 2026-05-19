@@ -13,37 +13,37 @@ const CATEGORIES = [
   {
     title: "Kanapék",
     href: "/butoraink/kanapek",
-    image: "https://static.wixstatic.com/media/9a0b1d_13e53dff0c704be6b672061708d151e6~mv2.jpg",
+    image: "/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp",
     desc: "Old's Club, Ivone, Design, Chesterfield, New York, Joker, Cannes",
   },
   {
     title: "Fotelek",
     href: "/butoraink/fotelek",
-    image: "https://static.wixstatic.com/media/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6~mv2.jpg",
+    image: "/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp",
     desc: "90.170 Ft-tól – minden kollekció fotelban is elérhető",
   },
   {
     title: "Franciaágyak",
     href: "/butoraink/franciaagyak",
-    image: "https://static.wixstatic.com/media/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472~mv2.jpg",
+    image: "/images/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472.webp",
     desc: "Bilbao, Madrid, további modellek – 351.160 Ft-tól",
   },
   {
     title: "Székek, zsámolyok, falvédők",
     href: "/butoraink/szek-zsamoly-falvedo",
-    image: "https://static.wixstatic.com/media/9a0b1d_105ca1ce5db54feab5001b7ec13a9499~mv2.jpg",
+    image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp",
     desc: "76.200 Ft-tól – egyedi tervezés lehetséges",
   },
   {
     title: "Egyedi bútor",
     href: "/butoraink/egyedi-butor",
-    image: "https://static.wixstatic.com/media/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965~mv2.jpg",
+    image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp",
     desc: "Ami neked tetszik! Küldj egy képet és mi elkészítjük.",
   },
   {
     title: "Bútorválasztó",
     href: "/butorvalaszto",
-    image: "https://static.wixstatic.com/media/9a0b1d_13e53dff0c704be6b672061708d151e6~mv2.jpg",
+    image: "/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp",
     desc: "Segítünk megtalálni az ideális bútort 3 egyszerű lépésben",
   },
 ];

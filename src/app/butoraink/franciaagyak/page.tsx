@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 };
 
 const BEDS = [
-  { name: "Bilbao Franciaágy", tagline: "Kényelmedre", price: "351.160 Ft-tól", image: "https://static.wixstatic.com/media/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472~mv2.jpg" },
-  { name: "Madrid Franciaágy", tagline: "Hálószobád éke", price: "351.160 Ft-tól", image: "https://static.wixstatic.com/media/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6~mv2.jpg" },
-  { name: "További ágyak", tagline: "Modern és klasszikus darabok", price: "Egyéni árajánlat", image: "https://static.wixstatic.com/media/9a0b1d_13e53dff0c704be6b672061708d151e6~mv2.jpg" },
-  { name: "Egyedi megoldások", tagline: "Elkészítjük álombútorod", price: "Egyéni árajánlat", image: "https://static.wixstatic.com/media/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965~mv2.jpg" },
+  { name: "Bilbao Franciaágy", tagline: "Kényelmedre", price: "351.160 Ft-tól", image: "/images/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472.webp" },
+  { name: "Madrid Franciaágy", tagline: "Hálószobád éke", price: "351.160 Ft-tól", image: "/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp" },
+  { name: "További ágyak", tagline: "Modern és klasszikus darabok", price: "Egyéni árajánlat", image: "/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp" },
+  { name: "Egyedi megoldások", tagline: "Elkészítjük álombútorod", price: "Egyéni árajánlat", image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp" },
 ];
 
 const EXTRAS = [

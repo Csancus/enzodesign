@@ -27,7 +27,7 @@ export default function SzekZsamolyPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             <div>
               <div className="relative aspect-[4/3] overflow-hidden mb-6">
-                <Image src="https://static.wixstatic.com/media/9a0b1d_105ca1ce5db54feab5001b7ec13a9499~mv2.jpg" alt="Székek és zsámolyok" fill className="object-cover" />
+                <Image src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" alt="Székek és zsámolyok" fill className="object-cover" />
               </div>
             </div>
             <div>

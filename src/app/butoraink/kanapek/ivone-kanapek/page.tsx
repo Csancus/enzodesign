@@ -9,7 +9,7 @@ export default function Page() {
       name="Ivone Kanapék"
       tagline="Nappalid éke"
       description="Az Ivone kanapé a klasszikus Chesterfield stílus modern újraértelmezése. Gyönyörűen steppelt háttámla és ülőfelület, íves kartámaszok – a modern elegancia megtestesítője. Több száz szövetből és bőrből rendelhető, tetszőleges méretben."
-      image="https://static.wixstatic.com/media/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6~mv2.jpg"
+      image="/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp"
       pricing={{
         fotel: { alap: 360420, bor: 468545 },
         ketSzemelyes: { alap: 444240, bor: 667510 },

@@ -23,7 +23,7 @@ export const SOFA_COLLECTIONS = [
     tagline: "Karakteres elegancia",
     description:
       "Az Old's Club kanapé letisztult formáival és maximális funkcionalitásával az elegancia és a kényelem tökéletes szintézise. Széles ülőfelület, puha háttámla – ideális pihenéshez és vendégfogadáshoz.",
-    image: "https://static.wixstatic.com/media/9a0b1d_13e53dff0c704be6b672061708d151e6~mv2.jpg",
+    image: "/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp",
     gallery: [],
     pricing: {
       fotel: { alap: 360420, bor: 468545 },
@@ -41,7 +41,7 @@ export const SOFA_COLLECTIONS = [
     tagline: "Nappalid éke",
     description:
       "Az Ivone kanapé a klasszikus Chesterfield stílus modern újraértelmezése. Gyönyörűen steppelt háttámla és ülőfelület, íves kartámaszok – a modern elegancia megtestesítője.",
-    image: "https://static.wixstatic.com/media/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6~mv2.jpg",
+    image: "/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp",
     gallery: [],
     pricing: {
       fotel: { alap: 360420, bor: 468545 },
@@ -59,7 +59,7 @@ export const SOFA_COLLECTIONS = [
     tagline: "Modern minőség",
     description:
       "A Design kanapé modern formavilágával, letisztult vonalaival és elegáns steppelésével otthonod stílusos centerpiece-e lesz. Tömörfa váz, prémium anyagok.",
-    image: "https://static.wixstatic.com/media/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472~mv2.jpg",
+    image: "/images/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472.webp",
     gallery: [],
     pricing: {
       fotel: { alap: 360420, bor: 468545 },
@@ -77,7 +77,7 @@ export const SOFA_COLLECTIONS = [
     tagline: "A bútor, aminek történelme van",
     description:
       "A Chesterfield kanapé az elegancia és a hagyomány szimbóluma. Mélyen gombolt háttámla, jellegzetes ívelt kartámaszok – egy igazán időtálló, karakteres darab.",
-    image: "https://static.wixstatic.com/media/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965~mv2.jpg",
+    image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp",
     gallery: [],
     pricing: {
       fotel: { alap: 324380, bor: 421695 },
@@ -95,7 +95,7 @@ export const SOFA_COLLECTIONS = [
     tagline: "Klasszikus stílus",
     description:
       "A New York kanapé a klasszikus Chesterfield forma eleganciáját ötvözi a modern letisztultsággal. Időtálló, kényelmes választás minden nappali számára.",
-    image: "https://static.wixstatic.com/media/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965~mv2.jpg",
+    image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp",
     gallery: [],
     pricing: {
       fotel: { alap: 324380, bor: 421695 },
@@ -113,7 +113,7 @@ export const SOFA_COLLECTIONS = [
     tagline: "Elegáns bútor, bárhova",
     description:
       "A Joker kanapé finoman fénylő, prémium szövetborítással és mélyen gombolt háttámlával varázsolja otthonod elegánssá. Modern Chesterfield ihlette vonalak.",
-    image: "https://static.wixstatic.com/media/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965~mv2.jpg",
+    image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp",
     gallery: [],
     pricing: {
       fotel: { alap: 324380, bor: 421695 },
@@ -131,7 +131,7 @@ export const SOFA_COLLECTIONS = [
     tagline: "A modern sarok",
     description:
       "A Cannes sarokkanapé letisztult formavilágával és kifinomult részleteivel a modern enteriőr ékköve. Állítható fejtámlák, tágas ülőfelület.",
-    image: "https://static.wixstatic.com/media/9a0b1d_13e53dff0c704be6b672061708d151e6~mv2.jpg",
+    image: "/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp",
     gallery: [],
     pricing: {
       sarok: { alap: 367340, bor: 787740 },
@@ -148,7 +148,7 @@ export const ARMCHAIR_COLLECTIONS = [
     name: "Old's Club Fotel",
     tagline: "Karakteres elegancia",
     description: "Az Old's Club fotel letisztult formák és maximális funkcionalitás tökéletes ötvözete.",
-    image: "https://static.wixstatic.com/media/9a0b1d_13e53dff0c704be6b672061708d151e6~mv2.jpg",
+    image: "/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp",
     pricing: { fotel: { alap: 360420, bor: 468545 } },
   },
   {
@@ -156,7 +156,7 @@ export const ARMCHAIR_COLLECTIONS = [
     name: "Ivone Fotel",
     tagline: "Nappalid éke",
     description: "Az Ivone fotel gyönyörűen steppelt háttámlával és ívelt kartámaszokkal.",
-    image: "https://static.wixstatic.com/media/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6~mv2.jpg",
+    image: "/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp",
     pricing: { fotel: { alap: 360420, bor: 468545 } },
   },
   {
@@ -164,7 +164,7 @@ export const ARMCHAIR_COLLECTIONS = [
     name: "Design Fotel",
     tagline: "Modern minőség",
     description: "Modern formavilágú, letisztult vonalú fotel. 82.820 Ft-tól.",
-    image: "https://static.wixstatic.com/media/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472~mv2.jpg",
+    image: "/images/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472.webp",
     pricing: { fotel: { alap: 82820, bor: 120000 } },
   },
   {
@@ -172,7 +172,7 @@ export const ARMCHAIR_COLLECTIONS = [
     name: "Chesterfield Fotel",
     tagline: "A bútor, aminek történelme van",
     description: "Mélyen gombolt háttámla, jellegzetes ívelt kartámaszok – a Chesterfield fotel igazán karakteres darab.",
-    image: "https://static.wixstatic.com/media/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965~mv2.jpg",
+    image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp",
     pricing: { fotel: { alap: 324380, bor: 421695 } },
   },
   {
@@ -180,7 +180,7 @@ export const ARMCHAIR_COLLECTIONS = [
     name: "New York Fotel",
     tagline: "Klasszikus stílus",
     description: "Klasszikus Chesterfield forma modern letisztultsággal ötvözve.",
-    image: "https://static.wixstatic.com/media/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965~mv2.jpg",
+    image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp",
     pricing: { fotel: { alap: 324380, bor: 421695 } },
   },
   {
@@ -188,7 +188,7 @@ export const ARMCHAIR_COLLECTIONS = [
     name: "Joker Fotel",
     tagline: "Elegáns bútor, bárhova",
     description: "Prémium szövetborítás és gombolt háttámla – a Joker fotel otthonod ékköve.",
-    image: "https://static.wixstatic.com/media/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965~mv2.jpg",
+    image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp",
     pricing: { fotel: { alap: 324380, bor: 421695 } },
   },
   {
@@ -196,7 +196,7 @@ export const ARMCHAIR_COLLECTIONS = [
     name: "További Fotelek",
     tagline: "Egyedi megoldások",
     description: "Gombolt háttámlás modellek és modern letisztult tervek is elérhetők. 82.820 Ft-tól.",
-    image: "https://static.wixstatic.com/media/9a0b1d_13e53dff0c704be6b672061708d151e6~mv2.jpg",
+    image: "/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp",
     pricing: { fotel: { alap: 82820 } },
   },
 ];

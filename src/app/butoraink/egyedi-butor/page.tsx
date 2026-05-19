@@ -58,7 +58,7 @@ export default function EgyediButorPage() {
             </ul>
           </div>
           <div className="relative aspect-[3/4] overflow-hidden">
-            <Image src="https://static.wixstatic.com/media/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965~mv2.jpg" alt="Egyedi bútor" fill className="object-cover" />
+            <Image src="/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp" alt="Egyedi bútor" fill className="object-cover" />
           </div>
         </div>
       </section>
