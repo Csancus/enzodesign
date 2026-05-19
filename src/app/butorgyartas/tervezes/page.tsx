@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import ContactForm from "@/components/ContactForm";
+import ContactFormSection from "@/components/ContactFormSection";
 
 export const metadata: Metadata = { title: "Bútortervezés" };
 
@@ -31,13 +31,7 @@ export default function Page() {
           </ul>
         </div>
       </section>
-
-      <section className="py-20 bg-[#f5f0e8]">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-[#1c1c1c] mb-8" style={{ fontFamily: "var(--font-heading)" }}>Rendelés és kapcsolat</h2>
-          <div className="bg-white p-8 shadow-sm"><ContactForm /></div>
-        </div>
-      </section>
+      <ContactFormSection />
     </>
   );
 }

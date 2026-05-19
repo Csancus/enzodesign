@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import ContactForm from "@/components/ContactForm";
+import ContactFormSection from "@/components/ContactFormSection";
 
 const POPULAR_PRODUCTS = [
   {
@@ -134,48 +134,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FÁTÓL A KANAPÉIG */}
+      {/* LEGNÉPSZERŰBB BÚTORAINK */}
       <section className="py-20 bg-[#f5f0e8]">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-14">
-            <p className="text-[#7d6142] text-sm font-semibold uppercase tracking-wider mb-2">Gyártási folyamat</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1c1c1c]" style={{ fontFamily: "var(--font-heading)" }}>
-              Fától a kanapéig
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {STEPS.map((s) => (
-              <div key={s.step} className="text-center">
-                <div className="text-5xl font-bold text-[#ede6d8] mb-4 leading-none" style={{ fontFamily: "var(--font-heading)" }}>
-                  {s.step}
-                </div>
-                <h3 className="text-lg font-semibold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>
-                  {s.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* LEGNÉPSZERŰBB BÚTOROK */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-14">
-            <p className="text-[#7d6142] text-sm font-semibold uppercase tracking-wider mb-2">Termékeink</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1c1c1c]" style={{ fontFamily: "var(--font-heading)" }}>
+          <div className="text-center mb-12">
+            <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Kollekciónkból</p>
+            <h2
+              className="text-3xl md:text-4xl font-bold text-[#1c1c1c]"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
               Legnépszerűbb bútoraink
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {POPULAR_PRODUCTS.map((product) => (
-              <Link
-                key={product.href}
-                href={product.href}
-                className="group block border border-gray-100 hover:shadow-lg transition-shadow overflow-hidden"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+              <Link key={product.name} href={product.href} className="group block bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={product.image}
                     alt={product.name}
@@ -184,43 +158,58 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-bold text-[#1c1c1c] text-lg" style={{ fontFamily: "var(--font-heading)" }}>
+                  <p className="text-xs text-[#b8924a] uppercase tracking-wider mb-1">{product.tagline}</p>
+                  <h3 className="text-lg font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>
                     {product.name}
                   </h3>
-                  <p className="text-gray-500 text-sm mb-2">{product.tagline}</p>
                   <p className="text-[#7d6142] font-semibold text-sm">{product.price}</p>
                 </div>
               </Link>
             ))}
           </div>
-          <div className="text-center mt-10">
+          <div className="text-center mt-12">
             <Link
               href="/butoraink"
-              className="inline-block bg-[#1c1c1c] hover:bg-[#7d6142] text-white font-bold uppercase tracking-wider px-10 py-4 transition-colors text-sm"
+              className="inline-block border-2 border-[#7d6142] text-[#7d6142] hover:bg-[#7d6142] hover:text-white font-bold uppercase tracking-wider px-10 py-4 transition-colors text-sm"
             >
-              Összes termék
+              Összes bútor
             </Link>
           </div>
         </div>
       </section>
 
-      {/* KONTAKT FORM */}
-      <section className="py-20 bg-[#f5f0e8]" id="rendeles">
-        <div className="max-w-3xl mx-auto px-4">
-          <div className="text-center mb-10">
-            <p className="text-[#7d6142] text-sm font-semibold uppercase tracking-wider mb-2">Kapcsolatfelvétel</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1c1c1c] mb-3" style={{ fontFamily: "var(--font-heading)" }}>
-              Rendelés és kapcsolat
+      {/* FÁTÓL A KANAPÉIG */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Gyártási folyamat</p>
+            <h2
+              className="text-3xl md:text-4xl font-bold text-[#1c1c1c]"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Fától a kanapéig
             </h2>
-            <p className="text-gray-600">
-              Töltsd ki a kapcsolatfelvételi űrlapot és néhány héten belül nálad lehet álmaid bútora!
-            </p>
           </div>
-          <div className="bg-white p-8 shadow-sm">
-            <ContactForm />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {STEPS.map((s) => (
+              <div key={s.step} className="text-center">
+                <div
+                  className="text-5xl font-bold text-[#f0ebe3] mb-4"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  {s.step}
+                </div>
+                <h3 className="text-lg font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>
+                  {s.title}
+                </h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      <ContactFormSection />
     </>
   );
 }

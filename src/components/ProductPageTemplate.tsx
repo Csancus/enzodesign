@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import ContactForm from "./ContactForm";
+import ContactFormSection from "./ContactFormSection";
 import PriceTable from "./PriceTable";
 
 type Pricing = {
@@ -141,19 +141,7 @@ export default function ProductPageTemplate({
       </section>
 
       {/* FORM */}
-      <section className="py-20 bg-[#f5f0e8]" id="rendeles">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-[#1c1c1c] mb-3" style={{ fontFamily: "var(--font-heading)" }}>
-            Rendelés és kapcsolat
-          </h2>
-          <p className="text-center text-gray-600 mb-8">
-            Töltsd ki a kapcsolatfelvételi űrlapot és néhány héten belül nálad lehet álmaid bútora!
-          </p>
-          <div className="bg-white p-8 shadow-sm">
-            <ContactForm />
-          </div>
-        </div>
-      </section>
+      <ContactFormSection />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import ContactForm from "@/components/ContactForm";
+import ContactFormSection from "@/components/ContactFormSection";
 
 export const metadata: Metadata = {
   title: "Üzleti Bútor",
@@ -79,14 +79,7 @@ export default function UzletiButorPage() {
           </div>
         </div>
       </section>
-
-      <section className="py-20 bg-[#f5f0e8]">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-[#1c1c1c] mb-3" style={{ fontFamily: "var(--font-heading)" }}>Üzleti árajánlat kérése</h2>
-          <p className="text-center text-gray-600 mb-8">Írja le igényeit és 24 órán belül visszahívjuk!</p>
-          <div className="bg-white p-8 shadow-sm"><ContactForm /></div>
-        </div>
-      </section>
+      <ContactFormSection />
     </>
   );
 }
