@@ -21,8 +21,8 @@ export async function POST(req: NextRequest) {
     `;
 
     await resend.emails.send({
-      from: "Enzo Design <onboarding@resend.dev>",
-      to: "csanad.peter.czarth@gmail.com",
+      from: process.env.RESEND_FROM ?? "Enzo Design <onboarding@resend.dev>",
+      to: process.env.RESEND_TO ?? "csanad.peter.czarth@gmail.com",
       subject: `Új megrendelés: ${data.nev ?? "Ismeretlen"} – ${data.alapbutor ?? ""}`,
       html,
       replyTo: data.email ?? undefined,

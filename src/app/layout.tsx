@@ -18,6 +18,7 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://enzodesign.hu"),
   title: {
     default: "Enzo Design – Egyedi kárpitozott bútorok",
     template: "%s | Enzo Design",
