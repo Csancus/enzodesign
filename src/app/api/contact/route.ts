@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
 
     await transporter.sendMail({
       from: `"Enzo Design Weboldal" <${process.env.SMTP_USER}>`,
-      to: "info@enzodesign.hu",
+      to: "csanad.peter.czarth@gmail.com",
       subject: `Új megrendelés: ${data.nev ?? "Ismeretlen"} – ${data.alapbutor ?? ""}`,
       html,
       replyTo: data.email ?? undefined,
