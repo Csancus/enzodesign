@@ -1,0 +1,16 @@
+import type { Metadata } from "next";
+import ProductPageTemplate from "@/components/ProductPageTemplate";
+export const metadata: Metadata = { title: "Design Bútorok" };
+export default function Page() {
+  return (
+    <ProductPageTemplate
+      name="Design Bútorok"
+      tagline="Modern minőség"
+      description="A Design kollekció modern formavilágával, letisztult vonalaival és elegáns steppelésével otthonod stílusos centerpiece-e lesz."
+      image="https://static.wixstatic.com/media/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472~mv2.jpg"
+      pricing={{ fotel: { alap: 360420, bor: 468545 }, ketSzemelyes: { alap: 444240, bor: 677510 }, haromSzemelyes: { alap: 553210, bor: 919170 }, sarok: { alap: 817240, bor: 1262412 }, agyFunkcio: 190500 }}
+      features={["50.000 martindale szövet", "Modern dizájn", "3 év garancia", "10 év vázgarancia"]}
+      breadcrumb={[{ label: "Főoldal", href: "/" }, { label: "Design Bútorok", href: "/design-butorok" }]}
+    />
+  );
+}

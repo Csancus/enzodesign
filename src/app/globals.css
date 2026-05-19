@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --color-enzo-dark: #1c1c1c;
+  --color-enzo-brown: #7d6142;
+  --color-enzo-brown-light: #a08560;
+  --color-enzo-cream: #f5f0e8;
+  --color-enzo-cream-dark: #ede6d8;
+  --color-enzo-gold: #b8924a;
+  --color-enzo-text: #2d2d2d;
+  --color-enzo-muted: #6b6b6b;
+
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "Lato", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-enzo-text);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--color-enzo-brown);
+  color: #ffffff;
+  padding: 0.75rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-enzo-gold);
+}
+
+.btn-outline {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--color-enzo-brown);
+  padding: 0.75rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid var(--color-enzo-brown);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-enzo-brown);
+  color: #ffffff;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-enzo-dark);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: var(--color-enzo-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
