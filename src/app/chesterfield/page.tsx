@@ -20,7 +20,7 @@ export default function ChesterfieldPage() {
     <>
       {/* HERO */}
       <section className="relative bg-[#1c1c1c] py-32 text-center text-white overflow-hidden">
-        <Image src="/images/chesterfield-bg.jpg" alt="Chesterfield kanapé" fill className="object-cover opacity-30" />
+        <Image src="/images/e7ad8b_f3e7dfd04f494d26b0ab4fb0b4548113.webp" alt="Chesterfield kanapé" fill className="object-cover opacity-30" />
         <div className="relative z-10 max-w-2xl mx-auto px-4">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Örök elegancia</p>
           <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ fontFamily: "var(--font-heading)" }}>
@@ -47,7 +47,7 @@ export default function ChesterfieldPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           <div className="relative aspect-[4/3] overflow-hidden">
-            <Image src="/images/hero-chesterfield.jpg" alt="Chesterfield kanapé" fill className="object-cover" />
+            <Image src="/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp" alt="Chesterfield kanapé" fill className="object-cover" />
           </div>
           <div>
             <h2 className="text-3xl font-bold text-[#1c1c1c] mb-6" style={{ fontFamily: "var(--font-heading)" }}>

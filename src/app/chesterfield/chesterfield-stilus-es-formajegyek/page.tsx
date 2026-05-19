@@ -42,7 +42,7 @@ export default function Page() {
               </p>
             </div>
             <div className="relative aspect-[3/4] overflow-hidden">
-              <Image src="/images/chesterfield-bg.jpg" alt="Chesterfield stílus" fill className="object-cover" />
+              <Image src="/images/e7ad8b_f3e7dfd04f494d26b0ab4fb0b4548113.webp" alt="Chesterfield stílus" fill className="object-cover" />
             </div>
           </div>
         </div>

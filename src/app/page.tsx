@@ -20,7 +20,7 @@ const POPULAR_PRODUCTS = [
   {
     name: "Chesterfield",
     tagline: "2-es kanapé",
-    price: "399.000 Ft-tól",
+    price: "399.810 Ft-tól",
     image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp",
     href: "/butoraink/kanapek/chesterfield-kanapek",
   },
@@ -60,7 +60,7 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-[#1c1c1c]">
         <Image
-          src="/images/hero-chesterfield.jpg"
+          src="/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp"
           alt="Enzo Design – Egyedi kárpitozott bútorok"
           fill
           className="object-cover opacity-40"
@@ -129,7 +129,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="relative aspect-[4/3] overflow-hidden">
-            <Image src="/images/uzem.jpg" alt="Enzo Design műhely" fill className="object-cover" />
+            <Image src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" alt="Enzo Design műhely" fill className="object-cover" />
           </div>
         </div>
       </section>

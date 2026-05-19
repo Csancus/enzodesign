@@ -18,7 +18,7 @@ export default function UzletiButorPage() {
   return (
     <>
       <section className="relative bg-[#1c1c1c] py-24 text-white overflow-hidden">
-        <Image src="/images/uzem.jpg" alt="Üzleti bútor" fill className="object-cover opacity-25" />
+        <Image src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" alt="Üzleti bútor" fill className="object-cover opacity-25" />
         <div className="relative z-10 max-w-2xl mx-auto px-4 text-center">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">B2B megoldások</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-heading)" }}>

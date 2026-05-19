@@ -50,7 +50,7 @@ export default function ButorgyartasPage() {
             </p>
           </div>
           <div className="relative aspect-[4/3] overflow-hidden">
-            <Image src="/images/uzem.jpg" alt="Bútorgyártás" fill className="object-cover" />
+            <Image src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" alt="Bútorgyártás" fill className="object-cover" />
           </div>
         </div>
 

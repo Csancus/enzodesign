@@ -14,7 +14,7 @@ export default function RolunkPage() {
       {/* HERO */}
       <section className="relative bg-[#1c1c1c] py-24 text-center text-white overflow-hidden">
         <Image
-          src="/images/uzem.jpg"
+          src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp"
           alt="Enzo Design műhely"
           fill
           className="object-cover opacity-30"
@@ -58,7 +58,7 @@ export default function RolunkPage() {
           </div>
           <div>
             <div className="relative aspect-[3/4] overflow-hidden mb-6">
-              <Image src="/images/uzem.jpg" alt="Enzo Design telephely" fill className="object-cover" />
+              <Image src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" alt="Enzo Design telephely" fill className="object-cover" />
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[

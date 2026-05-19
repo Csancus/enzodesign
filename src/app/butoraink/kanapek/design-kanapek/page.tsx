@@ -12,7 +12,7 @@ export default function Page() {
       image="/images/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472.webp"
       pricing={{
         fotel: { alap: 360420, bor: 468545 },
-        ketSzemelyes: { alap: 444240, bor: 677510 },
+        ketSzemelyes: { alap: 444240, bor: 667510 },
         haromSzemelyes: { alap: 553210, bor: 919170 },
         sarok: { alap: 817240, bor: 1262412 },
         agyFunkcio: 190500,

@@ -49,7 +49,7 @@ export default function Page() {
           </div>
           <div>
             <div className="relative aspect-[3/4] overflow-hidden mb-6">
-              <Image src="/images/hero-chesterfield.jpg" alt="Chesterfield kanapé" fill className="object-cover" />
+              <Image src="/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp" alt="Chesterfield kanapé" fill className="object-cover" />
             </div>
             <div className="bg-[#f5f0e8] p-6">
               <h3 className="font-semibold text-[#1c1c1c] mb-2">Az Enzo Design Chesterfieldről</h3>
