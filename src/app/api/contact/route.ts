@@ -1,19 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
-
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT ?? 587),
-      secure: process.env.SMTP_SECURE === "true",
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
 
     const html = `
       <h2 style="color:#1c1c1c;font-family:Georgia,serif">Új megrendelés – Enzo Design</h2>
@@ -28,8 +20,8 @@ export async function POST(req: NextRequest) {
       </table>
     `;
 
-    await transporter.sendMail({
-      from: `"Enzo Design Weboldal" <${process.env.SMTP_USER}>`,
+    await resend.emails.send({
+      from: "Enzo Design <onboarding@resend.dev>",
       to: "csanad.peter.czarth@gmail.com",
       subject: `Új megrendelés: ${data.nev ?? "Ismeretlen"} – ${data.alapbutor ?? ""}`,
       html,
