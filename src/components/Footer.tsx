@@ -15,7 +15,7 @@ export default function Footer() {
             </p>
             <div className="mt-4 flex gap-4">
               <a
-                href="https://www.facebook.com"
+                href="https://www.facebook.com/enzodesignbutor"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
