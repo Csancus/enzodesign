@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const AKCIO_IMAGES = [
-  { src: "/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp", alt: "Akciós bútor 1" },
+  { src: "/images/9a0b1d_5ebafef06aa546a39a29c57d5d9e834b.webp", alt: "Akciós bútor 1" },
   { src: "/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp", alt: "Akciós bútor 2" },
   { src: "/images/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472.webp", alt: "Akciós bútor 3" },
 ];

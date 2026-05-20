@@ -9,7 +9,7 @@ export default function Page() {
       name="Cannes Sarokkanapé"
       tagline="A modern sarok"
       description="A Cannes sarokkanapé letisztult formavilágával és kifinomult részleteivel a modern enteriőr ékköve. Állítható fejtámlák, tágas ülőfelület – a maximális kényelem és stílus szintézise."
-      image="/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp"
+      image="/images/e7ad8b_af00972c370c4bc7800fc98bfd927214.webp"
       pricing={{
         sarok: { alap: 367340, bor: 787740 },
         agyFunkcio: 190500,
