@@ -22,7 +22,7 @@ export default function UzletiButorPage() {
         <div className="relative z-10 max-w-2xl mx-auto px-4 text-center">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">B2B megoldások</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-            Üzleti bútor
+            Éttermeknek, szállodáknak, rendelőknek, fogadóterekbe
           </h1>
           <p className="text-gray-300 leading-relaxed">
             Kávézóba, étterembe, szállodába, orvosi rendelőbe rendszeresen készítünk nagy teherbírású bútorokat.
