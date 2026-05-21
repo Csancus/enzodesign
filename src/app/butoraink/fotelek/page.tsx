@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   description: "Fotel kollekciók: Old's Club, Ivone, Design, Chesterfield, New York, Joker – 82.820 Ft-tól.",
 };
 
+const EXTRA_CARDS = [
+  { name: "Egyedi fotelek", tagline: "Elkészítjük álombútorod", image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp", href: "/butoraink/egyedi-butor" },
+  { name: "Üzleti fotelek, székek", tagline: "Vásárlóid kényelmére", image: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
+];
+
 export default function FotelekPage() {
   return (
     <>
@@ -19,7 +24,11 @@ export default function FotelekPage() {
             Fotelek
           </h1>
           <p className="mt-4 text-gray-300">
-            Székek 76.000 Ft-tól, fotelek 90.000 Ft-tól – tömörfa szerkezettel, prémium anyagokkal.
+            Bútoraink 2000 nm-es telephelyünkön készülnek. Tömör fával, nagy kopásállóságú szövetekkel
+            és bőrökkel dolgozunk és minden elkészített bútorunkat kézzel ellenőrzünk.
+          </p>
+          <p className="mt-2 text-gray-400 text-sm">
+            Mivel gyártók vagyunk, ezért áraink továbbra is nagyon versenyképesek maradnak.
           </p>
         </div>
       </section>
@@ -53,7 +62,33 @@ export default function FotelekPage() {
                 </div>
               </Link>
             ))}
+            {EXTRA_CARDS.map((card) => (
+              <Link
+                key={card.name}
+                href={card.href}
+                className="group block overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow"
+              >
+                <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+                  <Image src={card.image} alt={card.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div className="p-5">
+                  <h2 className="text-xl font-bold text-[#1c1c1c]" style={{ fontFamily: "var(--font-heading)" }}>{card.name}</h2>
+                  <p className="text-[#7d6142] text-sm font-medium">{card.tagline}</p>
+                </div>
+              </Link>
+            ))}
           </div>
+          <div className="flex flex-col sm:flex-row gap-8 mt-10 text-center justify-center">
+            <div>
+              <div className="text-2xl font-bold text-[#7d6142]" style={{ fontFamily: "var(--font-heading)" }}>76.000 Ft-tól</div>
+              <div className="text-xs text-gray-500 uppercase tracking-wide mt-1">Székek</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-[#7d6142]" style={{ fontFamily: "var(--font-heading)" }}>90.000 Ft-tól</div>
+              <div className="text-xs text-gray-500 uppercase tracking-wide mt-1">Fotelek</div>
+            </div>
+          </div>
+          <p className="text-center text-gray-500 text-sm mt-4">3 év a garancia, a vázszerkezetre 10 év garancia</p>
         </div>
       </section>
       <ContactFormSection />

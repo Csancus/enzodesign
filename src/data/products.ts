@@ -110,7 +110,7 @@ export const SOFA_COLLECTIONS = [
   {
     slug: "joker-kanapek",
     name: "Joker",
-    tagline: "Elegáns bútor, bárhova",
+    tagline: "Gáláns megjelenés",
     description:
       "A Joker kanapé finoman fénylő, prémium szövetborítással és mélyen gombolt háttámlával varázsolja otthonod elegánssá. Modern Chesterfield ihlette vonalak.",
     image: "/images/e7ad8b_472fb74f2a1746e68ca129dbd34b2de7.webp",

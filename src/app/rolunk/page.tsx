@@ -22,7 +22,7 @@ export default function RolunkPage() {
         <div className="relative z-10 max-w-2xl mx-auto px-4">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Rólunk</p>
           <h1 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>
-            Fától a kanapéig
+            Rólunk
           </h1>
           <p className="mt-4 text-gray-300 text-lg">
             Közel 20 éve gyártunk kárpitozott bútorokat Nagykanizsán.
@@ -35,21 +35,23 @@ export default function RolunkPage() {
         <div className="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <div>
             <h2 className="text-3xl font-bold text-[#1c1c1c] mb-6" style={{ fontFamily: "var(--font-heading)" }}>
-              Ki vagyunk mi?
+              Történetünk
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Az Enzo Design közel 20 éve készít egyedi kárpitozott bútorokat Nagykanizsán,
-              2000 nm-es telephelyünkön. Termékeink Magyarországon, Németországban és egész
-              Európában megtalálhatók.
+              Nagykanizsán közel 20 éve készítünk bútorokat melyeket főleg Magyarországon
+              és Németországban, de Európa szerte használnak.
             </p>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Kizárólag tömörfa szerkezettel és nagy kopásállóságú anyagokkal dolgozunk.
-              Minden elkészített bútort kézzel ellenőrzünk – a minőség elsődleges számunkra.
+              A minőség elsődleges számunkra, ezért kizárólag tömörfa szerkezettel és nagy
+              kopásállóságú anyagokkal dolgozunk.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              Mivel mi vagyunk a gyártó és az eladó is, ezért nincs extra reklámköltségünk,
+              így reális áron tudjuk adni bútoraink.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Gyártóként és kereskedőként egyaránt működünk, ezért nincs szükség közvetítőkre –
-              így reális, versenyképes áron juthat hozzá álombútoráros. Lakóbútorok,
-              kávézók, éttermek és szállodák számára egyaránt készítünk bútorokat.
+              2000 nm-es üzemünkben bármilyen egyedi, vagy típusbútort el tudunk készíteni
+              lakásokba, kávézókba, éttermekbe vagy szállodákba is.
             </p>
             <blockquote className="border-l-4 border-[#7d6142] pl-4 italic text-gray-500 mb-6">
               „Bizonyos bútorok, amelyek mellett felnő az ember, valamiképpen fontossá válnak."

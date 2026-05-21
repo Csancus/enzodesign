@@ -14,7 +14,7 @@ export default function KapcsolatPage() {
         <div className="max-w-2xl mx-auto px-4">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Lépjen kapcsolatba velünk</p>
           <h1 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>
-            Kapcsolat és rendelés
+            Kapcsolat, rendelés
           </h1>
           <p className="mt-4 text-gray-300">
             Töltse ki az alábbi űrlapot és 24 órán belül visszahívjuk!
