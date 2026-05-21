@@ -25,7 +25,7 @@ const POPULAR_PRODUCTS = [
     href: "/butoraink/kanapek/chesterfield-kanapek",
   },
   {
-    name: "Cannes",
+    name: "Cannes-Nizza",
     tagline: "Sarokkanapé",
     price: "367.340 Ft-tól",
     image: "/images/e7ad8b_af00972c370c4bc7800fc98bfd927214.webp",
@@ -39,8 +39,8 @@ const POPULAR_PRODUCTS = [
     href: "/butoraink/fotelek",
   },
   {
-    name: "Éttermi bútorok",
-    tagline: "Székek",
+    name: "Étterem, hotel, üzleti bútorok",
+    tagline: "Éttermi székek",
     price: "76.200 Ft-tól",
     image: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp",
     href: "/karpitozott-butor-uzleti-ugyfeleknek",
@@ -48,36 +48,32 @@ const POPULAR_PRODUCTS = [
 ];
 
 const STEPS = [
-  { step: "01", title: "Nyers fa", desc: "Tömörfa alapanyag helyi megmunkálással" },
-  { step: "02", title: "Minőségi anyagok", desc: "Nagy kopásállóságú szövetek és rugók" },
-  { step: "03", title: "Kézi összeszerelés", desc: "Varrat, rugózás, kárpitozás gondos kézimunkával" },
-  { step: "04", title: "Házhozszállítás", desc: "Kész bútor szállítása az első ajtóig" },
+  { step: "01", title: "Nyers fa", desc: "Tömörfa alapanyag helyi megmunkálással", image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" },
+  { step: "02", title: "Minőségi anyagok", desc: "Nagy kopásállóságú szövetek és rugók", image: "/images/e7ad8b_b0943221b51548cbbe6d97a0e24fbeb6.webp" },
+  { step: "03", title: "Kézi összeszerelés", desc: "Varrat, rugózás, kárpitozás gondos kézimunkával", image: "/images/e7ad8b_aceaccd7ca6746cb804d31e17d3c8352.webp" },
+  { step: "04", title: "Házhozszállítás", desc: "Kész bútor szállítása az első ajtóig", image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp" },
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-[#1c1c1c]">
+      {/* HERO – teljes szélességű kép */}
+      <section className="relative min-h-[75vh] flex items-end justify-center overflow-hidden bg-[#1c1c1c]">
         <Image
           src="/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp"
           alt="Enzo Design – Egyedi kárpitozott bútorok"
           fill
-          className="object-cover opacity-40"
+          className="object-cover opacity-60"
           priority
         />
-        <div className="relative z-10 text-center text-white px-4 max-w-3xl mx-auto">
+        <div className="relative z-10 w-full bg-gradient-to-t from-black/80 to-transparent pt-32 pb-16 px-4 text-center text-white">
           <h1
-            className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+            className="text-4xl md:text-6xl font-bold mb-4 leading-tight"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Egyedi és azonnal elérhető kárpitozott bútorok
           </h1>
-          <p className="text-xl md:text-2xl text-[#b8924a] font-light mb-4">Közvetlenül a gyártótól</p>
-          <p className="text-gray-300 text-base md:text-lg mb-8 max-w-xl mx-auto">
-            Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán. Tömörfa szerkezettel,
-            prémium anyagokkal, versenyképes áron.
-          </p>
+          <p className="text-xl md:text-2xl text-[#b8924a] font-light mb-6">Közvetlenül a gyártótól</p>
           <Link
             href="/butoraink"
             className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-10 py-4 transition-colors text-sm"
@@ -87,55 +83,81 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* RÓLUNK */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="text-[#7d6142] text-sm font-semibold uppercase tracking-wider mb-3">20 éves tapasztalat</p>
+      {/* TAGLINE SZEKCIÓ – fehér, középre igazított */}
+      <section className="py-16 bg-white text-center">
+        <div className="max-w-2xl mx-auto px-4">
+          <p className="text-[#7d6142] text-sm font-semibold uppercase tracking-wider mb-3">20 éves tapasztalat</p>
+          <h2
+            className="text-3xl md:text-4xl font-bold text-[#1c1c1c] mb-4 leading-tight"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            20 éves tapasztalattal rendelkező magyar bútorgyártó cég vagyunk
+          </h2>
+          <p className="text-gray-600 leading-relaxed mb-6">
+            Célunk minőségi, tömörfa-szerkezettel és nagy kopásállóságú szövettel borított
+            bútorokat készíteni, elérhető áron.
+          </p>
+          <div className="grid grid-cols-3 gap-6 mb-8">
+            {[
+              { label: "Év tapasztalat", value: "20+" },
+              { label: "Termékgarancia", value: "3 év" },
+              { label: "Vázgarancia", value: "10 év" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="text-3xl font-bold text-[#7d6142]" style={{ fontFamily: "var(--font-heading)" }}>
+                  {stat.value}
+                </div>
+                <div className="text-xs text-gray-500 mt-1 uppercase tracking-wide">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+          <Link
+            href="/butoraink"
+            className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-10 py-4 transition-colors text-sm"
+          >
+            Tovább
+          </Link>
+        </div>
+      </section>
+
+      {/* FÁTÓL A KANAPÉIG – képekkel */}
+      <section className="py-20 bg-[#f5f0e8]">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Gyártási folyamat</p>
             <h2
-              className="text-3xl md:text-4xl font-bold text-[#1c1c1c] mb-6 leading-tight"
+              className="text-3xl md:text-4xl font-bold text-[#1c1c1c]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Magyar kézműves bútorok<br />versenyképes áron
+              Fától a kanapéig
             </h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              Bútoraink 2000 nm-es telephelyünkön készülnek Nagykanizsán. Tömör fával, nagy kopásállóságú
-              szövetekkel és bőrökkel dolgozunk – és minden elkészített bútort kézzel ellenőrzünk.
-            </p>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              Gyártóként és kereskedőként is működünk, így közvetítő nélkül, reális áron juthat hozzá
-              álombútoráros. Szinte bármilyen egyedi, kárpitozott bútort el tudunk készíteni egyedi szín,
-              anyagminta, méret és kopásállóság szerint.
-            </p>
-            <div className="grid grid-cols-3 gap-6 mb-8">
-              {[
-                { label: "Év tapasztalat", value: "20+" },
-                { label: "Termékgarancia", value: "3 év" },
-                { label: "Vázgarancia", value: "10 év" },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="text-3xl font-bold text-[#7d6142]" style={{ fontFamily: "var(--font-heading)" }}>
-                    {stat.value}
-                  </div>
-                  <div className="text-xs text-gray-500 mt-1 uppercase tracking-wide">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-            <Link
-              href="/rolunk"
-              className="inline-block border-2 border-[#7d6142] text-[#7d6142] hover:bg-[#7d6142] hover:text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm"
-            >
-              Rólunk
-            </Link>
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden">
-            <Image src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" alt="Enzo Design műhely" fill className="object-cover" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {STEPS.map((s) => (
+              <div key={s.step} className="bg-white overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image src={s.image} alt={s.title} fill className="object-cover" />
+                </div>
+                <div className="p-5 text-center">
+                  <div
+                    className="text-4xl font-bold text-[#f0ebe3] mb-2"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {s.step}
+                  </div>
+                  <h3 className="text-base font-bold text-[#1c1c1c] mb-1" style={{ fontFamily: "var(--font-heading)" }}>
+                    {s.title}
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* LEGNÉPSZERŰBB BÚTORAINK */}
-      <section className="py-20 bg-[#f5f0e8]">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Kollekciónkból</p>
@@ -148,7 +170,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {POPULAR_PRODUCTS.map((product) => (
-              <Link key={product.name} href={product.href} className="group block bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <Link key={product.name} href={product.href} className="group block bg-white overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={product.image}
@@ -174,37 +196,6 @@ export default function HomePage() {
             >
               Összes bútor
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FÁTÓL A KANAPÉIG */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-14">
-            <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Gyártási folyamat</p>
-            <h2
-              className="text-3xl md:text-4xl font-bold text-[#1c1c1c]"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              Fától a kanapéig
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {STEPS.map((s) => (
-              <div key={s.step} className="text-center">
-                <div
-                  className="text-5xl font-bold text-[#f0ebe3] mb-4"
-                  style={{ fontFamily: "var(--font-heading)" }}
-                >
-                  {s.step}
-                </div>
-                <h3 className="text-lg font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>
-                  {s.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

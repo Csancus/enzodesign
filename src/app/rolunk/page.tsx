@@ -11,28 +11,28 @@ export const metadata: Metadata = {
 export default function RolunkPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative bg-[#1c1c1c] py-24 text-center text-white overflow-hidden">
-        <Image
-          src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp"
-          alt="Enzo Design műhely"
-          fill
-          className="object-cover opacity-30"
-        />
-        <div className="relative z-10 max-w-2xl mx-auto px-4">
-          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Rólunk</p>
-          <h1 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>
+      {/* HERO – nagy kanapé kép, landscape */}
+      <section className="bg-white">
+        <div className="max-w-5xl mx-auto px-4 pt-12 pb-6">
+          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-2">Rólunk</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-6" style={{ fontFamily: "var(--font-heading)" }}>
             Rólunk
           </h1>
-          <p className="mt-4 text-gray-300 text-lg">
-            Közel 20 éve gyártunk kárpitozott bútorokat Nagykanizsán.
-          </p>
+          <div className="relative w-full aspect-[16/7] overflow-hidden mb-4">
+            <Image
+              src="/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp"
+              alt="Enzo Design kanapé"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
       </section>
 
-      {/* SZÖVEG */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      {/* TÖRTÉNETÜNK */}
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <div>
             <h2 className="text-3xl font-bold text-[#1c1c1c] mb-6" style={{ fontFamily: "var(--font-heading)" }}>
               Történetünk
@@ -58,55 +58,27 @@ export default function RolunkPage() {
               <footer className="mt-2 text-sm not-italic font-medium text-[#7d6142]">– Bernlef</footer>
             </blockquote>
           </div>
-          <div>
-            <div className="relative aspect-[3/4] overflow-hidden mb-6">
-              <Image src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" alt="Enzo Design telephely" fill className="object-cover" />
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: "Alapítva", value: "2015" },
-                { label: "Telephely", value: "2000 nm" },
-                { label: "Tapasztalat", value: "~20 év" },
-                { label: "Garancia", value: "3+10 év" },
-              ].map((s) => (
-                <div key={s.label} className="bg-[#f5f0e8] p-4 text-center">
-                  <div className="text-2xl font-bold text-[#7d6142]" style={{ fontFamily: "var(--font-heading)" }}>
-                    {s.value}
-                  </div>
-                  <div className="text-xs text-gray-500 mt-1 uppercase tracking-wide">{s.label}</div>
-                </div>
-              ))}
-            </div>
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <Image src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" alt="Enzo Design telephely" fill className="object-cover" />
           </div>
         </div>
       </section>
 
-      {/* ÉRTÉKEK */}
-      <section className="py-16 bg-[#f5f0e8]">
+      {/* STATISZTIKÁK */}
+      <section className="py-12 bg-[#f5f0e8]">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-[#1c1c1c] mb-12" style={{ fontFamily: "var(--font-heading)" }}>
-            Miért válasszon minket?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              {
-                title: "Tömörfa szerkezet",
-                desc: "Minden bútorunk tömörfa vázra épül, amely 10 év garanciával rendelkezik.",
-              },
-              {
-                title: "Egyedi méret és szín",
-                desc: "Több száz szövet- és bőrfajtából választhat. Bármilyen méretben és kivitelben elkészítjük.",
-              },
-              {
-                title: "Közvetlen gyártó",
-                desc: "Nem kereskedünk mások bútorával – mi gyártjuk, amit eladunk. Versenyképes ár, nincs közvetítő.",
-              },
-            ].map((card) => (
-              <div key={card.title} className="bg-white p-8 shadow-sm">
-                <h3 className="text-lg font-semibold text-[#1c1c1c] mb-3" style={{ fontFamily: "var(--font-heading)" }}>
-                  {card.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{card.desc}</p>
+              { label: "Alapítva", value: "2015" },
+              { label: "Telephely", value: "2000 nm" },
+              { label: "Tapasztalat", value: "~20 év" },
+              { label: "Garancia", value: "3+10 év" },
+            ].map((s) => (
+              <div key={s.label} className="bg-white p-6 text-center">
+                <div className="text-2xl font-bold text-[#7d6142]" style={{ fontFamily: "var(--font-heading)" }}>
+                  {s.value}
+                </div>
+                <div className="text-xs text-gray-500 mt-1 uppercase tracking-wide">{s.label}</div>
               </div>
             ))}
           </div>
@@ -114,32 +86,23 @@ export default function RolunkPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#1c1c1c] text-white text-center">
+      <section className="py-16 bg-white text-center">
         <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+          <h2 className="text-2xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
             Szeretne egyedi bútort?
           </h2>
-          <p className="text-gray-400 mb-8">
-            Vegye fel velünk a kapcsolatot – 24 órán belül visszahívjuk!
-          </p>
+          <p className="text-gray-600 mb-8">Vegye fel velünk a kapcsolatot – 24 órán belül visszahívjuk!</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:+36303778983"
-              className="bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-8 py-4 transition-colors"
-            >
+            <a href="tel:+36303778983" className="bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-8 py-4 transition-colors text-sm">
               +36 30 377 8983
             </a>
-            <Link
-              href="/kapcsolat-es-rendeles"
-              className="border-2 border-white hover:bg-white hover:text-[#1c1c1c] text-white font-bold uppercase tracking-wider px-8 py-4 transition-colors"
-            >
+            <Link href="/kapcsolat-es-rendeles" className="border-2 border-[#7d6142] text-[#7d6142] hover:bg-[#7d6142] hover:text-white font-bold uppercase tracking-wider px-8 py-4 transition-colors text-sm">
               Rendelés
             </Link>
           </div>
         </div>
       </section>
 
-      {/* FORM */}
       <ContactFormSection />
     </>
   );
