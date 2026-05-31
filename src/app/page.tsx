@@ -1,6 +1,8 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
+import SlideshowModule from "@/components/modules/SlideshowModule";
 
 const STEPS = [
   { title: "Nyers fa – 100% tömörfa alapanyagokkal", image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" },
@@ -36,45 +38,9 @@ const EGYEDI = [
 export default function HomePage() {
   return (
     <>
-      {/* HERO – két kép egymás mellett, fehér kártya a közepén */}
-      <section className="relative overflow-hidden">
-        <div className="flex h-[400px] md:h-[520px]">
-          <div className="w-1/2 relative">
-            <Image
-              src="/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp"
-              alt="Chesterfield kanapé"
-              fill
-              className="object-cover object-center"
-              priority
-            />
-          </div>
-          <div className="w-1/2 relative">
-            <Image
-              src="/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp"
-              alt="Enzo Design szoba"
-              fill
-              className="object-cover object-center"
-              priority
-            />
-          </div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="bg-white text-center px-8 py-7 max-w-[280px] w-full shadow-sm pointer-events-auto">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <Image src="/images/logo.png" alt="Enzo Design" width={44} height={34} className="object-contain" />
-            </div>
-            <p className="text-[#1c1c1c] text-xs leading-relaxed mb-4">
-              Egyedi és azonnal elérhető kárpitozott bútorok<br />közvetlenül a gyártótól.
-            </p>
-            <Link
-              href="/butoraink"
-              className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-6 py-2 transition-colors text-xs"
-            >
-              Tovább
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Suspense fallback={<div style={{ height: "clamp(320px, 48vw, 560px)" }} className="bg-gray-100" />}>
+        <SlideshowModule />
+      </Suspense>
 
       {/* RÓLUNK – olívazöld */}
       <section className="py-14 text-white text-center" style={{ backgroundColor: "#7a7a3a" }}>

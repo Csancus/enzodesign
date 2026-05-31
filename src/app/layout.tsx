@@ -3,6 +3,8 @@ import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { AdminProvider } from "@/context/AdminContext";
+import { getAdminStatus } from "@/lib/auth";
 
 const playfair = Playfair_Display({
   variable: "--font-heading",
@@ -33,17 +35,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const initialAdmin = await getAdminStatus();
+
   return (
     <html lang="hu" className={`${playfair.variable} ${lato.variable}`}>
       <body className="min-h-screen flex flex-col bg-white">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <AdminProvider initialAdmin={initialAdmin}>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </AdminProvider>
       </body>
     </html>
   );
