@@ -6,9 +6,6 @@ import Image from "next/image";
 
 const NAV_ITEMS = [
   { label: "Főoldal", href: "/" },
-  { label: "Fától a kanapéig", href: "/rolunk" },
-  { label: "Népszerű bútoraink", href: "/butoraink" },
-  { label: "Egyedi bútorok", href: "/butoraink/egyedi-butor" },
   { label: "Akciók", href: "/akcio" },
   {
     label: "Bútoraink",
@@ -18,9 +15,10 @@ const NAV_ITEMS = [
       { label: "Kanapék", href: "/butoraink/kanapek" },
       { label: "Fotelek", href: "/butoraink/fotelek" },
       { label: "Franciaágyak", href: "/butoraink/franciaagyak" },
-      { label: "Székek, zsámolyok", href: "/butoraink/szek-zsamoly-falvedo" },
+      { label: "Szék, zsámoly, falvédő", href: "/butoraink/szek-zsamoly-falvedo" },
       { label: "Egyedi bútor", href: "/butoraink/egyedi-butor" },
-      { label: "Kárpitszövetek", href: "/butoraink/karpitszovetek" },
+      { label: "Leggyakoribb bútoraink", href: "/butoraink" },
+      { label: "Kárpitszövetek, színek", href: "/butoraink/karpitoszovetek" },
     ],
   },
   {
