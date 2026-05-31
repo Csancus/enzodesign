@@ -1,5 +1,5 @@
-import db from "@/lib/db";
 import { getAdminStatus } from "@/lib/auth";
+import { getModuleConfig } from "@/lib/moduleStore";
 import SlideshowClient from "./SlideshowClient";
 
 const DEFAULT_IMAGES = [
@@ -12,13 +12,11 @@ export default async function SlideshowModule({
 }: {
   moduleId?: string;
 }) {
-  const row = db
-    .prepare("SELECT config FROM modules WHERE id = ?")
-    .get(moduleId) as { config: string } | undefined;
-
-  const config = row ? JSON.parse(row.config) : {};
-  const images: { src: string; alt: string }[] =
-    Array.isArray(config.images) && config.images.length ? config.images : DEFAULT_IMAGES;
+  const config = await getModuleConfig(moduleId);
+  const images = Array.isArray((config as { images?: unknown }).images) &&
+    ((config as { images: unknown[] }).images).length > 0
+    ? (config as { images: { src: string; alt: string }[] }).images
+    : DEFAULT_IMAGES;
 
   const isAdmin = await getAdminStatus();
 

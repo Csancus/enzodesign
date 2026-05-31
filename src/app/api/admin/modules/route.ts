@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAdminStatus } from "@/lib/auth";
-import db from "@/lib/db";
+import { getModuleConfig, setModuleConfig } from "@/lib/moduleStore";
 
 export async function GET(req: NextRequest) {
   const id = req.nextUrl.searchParams.get("id");
   if (!id) return NextResponse.json({ error: "Missing id" }, { status: 400 });
-  const row = db.prepare("SELECT config FROM modules WHERE id = ?").get(id) as { config: string } | undefined;
-  return NextResponse.json(row ? JSON.parse(row.config) : {});
+  const config = await getModuleConfig(id);
+  return NextResponse.json(config);
 }
 
 export async function PUT(req: NextRequest) {
@@ -16,8 +16,6 @@ export async function PUT(req: NextRequest) {
   const id = req.nextUrl.searchParams.get("id");
   if (!id) return NextResponse.json({ error: "Missing id" }, { status: 400 });
   const config = await req.json();
-  db.prepare(
-    "INSERT INTO modules (id, config) VALUES (?, ?) ON CONFLICT(id) DO UPDATE SET config = excluded.config"
-  ).run(id, JSON.stringify(config));
+  await setModuleConfig(id, config);
   return NextResponse.json({ ok: true });
 }
