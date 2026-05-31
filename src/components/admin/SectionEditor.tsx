@@ -1,0 +1,226 @@
+"use client";
+import { useState, useRef } from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import type { FieldDef, SimpleField } from "@/types/cms";
+
+type Config = Record<string, unknown>;
+
+function ImageField({
+  value,
+  onChange,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+}) {
+  const [uploading, setUploading] = useState(false);
+  const ref = useRef<HTMLInputElement>(null);
+
+  async function upload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    const fd = new FormData();
+    fd.append("file", file);
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    if (res.ok) {
+      const { src } = await res.json();
+      onChange(src);
+    }
+    setUploading(false);
+    if (ref.current) ref.current.value = "";
+  }
+
+  return (
+    <div className="flex items-center gap-3">
+      {value && (
+        <div className="relative w-24 h-16 flex-shrink-0 bg-gray-100 overflow-hidden">
+          <Image src={value} alt="" fill className="object-cover" />
+        </div>
+      )}
+      <div className="flex-1 min-w-0">
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder="Kép URL vagy tölts fel"
+          className="w-full border border-gray-200 px-2 py-1.5 text-xs outline-none focus:border-[#b8924a] mb-1"
+        />
+        <input ref={ref} type="file" accept="image/*" onChange={upload} className="hidden" />
+        <button
+          onClick={() => ref.current?.click()}
+          disabled={uploading}
+          className="text-xs text-[#b8924a] hover:underline disabled:opacity-50"
+        >
+          {uploading ? "Feltöltés..." : "Feltöltés"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function ArrayField({
+  items,
+  itemFields,
+  onChange,
+}: {
+  items: Config[];
+  itemFields: SimpleField[];
+  onChange: (v: Config[]) => void;
+}) {
+  function update(i: number, key: string, value: unknown) {
+    const next = items.map((item, j) => (j === i ? { ...item, [key]: value } : item));
+    onChange(next);
+  }
+
+  function move(i: number, dir: -1 | 1) {
+    const next = [...items];
+    const j = i + dir;
+    if (j < 0 || j >= next.length) return;
+    [next[i], next[j]] = [next[j], next[i]];
+    onChange(next);
+  }
+
+  function remove(i: number) {
+    onChange(items.filter((_, j) => j !== i));
+  }
+
+  function add() {
+    const blank: Config = {};
+    itemFields.forEach((f) => (blank[f.key] = ""));
+    onChange([...items, blank]);
+  }
+
+  return (
+    <div className="space-y-3">
+      {items.map((item, i) => (
+        <div key={i} className="border border-gray-200 p-3 bg-gray-50">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-xs text-gray-500 font-medium">#{i + 1}</span>
+            <div className="flex gap-1">
+              <button onClick={() => move(i, -1)} disabled={i === 0} className="text-xs text-gray-400 hover:text-[#b8924a] disabled:opacity-20 px-1">↑</button>
+              <button onClick={() => move(i, 1)} disabled={i === items.length - 1} className="text-xs text-gray-400 hover:text-[#b8924a] disabled:opacity-20 px-1">↓</button>
+              <button onClick={() => remove(i)} className="text-xs text-red-400 hover:text-red-600 px-1">✕</button>
+            </div>
+          </div>
+          {itemFields.map((f) => (
+            <div key={f.key} className="mb-2">
+              <label className="block text-xs text-gray-500 mb-0.5">{f.label}</label>
+              {f.type === "image" ? (
+                <ImageField value={(item[f.key] as string) ?? ""} onChange={(v) => update(i, f.key, v)} />
+              ) : f.type === "textarea" ? (
+                <textarea
+                  value={(item[f.key] as string) ?? ""}
+                  onChange={(e) => update(i, f.key, e.target.value)}
+                  rows={2}
+                  className="w-full border border-gray-200 px-2 py-1.5 text-xs outline-none focus:border-[#b8924a] resize-none"
+                />
+              ) : (
+                <input
+                  type="text"
+                  value={(item[f.key] as string) ?? ""}
+                  onChange={(e) => update(i, f.key, e.target.value)}
+                  className="w-full border border-gray-200 px-2 py-1.5 text-xs outline-none focus:border-[#b8924a]"
+                />
+              )}
+            </div>
+          ))}
+        </div>
+      ))}
+      <button
+        onClick={add}
+        className="w-full border-2 border-dashed border-gray-300 py-2 text-xs text-gray-500 hover:border-[#b8924a] hover:text-[#b8924a] transition-colors"
+      >
+        + Elem hozzáadása
+      </button>
+    </div>
+  );
+}
+
+export default function SectionEditor({
+  moduleId,
+  initialConfig,
+  schema,
+  onClose,
+}: {
+  moduleId: string;
+  initialConfig: Config;
+  schema: FieldDef[];
+  onClose: () => void;
+}) {
+  const [config, setConfig] = useState<Config>(initialConfig);
+  const [saving, setSaving] = useState(false);
+  const router = useRouter();
+
+  function set(key: string, value: unknown) {
+    setConfig((prev) => ({ ...prev, [key]: value }));
+  }
+
+  async function save() {
+    setSaving(true);
+    await fetch(`/api/admin/modules?id=${encodeURIComponent(moduleId)}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(config),
+    });
+    setSaving(false);
+    onClose();
+    router.refresh();
+  }
+
+  return (
+    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-[200]" onClick={onClose}>
+      <div
+        className="bg-white w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h2 className="text-lg font-bold text-[#1c1c1c] mb-5">Szekció szerkesztése</h2>
+
+        <div className="space-y-5">
+          {schema.map((field) => (
+            <div key={field.key}>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">{field.label}</label>
+
+              {field.type === "image" ? (
+                <ImageField value={(config[field.key] as string) ?? ""} onChange={(v) => set(field.key, v)} />
+              ) : field.type === "textarea" ? (
+                <textarea
+                  value={(config[field.key] as string) ?? ""}
+                  onChange={(e) => set(field.key, e.target.value)}
+                  rows={3}
+                  className="w-full border border-gray-300 px-3 py-2 text-sm outline-none focus:border-[#b8924a] resize-none"
+                />
+              ) : field.type === "array" ? (
+                <ArrayField
+                  items={(config[field.key] as Config[]) ?? []}
+                  itemFields={field.itemFields}
+                  onChange={(v) => set(field.key, v)}
+                />
+              ) : (
+                <input
+                  type="text"
+                  value={(config[field.key] as string) ?? ""}
+                  onChange={(e) => set(field.key, e.target.value)}
+                  className="w-full border border-gray-300 px-3 py-2 text-sm outline-none focus:border-[#b8924a]"
+                />
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="flex gap-3 mt-6">
+          <button onClick={onClose} className="flex-1 border border-gray-300 py-2.5 text-sm text-gray-600 hover:bg-gray-50">
+            Mégse
+          </button>
+          <button
+            onClick={save}
+            disabled={saving}
+            className="flex-1 bg-[#b8924a] hover:bg-[#a07840] text-white py-2.5 text-sm font-semibold transition-colors disabled:opacity-60"
+          >
+            {saving ? "Mentés..." : "Mentés"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
