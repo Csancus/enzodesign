@@ -51,7 +51,7 @@ export default function LoginDialog() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="text-xs text-gray-600 hover:text-gray-400 mt-2 opacity-30 hover:opacity-100 transition-opacity"
+        className="text-xs text-gray-500 hover:text-[#b8924a] mt-2 opacity-50 hover:opacity-100 transition-opacity"
       >
         Admin
       </button>
