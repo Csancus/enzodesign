@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     .webp({ quality: 82 })
     .toBuffer();
 
-  if (process.env.BLOB_READ_WRITE_TOKEN) {
+  if (process.env.BLOB_STORE_ID) {
     const { put } = await import("@vercel/blob");
     const { url } = await put(`slideshow/${id}.webp`, optimized, {
       access: "public",
