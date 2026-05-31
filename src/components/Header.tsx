@@ -33,14 +33,8 @@ const NAV_ITEMS = [
   },
   { label: "Kapcsolat", href: "/kapcsolat-es-rendeles" },
   { label: "Rendelés menete", href: "/butoraink/butorrendeles" },
-  {
-    label: "More",
-    href: "#",
-    children: [
-      { label: "Rólunk", href: "/rolunk" },
-      { label: "Üzleti bútor", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
-    ],
-  },
+  { label: "Rólunk", href: "/rolunk" },
+  { label: "Üzleti bútor", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
 ];
 
 export default function Header() {
