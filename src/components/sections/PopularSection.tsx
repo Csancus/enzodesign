@@ -37,7 +37,7 @@ export default async function PopularSection({ moduleId, isAdmin }: { moduleId: 
   const products = cfg.products?.length ? cfg.products : DEFAULT.products;
 
   return (
-    <section className="relative py-14 bg-[#f9f9f9]">
+    <section className="relative py-14 bg-white">
       <div className="max-w-5xl mx-auto px-4">
         <h2
           className="text-3xl md:text-4xl font-bold text-[#7d6142] text-center mb-2"
@@ -55,7 +55,7 @@ export default async function PopularSection({ moduleId, isAdmin }: { moduleId: 
               </div>
               <div className="flex flex-col justify-between p-4 flex-1">
                 <div>
-                  <p className="text-xs text-gray-400 mb-1 leading-tight">{p.desc}</p>
+                  <p className="text-xs text-[#b8924a] mb-1 leading-tight font-medium">{p.desc}</p>
                   <p className="text-base font-bold text-[#1c1c1c] mb-2 leading-tight">{p.name}</p>
                   <p className="text-xs text-gray-500 mb-4">{p.price}</p>
                 </div>
