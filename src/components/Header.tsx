@@ -31,7 +31,6 @@ const NAV_ITEMS = [
       { label: "A Chesterfield a modern enteriőrben", href: "/chesterfield/chesterfield-a-modern-enteriorben" },
     ],
   },
-  { label: "Kapcsolat", href: "/kapcsolat-es-rendeles" },
   { label: "Rendelés menete", href: "/butoraink/butorrendeles" },
   { label: "Rólunk", href: "/rolunk" },
   { label: "Üzleti bútor", href: "/karpitozott-butor-uzleti-ugyfeleknek" },

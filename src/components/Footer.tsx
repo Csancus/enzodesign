@@ -56,11 +56,15 @@ export default function Footer() {
             <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Navigáció</h3>
             <ul className="space-y-2 text-sm">
               {[
+                { label: "Főoldal", href: "/" },
+                { label: "Akciók", href: "/akcio" },
                 { label: "Bútoraink", href: "/butoraink" },
                 { label: "Chesterfield", href: "/chesterfield" },
                 { label: "Bútorgyártás", href: "/butorgyartas" },
                 { label: "Blog", href: "/blog" },
                 { label: "Rólunk", href: "/rolunk" },
+                { label: "Üzleti bútor", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
+                { label: "Rendelés menete", href: "/butoraink/butorrendeles" },
                 { label: "Kapcsolat", href: "/kapcsolat-es-rendeles" },
                 { label: "Adatkezelési tájékoztató", href: "/adatkezelesi-szabalyzat" },
               ].map((link) => (
