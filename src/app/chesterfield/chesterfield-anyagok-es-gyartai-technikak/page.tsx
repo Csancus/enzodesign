@@ -24,51 +24,48 @@ export default async function Page() {
       {/* TARTALOM */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <p className="text-gray-600 leading-relaxed mb-6 text-lg">
-            A Chesterfield bútorok minősége nem véletlen – mögöttük évszázados kézműves hagyomány és tudás rejlik.
+          <p className="text-gray-600 leading-relaxed mb-10 text-lg">
+            A Chesterfield bútorok minősége nem véletlen – mögöttük évszázados kézműves hagyomány és tudás rejlik. A választott alapanyagok és a gyártási technológiák nagyban meghatározzák a végeredmény tartósságát, komfortját és esztétikáját. Ebben a részben a leggyakrabban használt anyagokat, valamint a klasszikus és modern gyártási módszereket mutatjuk be.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             <div>
               <h2 className="text-2xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-                Hagyományos és modern anyagok
+                Anyagok és gyártási technikák
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                A klasszikus Chesterfield bútorok kizárólag prémium minőségű valódi bőrből készültek.
-                A bőr mellett a fa váz is kulcsfontosságú: a tömörfa szerkezet garantálja a tartósságot és a stabilitást.
+                A klasszikus Chesterfield bútorok kizárólag prémium minőségű valódi bőrből készültek. A leggyakrabban használt típus a marhabőr, amely idővel patinásodik, egyedi karaktert adva a bútornak. A bőr mellett a fa váz is kulcsfontosságú: a tömörfa szerkezet garantálja a tartósságot és a stabilitást, akár évtizedeken át.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-                A modern változatokban bársony, mikroszálas szövetek és újrahasznosított anyagok is megjelennek,
-                lehetővé téve, hogy a Chesterfield stílus különböző enteriőrökbe is beilleszkedjen.
+                A modern változatoknál megjelentek alternatív anyagok is, mint a bársony, mikroszálas szövetek, vagy akár újrahasznosított textilek. Ezek lehetőséget adnak arra, hogy a Chesterfield kanapé illeszkedjen a különféle enteriőr stílusokhoz – a klasszikustól a modernig.
               </p>
-
-              <h3 className="text-lg font-bold text-[#1c1c1c] mt-6 mb-3" style={{ fontFamily: "var(--font-heading)" }}>
-                Gyártási technikák
-              </h3>
-              <ul className="space-y-3 text-sm text-gray-600">
-                {[
-                  "Mély gombolás (button-tufting) – precíz, kézzel végzett művelet",
-                  "Párnázás: hagyományos lószőr és gyapjú vs. modern szivacs",
-                  "Rugórendszer: klasszikus spirálrugók vagy modern habszivacs alap",
-                  "Kézzel készített részletek: sárgaréz szegecs, faragott lábak, gondos varrás",
-                ].map(t => (
-                  <li key={t} className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-[#7d6142] flex-shrink-0 mt-1.5" />{t}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                A gyártási folyamat egyik legfontosabb eleme a gombolásos technika kivitelezése. Ez egy precíz, kézzel végzett művelet, amely során a bútort mély gombokkal és varrásokkal látják el. A hagyományos módszerek szerint a kárpitosok természetes tömőanyagokat – például lószőrt, gyapjút – használnak, míg a mai ipari gyártás során modern habanyagok kerülnek előtérbe.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                A rugózás technikája is változatos lehet: a klasszikus spirálrugós rendszer rugalmas és tartós alátámasztást biztosít, míg az újabb modellek habszivacs alapú ülőfelülettel készülnek, ami kényelmesebb lehet a hétköznapi használathoz.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                A Chesterfield bútor minőségét tovább növelik a kézzel készített részletek, mint a szegecses díszítés, a kézzel faragott lábak vagy a gondosan megmunkált varrások. Ezek a részletek nemcsak esztétikai értéket képviselnek, hanem egyediséget és valódi kézműves minőséget is közvetítenek.
+              </p>
             </div>
 
-            <div className="space-y-4">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" alt="Gyártási folyamat" fill className="object-cover" />
+            <div className="space-y-3">
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: "3/1" }}>
+                <Image src="/images/chesterfield-anyagok-panorama.webp" alt="Chesterfield anyagok és gyártási technikák" fill className="object-cover" />
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="relative aspect-square overflow-hidden">
-                  <Image src="/images/e7ad8b_aceaccd7ca6746cb804d31e17d3c8352.webp" alt="Kárpit anyag" fill className="object-cover" />
+              <div className="grid grid-cols-2 gap-3">
+                <div className="relative aspect-[2/1] overflow-hidden">
+                  <Image src="/images/chesterfield-bor-anyag.webp" alt="Chesterfield bőr anyag" fill className="object-cover" />
                 </div>
-                <div className="relative aspect-square overflow-hidden">
-                  <Image src="/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp" alt="Chesterfield kanapé" fill className="object-cover" />
+                <div className="relative aspect-[2/1] overflow-hidden">
+                  <Image src="/images/chesterfield-gyartasi-folyamat.webp" alt="Chesterfield gyártási folyamat" fill className="object-cover" />
+                </div>
+                <div className="relative aspect-[2/1] overflow-hidden">
+                  <Image src="/images/chesterfield-karpitos-munka.webp" alt="Chesterfield kárpitos munka" fill className="object-cover" />
+                </div>
+                <div className="relative aspect-[2/1] overflow-hidden">
+                  <Image src="/images/chesterfield-tomofa-szerkezet.webp" alt="Chesterfield tömörfa szerkezet" fill className="object-cover" />
                 </div>
               </div>
             </div>
