@@ -14,5 +14,7 @@ export const SECTION_TYPES = [
   { type: "popular",         label: "Termékrács" },
   { type: "egyedi",          label: "Galéria rács (Egyedi)" },
   { type: "video",           label: "Videó szekció" },
+  { type: "reviews",         label: "Vásárlói vélemények" },
+  { type: "faq",             label: "GYIK – Kérdések és válaszok" },
   { type: "contact",         label: "Kapcsolatfelvétel (form)" },
 ];

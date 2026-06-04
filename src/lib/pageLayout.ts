@@ -18,12 +18,30 @@ const DEFAULT_LAYOUTS: Record<string, PageLayout> = {
   },
 };
 
+const HOME_INJECT: SectionEntry[] = [
+  { id: "global:reviews", type: "reviews" },
+  { id: "global:faq",     type: "faq" },
+];
+
 export async function getPageLayout(pageId: string): Promise<PageLayout> {
   const stored = await getModuleConfig(`page:${pageId}`);
-  if (Array.isArray((stored as { sections?: unknown }).sections)) {
-    return stored as unknown as PageLayout;
+  if (!Array.isArray((stored as { sections?: unknown }).sections)) {
+    return DEFAULT_LAYOUTS[pageId] ?? { sections: [] };
   }
-  return DEFAULT_LAYOUTS[pageId] ?? { sections: [] };
+  const layout = stored as unknown as PageLayout;
+
+  if (pageId === "home") {
+    const ids = new Set(layout.sections.map((s) => s.id));
+    const missing = HOME_INJECT.filter((s) => !ids.has(s.id));
+    if (missing.length > 0) {
+      const contactIdx = layout.sections.findIndex((s) => s.type === "contact");
+      const insertAt = contactIdx >= 0 ? contactIdx : layout.sections.length;
+      layout.sections.splice(insertAt, 0, ...missing);
+      await savePageLayout(pageId, layout);
+    }
+  }
+
+  return layout;
 }
 
 export async function savePageLayout(pageId: string, layout: PageLayout): Promise<void> {
