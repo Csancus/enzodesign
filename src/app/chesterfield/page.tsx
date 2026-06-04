@@ -26,8 +26,10 @@ export default function ChesterfieldPage() {
             A Chesterfield
           </h1>
           <p className="text-gray-300 text-lg leading-relaxed">
-            Az elegancia, hagyomány és stílus szimbóluma – mélyen gombolt ülőfelület, bőr kárpit és
-            időtálló karakter, amelynek gyökerei évszázadokra nyúlnak vissza.
+            A Chesterfield bútorok az elegancia, a hagyomány és a stílus tökéletes kombinációi. A mély
+            gombolás, a bőrborítás és a karakteres formavilág évszázadok óta a luxus és a kifinomult
+            ízlés szimbólumai. Legyen szó klasszikus bőrkanapéról vagy modern újragondolásról, a
+            Chesterfield mindig időtálló választás.
           </p>
         </div>
       </section>
