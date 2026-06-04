@@ -12,7 +12,7 @@ const SOFA_CARDS = [
   { name: "Ivone kanapék", tagline: "Nappalid éke", image: "/images/9a0b1d_99e6dc96a4804030b9c82ccb7ef9a7f7.webp", href: "/butoraink/kanapek/ivone-kanapek" },
   { name: "Design Kanapék", tagline: "Modern minőség", image: "/images/e7ad8b_d510cf607aca449c835d847344231393.webp", href: "/butoraink/kanapek/design-kanapek" },
   { name: "Chesterfield kanapék", tagline: "A bútor, aminek történelme van", image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp", href: "/butoraink/kanapek/chesterfield-kanapek" },
-  { name: "New York", tagline: "Klasszikus stílus", image: "/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp", href: "/butoraink/kanapek/new-york-kanapek" },
+  { name: "New York kanapék", tagline: "Klasszikus stílus", image: "/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp", href: "/butoraink/kanapek/new-york-kanapek" },
   { name: "Joker Kanapék", tagline: "Gáláns megjelenés", image: "/images/e7ad8b_472fb74f2a1746e68ca129dbd34b2de7.webp", href: "/butoraink/kanapek/joker-kanapek" },
   { name: "Cannes Kanapé", tagline: "A modern sarok", image: "/images/e7ad8b_af00972c370c4bc7800fc98bfd927214.webp", href: "/butoraink/kanapek/cannes-kanapek" },
   { name: "Egyedi kanapé", tagline: "Elkészítjük álombútorod", image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp", href: "/butoraink/egyedi-butor" },
@@ -31,83 +31,136 @@ const ARMCHAIR_CARDS = [
   { name: "Üzleti fotelek, székek", tagline: "Vásárlóid kényelmére", image: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
 ];
 
-function ProductGrid({ items }: { items: typeof SOFA_CARDS }) {
+const BED_CARDS = [
+  { name: "Bilbao franciaágy", tagline: "Kényelmedre", image: "/images/e7ad8b_335724cf7ec5471c89807f009900353d.webp", href: "/butoraink/franciaagyak" },
+  { name: "Madrid franciaágy", tagline: "Hálószobád éke", image: "/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp", href: "/butoraink/franciaagyak" },
+  { name: "További ágyak", tagline: "Kísértő és zseniális darabok", image: "/images/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472.webp", href: "/butoraink/franciaagyak" },
+  { name: "Egyedi megoldások", tagline: "Elkészítjük álombútorod", image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp", href: "/butoraink/egyedi-butor" },
+  { name: "Üzleti ágyak, garnitúrák", tagline: "Vásárlóid kényelmére", image: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
+];
+
+const EXTRA_CARDS = [
+  { name: "Szék, zsámoly, falvédő", tagline: "Sok féle választék", image: "/images/9a0b1d_c51fa6474b5a4e789464c038a7b1c1d4.webp", href: "/butoraink/szek-zsamoly-falvedo" },
+  { name: "Egyedi bútor", tagline: "Elkészítjük álombútorod", image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp", href: "/butoraink/egyedi-butor" },
+  { name: "Üzleti bútor", tagline: "Vásárlóid kényelmére", image: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
+];
+
+type Card = { name: string; tagline: string; image: string; href: string };
+
+function ProductGrid({ items }: { items: Card[] }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {items.map((item) => (
         <Link key={item.name} href={item.href} className="group block">
-          <div className="relative aspect-[4/3] overflow-hidden mb-2">
-            <Image src={item.image} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div className="relative aspect-[4/3] overflow-hidden mb-3">
+            <Image
+              src={item.image}
+              alt={item.name}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+            />
           </div>
-          <h3 className="text-[#b8924a] text-sm font-semibold hover:underline">{item.name}</h3>
-          <p className="text-xs text-gray-500">{item.tagline}</p>
+          <h3 className="text-[#1c1c1c] font-semibold text-sm group-hover:text-[#b8924a] transition-colors">{item.name}</h3>
+          <p className="text-xs text-gray-500 mt-0.5">{item.tagline}</p>
         </Link>
       ))}
     </div>
   );
 }
 
-const DESC = "Bútoraink 2000 nm-es telephelyünkön készülnek. Tömör fával, nagy kopásállóságú szövetekkel és bőrökkel dolgozunk és minden elkészített bútorunkat kézzel ellenőrzünk. Mivel gyártók vagyunk, ezért áraink továbbra is nagyon versenyképesek maradnak. Szinte bármilyen egyedi, kárpitozott bútort el tudunk készíteni. Mindegyik bútorunk egyedi színben, anyagmintával, méretben és kopásállóság-erősséggel (martindale) kérhető.";
+function SectionHeader({ title, href, linkLabel }: { title: string; href: string; linkLabel: string }) {
+  return (
+    <div className="flex items-end justify-between mb-6 pb-3 border-b border-gray-200">
+      <h2 className="text-2xl font-bold text-[#1c1c1c]" style={{ fontFamily: "var(--font-heading)" }}>{title}</h2>
+      <Link href={href} className="text-sm text-[#b8924a] hover:underline whitespace-nowrap ml-4">
+        {linkLabel} →
+      </Link>
+    </div>
+  );
+}
 
 export default function ButorainkPage() {
   return (
     <>
-      {/* FELSŐ BANNER */}
-      <section className="flex h-[260px] overflow-hidden">
-        <div className="w-[60%] flex">
-          <div className="w-1/2 relative">
-            <Image src="/images/nsplsh_76b6c7badc3843cfa19665d5dfc4a2de.webp" alt="" fill className="object-cover" priority />
-          </div>
-          <div className="w-1/2 relative">
-            <Image src="/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp" alt="" fill className="object-cover" priority />
-          </div>
-        </div>
-        <div className="w-[40%] bg-white flex flex-col justify-center px-8 py-6">
-          <h1 className="text-2xl font-bold text-[#b8924a] mb-3">Bútoraink</h1>
-          <p className="text-xs text-gray-700 leading-relaxed mb-3">{DESC}</p>
-          <Link href="/kapcsolat-es-rendeles" className="text-xs text-[#b8924a] underline">
-            Szinte bármilyen egyedi, kárpitozott bútort el tudunk készíteni.
-          </Link>
+      {/* HERO */}
+      <section className="bg-[#f5f0e8] py-20 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">ENZO DESIGN</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+            Bútoraink
+          </h1>
+          <p className="text-gray-600 text-lg">
+            Kárpitozott bútorok – egyedi méretben, választott szövettel, közvetlenül a gyártótól.
+          </p>
         </div>
       </section>
 
-      {/* TELJES SZÉLESSÉGŰ BANNER */}
-      <section className="relative h-[200px] overflow-hidden">
-        <Image src="/images/e7ad8b_7ddbaba656fc44bea629677edb9d6d58.webp" alt="Enzo Design kollekcó" fill className="object-cover" />
-      </section>
-
-      {/* FEATURES */}
-      <section className="py-6 bg-[#f9f9f9]">
-        <div className="max-w-xl mx-auto px-4 text-center text-sm text-gray-700">
-          <p className="font-medium mb-2">Mindegyik bútorunkat ajánljuk:</p>
-          <ul className="text-left inline-block list-disc list-inside space-y-1 text-xs text-gray-600">
-            <li>Egyedi szín választás</li>
-            <li>Anyagminta szerint</li>
-            <li>Tetszőleges méret</li>
-            <li>Kopásállóság-erősséggel (martindale) kérhető</li>
-            <li>és leadható Súligneni laddigat (martindale) kárfelt.</li>
+      {/* INTRO TEXT BOX */}
+      <section className="bg-white py-12 px-4 border-b border-gray-100">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Bútoraink 2000 nm-es telephelyünkön készülnek. Tömör fával, nagy kopásállóságú szövetekkel és bőrökkel dolgozunk,
+            és minden elkészített bútorunkat kézzel ellenőrzünk. Mivel gyártók vagyunk, áraink versenyképesek maradnak.
+          </p>
+          <p className="text-gray-700 leading-relaxed mb-5">
+            Mindegyik bútorunkat ajánljuk:
+          </p>
+          <ul className="space-y-1.5 text-sm text-gray-600 list-disc list-inside">
+            <li>Egyedi szín és anyagminta választással</li>
+            <li>Tetszőleges méretben</li>
+            <li>Választható kopásállóság-erősséggel (martindale)</li>
+            <li>Tömörfa szerkezettel, 10 év váz-garanciával</li>
           </ul>
         </div>
       </section>
 
       {/* KANAPÉK */}
-      <section className="py-10 bg-white">
-        <div className="max-w-4xl mx-auto px-8">
-          <h2 className="text-xl font-bold text-[#b8924a] mb-1">Kanapék</h2>
-          <p className="text-xs text-gray-600 mb-1">Válassza az a 2000 Bútorainkból nagy funkcióit és legjobb kötőivel.<br />A Bútoraink elkülönöli és anyagmintájából fennáll és mi mindenkinek.</p>
-          <Link href="/butoraink/kanapek" className="text-xs text-[#b8924a] underline block mb-6">Kanapé típusok, stílusítettsel kérhető tárokban</Link>
+      <section className="py-14 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <SectionHeader title="Kanapék" href="/butoraink/kanapek" linkLabel="Összes kanapé" />
           <ProductGrid items={SOFA_CARDS} />
         </div>
       </section>
 
       {/* FOTELEK */}
-      <section className="py-10 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-8">
-          <h2 className="text-xl font-bold text-[#b8924a] mb-1">Fotelek</h2>
-          <p className="text-xs text-gray-600 mb-1">Válassza az a 2000 Bútorainkból nagy funkcióit és legjobb kötőivel.<br />A Bútoraink elkülönöli és anyagmintájából fennáll és mi mindenkinek.</p>
-          <Link href="/butoraink/fotelek" className="text-xs text-[#b8924a] underline block mb-6">Fotel típusok, stílusítettsel kérhető tárokban</Link>
+      <section className="py-14 bg-[#f9f9f9]">
+        <div className="max-w-5xl mx-auto px-4">
+          <SectionHeader title="Fotelek" href="/butoraink/fotelek" linkLabel="Összes fotel" />
           <ProductGrid items={ARMCHAIR_CARDS} />
         </div>
+      </section>
+
+      {/* FRANCIAÁGYAK */}
+      <section className="py-14 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <SectionHeader title="Franciaágyak" href="/butoraink/franciaagyak" linkLabel="Összes franciaágy" />
+          <ProductGrid items={BED_CARDS} />
+        </div>
+      </section>
+
+      {/* TOVÁBBI TERMÉKEINK */}
+      <section className="py-14 bg-[#f9f9f9]">
+        <div className="max-w-5xl mx-auto px-4">
+          <SectionHeader title="További termékeink" href="/butoraink/szek-zsamoly-falvedo" linkLabel="Megnézem" />
+          <ProductGrid items={EXTRA_CARDS} />
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-[#f5f0e8] py-14 px-4 text-center">
+        <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Kérdése van?</p>
+        <h2 className="text-2xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+          Kérjen ajánlatot!
+        </h2>
+        <p className="text-gray-600 mb-6 max-w-md mx-auto">
+          Szinte bármilyen egyedi kárpitozott bútort el tudunk készíteni. Vegye fel velünk a kapcsolatot!
+        </p>
+        <Link
+          href="/kapcsolat-es-rendeles"
+          className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-10 py-3 transition-colors"
+        >
+          Kapcsolat és rendelés
+        </Link>
       </section>
     </>
   );
