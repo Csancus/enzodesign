@@ -7,6 +7,7 @@ import PopularSection from "./PopularSection";
 import EgyediSection from "./EgyediSection";
 import TextBlockSection from "./TextBlockSection";
 import ImageTextSection from "./ImageTextSection";
+import TextImageSection from "./TextImageSection";
 import BannerSection from "./BannerSection";
 import GallerySection from "./GallerySection";
 import HeroLightSection from "./HeroLightSection";
@@ -48,6 +49,8 @@ export default function SectionRenderer({
       return <TextBlockSection moduleId={id} isAdmin={isAdmin} />;
     case "image-text":
       return <ImageTextSection moduleId={id} isAdmin={isAdmin} />;
+    case "text-image":
+      return <TextImageSection moduleId={id} isAdmin={isAdmin} />;
     case "banner":
       return <BannerSection moduleId={id} isAdmin={isAdmin} />;
     case "gallery":
