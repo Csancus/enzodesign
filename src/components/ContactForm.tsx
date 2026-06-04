@@ -121,12 +121,12 @@ export default function ContactForm() {
             placeholder="Szállítási cím"
           />
         </div>
-        <div>
+        <div className="flex flex-col">
           <label className="block text-sm font-medium text-gray-700 mb-1">Alapbútor</label>
           <p className="text-xs text-gray-500 mb-1.5">Ha az alap bútoraink közül választanál, jelöld meg, melyiket vásárolnád meg</p>
           <select
             {...register("alapbutor")}
-            className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#7d6142] bg-white"
+            className="mt-auto w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#7d6142] bg-white"
           >
             <option value="">– Válasszon –</option>
             {ALAPBUTOR_OPTIONS.map((o) => (
@@ -136,11 +136,11 @@ export default function ContactForm() {
             ))}
           </select>
         </div>
-        <div>
+        <div className="flex flex-col">
           <label className="block text-sm font-medium text-gray-700 mb-1">Bútor típusa</label>
           <select
             {...register("tipusa")}
-            className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#7d6142] bg-white"
+            className="mt-auto w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#7d6142] bg-white"
           >
             <option value="">– Válasszon –</option>
             {TIPUSA_OPTIONS.map((o) => (
