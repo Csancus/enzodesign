@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getAdminStatus } from "@/lib/auth";
 import { getPageLayout, savePageLayout, newSectionId } from "@/lib/pageLayout";
 
@@ -19,6 +20,7 @@ export async function POST(req: NextRequest) {
     const newSection = { id: newSectionId(type), type };
     sections.splice(afterIndex + 1, 0, newSection);
     await savePageLayout(pageId, { sections });
+    revalidatePath("/", "layout");
     return NextResponse.json({ ok: true, id: newSection.id });
   }
 
@@ -27,6 +29,7 @@ export async function POST(req: NextRequest) {
     const idx = sections.findIndex((s) => s.id === sectionId);
     if (idx !== -1) sections.splice(idx, 1);
     await savePageLayout(pageId, { sections });
+    revalidatePath("/", "layout");
     return NextResponse.json({ ok: true });
   }
 
@@ -38,6 +41,7 @@ export async function POST(req: NextRequest) {
       sections[idx] = { id: newSectionId(type), type };
       await savePageLayout(pageId, { sections });
     }
+    revalidatePath("/", "layout");
     return NextResponse.json({ ok: true });
   }
 
@@ -50,6 +54,7 @@ export async function POST(req: NextRequest) {
       [sections[idx], sections[j]] = [sections[j], sections[idx]];
       await savePageLayout(pageId, { sections });
     }
+    revalidatePath("/", "layout");
     return NextResponse.json({ ok: true });
   }
 

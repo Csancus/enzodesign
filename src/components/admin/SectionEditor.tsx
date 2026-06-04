@@ -1,6 +1,5 @@
 "use client";
 import { useState, useRef } from "react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import type { FieldDef, SimpleField } from "@/types/cms";
 
@@ -34,9 +33,8 @@ function ImageField({
   return (
     <div className="flex items-center gap-3">
       {value && (
-        <div className="relative w-24 h-16 flex-shrink-0 bg-gray-100 overflow-hidden">
-          <Image src={value} alt="" fill className="object-cover" />
-        </div>
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={value} alt="" className="w-24 h-16 flex-shrink-0 object-cover bg-gray-100" />
       )}
       <div className="flex-1 min-w-0">
         <input

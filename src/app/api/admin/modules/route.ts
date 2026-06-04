@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getAdminStatus } from "@/lib/auth";
 import { getModuleConfig, setModuleConfig } from "@/lib/moduleStore";
 
@@ -17,5 +18,6 @@ export async function PUT(req: NextRequest) {
   if (!id) return NextResponse.json({ error: "Missing id" }, { status: 400 });
   const config = await req.json();
   await setModuleConfig(id, config);
+  revalidatePath("/", "layout");
   return NextResponse.json({ ok: true });
 }
