@@ -8,6 +8,7 @@ const DEFAULT = {
   desc1: "20 éves tapasztalattal rendelkező magyar bútorgyártó cég vagyunk. Célunk minőségi, tömörfa-szerkezettel és nagy kopásállóságú szövettel borított bútorokat készíteni, elérhető áron. Üzleteinkben megveheti bútorait és azonnal hazaviheti. A minőség, az elérhető ár és a garancia hármasával kínáljuk bútorainkat.",
   desc2: "Mivel gyártók vagyunk, nincs extra reklámköltségünk. Közvetlenül a fogyasztónak, reális áron értékesítünk – így a feljebbi minőséget más vállalkozásoknál megszokott árakon kaphatja meg.",
   image: "/images/9a0b1d_1946145440dc499d9ea4522e3df74f8a.png",
+  videoSrc: "/videos/rolunk.mp4",
 };
 
 const SCHEMA: FieldDef[] = [
@@ -15,6 +16,7 @@ const SCHEMA: FieldDef[] = [
   { key: "desc1", label: "Első bekezdés", type: "textarea" },
   { key: "desc2", label: "Második bekezdés", type: "textarea" },
   { key: "image", label: "Kerek kép", type: "image" },
+  { key: "videoSrc", label: "Videó útvonal (pl. /videos/rolunk.mp4, üres = nincs)", type: "text" },
 ];
 
 export default async function RolunkSection({ moduleId, isAdmin }: { moduleId: string; isAdmin: boolean }) {
@@ -45,6 +47,18 @@ export default async function RolunkSection({ moduleId, isAdmin }: { moduleId: s
             </div>
           ))}
         </div>
+        {cfg.videoSrc && (
+          <div className="mt-8 max-w-2xl mx-auto">
+            <video
+              src={cfg.videoSrc}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full rounded-sm object-cover"
+            />
+          </div>
+        )}
       </div>
       {isAdmin && <EditBtn moduleId={moduleId} config={cfg} schema={SCHEMA} />}
     </section>

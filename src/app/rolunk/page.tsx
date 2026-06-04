@@ -3,13 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
 import PageHero from "@/components/PageHero";
+import VideoSection from "@/components/sections/VideoSection";
+import { getAdminStatus } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "Rólunk – Enzo Design",
   description: "Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán, 2000 nm-es telephelyünkön.",
 };
 
-export default function RolunkPage() {
+export default async function RolunkPage() {
+  const isAdmin = await getAdminStatus();
   return (
     <>
       <PageHero
@@ -64,6 +67,8 @@ export default function RolunkPage() {
           </div>
         </div>
       </section>
+
+      <VideoSection moduleId="rolunk:video" isAdmin={isAdmin} />
 
       {/* STATISZTIKÁK */}
       <section className="py-12 bg-[#f5f0e8]">

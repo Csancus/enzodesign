@@ -13,5 +13,6 @@ export const SECTION_TYPES = [
   { type: "steps",           label: "Lépések / Folyamat" },
   { type: "popular",         label: "Termékrács" },
   { type: "egyedi",          label: "Galéria rács (Egyedi)" },
+  { type: "video",           label: "Videó szekció" },
   { type: "contact",         label: "Kapcsolatfelvétel (form)" },
 ];

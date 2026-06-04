@@ -14,6 +14,7 @@ import HeroLightSection from "./HeroLightSection";
 import HeroDarkSection from "./HeroDarkSection";
 import HeroImageSection from "./HeroImageSection";
 import ImageCollageSection from "./ImageCollageSection";
+import VideoSection from "./VideoSection";
 
 export default function SectionRenderer({
   type,
@@ -57,6 +58,8 @@ export default function SectionRenderer({
       return <GallerySection moduleId={id} isAdmin={isAdmin} />;
     case "image-collage":
       return <ImageCollageSection moduleId={id} isAdmin={isAdmin} />;
+    case "video":
+      return <VideoSection moduleId={id} isAdmin={isAdmin} />;
     case "contact":
       return <ContactFormSection />;
     default:
