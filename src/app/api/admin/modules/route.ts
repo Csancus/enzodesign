@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import { getAdminStatus } from "@/lib/auth";
+import { requireAdmin } from "@/lib/auth";
 import { getModuleConfig, setModuleConfig } from "@/lib/moduleStore";
 
 export async function GET(req: NextRequest) {
@@ -11,9 +11,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
-  if (!(await getAdminStatus())) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const authErr = await requireAdmin(); if (authErr) return authErr;
   const id = req.nextUrl.searchParams.get("id");
   if (!id) return NextResponse.json({ error: "Missing id" }, { status: 400 });
   const config = await req.json();

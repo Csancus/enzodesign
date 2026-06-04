@@ -1,12 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import { getAdminStatus } from "@/lib/auth";
+import { requireAdmin } from "@/lib/auth";
 import { getPageLayout, savePageLayout, newSectionId } from "@/lib/pageLayout";
 
 export async function POST(req: NextRequest) {
-  if (!(await getAdminStatus())) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const authErr = await requireAdmin(); if (authErr) return authErr;
 
   const p = req.nextUrl.searchParams;
   const pageId = p.get("page") ?? "home";

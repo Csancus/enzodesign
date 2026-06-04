@@ -1,14 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAdminStatus } from "@/lib/auth";
+import { requireAdmin } from "@/lib/auth";
 import { writeFile, mkdir } from "fs/promises";
 import path from "path";
 import sharp from "sharp";
 import { randomUUID } from "crypto";
 
 export async function POST(req: NextRequest) {
-  if (!(await getAdminStatus())) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const authErr = await requireAdmin(); if (authErr) return authErr;
 
   const formData = await req.formData();
   const file = formData.get("file") as File | null;

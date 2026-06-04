@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAdminStatus } from "@/lib/auth";
+import { requireAdmin } from "@/lib/auth";
 import { getDynamicPages, saveDynamicPages, pageKeyFromSlug, type DynamicPage } from "@/lib/dynamicPages";
 import { savePageLayout } from "@/lib/pageLayout";
 import { randomUUID } from "crypto";
@@ -10,9 +10,7 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  if (!(await getAdminStatus())) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const authErr = await requireAdmin(); if (authErr) return authErr;
 
   const { title, slug, addedToNav, navParent, initialSections } = await req.json();
 
@@ -41,9 +39,7 @@ export async function POST(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
-  if (!(await getAdminStatus())) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const authErr = await requireAdmin(); if (authErr) return authErr;
 
   const { slug } = await req.json();
   const pages = await getDynamicPages();

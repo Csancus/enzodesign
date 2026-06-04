@@ -1,7 +1,9 @@
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { createHmac } from "crypto";
+import { NextResponse } from "next/server";
 
 const COOKIE = "enzo_admin";
+const ALLOWED_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://enzodesign.hu";
 
 function sessionToken(): string {
   const pw = process.env.ADMIN_PASSWORD ?? "no-password-set";
@@ -22,4 +24,19 @@ export async function getAdminStatus(): Promise<boolean> {
   const token = store.get(COOKIE)?.value;
   if (!token) return false;
   return token === sessionToken();
+}
+
+/** Use in mutating API routes: returns 401/403 response if not authorized, null if OK */
+export async function requireAdmin(): Promise<NextResponse | null> {
+  const isAdmin = await getAdminStatus();
+  if (!isAdmin) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  // CSRF: verify Origin matches our site
+  const hdrs = await headers();
+  const origin = hdrs.get("origin");
+  if (origin && !origin.startsWith(ALLOWED_ORIGIN)) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
+
+  return null;
 }
