@@ -1,13 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyPassword, getSessionToken } from "@/lib/auth";
 
-// In-memory attempt tracker – resets on cold start, good enough for serverless
 const attempts = new Map<string, { count: number; until: number }>();
 const MAX_ATTEMPTS = 5;
-const LOCKOUT_MS = 15 * 60 * 1000; // 15 perc
+const LOCKOUT_MS = 15 * 60 * 1000;
 
 function clientIp(req: NextRequest): string {
   return req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
+}
+
+function verifyEmail(input: string): boolean {
+  const expected = process.env.ADMIN_EMAIL;
+  return !!expected && input.toLowerCase().trim() === expected.toLowerCase().trim();
 }
 
 export async function POST(req: NextRequest) {
@@ -16,23 +20,24 @@ export async function POST(req: NextRequest) {
   const rec = attempts.get(ip);
 
   if (rec && rec.count >= MAX_ATTEMPTS && now < rec.until) {
-    // Brute-force lockout
     await new Promise((r) => setTimeout(r, 1000));
     return NextResponse.json({ error: "Too many attempts. Try again later." }, { status: 429 });
   }
 
-  const { password } = await req.json();
+  const { email, password, captchaA, captchaB, captchaAnswer } = await req.json();
 
-  // Constant-time delay to slow down enumeration regardless of result
   await new Promise((r) => setTimeout(r, 400));
 
-  if (!verifyPassword(password)) {
+  const captchaOk = typeof captchaA === "number" && typeof captchaB === "number" &&
+    captchaA >= 10 && captchaA <= 99 && captchaB >= 1 && captchaB <= 9 &&
+    captchaAnswer === captchaA + captchaB;
+
+  if (!captchaOk || !verifyEmail(email) || !verifyPassword(password)) {
     const current = attempts.get(ip) ?? { count: 0, until: 0 };
     attempts.set(ip, { count: current.count + 1, until: now + LOCKOUT_MS });
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  // Success – reset counter
   attempts.delete(ip);
 
   const res = NextResponse.json({ ok: true });
@@ -40,7 +45,7 @@ export async function POST(req: NextRequest) {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     path: "/",
-    maxAge: 2 * 60 * 60, // 2 óra
+    maxAge: 2 * 60 * 60,
     sameSite: "strict",
   });
   return res;
