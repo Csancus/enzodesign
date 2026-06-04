@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Rendelje meg álombútorát az Enzo Designtól – töltse ki az űrlapot és 24 órán belül visszahívjuk.",
 };
 
-const steps = [
+const PARAGRAPHS = [
   "Rendelését leadhatja személyesen telephelyünkön a 8800 Nagykanizsa, Egry József utca 7 szám alatt, vagy e-mailben az info@enzodesign.hu címen.",
   "Gyors egyeztetésre a +36303778983 -mas telefonszámot használják bizalommal, melyen bútortervezőnk érhető el.",
   "Országos szinten kiszállítjuk a bútort az első zárt ajtóig.",
@@ -22,20 +22,13 @@ export default function RendelesMenetePage() {
       <PageHero label="Rendelés" title="Rendelés menete" />
 
       <section className="bg-[#f5f0e8] py-12">
-        <div className="max-w-3xl mx-auto px-4">
-          <p className="text-gray-500 mb-8">
+        <div className="max-w-3xl mx-auto px-4 space-y-6">
+          <p className="text-gray-600">
             Honlapunk nem webáruházként működik, ezért a rendelés menete a következő:
           </p>
-          <div className="space-y-6">
-            {steps.map((text, i) => (
-              <div key={i} className="flex gap-4 items-start">
-                <span className="mt-1 w-7 h-7 bg-[#7d6142] text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
-                  {i + 1}
-                </span>
-                <p className="text-[#1c1c1c] leading-relaxed">{text}</p>
-              </div>
-            ))}
-          </div>
+          {PARAGRAPHS.map((text, i) => (
+            <p key={i} className="text-[#1c1c1c] leading-relaxed">{text}</p>
+          ))}
         </div>
       </section>
 
