@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function KarpitszovetsekPage() {
   return (
     <>
-      <PageHero label="Anyagok" title="Kárpitszövetek" subtitle="Több mint 100 szövetfajtából választhat." />
+      <PageHero moduleId="hero:karpitoszovetek" defaults={{ label: "Anyagok", title: "Kárpitszövetek", subtitle: "Több mint 100 szövetfajtából választhat." }} />
 
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4">

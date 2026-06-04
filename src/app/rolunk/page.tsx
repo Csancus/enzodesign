@@ -13,9 +13,8 @@ export default function RolunkPage() {
   return (
     <>
       <PageHero
-        label="Rólunk"
-        title="Rólunk"
-        subtitle="Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán."
+        moduleId="hero:rolunk"
+        defaults={{ label: "Rólunk", title: "Rólunk", subtitle: "Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán." }}
       />
 
       <section className="bg-white pt-12 pb-0">

@@ -84,9 +84,8 @@ export default function ButorainkPage() {
   return (
     <>
       <PageHero
-        label="ENZO DESIGN"
-        title="Bútoraink"
-        subtitle="Kárpitozott bútorok – egyedi méretben, választott szövettel, közvetlenül a gyártótól."
+        moduleId="hero:butoraink"
+        defaults={{ label: "ENZO DESIGN", title: "Bútoraink", subtitle: "Kárpitozott bútorok – egyedi méretben, választott szövettel, közvetlenül a gyártótól." }}
       />
 
       {/* INTRO TEXT BOX */}

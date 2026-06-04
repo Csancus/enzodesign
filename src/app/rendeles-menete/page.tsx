@@ -19,7 +19,7 @@ const PARAGRAPHS = [
 export default function RendelesMenetePage() {
   return (
     <>
-      <PageHero label="Rendelés" title="Rendelés menete" />
+      <PageHero moduleId="hero:rendeles-menete" defaults={{ label: "Rendelés", title: "Rendelés menete" }} />
 
       <section className="bg-[#f5f0e8] py-12">
         <div className="max-w-3xl mx-auto px-4 space-y-6">

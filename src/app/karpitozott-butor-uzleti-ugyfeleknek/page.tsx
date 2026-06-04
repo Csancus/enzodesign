@@ -19,9 +19,8 @@ export default function UzletiButorPage() {
   return (
     <>
       <PageHero
-        label="B2B megoldások"
-        title="Éttermeknek, szállodáknak, rendelőknek, fogadóterekbe"
-        subtitle="Kávézóba, étterembe, szállodába, orvosi rendelőbe rendszeresen készítünk nagy teherbírású bútorokat."
+        moduleId="hero:uzleti"
+        defaults={{ label: "B2B megoldások", title: "Éttermeknek, szállodáknak, rendelőknek, fogadóterekbe", subtitle: "Kávézóba, étterembe, szállodába, orvosi rendelőbe rendszeresen készítünk nagy teherbírású bútorokat." }}
       />
 
       <section className="py-20 bg-white">

@@ -11,9 +11,8 @@ export default function KapcsolatPage() {
   return (
     <>
       <PageHero
-        label="Lépjen kapcsolatba velünk"
-        title="Kapcsolat, rendelés"
-        subtitle="Töltse ki az alábbi űrlapot és 24 órán belül visszahívjuk!"
+        moduleId="hero:kapcsolat"
+        defaults={{ label: "Lépjen kapcsolatba velünk", title: "Kapcsolat, rendelés", subtitle: "Töltse ki az alábbi űrlapot és 24 órán belül visszahívjuk!" }}
       />
 
       {/* ELÉRHETŐSÉGEK + FORM */}
