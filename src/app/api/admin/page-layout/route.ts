@@ -30,6 +30,17 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true });
   }
 
+  if (action === "replace") {
+    const sectionId = p.get("section");
+    const type = p.get("type") ?? "text-block";
+    const idx = sections.findIndex((s) => s.id === sectionId);
+    if (idx !== -1) {
+      sections[idx] = { id: newSectionId(type), type };
+      await savePageLayout(pageId, { sections });
+    }
+    return NextResponse.json({ ok: true });
+  }
+
   if (action === "move") {
     const sectionId = p.get("section");
     const dir = parseInt(p.get("dir") ?? "0");

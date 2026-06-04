@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import AddSectionModal from "./AddSectionModal";
+import ChangeSectionModal from "./ChangeSectionModal";
 
 export default function SectionAdminOverlay({
   children,
@@ -17,6 +18,7 @@ export default function SectionAdminOverlay({
   totalSections: number;
 }) {
   const [showAdd, setShowAdd] = useState(false);
+  const [showChange, setShowChange] = useState(false);
   const router = useRouter();
 
   async function move(dir: -1 | 1) {
@@ -40,6 +42,7 @@ export default function SectionAdminOverlay({
         <div className="flex items-center gap-1">
           <button onClick={() => move(-1)} disabled={sectionIndex === 0} className="text-white text-xs px-1.5 py-0.5 hover:bg-white/20 disabled:opacity-30">↑</button>
           <button onClick={() => move(1)} disabled={sectionIndex >= totalSections - 1} className="text-white text-xs px-1.5 py-0.5 hover:bg-white/20 disabled:opacity-30">↓</button>
+          <button onClick={() => setShowChange(true)} className="text-yellow-300 hover:text-yellow-100 text-xs px-1.5 py-0.5 hover:bg-white/20">⟳ Csere</button>
           <button onClick={remove} className="text-red-300 hover:text-red-100 text-xs px-1.5 py-0.5 hover:bg-white/20 ml-1">✕ Törlés</button>
         </div>
       </div>
@@ -60,6 +63,15 @@ export default function SectionAdminOverlay({
           afterIndex={sectionIndex}
           onClose={() => setShowAdd(false)}
           onAdded={() => { setShowAdd(false); router.refresh(); }}
+        />
+      )}
+
+      {showChange && (
+        <ChangeSectionModal
+          pageId={pageId}
+          sectionId={sectionId}
+          onClose={() => setShowChange(false)}
+          onChanged={() => { setShowChange(false); router.refresh(); }}
         />
       )}
     </div>

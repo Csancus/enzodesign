@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { title, slug, addedToNav, navParent } = await req.json();
+  const { title, slug, addedToNav, navParent, initialSections } = await req.json();
 
   const page: DynamicPage = {
     id: randomUUID(),
@@ -30,8 +30,11 @@ export async function POST(req: NextRequest) {
   await saveDynamicPages(pages);
 
   const pageKey = pageKeyFromSlug(slug);
+  const sectionTypes: string[] = Array.isArray(initialSections) && initialSections.length > 0
+    ? initialSections
+    : ["text-block"];
   await savePageLayout(pageKey, {
-    sections: [{ id: `${pageKey}:text-block:1`, type: "text-block" }],
+    sections: sectionTypes.map((type, i) => ({ id: `${pageKey}:${type}:${i + 1}`, type })),
   });
 
   return NextResponse.json({ ok: true, page });
