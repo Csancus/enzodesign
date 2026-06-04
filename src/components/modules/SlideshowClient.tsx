@@ -30,7 +30,7 @@ export default function SlideshowClient({
   // Auto-advance
   useEffect(() => {
     if (editing || n <= 1) return;
-    const t = setInterval(() => setCurrent((c) => c + 1), 2000);
+    const t = setInterval(() => setCurrent((c) => c + 1), 3500);
     return () => clearInterval(t);
   }, [editing, n]);
 
