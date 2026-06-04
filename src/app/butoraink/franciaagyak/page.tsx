@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="butoraink:franciaagyak" defaultTypes={["banner", "gallery", "text-block", "contact"]} />;
+  return <PageBuilderPage pageId="butoraink:franciaagyak" defaultTypes={["hero-light", "gallery", "text-block", "contact"]} />;
 }

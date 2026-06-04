@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="karpitozott-butor-uzleti-ugyfeleknek" defaultTypes={["banner", "text-block", "image-text", "contact"]} />;
+  return <PageBuilderPage pageId="karpitozott-butor-uzleti-ugyfeleknek" defaultTypes={["hero-light", "text-block", "image-text", "contact"]} />;
 }

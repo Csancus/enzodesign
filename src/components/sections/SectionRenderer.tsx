@@ -1,5 +1,8 @@
 import { Suspense } from "react";
 import SlideshowModule from "@/components/modules/SlideshowModule";
+import HeroLightSection from "./HeroLightSection";
+import HeroDarkSection from "./HeroDarkSection";
+import HeroImageSection from "./HeroImageSection";
 import RolunkSection from "./RolunkSection";
 import StepsSection from "./StepsSection";
 import PopularSection from "./PopularSection";
@@ -8,7 +11,7 @@ import TextBlockSection from "./TextBlockSection";
 import ImageTextSection from "./ImageTextSection";
 import BannerSection from "./BannerSection";
 import GallerySection from "./GallerySection";
-import ContactFormSection from "@/components/ContactFormSection";
+import ContactSection from "./ContactSection";
 
 export default function SectionRenderer({
   type,
@@ -26,6 +29,12 @@ export default function SectionRenderer({
           <SlideshowModule moduleId={id} />
         </Suspense>
       );
+    case "hero-light":
+      return <HeroLightSection moduleId={id} isAdmin={isAdmin} />;
+    case "hero-dark":
+      return <HeroDarkSection moduleId={id} isAdmin={isAdmin} />;
+    case "hero-image":
+      return <HeroImageSection moduleId={id} isAdmin={isAdmin} />;
     case "rolunk":
       return <RolunkSection moduleId={id} isAdmin={isAdmin} />;
     case "steps":
@@ -43,7 +52,7 @@ export default function SectionRenderer({
     case "gallery":
       return <GallerySection moduleId={id} isAdmin={isAdmin} />;
     case "contact":
-      return <ContactFormSection />;
+      return <ContactSection moduleId={id} isAdmin={isAdmin} />;
     default:
       return null;
   }

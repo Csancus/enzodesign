@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="new-york-kollekcio" defaultTypes={["banner", "gallery", "text-block", "contact"]} />;
+  return <PageBuilderPage pageId="new-york-kollekcio" defaultTypes={["hero-light", "gallery", "text-block", "contact"]} />;
 }

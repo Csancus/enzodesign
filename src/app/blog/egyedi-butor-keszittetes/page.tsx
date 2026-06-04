@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="blog:egyedi-butor-keszittetes" defaultTypes={["banner", "text-block", "contact"]} />;
+  return <PageBuilderPage pageId="blog:egyedi-butor-keszittetes" defaultTypes={["hero-light", "text-block", "contact"]} />;
 }

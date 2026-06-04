@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="butorgyartas:tervezes" defaultTypes={["banner", "steps", "text-block", "contact"]} />;
+  return <PageBuilderPage pageId="butorgyartas:tervezes" defaultTypes={["hero-light", "steps", "text-block", "contact"]} />;
 }

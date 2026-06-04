@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="blog:butorbolt-nagykanizsán" defaultTypes={["banner", "text-block", "contact"]} />;
+  return <PageBuilderPage pageId="blog:butorbolt-nagykanizsán" defaultTypes={["hero-light", "text-block", "contact"]} />;
 }

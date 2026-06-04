@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="chesterfield:a-chesterfield-kanape-eredete" defaultTypes={["banner", "text-block", "contact"]} />;
+  return <PageBuilderPage pageId="chesterfield:a-chesterfield-kanape-eredete" defaultTypes={["hero-light", "text-block", "contact"]} />;
 }

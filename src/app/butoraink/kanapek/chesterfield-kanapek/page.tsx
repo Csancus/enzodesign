@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="butoraink:kanapek:chesterfield-kanapek" defaultTypes={["banner", "text-block", "contact"]} />;
+  return <PageBuilderPage pageId="butoraink:kanapek:chesterfield-kanapek" defaultTypes={["hero-light", "text-block", "contact"]} />;
 }

@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="rolunk" defaultTypes={["banner", "image-text", "text-block", "contact"]} />;
+  return <PageBuilderPage pageId="rolunk" defaultTypes={["hero-light", "image-text", "text-block", "contact"]} />;
 }

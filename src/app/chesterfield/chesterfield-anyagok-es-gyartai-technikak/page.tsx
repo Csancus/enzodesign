@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="chesterfield:chesterfield-anyagok-es-gyartai-technikak" defaultTypes={["banner", "text-block", "contact"]} />;
+  return <PageBuilderPage pageId="chesterfield:chesterfield-anyagok-es-gyartai-technikak" defaultTypes={["hero-light", "text-block", "contact"]} />;
 }

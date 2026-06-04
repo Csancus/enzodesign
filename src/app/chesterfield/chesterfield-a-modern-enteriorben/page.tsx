@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="chesterfield:chesterfield-a-modern-enteriorben" defaultTypes={["banner", "text-block", "contact"]} />;
+  return <PageBuilderPage pageId="chesterfield:chesterfield-a-modern-enteriorben" defaultTypes={["hero-light", "text-block", "contact"]} />;
 }

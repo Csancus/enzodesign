@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="rendeles-menete" defaultTypes={["banner", "steps", "text-block", "contact"]} />;
+  return <PageBuilderPage pageId="rendeles-menete" defaultTypes={["hero-light", "steps", "text-block", "contact"]} />;
 }

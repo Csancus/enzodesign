@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="blog:melyik-chesterfield-butor-illik-hozzad" defaultTypes={["banner", "text-block", "contact"]} />;
+  return <PageBuilderPage pageId="blog:melyik-chesterfield-butor-illik-hozzad" defaultTypes={["hero-light", "text-block", "contact"]} />;
 }

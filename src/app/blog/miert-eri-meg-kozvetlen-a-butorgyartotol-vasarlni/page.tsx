@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="blog:miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni" defaultTypes={["banner", "text-block", "contact"]} />;
+  return <PageBuilderPage pageId="blog:miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni" defaultTypes={["hero-light", "text-block", "contact"]} />;
 }
