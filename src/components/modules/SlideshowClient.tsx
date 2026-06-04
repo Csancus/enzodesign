@@ -87,7 +87,7 @@ export default function SlideshowClient({
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="bg-white/95 backdrop-blur-sm text-center px-10 py-8 max-w-[340px] w-full shadow-lg pointer-events-auto border-t-2 border-[#b8924a]">
           <div className="flex items-center justify-center mb-4">
-            <Image src="/images/logo.png" alt="Enzo Design" width={52} height={40} className="object-contain" />
+            <Image src="/images/logo.webp" alt="Enzo Design" width={52} height={40} className="object-contain" />
           </div>
           <div className="w-8 h-px bg-[#b8924a] mx-auto mb-4" />
           <p

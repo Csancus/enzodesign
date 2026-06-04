@@ -6,8 +6,8 @@ const DEFAULT_IMAGES = [
   { src: "/images/slide1.jpg", alt: "Enzo Design kárpitozott bútorok" },
   { src: "/images/slide2.jpg", alt: "Enzo Design kanapék és fotelek" },
   { src: "/images/slide3.jpg", alt: "Egyedi kárpitozott bútorok" },
-  { src: "/images/slide4.png", alt: "Enzo Design kollekció" },
-  { src: "/images/slide5.png", alt: "Kárpitozott bútor gyártó" },
+  { src: "/images/slide4.webp", alt: "Enzo Design kollekció" },
+  { src: "/images/slide5.webp", alt: "Kárpitozott bútor gyártó" },
   { src: "/images/slide6.jpg", alt: "Chesterfield kanapék" },
   { src: "/images/slide7.jpg", alt: "Enzo Design bútorok" },
 ];

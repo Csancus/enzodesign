@@ -66,7 +66,7 @@ export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPa
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-          <Image src="/images/logo.png" alt="Enzo Design" width={48} height={37} className="object-contain" />
+          <Image src="/images/logo.webp" alt="Enzo Design" width={48} height={37} className="object-contain" />
           <span className="text-sm font-bold text-[#1c1c1c] hidden sm:inline">EnzoDesign</span>
         </Link>
 

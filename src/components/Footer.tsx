@@ -103,7 +103,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 mb-10">
           {/* Logo + info */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
-            <Image src="/images/logo.png" alt="Enzo Design" width={80} height={60} className="object-contain mb-4" />
+            <Image src="/images/logo.webp" alt="Enzo Design" width={80} height={60} className="object-contain mb-4" />
             <p className="text-sm leading-relaxed text-gray-400">
               Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán.
             </p>
