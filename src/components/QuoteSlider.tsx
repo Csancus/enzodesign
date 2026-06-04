@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Quote = { author: string; text: string };
 
@@ -24,6 +24,11 @@ export default function QuoteSlider() {
 
   const prev = () => setIdx((i) => (i - 1 + QUOTES.length) % QUOTES.length);
   const next = () => setIdx((i) => (i + 1) % QUOTES.length);
+
+  useEffect(() => {
+    const timer = setInterval(next, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   const q = QUOTES[idx];
 
