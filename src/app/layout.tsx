@@ -3,8 +3,10 @@ import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AdminFab from "@/components/admin/AdminFab";
 import { AdminProvider } from "@/context/AdminContext";
 import { getAdminStatus } from "@/lib/auth";
+import { getDynamicPages } from "@/lib/dynamicPages";
 
 const playfair = Playfair_Display({
   variable: "--font-heading",
@@ -40,15 +42,19 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const initialAdmin = await getAdminStatus();
+  const [initialAdmin, dynamicPages] = await Promise.all([
+    getAdminStatus(),
+    getDynamicPages(),
+  ]);
 
   return (
     <html lang="hu" className={`${playfair.variable} ${lato.variable}`}>
       <body className="min-h-screen flex flex-col bg-white">
         <AdminProvider initialAdmin={initialAdmin}>
-          <Header />
+          <Header dynamicPages={dynamicPages} />
           <main className="flex-1">{children}</main>
           <Footer />
+          <AdminFab />
         </AdminProvider>
       </body>
     </html>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import type { DynamicPage } from "@/lib/dynamicPages";
 
 const NAV_ITEMS = [
   { label: "Főoldal", href: "/" },
@@ -36,9 +37,28 @@ const NAV_ITEMS = [
   { label: "Üzleti bútor", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
 ];
 
-export default function Header() {
+type NavItem = { label: string; href: string; children?: { label: string; href: string }[] };
+
+function buildNavItems(dynamicPages: DynamicPage[]): NavItem[] {
+  const navPages = dynamicPages.filter((p) => p.addedToNav);
+  const items: NavItem[] = NAV_ITEMS.map((item) => {
+    const children = [
+      ...(item.children ?? []),
+      ...navPages
+        .filter((p) => p.navParent === item.href)
+        .map((p) => ({ label: p.title, href: p.slug })),
+    ];
+    return children.length > 0 ? { ...item, children } : item;
+  });
+  const topLevel = navPages.filter((p) => !p.navParent);
+  topLevel.forEach((p) => items.push({ label: p.title, href: p.slug }));
+  return items;
+}
+
+export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPage[] }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const navItems = buildNavItems(dynamicPages);
 
   return (
     <header className="bg-white sticky top-0 z-50 border-b-2 border-[#b8924a] shadow-sm">
@@ -52,7 +72,7 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden xl:flex items-center gap-0 text-sm">
-          {NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <div
               key={item.label}
               className="relative"
@@ -121,7 +141,7 @@ export default function Header() {
             >
               +36303778983
             </a>
-            {NAV_ITEMS.map((item) => (
+            {navItems.map((item) => (
               <div key={item.label}>
                 <Link
                   href={item.href}
