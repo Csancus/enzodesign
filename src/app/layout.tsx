@@ -30,6 +30,9 @@ export const metadata: Metadata = {
   description:
     "Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán. Kanapék, fotelek, Chesterfield bútorok közvetlenül a gyártótól. +36 30 377 8983",
   keywords: ["kárpitozott bútor", "kanapé", "fotel", "Chesterfield", "Nagykanizsa", "egyedi bútor", "bútor gyártó"],
+  verification: {
+    google: "GF7nw14w_hoZNowLq5g0-aCKhNo279gnC0B_h2sYdGA",
+  },
   openGraph: {
     siteName: "Enzo Design",
     locale: "hu_HU",
