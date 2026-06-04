@@ -11,14 +11,19 @@ export const metadata: Metadata = {
 export default function RolunkPage() {
   return (
     <>
-      {/* HERO – nagy kanapé kép, landscape */}
-      <section className="bg-white">
-        <div className="max-w-5xl mx-auto px-4 pt-12 pb-6">
-          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-2">Rólunk</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-6" style={{ fontFamily: "var(--font-heading)" }}>
+      <section className="bg-[#f5f0e8] py-20 px-4">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Rólunk</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c]" style={{ fontFamily: "var(--font-heading)" }}>
             Rólunk
           </h1>
-          <div className="relative w-full aspect-[16/7] overflow-hidden mb-4">
+          <p className="mt-4 text-gray-500">Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán.</p>
+        </div>
+      </section>
+
+      <section className="bg-white pt-12 pb-0">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="relative w-full aspect-[16/7] overflow-hidden">
             <Image
               src="/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp"
               alt="Enzo Design kanapé"

@@ -17,14 +17,13 @@ const SEGMENTS = [
 export default function UzletiButorPage() {
   return (
     <>
-      <section className="relative bg-[#1c1c1c] py-24 text-white overflow-hidden">
-        <Image src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" alt="Üzleti bútor" fill className="object-cover opacity-25" />
-        <div className="relative z-10 max-w-2xl mx-auto px-4 text-center">
+      <section className="bg-[#f5f0e8] py-20 px-4">
+        <div className="max-w-3xl mx-auto">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">B2B megoldások</p>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c]" style={{ fontFamily: "var(--font-heading)" }}>
             Éttermeknek, szállodáknak, rendelőknek, fogadóterekbe
           </h1>
-          <p className="text-gray-300 leading-relaxed">
+          <p className="mt-4 text-gray-500 leading-relaxed">
             Kávézóba, étterembe, szállodába, orvosi rendelőbe rendszeresen készítünk nagy teherbírású bútorokat.
           </p>
         </div>

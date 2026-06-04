@@ -10,14 +10,19 @@ export const metadata: Metadata = {
 export default function AkcioPage() {
   return (
     <>
-      {/* FEJLÉC SZÖVEG */}
-      <section className="pt-12 pb-4 bg-white text-center px-4">
-        <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-[0.2em] mb-3">
-          FIGYELJE FOLYAMATOSAN VÁLTOZÓ AKCIÓINKAT
-        </p>
-        <h1 className="text-3xl md:text-4xl font-bold text-[#1c1c1c]">
-          Vásároljon közvetlenül a gyártótól!
-        </h1>
+      <section className="bg-[#f5f0e8] py-20 px-4">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">
+            Akciók
+          </p>
+          <h1
+            className="text-4xl md:text-5xl font-bold text-[#1c1c1c]"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Vásároljon közvetlenül a gyártótól!
+          </h1>
+          <p className="mt-4 text-gray-500">Figyelje folyamatosan változó akcióinkat.</p>
+        </div>
       </section>
 
       {/* NAGY KÉP – középre igazítva */}

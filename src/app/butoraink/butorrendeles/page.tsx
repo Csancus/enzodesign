@@ -6,57 +6,52 @@ export const metadata: Metadata = {
   description: "Rendelje meg álombútorát az Enzo Designtól – töltse ki az űrlapot és 24 órán belül visszahívjuk.",
 };
 
+const steps = [
+  "Rendelését leadhatja személyesen telephelyünkön a 8800 Nagykanizsa, Egry József utca 7 szám alatt, vagy e-mailben az info@enzodesign.hu címen.",
+  "Gyors egyeztetésre a +36303778983 -mas telefonszámot használják bizalommal, melyen bútortervezőnk érhető el.",
+  "Országos szinten kiszállítjuk a bútort az első zárt ajtóig.",
+  "Legegyszerűbb mód vagy a kapcsolat űrlap kitöltése itt a weboldalon, vagy emailben egy kép csatolása, melyre 2 napon belül árajánlatot adunk.",
+  "E-mailes rendelés esetében kérjük adja meg a számlázási nevet, címet, céges rendelésnél pedig az adószámát is, valamint írja a megrendelni kívánt termék nevét, színét és darabszámát, vagy küldjön képet, amennyiben egyedi bútorról van szó.",
+  "Kollégáink ennek alapján előlegbekérő szerződést küldenek, mely előleget utalással is ki tud egyenlíteni.",
+];
+
 export default function ButorrendelesPage() {
   return (
     <>
-      <section className="bg-[#1c1c1c] py-20 text-center text-white">
-        <div className="max-w-2xl mx-auto px-4">
+      <section className="bg-[#f5f0e8] py-20">
+        <div className="max-w-3xl mx-auto px-4">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Rendelés</p>
-          <h1 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>
-            Bútor rendelés
+          <h1
+            className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-10"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Rendelés menete
           </h1>
-          <p className="mt-4 text-gray-300">Töltse ki az alábbi űrlapot – 24 órán belül visszahívjuk!</p>
+          <p className="text-gray-500 text-sm mb-6">
+            Honlapunk nem webáruházként működik, ezért a rendelés menete a következő:
+          </p>
+          <div className="space-y-6">
+            {steps.map((text, i) => (
+              <div key={i} className="flex gap-4 items-start">
+                <span className="mt-1 w-7 h-7 bg-[#7d6142] text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
+                  {i + 1}
+                </span>
+                <p className="text-[#1c1c1c] leading-relaxed">{text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mb-6" style={{ fontFamily: "var(--font-heading)" }}>Hogyan rendeljen?</h2>
-            <ol className="space-y-4">
-              {[
-                { title: "Küldjön üzenetet", desc: "Töltse ki az űrlapot, vagy hívjon minket a +36 30 377 8983 számon." },
-                { title: "Egyeztetés", desc: "Megbeszéljük az igényeket – típus, szín, méret, anyag. Küldhet képet Pinterestről is." },
-                { title: "Előleg", desc: "Előlegbekérő szerződés küldése. Az 50% előleg átutalással is fizethető." },
-                { title: "Gyártás", desc: "4–6 héten belül elkészül bútora." },
-                { title: "Kiszállítás", desc: "Az első biztonságos ajtóig szállítunk az egész országban." },
-              ].map((s, i) => (
-                <li key={i} className="flex gap-4">
-                  <span className="w-8 h-8 bg-[#7d6142] text-white text-sm font-bold flex items-center justify-center flex-shrink-0">{i + 1}</span>
-                  <div>
-                    <p className="font-semibold text-[#1c1c1c]">{s.title}</p>
-                    <p className="text-gray-600 text-sm">{s.desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="bg-[#f5f0e8] p-5 text-center">
-                <div className="text-2xl font-bold text-[#7d6142]">4–6 hét</div>
-                <div className="text-xs text-gray-500 mt-1 uppercase tracking-wide">Gyártási idő</div>
-              </div>
-              <div className="bg-[#f5f0e8] p-5 text-center">
-                <div className="text-2xl font-bold text-[#7d6142]">50%</div>
-                <div className="text-xs text-gray-500 mt-1 uppercase tracking-wide">Előleg</div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mb-6" style={{ fontFamily: "var(--font-heading)" }}>Rendelési űrlap</h2>
-            <ContactForm />
-          </div>
+        <div className="max-w-3xl mx-auto px-4">
+          <h2
+            className="text-2xl font-bold text-[#1c1c1c] mb-8"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Rendelési űrlap
+          </h2>
+          <ContactForm />
         </div>
       </section>
     </>

@@ -9,14 +9,13 @@ export const metadata: Metadata = {
 export default function KapcsolatPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="bg-[#1c1c1c] py-20 text-center text-white">
-        <div className="max-w-2xl mx-auto px-4">
+      <section className="bg-[#f5f0e8] py-20 px-4">
+        <div className="max-w-3xl mx-auto">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Lépjen kapcsolatba velünk</p>
-          <h1 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c]" style={{ fontFamily: "var(--font-heading)" }}>
             Kapcsolat, rendelés
           </h1>
-          <p className="mt-4 text-gray-300">
+          <p className="mt-4 text-gray-500">
             Töltse ki az alábbi űrlapot és 24 órán belül visszahívjuk!
           </p>
         </div>
