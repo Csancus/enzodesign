@@ -18,9 +18,24 @@ const SCHEMA: FieldDef[] = [
   { key: "textColor", label: "Szövegszín (pl. #1c1c1c)", type: "text" },
 ];
 
-export default async function TextBlockSection({ moduleId, isAdmin }: { moduleId: string; isAdmin: boolean }) {
+export default async function TextBlockSection({
+  moduleId,
+  isAdmin,
+  defaultConfig,
+}: {
+  moduleId: string;
+  isAdmin: boolean;
+  defaultConfig?: Partial<typeof DEFAULT>;
+}) {
   const stored = await getModuleConfig(moduleId);
-  const cfg = { ...DEFAULT, ...(stored as typeof DEFAULT) };
+  const base = defaultConfig ? { ...DEFAULT, ...defaultConfig } : DEFAULT;
+  const storedTyped = stored as Partial<typeof DEFAULT>;
+  // Only apply stored values that are non-empty (allows page-specific defaults to show when cleared)
+  const cfg = { ...base };
+  for (const k of Object.keys(base) as Array<keyof typeof DEFAULT>) {
+    const v = storedTyped[k];
+    if (v !== undefined && v !== "" && v !== DEFAULT[k]) cfg[k] = v as never;
+  }
 
   return (
     <section

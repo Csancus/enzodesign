@@ -5,7 +5,11 @@ import type { FieldDef } from "@/types/cms";
 
 const DEFAULT = {
   title: "",
-  images: [] as { src: string; alt: string }[],
+  images: [
+    { src: "/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp", alt: "Akciós franciaágy" },
+    { src: "/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp", alt: "Chesterfield akció" },
+    { src: "/images/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472.webp", alt: "Super Sale bútor akció" },
+  ] as { src: string; alt: string }[],
 };
 
 const SCHEMA: FieldDef[] = [
@@ -30,7 +34,9 @@ export default async function ImageCollageSection({
 }) {
   const stored = await getModuleConfig(moduleId);
   const cfg = { ...DEFAULT, ...(stored as typeof DEFAULT) };
-  const images = cfg.images?.length ? cfg.images : [];
+  // Filter out stale Wix CDN URLs that no longer resolve
+  const validImages = (cfg.images ?? []).filter((img) => !img.src?.includes("wixstatic.com"));
+  const images = validImages.length ? validImages : DEFAULT.images;
 
   return (
     <section className="relative py-10 bg-white">
@@ -62,7 +68,7 @@ export default async function ImageCollageSection({
           </p>
         )}
       </div>
-      {isAdmin && <EditBtn moduleId={moduleId} config={{ ...cfg, images }} schema={SCHEMA} />}
+      {isAdmin && <EditBtn moduleId={moduleId} config={{ ...cfg, images: validImages }} schema={SCHEMA} />}
     </section>
   );
 }

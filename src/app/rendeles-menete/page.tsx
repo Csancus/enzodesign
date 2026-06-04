@@ -16,7 +16,15 @@ export default async function RendelesMenetePage() {
     <>
       <PageHero moduleId="hero:rendeles-menete" defaults={{ label: "Rendelés", title: "Rendelés menete" }} />
 
-      <TextBlockSection moduleId="rendeles-menete:content" isAdmin={isAdmin} />
+      <TextBlockSection
+        moduleId="rendeles-menete:content"
+        isAdmin={isAdmin}
+        defaultConfig={{
+          title: "Rendelés menete",
+          body: `Honlapunk nem webáruházként működik, ezért a rendelés menete a következő:\n\nRendelését leadhatja személyesen telephelyünkön a 8800 Nagykanizsa, Egry József utca 7 szám alatt, vagy e-mailben az info@enzodesign.hu címen.\n\nGyors egyeztetésre a +36303778983 -mas telefonszámot használják bizalommal, melyen bútortervezőnk érhető el.\n\nOrszágos szinten kiszállítjuk a bútort az első zárt ajtóig.\n\nLegegyszerűbb mód vagy a kapcsolat űrlap kitöltése itt a weboldalon, vagy emailben egy kép csatolása, melyre 2 napon belül árajánlatot adunk.\n\nE-mailes rendelés esetében kérjük adja meg a számlázási nevet, címet, céges rendelésnél pedig az adószámát is, valamint írja a megrendelni kívánt termék nevét, színét és darabszámát, vagy küldjön képet, amennyiben egyedi bútorról van szó.\n\nKollégáink ennek alapján előlegbekérő szerződést küldenek, mely előleget utalással is ki tud egyenlíteni.`,
+          align: "left",
+        }}
+      />
 
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4">
