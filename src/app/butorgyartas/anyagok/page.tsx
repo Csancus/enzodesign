@@ -7,7 +7,7 @@ import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = { title: "Alapanyagok a bútorgyártásban" };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
@@ -18,8 +18,8 @@ export default function Page() {
         </div>
       </nav>
       <PageHero
-        title="Alapanyagok a bútorgyártásban – A tartósság és esztétika alapkövei"
-        imageSrc="/images/e7ad8b_b0943221b51548cbbe6d97a0e24fbeb6.webp"
+        moduleId="butorgyartas-anyagok:hero"
+        defaults={{ title: "Alapanyagok a bútorgyártásban – A tartósság és esztétika alapkövei" }}
       />
 
       {/* TARTALOM */}

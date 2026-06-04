@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Az ágyazható Chesterfield kanapé ötvözi a klasszikus stílust a kényelmes vendégágy funkcióval – ideális kis lakásba és vendégszobába.",
 };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
@@ -19,7 +19,7 @@ export default function Page() {
           <span className="text-[#b8924a]">Ágyazható Chesterfield kanapé</span>
         </div>
       </nav>
-      <PageHero title="Ágyazható Chesterfield kanapé – stílus és praktikum egy bútorban" />
+      <PageHero moduleId="blog-agyazhato-chesterfield-kanape:hero" defaults={{ title: "Ágyazható Chesterfield kanapé – stílus és praktikum egy bútorban" }} />
 
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4">

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "5 ok, amiért érdemes egyenesen a gyártótól rendelni bútort – ár, egyediség, minőség és közvetlen kommunikáció.",
 };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
@@ -19,7 +19,7 @@ export default function Page() {
           <span className="text-[#b8924a]">Miért éri meg közvetlenül a bútorgyártótól vásárolni?</span>
         </div>
       </nav>
-      <PageHero title="Miért éri meg közvetlenül a bútorgyártótól vásárolni?" />
+      <PageHero moduleId="blog-miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni:hero" defaults={{ title: "Miért éri meg közvetlenül a bútorgyártótól vásárolni?" }} />
 
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4">

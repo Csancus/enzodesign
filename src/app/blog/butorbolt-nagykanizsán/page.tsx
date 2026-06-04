@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Prémium kárpitozott bútorok helyi megvásárlásával és kiszállításával – az Enzo Design nagykanizsai bemutatóterme.",
 };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
@@ -19,7 +19,7 @@ export default function Page() {
           <span className="text-[#b8924a]">Bútorbolt Nagykanizsán</span>
         </div>
       </nav>
-      <PageHero title="Bútorbolt Nagykanizsán" />
+      <PageHero moduleId="blog-butorbolt-nagykanizsán:hero" defaults={{ title: "Bútorbolt Nagykanizsán" }} />
 
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4">

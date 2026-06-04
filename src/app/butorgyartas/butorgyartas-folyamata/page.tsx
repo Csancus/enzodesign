@@ -15,7 +15,7 @@ const STEPS = [
   { step: "06", title: "Minőségellenőrzés", desc: "Minden elkészített bútort kézzel ellenőrzünk, mielőtt kiszállítjuk." },
 ];
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
@@ -26,8 +26,8 @@ export default function Page() {
         </div>
       </nav>
       <PageHero
-        title="A bútorgyártás menete – A részletek mestersége"
-        imageSrc="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp"
+        moduleId="butorgyartas-butorgyartas-folyamata:hero"
+        defaults={{ title: "A bútorgyártás menete – A részletek mestersége" }}
       />
 
       {/* TARTALOM */}

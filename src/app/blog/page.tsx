@@ -91,10 +91,10 @@ const POSTS = [
   },
 ];
 
-export default function BlogPage() {
+export default async function BlogPage() {
   return (
     <>
-      <PageHero title="Blog" label="Írások" />
+      <PageHero moduleId="blog:hero" defaults={{ title: "Blog", label: "Írások" }} />
 
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4">

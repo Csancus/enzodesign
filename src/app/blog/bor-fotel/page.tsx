@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Időtálló kényelem és stílus egyetlen bútordarabban – miért érdemes valódi bőr fotelt választani.",
 };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
@@ -19,7 +19,7 @@ export default function Page() {
           <span className="text-[#b8924a]">Bőr fotel</span>
         </div>
       </nav>
-      <PageHero title="Bőr fotel" />
+      <PageHero moduleId="blog-bor-fotel:hero" defaults={{ title: "Bőr fotel" }} />
 
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4">

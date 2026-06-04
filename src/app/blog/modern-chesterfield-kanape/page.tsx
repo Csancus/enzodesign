@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "A Chesterfield kanapé nem csak elegáns, hanem rendkívül sokoldalú is – hogyan illik modern enteriőrbe?",
 };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
@@ -19,7 +19,7 @@ export default function Page() {
           <span className="text-[#b8924a]">Modern Chesterfield kanapé</span>
         </div>
       </nav>
-      <PageHero title="Modern Chesterfield kanapé" />
+      <PageHero moduleId="blog-modern-chesterfield-kanape:hero" defaults={{ title: "Modern Chesterfield kanapé" }} />
 
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4">

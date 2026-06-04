@@ -69,8 +69,8 @@ export default function ButorvalasztoPage() {
   return (
     <>
       <PageHero
-        title="Bútorválasztásra fel!"
-        subtitle="Közel 20 éve gyártunk bútorokat közvetlenül – segítünk megtalálni az önnek leginkább megfelelő darabot 3 egyszerű lépésben."
+        moduleId="butorvalaszto:hero"
+        defaults={{ title: "Bútorválasztásra fel!", subtitle: "Közel 20 éve gyártunk bútorokat közvetlenül – segítünk megtalálni az önnek leginkább megfelelő darabot 3 egyszerű lépésben." }}
       />
 
       {/* SELECTOR */}

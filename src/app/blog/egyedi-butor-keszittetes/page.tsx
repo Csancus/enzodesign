@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Útmutató egyedi bútor rendeléséhez: hogyan kommunikáld az ötleted, mire figyelj a méretezésnél, anyagválasztásnál és a gyártási folyamatnál.",
 };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
@@ -19,7 +19,7 @@ export default function Page() {
           <span className="text-[#b8924a]">Egyedi bútor készíttetés</span>
         </div>
       </nav>
-      <PageHero title="Egyedi bútor készíttetés – mire figyelj, ha saját ötleted van?" />
+      <PageHero moduleId="blog-egyedi-butor-keszittetes:hero" defaults={{ title: "Egyedi bútor készíttetés – mire figyelj, ha saját ötleted van?" }} />
 
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4">

@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   description: "Enzo Design adatkezelési tájékoztató – GDPR-kompatibilis adatkezelési szabályzat.",
 };
 
-export default function AdatkezelesiPage() {
+export default async function AdatkezelesiPage() {
   return (
     <>
-      <PageHero title="Adatkezelési Szabályzat" />
+      <PageHero moduleId="adatkezelesi-szabalyzat:hero" defaults={{ title: "Adatkezelési Szabályzat" }} />
       <section className="py-20 bg-white">
       <div className="max-w-3xl mx-auto px-4">
         <p className="text-sm text-gray-400 mb-10">Hatályos: 2025. március 27-től</p>

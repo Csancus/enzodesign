@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Miért érdemes tömörfa bútort választani? Tévhitek, előnyök és miért tartósabb, mint az MDF vagy forgácslap.",
 };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
@@ -19,7 +19,7 @@ export default function Page() {
           <span className="text-[#b8924a]">Tömörfa bútor</span>
         </div>
       </nav>
-      <PageHero title="Tömörfa bútor: időtálló befektetés vagy elavult megoldás?" />
+      <PageHero moduleId="blog-tomorfa-butor:hero" defaults={{ title: "Tömörfa bútor: időtálló befektetés vagy elavult megoldás?" }} />
 
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4">

@@ -15,13 +15,12 @@ const SECTIONS = [
   { title: "A bútorgyártás menete", href: "/butorgyartas/butorgyartas-folyamata", desc: "Tervezéstől a kész darabig – hogyan készül egy bútor?" },
 ];
 
-export default function ButorgyartasPage() {
+export default async function ButorgyartasPage() {
   return (
     <>
       <PageHero
-        title="A bútorgyártás világa – ahol a funkcionalitás találkozik az esztétikummal"
-        subtitle="A bútorok otthonaink, irodáink és közösségi tereink alapvető részei – nem csupán használati tárgyak, hanem a tér és az életminőség formálói."
-        imageSrc="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp"
+        moduleId="butorgyartas:hero"
+        defaults={{ title: "A bútorgyártás világa – ahol a funkcionalitás találkozik az esztétikummal", subtitle: "A bútorok otthonaink, irodáink és közösségi tereink alapvető részei – nem csupán használati tárgyak, hanem a tér és az életminőség formálói." }}
       />
 
       {/* ALTÉMÁK */}

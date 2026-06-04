@@ -6,7 +6,7 @@ import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = { title: "Chesterfield – Stílus és formajegyek" };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
@@ -17,8 +17,8 @@ export default function Page() {
         </div>
       </nav>
       <PageHero
-        title="Stílus és formajegyek"
-        imageSrc="/images/e7ad8b_f3e7dfd04f494d26b0ab4fb0b4548113.webp"
+        moduleId="chesterfield-chesterfield-stilus-es-formajegyek:hero"
+        defaults={{ title: "Stílus és formajegyek" }}
       />
 
       {/* TARTALOM */}

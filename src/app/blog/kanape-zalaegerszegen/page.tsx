@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Egy új kanapé kiválasztása nem csupán esztétikai kérdés – útmutató Zalaegerszeg és közelének vásárlóinak.",
 };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
@@ -19,7 +19,7 @@ export default function Page() {
           <span className="text-[#b8924a]">Kanapé Zalaegerszegen</span>
         </div>
       </nav>
-      <PageHero title="Kanapé Zalaegerszegen" />
+      <PageHero moduleId="blog-kanape-zalaegerszegen:hero" defaults={{ title: "Kanapé Zalaegerszegen" }} />
 
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4">

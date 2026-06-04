@@ -6,7 +6,7 @@ import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = { title: "A bútortervezés alapjai" };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
@@ -17,8 +17,8 @@ export default function Page() {
         </div>
       </nav>
       <PageHero
-        title="A bútortervezés alapjai – Az ötlettől a formáig"
-        imageSrc="/images/e7ad8b_aceaccd7ca6746cb804d31e17d3c8352.webp"
+        moduleId="butorgyartas-tervezes:hero"
+        defaults={{ title: "A bútortervezés alapjai – Az ötlettől a formáig" }}
       />
 
       {/* TARTALOM */}

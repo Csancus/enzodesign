@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Stíluskalauz Chesterfield bútorokhoz: szék, puff, étkezőszék, forgószék – melyik illik hozzád és a lakásodba?",
 };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
@@ -19,7 +19,7 @@ export default function Page() {
           <span className="text-[#b8924a]">Melyik Chesterfield bútor illik hozzád?</span>
         </div>
       </nav>
-      <PageHero title="Melyik Chesterfield bútor illik hozzád? – Stíluskalauz színekhez és formákhoz" />
+      <PageHero moduleId="blog-melyik-chesterfield-butor-illik-hozzad:hero" defaults={{ title: "Melyik Chesterfield bútor illik hozzád? – Stíluskalauz színekhez és formákhoz" }} />
 
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4">

@@ -6,7 +6,7 @@ import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = { title: "A Chesterfield kanapé eredete" };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
@@ -17,8 +17,8 @@ export default function Page() {
         </div>
       </nav>
       <PageHero
-        title="A Chesterfield kanapé eredete"
-        imageSrc="/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp"
+        moduleId="chesterfield-a-chesterfield-kanape-eredete:hero"
+        defaults={{ title: "A Chesterfield kanapé eredete" }}
       />
 
       {/* TARTALOM */}
