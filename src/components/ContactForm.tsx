@@ -28,14 +28,15 @@ const ALAPBUTOR_OPTIONS = [
 ];
 
 const TIPUSA_OPTIONS = [
-  "Old's Club",
-  "Ivone",
-  "Design",
-  "Chesterfield",
-  "New York",
-  "Joker",
-  "Cannes",
-  "Egyéb / Egyedi",
+  "Még nem tudom / Több bútort",
+  "Szék(ek)",
+  "Fotel(ek)",
+  "2-tes kanapé",
+  "3-mas kanapé",
+  "Ágy",
+  "Sarokkanapé",
+  "Teljes szett (fotel+2-tes+3-mas)",
+  "Egyedi bútor",
 ];
 
 export default function ContactForm() {
