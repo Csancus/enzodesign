@@ -7,5 +7,26 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="butoraink:karpitoszovetek" defaultTypes={["hero-light", "gallery", "text-block", "contact"]} />;
+  return (
+    <PageBuilderPage
+      pageId="butoraink:karpitoszovetek"
+      defaultSections={[
+        {
+          type: "hero-light",
+          config: {
+            label: "Anyagok",
+            title: "Kárpitszövetek",
+            subtitle: "Több mint 100 szövetfajtából választhat.",
+          },
+        },
+        {
+          type: "text-block",
+          config: {
+            body: "Keressen bennünket további szövetválasztékkal kapcsolatban – több mint 100 féle szövetből választhat, beleértve olasz valódi bőrt is.",
+          },
+        },
+        { type: "contact" },
+      ]}
+    />
+  );
 }

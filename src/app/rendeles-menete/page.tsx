@@ -7,5 +7,22 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="rendeles-menete" defaultTypes={["hero-light", "steps", "text-block", "contact"]} />;
+  return (
+    <PageBuilderPage
+      pageId="rendeles-menete"
+      defaultSections={[
+        {
+          type: "hero-light",
+          config: {
+            label: "Rendelés",
+            title: "Rendelés menete",
+          },
+        },
+        {
+          type: "steps",
+        },
+        { type: "contact" },
+      ]}
+    />
+  );
 }

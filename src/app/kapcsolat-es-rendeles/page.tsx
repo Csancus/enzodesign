@@ -7,5 +7,20 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PageBuilderPage pageId="kapcsolat-es-rendeles" defaultTypes={["hero-light", "contact"]} />;
+  return (
+    <PageBuilderPage
+      pageId="kapcsolat-es-rendeles"
+      defaultSections={[
+        {
+          type: "hero-light",
+          config: {
+            label: "Lépjen kapcsolatba velünk",
+            title: "Kapcsolat, rendelés",
+            subtitle: "Töltse ki az alábbi űrlapot és 24 órán belül visszahívjuk!",
+          },
+        },
+        { type: "contact" },
+      ]}
+    />
+  );
 }

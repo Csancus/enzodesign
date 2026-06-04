@@ -12,6 +12,9 @@ import ImageTextSection from "./ImageTextSection";
 import BannerSection from "./BannerSection";
 import GallerySection from "./GallerySection";
 import ContactSection from "./ContactSection";
+import CardGridSection from "./CardGridSection";
+import StatsSection from "./StatsSection";
+import CtaSection from "./CtaSection";
 
 export default function SectionRenderer({
   type,
@@ -53,6 +56,12 @@ export default function SectionRenderer({
       return <GallerySection moduleId={id} isAdmin={isAdmin} />;
     case "contact":
       return <ContactSection moduleId={id} isAdmin={isAdmin} />;
+    case "card-grid":
+      return <CardGridSection moduleId={id} isAdmin={isAdmin} />;
+    case "stats":
+      return <StatsSection moduleId={id} isAdmin={isAdmin} />;
+    case "cta":
+      return <CtaSection moduleId={id} isAdmin={isAdmin} />;
     default:
       return null;
   }
