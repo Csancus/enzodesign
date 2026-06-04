@@ -6,10 +6,10 @@ import type { FieldDef } from "@/types/cms";
 const DEFAULT = {
   title: "Fától a kanapéig",
   steps: [
-    { title: "Nyers fa – 100% tömörfa alapanyagokkal", image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" },
-    { title: "Minőségi kellékek anyagokkal", image: "/images/e7ad8b_b0943221b51548cbbe6d97a0e24fbeb6.webp" },
-    { title: "Kárpitozás – gondos kézimunkával", image: "/images/e7ad8b_aceaccd7ca6746cb804d31e17d3c8352.webp" },
-    { title: "Ülőgarnitúra – kész a hazahozatalra", image: "/images/9a0b1d_c8383ea1a11840a380b79e4cbddd1c96.webp" },
+    { title: "Nyers fától, helyi megmunkálással", image: "/images/nsplsh_1b3884fd54de4bf38b65c3212fdc76c7.webp" },
+    { title: "Minőségi, ülésálló anyagokkal", image: "/images/e7ad8b_1df77688fc3245228fbb11d74a0e4a1a.webp" },
+    { title: "Varrással, rugózással, összeállítással", image: "/images/9a0b1d_1144c9b382414e1aa48f590fe582dd2b.webp" },
+    { title: "Kész kanapéig, majd az otthonodig", image: "/images/e7ad8b_6a9bc07515294a40a1f7777272c2786e.webp" },
   ],
 };
 
@@ -28,15 +28,22 @@ export default async function StepsSection({ moduleId, isAdmin }: { moduleId: st
 
   return (
     <section className="relative py-14 bg-white">
-      <div className="max-w-3xl mx-auto px-4">
-        <h2 className="text-xl font-bold text-[#1c1c1c] text-center mb-8">{cfg.title}</h2>
-        <div className={`grid gap-4`} style={{ gridTemplateColumns: `repeat(${steps.length}, 1fr)` }}>
+      <div className="max-w-5xl mx-auto px-4">
+        <h2
+          className="text-3xl md:text-4xl font-bold text-[#1c1c1c] mb-1"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
+          {cfg.title}
+        </h2>
+        <div className="w-16 h-0.5 bg-[#b8924a] mb-8" />
+
+        <div className="grid grid-cols-3 gap-6">
           {steps.map((s, i) => (
-            <div key={i} className="text-center">
-              <div className="relative aspect-square overflow-hidden mb-2">
+            <div key={i} className="">
+              <div className="relative aspect-[286/335] overflow-hidden mb-3">
                 <Image src={s.image} alt={s.title} fill className="object-cover" />
               </div>
-              <p className="text-xs text-gray-600 leading-tight">{s.title}</p>
+              <p className="text-sm text-[#7d6142] leading-snug">{s.title}</p>
             </div>
           ))}
         </div>
