@@ -51,6 +51,12 @@ const PAGES = [
   { url: "/blog/kanape-zalaegerszegen", priority: 0.6, changeFrequency: "monthly" },
   { url: "/blog/bor-fotel", priority: 0.6, changeFrequency: "monthly" },
   { url: "/blog/modern-chesterfield-kanape", priority: 0.6, changeFrequency: "monthly" },
+  { url: "/blog/agyazhato-chesterfield-kanape", priority: 0.6, changeFrequency: "monthly" },
+  { url: "/blog/egyedi-butor-keszittetes", priority: 0.6, changeFrequency: "monthly" },
+  { url: "/blog/melyik-chesterfield-butor-illik-hozzad", priority: 0.6, changeFrequency: "monthly" },
+  { url: "/blog/miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni", priority: 0.6, changeFrequency: "monthly" },
+  { url: "/blog/miert-idotallo-valasztas-a-chesterfield-kanape", priority: 0.6, changeFrequency: "monthly" },
+  { url: "/blog/tomorfa-butor", priority: 0.6, changeFrequency: "monthly" },
   { url: "/adatkezelesi-szabalyzat", priority: 0.3, changeFrequency: "yearly" },
 ] as const;
 
