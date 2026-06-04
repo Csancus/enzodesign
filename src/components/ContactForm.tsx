@@ -15,13 +15,16 @@ type FormData = {
 };
 
 const ALAPBUTOR_OPTIONS = [
-  "Kanapé",
-  "Fotel",
-  "Sarokkanapé",
-  "Franciaágy",
-  "Szék / Zsámoly",
+  "Még nem tudom",
+  "Ivone",
+  "Old's Club",
+  "Design",
+  "Chesterfield",
+  "New York",
+  "Joker",
+  "Cannes-Nizza",
+  "Étterem, hotel, üzleti megrendelés",
   "Egyedi bútor",
-  "Üzleti bútor",
 ];
 
 const TIPUSA_OPTIONS = [
@@ -119,6 +122,7 @@ export default function ContactForm() {
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Alapbútor</label>
+          <p className="text-xs text-gray-500 mb-1.5">Ha az alap bútoraink közül választanál, jelöld meg, melyiket vásárolnád meg</p>
           <select
             {...register("alapbutor")}
             className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#7d6142] bg-white"
