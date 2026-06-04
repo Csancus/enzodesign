@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Bútor Rendelés",
+  title: "Rendelés menete – Enzo Design",
   description: "Rendelje meg álombútorát az Enzo Designtól – töltse ki az űrlapot és 24 órán belül visszahívjuk.",
 };
 
@@ -15,19 +15,19 @@ const steps = [
   "Kollégáink ennek alapján előlegbekérő szerződést küldenek, mely előleget utalással is ki tud egyenlíteni.",
 ];
 
-export default function ButorrendelesPage() {
+export default function RendelesMenetePage() {
   return (
     <>
       <section className="bg-[#f5f0e8] py-20">
         <div className="max-w-3xl mx-auto px-4">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Rendelés</p>
           <h1
-            className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-10"
+            className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-6"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Rendelés menete
           </h1>
-          <p className="text-gray-500 text-sm mb-6">
+          <p className="text-gray-500 mb-8">
             Honlapunk nem webáruházként működik, ezért a rendelés menete a következő:
           </p>
           <div className="space-y-6">

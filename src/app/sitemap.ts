@@ -26,7 +26,7 @@ const PAGES = [
   { url: "/butoraink/franciaagyak", priority: 0.7, changeFrequency: "monthly" },
   { url: "/butoraink/szek-zsamoly-falvedo", priority: 0.6, changeFrequency: "monthly" },
   { url: "/butoraink/egyedi-butor", priority: 0.8, changeFrequency: "monthly" },
-  { url: "/butoraink/butorrendeles", priority: 0.8, changeFrequency: "monthly" },
+  { url: "/rendeles-menete", priority: 0.8, changeFrequency: "monthly" },
   { url: "/butoraink/karpitoszovetek", priority: 0.6, changeFrequency: "monthly" },
   { url: "/chesterfield-kollekcio", priority: 0.7, changeFrequency: "monthly" },
   { url: "/olds-club-kollekcio", priority: 0.7, changeFrequency: "monthly" },

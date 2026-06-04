@@ -64,7 +64,7 @@ export default function Footer() {
                 { label: "Blog", href: "/blog" },
                 { label: "Rólunk", href: "/rolunk" },
                 { label: "Üzleti bútor", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
-                { label: "Rendelés menete", href: "/butoraink/butorrendeles" },
+                { label: "Rendelés menete", href: "/rendeles-menete" },
                 { label: "Kapcsolat", href: "/kapcsolat-es-rendeles" },
                 { label: "Adatkezelési tájékoztató", href: "/adatkezelesi-szabalyzat" },
               ].map((link) => (
