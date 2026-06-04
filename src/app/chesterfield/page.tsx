@@ -19,13 +19,13 @@ export default function ChesterfieldPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative bg-[#1c1c1c] py-32 text-center text-white overflow-hidden">
-        <Image src="/images/e7ad8b_f3e7dfd04f494d26b0ab4fb0b4548113.webp" alt="Chesterfield kanapé" fill className="object-cover opacity-30" />
+      <section className="relative bg-[#f5f0ea] py-32 text-center overflow-hidden">
+        <Image src="/images/e7ad8b_f3e7dfd04f494d26b0ab4fb0b4548113.webp" alt="Chesterfield kanapé" fill className="object-cover opacity-10" />
         <div className="relative z-10 max-w-2xl mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ fontFamily: "var(--font-heading)" }}>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#1c1c1c]" style={{ fontFamily: "var(--font-heading)" }}>
             A Chesterfield
           </h1>
-          <p className="text-gray-300 text-lg leading-relaxed">
+          <p className="text-gray-600 text-lg leading-relaxed">
             A Chesterfield bútorok az elegancia, a hagyomány és a stílus tökéletes kombinációi. A mély
             gombolás, a bőrborítás és a karakteres formavilág évszázadok óta a luxus és a kifinomult
             ízlés szimbólumai. Legyen szó klasszikus bőrkanapéról vagy modern újragondolásról, a
