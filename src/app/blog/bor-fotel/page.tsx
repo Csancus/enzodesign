@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Bőr fotel – Enzo Design",
@@ -11,22 +12,14 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <section className="bg-[#1c1c1c] py-20 text-white">
-        <div className="max-w-3xl mx-auto px-4">
-          <nav className="text-sm text-gray-400 mb-6">
-            <Link href="/blog" className="hover:text-white">Blog</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#b8924a]">Bőr fotel</span>
-          </nav>
-          <div className="flex items-center gap-3 mb-4">
-            <span className="bg-[#7d6142] text-white text-xs font-semibold px-2.5 py-1 uppercase tracking-wide">Chesterfield</span>
-            <span className="text-gray-400 text-xs">3 perc olvasás</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>
-            Bőr fotel
-          </h1>
+      <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
+        <div className="max-w-3xl mx-auto">
+          <Link href="/blog" className="hover:text-white">Blog</Link>
+          <span className="mx-2">/</span>
+          <span className="text-[#b8924a]">Bőr fotel</span>
         </div>
-      </section>
+      </nav>
+      <PageHero title="Bőr fotel" />
 
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4">

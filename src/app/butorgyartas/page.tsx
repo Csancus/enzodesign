@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Bútorgyártás",
@@ -17,19 +18,11 @@ const SECTIONS = [
 export default function ButorgyartasPage() {
   return (
     <>
-      {/* HERO – képes háttér */}
-      <section className="relative bg-[#1c1c1c] py-32 text-center text-white overflow-hidden">
-        <Image src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" alt="Bútorgyártás" fill className="object-cover opacity-30" />
-        <div className="relative z-10 max-w-2xl mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "var(--font-heading)" }}>
-            A bútorgyártás világa – ahol a funkcionalitás találkozik az esztétikummal
-          </h1>
-          <p className="text-gray-300 text-lg leading-relaxed">
-            A bútorok otthonaink, irodáink és közösségi tereink alapvető részei –
-            nem csupán használati tárgyak, hanem a tér és az életminőség formálói.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="A bútorgyártás világa – ahol a funkcionalitás találkozik az esztétikummal"
+        subtitle="A bútorok otthonaink, irodáink és közösségi tereink alapvető részei – nem csupán használati tárgyak, hanem a tér és az életminőség formálói."
+        imageSrc="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp"
+      />
 
       {/* ALTÉMÁK */}
       <section className="py-20 bg-white">

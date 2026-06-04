@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Rendelés menete – Enzo Design",
@@ -18,15 +19,10 @@ const steps = [
 export default function RendelesMenetePage() {
   return (
     <>
-      <section className="bg-[#f5f0e8] py-20">
+      <PageHero label="Rendelés" title="Rendelés menete" />
+
+      <section className="bg-[#f5f0e8] py-12">
         <div className="max-w-3xl mx-auto px-4">
-          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Rendelés</p>
-          <h1
-            className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-6"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Rendelés menete
-          </h1>
           <p className="text-gray-500 mb-8">
             Honlapunk nem webáruházként működik, ezért a rendelés menete a következő:
           </p>

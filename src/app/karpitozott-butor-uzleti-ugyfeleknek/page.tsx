@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import ContactFormSection from "@/components/ContactFormSection";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Üzleti Bútor",
@@ -17,17 +18,11 @@ const SEGMENTS = [
 export default function UzletiButorPage() {
   return (
     <>
-      <section className="bg-[#f5f0e8] py-20 px-4">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">B2B megoldások</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c]" style={{ fontFamily: "var(--font-heading)" }}>
-            Éttermeknek, szállodáknak, rendelőknek, fogadóterekbe
-          </h1>
-          <p className="mt-4 text-gray-500 leading-relaxed">
-            Kávézóba, étterembe, szállodába, orvosi rendelőbe rendszeresen készítünk nagy teherbírású bútorokat.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="B2B megoldások"
+        title="Éttermeknek, szállodáknak, rendelőknek, fogadóterekbe"
+        subtitle="Kávézóba, étterembe, szállodába, orvosi rendelőbe rendszeresen készítünk nagy teherbírású bútorokat."
+      />
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">

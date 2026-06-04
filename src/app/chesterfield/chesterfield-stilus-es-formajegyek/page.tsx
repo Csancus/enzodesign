@@ -2,34 +2,24 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = { title: "Chesterfield – Stílus és formajegyek" };
 
 export default function Page() {
   return (
     <>
-      {/* BANNER KÉP – teljes szélességű, alacsony */}
-      <div className="relative w-full h-[300px] overflow-hidden">
-        <Image
-          src="/images/e7ad8b_f3e7dfd04f494d26b0ab4fb0b4548113.webp"
-          alt="Chesterfield stílus és formajegyek"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/40 flex items-end pb-8 px-6">
-          <div className="max-w-4xl mx-auto w-full">
-            <nav className="text-sm text-gray-300 mb-3">
-              <Link href="/chesterfield" className="hover:text-white">Chesterfield</Link>
-              <span className="mx-2">/</span>
-              <span className="text-[#b8924a]">Stílus és formajegyek</span>
-            </nav>
-            <h1 className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: "var(--font-heading)" }}>
-              Stílus és formajegyek
-            </h1>
-          </div>
+      <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
+        <div className="max-w-4xl mx-auto">
+          <Link href="/chesterfield" className="hover:text-white">Chesterfield</Link>
+          <span className="mx-2">/</span>
+          <span className="text-[#b8924a]">Stílus és formajegyek</span>
         </div>
-      </div>
+      </nav>
+      <PageHero
+        title="Stílus és formajegyek"
+        imageSrc="/images/e7ad8b_f3e7dfd04f494d26b0ab4fb0b4548113.webp"
+      />
 
       {/* TARTALOM */}
       <section className="py-16 bg-white">

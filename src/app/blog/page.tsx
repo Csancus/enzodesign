@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -93,14 +94,7 @@ const POSTS = [
 export default function BlogPage() {
   return (
     <>
-      <section className="bg-[#1c1c1c] py-20 text-center text-white">
-        <div className="max-w-2xl mx-auto px-4">
-          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Írások</p>
-          <h1 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>
-            Blog
-          </h1>
-        </div>
-      </section>
+      <PageHero title="Blog" label="Írások" />
 
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4">

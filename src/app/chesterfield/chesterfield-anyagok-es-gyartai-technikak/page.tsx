@@ -2,34 +2,24 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = { title: "Chesterfield – Anyagok és gyártási technikák" };
 
 export default function Page() {
   return (
     <>
-      {/* BANNER KÉP – teljes szélességű, alacsony */}
-      <div className="relative w-full h-[300px] overflow-hidden">
-        <Image
-          src="/images/e7ad8b_b0943221b51548cbbe6d97a0e24fbeb6.webp"
-          alt="Chesterfield anyagok és gyártási technikák"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/40 flex items-end pb-8 px-6">
-          <div className="max-w-4xl mx-auto w-full">
-            <nav className="text-sm text-gray-300 mb-3">
-              <Link href="/chesterfield" className="hover:text-white">Chesterfield</Link>
-              <span className="mx-2">/</span>
-              <span className="text-[#b8924a]">Anyagok és gyártási technikák</span>
-            </nav>
-            <h1 className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: "var(--font-heading)" }}>
-              Anyagok és gyártási technikák
-            </h1>
-          </div>
+      <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
+        <div className="max-w-4xl mx-auto">
+          <Link href="/chesterfield" className="hover:text-white">Chesterfield</Link>
+          <span className="mx-2">/</span>
+          <span className="text-[#b8924a]">Anyagok és gyártási technikák</span>
         </div>
-      </div>
+      </nav>
+      <PageHero
+        title="Anyagok és gyártási technikák"
+        imageSrc="/images/e7ad8b_b0943221b51548cbbe6d97a0e24fbeb6.webp"
+      />
 
       {/* TARTALOM */}
       <section className="py-16 bg-white">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import ContactFormSection from "@/components/ContactFormSection";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Akciók – Enzo Design",
@@ -10,20 +11,11 @@ export const metadata: Metadata = {
 export default function AkcioPage() {
   return (
     <>
-      <section className="bg-[#f5f0e8] py-20 px-4">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">
-            Akciók
-          </p>
-          <h1
-            className="text-4xl md:text-5xl font-bold text-[#1c1c1c]"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Vásároljon közvetlenül a gyártótól!
-          </h1>
-          <p className="mt-4 text-gray-500">Figyelje folyamatosan változó akcióinkat.</p>
-        </div>
-      </section>
+      <PageHero
+        label="Akciók"
+        title="Vásároljon közvetlenül a gyártótól!"
+        subtitle="Figyelje folyamatosan változó akcióinkat."
+      />
 
       {/* NAGY KÉP – középre igazítva */}
       <section className="bg-white pb-4 flex justify-center px-4">

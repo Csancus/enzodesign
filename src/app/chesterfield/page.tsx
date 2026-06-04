@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
+import QuoteSlider from "@/components/QuoteSlider";
 
 export const metadata: Metadata = {
   title: "Chesterfield Bútorok",
@@ -9,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const SUBTOPICS = [
-  { title: "A Chesterfield kanapé eredete", href: "/chesterfield/a-chesterfield-kanape-eredete", desc: "A 18. századi arisztokráciától napjainkig." },
-  { title: "Stílus és formajegyek", href: "/chesterfield/chesterfield-stilus-es-formajegyek", desc: "A mély gombolás és kézműves precizitás." },
-  { title: "Anyagok és gyártási technikák", href: "/chesterfield/chesterfield-anyagok-es-gyartai-technikak", desc: "Bőr, bársony, szövet – mi illik a Chesterfield stílushoz?" },
-  { title: "A Chesterfield a modern enteriőrben", href: "/chesterfield/chesterfield-a-modern-enteriorben", desc: "Hogyan illik modern lakásba egy klasszikus bútor?" },
+  { title: "A Chesterfield kanapé eredete", href: "/chesterfield/a-chesterfield-kanape-eredete", desc: "Fedezd fel, hogyan született meg a Chesterfield kanapé legendája az angol arisztokrácia világában! A stílusos bútor gyökerei egészen a 18. századig nyúlnak vissza, és máig az elegancia szimbóluma maradt." },
+  { title: "Chesterfield stílus és formajegyek", href: "/chesterfield/chesterfield-stilus-es-formajegyek", desc: "Mi teszi a Chesterfieldtet igazán különlegessé? Ismerd meg a jellegzetes gombolást, mély ülőrészt, bőrborítást és díszes karfákat – a formai jegyeket, amik ikonikus bútordarabbá tették." },
+  { title: "Anyagok és gyártási technikák", href: "/chesterfield/chesterfield-anyagok-es-gyartai-technikak", desc: "A Chesterfield bútorok nemcsak szépek, hanem időtállók is – de vajon mitől? Bemutatjuk a leggyakoribb bőr- és kárpitfajtákat, illetve a tradicionális kézműves technikákat, amelyek a minőséget garantálják." },
+  { title: "A Chesterfield a modern enteriőrben", href: "/chesterfield/chesterfield-a-modern-enteriorben", desc: "Bár klasszikus darab, a Chesterfield remekül illeszkedik a mai modern terekbe is. Inspirációk és tippek arra, hogyan kombinálhatod ezt az időtlen bútort a mai stílusokkal – legyen az minimalista, loft vagy vintage." },
 ];
 
 export default function ChesterfieldPage() {
@@ -65,15 +66,13 @@ export default function ChesterfieldPage() {
             tőlünk Chesterfield bútort és mi elkészítjük tömörfa szerkezettel és minőségi szövettel
             vagy bőr bevonattal.
           </p>
-          <Link href="/butoraink/kanapek/chesterfield-kanapek" className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm mb-12">
+          <Link href="/butoraink" className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm">
             Lássam a bútorokat
           </Link>
-          <blockquote className="text-xl md:text-2xl italic text-gray-700 leading-relaxed max-w-2xl mx-auto" style={{ fontFamily: "var(--font-heading)" }}>
-            „Bizonyos bútorok, amelyek mellett felnő az ember, valamiképpen fontossá válnak."
-          </blockquote>
-          <footer className="mt-4 text-[#7d6142] font-semibold">– Bernlef</footer>
         </div>
       </section>
+
+      <QuoteSlider />
 
       <ContactFormSection />
     </>

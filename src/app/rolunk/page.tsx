@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Rólunk – Enzo Design",
@@ -11,15 +12,11 @@ export const metadata: Metadata = {
 export default function RolunkPage() {
   return (
     <>
-      <section className="bg-[#f5f0e8] py-20 px-4">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Rólunk</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c]" style={{ fontFamily: "var(--font-heading)" }}>
-            Rólunk
-          </h1>
-          <p className="mt-4 text-gray-500">Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán.</p>
-        </div>
-      </section>
+      <PageHero
+        label="Rólunk"
+        title="Rólunk"
+        subtitle="Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán."
+      />
 
       <section className="bg-white pt-12 pb-0">
         <div className="max-w-5xl mx-auto px-4">

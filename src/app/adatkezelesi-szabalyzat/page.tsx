@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Adatkezelési Szabályzat – Enzo Design",
@@ -7,12 +8,10 @@ export const metadata: Metadata = {
 
 export default function AdatkezelesiPage() {
   return (
-    <section className="py-20 bg-white">
+    <>
+      <PageHero title="Adatkezelési Szabályzat" />
+      <section className="py-20 bg-white">
       <div className="max-w-3xl mx-auto px-4">
-        <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">ENZO DESIGN Kft.</p>
-        <h1 className="text-4xl font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>
-          Adatkezelési Szabályzat
-        </h1>
         <p className="text-sm text-gray-400 mb-10">Hatályos: 2025. március 27-től</p>
 
         <div className="space-y-10 text-gray-700 leading-relaxed">
@@ -133,5 +132,6 @@ export default function AdatkezelesiPage() {
         </div>
       </div>
     </section>
+    </>
   );
 }

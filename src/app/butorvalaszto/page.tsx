@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
+import PageHero from "@/components/PageHero";
 
 const STEPS = [
   {
@@ -67,17 +68,10 @@ export default function ButorvalasztoPage() {
 
   return (
     <>
-      {/* HERO */}
-      <section className="bg-white py-16 border-b border-gray-100">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-            Bútorválasztásra fel!
-          </h1>
-          <p className="text-gray-600 leading-relaxed">
-            Közel 20 éve gyártunk bútorokat közvetlenül – segítünk megtalálni az önnek leginkább megfelelő darabot 3 egyszerű lépésben.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Bútorválasztásra fel!"
+        subtitle="Közel 20 éve gyártunk bútorokat közvetlenül – segítünk megtalálni az önnek leginkább megfelelő darabot 3 egyszerű lépésben."
+      />
 
       {/* SELECTOR */}
       <section className="py-20 bg-[#f5f0e8]">

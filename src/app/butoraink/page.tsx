@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Bútoraink – Enzo Design",
@@ -82,18 +83,11 @@ function SectionHeader({ title, href, linkLabel }: { title: string; href: string
 export default function ButorainkPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="bg-[#f5f0e8] py-20 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">ENZO DESIGN</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-            Bútoraink
-          </h1>
-          <p className="text-gray-600 text-lg">
-            Kárpitozott bútorok – egyedi méretben, választott szövettel, közvetlenül a gyártótól.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="ENZO DESIGN"
+        title="Bútoraink"
+        subtitle="Kárpitozott bútorok – egyedi méretben, választott szövettel, közvetlenül a gyártótól."
+      />
 
       {/* INTRO TEXT BOX */}
       <section className="bg-white py-12 px-4 border-b border-gray-100">
