@@ -1,98 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
+import PageBuilderPage from "@/components/PageBuilderPage";
 
 export const metadata: Metadata = {
   title: "Kanapék – Enzo Design",
   description: "Kanapé kollekciók: Old's Club, Ivone, Design, Chesterfield, New York, Joker, Cannes – egyedi méretben és szövetben.",
 };
 
-const CARDS = [
-  { name: "Old's Club Kanapék", tagline: "Karakteres elegancia", image: "/images/e7ad8b_b8e06512bf824479b51f4152def251fa.webp", href: "/butoraink/kanapek/olds-club-kanapek" },
-  { name: "Ivone kanapék", tagline: "Nappalid éke", image: "/images/9a0b1d_99e6dc96a4804030b9c82ccb7ef9a7f7.webp", href: "/butoraink/kanapek/ivone-kanapek" },
-  { name: "Design Kanapék", tagline: "Modern minőség", image: "/images/e7ad8b_d510cf607aca449c835d847344231393.webp", href: "/butoraink/kanapek/design-kanapek" },
-  { name: "Chesterfield kanapék", tagline: "A bútor, aminek történelme van", image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp", href: "/butoraink/kanapek/chesterfield-kanapek" },
-  { name: "New York kanapék", tagline: "Klasszikus stílus", image: "/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp", href: "/butoraink/kanapek/new-york-kanapek" },
-  { name: "Joker Kanapék", tagline: "Gáláns megjelenés", image: "/images/e7ad8b_472fb74f2a1746e68ca129dbd34b2de7.webp", href: "/butoraink/kanapek/joker-kanapek" },
-  { name: "Cannes Kanapé", tagline: "A modern sarok", image: "/images/e7ad8b_af00972c370c4bc7800fc98bfd927214.webp", href: "/butoraink/kanapek/cannes-kanapek" },
-  { name: "Egyedi kanapé", tagline: "Elkészítjük álombútorod", image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp", href: "/butoraink/egyedi-butor" },
-  { name: "Üzleti bútor, kanapé", tagline: "Vásárlóid kényelmére", image: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
-];
-
-export default function KanapekPage() {
-  return (
-    <>
-      {/* HERO */}
-      <section className="bg-[#f5f0e8] py-20 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">ENZO DESIGN</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-            Kanapék
-          </h1>
-          <p className="text-gray-600 text-lg max-w-xl mx-auto">
-            Válasszon a 2000 nm-es gyárunkból, vagy kérjen egyedi ajánlatot. A Bútoraink szövete és anyagmintája szabadon választható.
-          </p>
-        </div>
-      </section>
-
-      {/* FEATURES */}
-      <section className="py-8 bg-white border-b border-gray-100">
-        <div className="max-w-2xl mx-auto px-4">
-          <p className="text-sm font-semibold text-[#b8924a] mb-3">Mindegyik bútorunkat ajánljuk:</p>
-          <ul className="space-y-1.5 text-sm text-gray-600 list-disc list-inside">
-            <li>Egyedi szín és anyagminta választással</li>
-            <li>Tetszőleges méretben</li>
-            <li>Választható kopásállóság-erősséggel (martindale)</li>
-            <li>Tömörfa szerkezettel, 10 év váz-garanciával</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* GRID */}
-      <section className="py-12 bg-white">
-        <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>Kanapék</h2>
-          <p className="text-sm text-gray-500 mb-1">
-            Válasszon a 2000 nm-es gyárunkból, kért méretben és anyagmintával.
-          </p>
-          <Link href="/kapcsolat-es-rendeles" className="text-sm text-[#b8924a] underline block mb-8">
-            Egyedi kanapét is elkészítünk →
-          </Link>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {CARDS.map((c) => (
-              <Link key={c.name} href={c.href} className="group block">
-                <div className="relative aspect-[4/3] overflow-hidden mb-3">
-                  <Image
-                    src={c.image}
-                    alt={c.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <h3 className="text-[#b8924a] text-sm font-semibold group-hover:underline">{c.name}</h3>
-                <p className="text-xs text-gray-500 mt-0.5">{c.tagline}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* KÁRPIT ANYAGOK CTA */}
-      <section className="py-10 bg-[#f5f0e8] px-4 text-center">
-        <h2 className="text-xl font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>
-          Nagy kopásállóságú, minőségi kárpit anyagok
-        </h2>
-        <p className="text-sm text-gray-600 mb-6 max-w-xl mx-auto">
-          Minimum 50.000 martindale-es anyagokkal dolgozunk – de nem ritka a 100.000 feletti sem.
-          Tetszőleges szín, anyag és kopásállóság választható.
-        </p>
-        <Link
-          href="/butoraink/karpitoszovetek"
-          className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm"
-        >
-          Kárpitszövetek megtekintése
-        </Link>
-      </section>
-    </>
-  );
+export default function Page() {
+  return <PageBuilderPage pageId="butoraink:kanapek" defaultTypes={["banner", "gallery", "text-block", "contact"]} />;
 }
