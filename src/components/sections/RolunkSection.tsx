@@ -7,7 +7,7 @@ const DEFAULT = {
   title: "Rólunk",
   desc1: "20 éves tapasztalattal rendelkező magyar bútorgyártó cég vagyunk. Célunk minőségi, tömörfa-szerkezettel és nagy kopásállóságú szövettel borított bútorokat készíteni, elérhető áron. Üzleteinkben megveheti bútorait és azonnal hazaviheti. A minőség, az elérhető ár és a garancia hármasával kínáljuk bútorainkat.",
   desc2: "Mivel gyártók vagyunk, nincs extra reklámköltségünk. Közvetlenül a fogyasztónak, reális áron értékesítünk – így a feljebbi minőséget más vállalkozásoknál megszokott árakon kaphatja meg.",
-  image: "/images/9a0b1d_1946145440dc499d9ea4522e3df74f8a.png",
+  image: "/images/logo.webp",
   videoSrc: "/videos/rolunk.mp4",
 };
 
