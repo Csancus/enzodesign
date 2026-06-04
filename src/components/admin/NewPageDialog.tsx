@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { slugify } from "@/lib/dynamicPages";
+import { slugify } from "@/lib/slugify";
 
 const PARENT_OPTIONS = [
   { label: "Gyökér (/)", value: "" },
