@@ -80,5 +80,6 @@ export default async function PageHero(props: Props) {
   }
 
   // Static (no edit) — backward compatible
-  return <HeroMarkup cfg={{ label: props.label, title: props.title, subtitle: props.subtitle }} />;
+  const p = props as StaticProps;
+  return <HeroMarkup cfg={{ label: p.label, title: p.title, subtitle: p.subtitle }} />;
 }
