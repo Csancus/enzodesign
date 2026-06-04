@@ -83,20 +83,25 @@ export default function SlideshowClient({
         ))}
       </div>
 
-      {/* Centered white logo card */}
+      {/* Centered hero card */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="bg-white text-center px-8 py-7 max-w-[280px] w-full shadow-sm pointer-events-auto">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <Image src="/images/logo.png" alt="Enzo Design" width={44} height={34} className="object-contain" />
+        <div className="bg-white/95 backdrop-blur-sm text-center px-10 py-8 max-w-[340px] w-full shadow-lg pointer-events-auto border-t-2 border-[#b8924a]">
+          <div className="flex items-center justify-center mb-4">
+            <Image src="/images/logo.png" alt="Enzo Design" width={52} height={40} className="object-contain" />
           </div>
-          <p className="text-[#1c1c1c] text-xs leading-relaxed mb-4">
-            Egyedi és azonnal elérhető kárpitozott bútorok
-            <br />
-            közvetlenül a gyártótól.
+          <div className="w-8 h-px bg-[#b8924a] mx-auto mb-4" />
+          <p
+            className="text-[#1c1c1c] text-base leading-snug mb-1 font-semibold"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Egyedi kárpitozott bútorok
+          </p>
+          <p className="text-[#7d6142] text-xs tracking-widest uppercase mb-6">
+            közvetlenül a gyártótól
           </p>
           <Link
             href="/butoraink"
-            className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-6 py-2 transition-colors text-xs"
+            className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-widest px-8 py-3 transition-colors text-xs"
           >
             Tovább
           </Link>
