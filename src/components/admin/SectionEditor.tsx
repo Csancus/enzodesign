@@ -42,7 +42,7 @@ function ImageField({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder="Kép URL vagy tölts fel"
-          className="w-full border border-gray-200 px-2 py-1.5 text-xs outline-none focus:border-[#b8924a] mb-1"
+          className="w-full border border-gray-200 px-2 py-1.5 text-xs text-gray-900 bg-white outline-none focus:border-[#b8924a] mb-1"
         />
         <input ref={ref} type="file" accept="image/*" onChange={upload} className="hidden" />
         <button
@@ -111,14 +111,14 @@ function ArrayField({
                   value={(item[f.key] as string) ?? ""}
                   onChange={(e) => update(i, f.key, e.target.value)}
                   rows={2}
-                  className="w-full border border-gray-200 px-2 py-1.5 text-xs outline-none focus:border-[#b8924a] resize-none"
+                  className="w-full border border-gray-200 px-2 py-1.5 text-xs text-gray-900 bg-white outline-none focus:border-[#b8924a] resize-none"
                 />
               ) : (
                 <input
                   type="text"
                   value={(item[f.key] as string) ?? ""}
                   onChange={(e) => update(i, f.key, e.target.value)}
-                  className="w-full border border-gray-200 px-2 py-1.5 text-xs outline-none focus:border-[#b8924a]"
+                  className="w-full border border-gray-200 px-2 py-1.5 text-xs text-gray-900 bg-white outline-none focus:border-[#b8924a]"
                 />
               )}
             </div>
@@ -186,7 +186,7 @@ export default function SectionEditor({
                   value={(config[field.key] as string) ?? ""}
                   onChange={(e) => set(field.key, e.target.value)}
                   rows={3}
-                  className="w-full border border-gray-300 px-3 py-2 text-sm outline-none focus:border-[#b8924a] resize-none"
+                  className="w-full border border-gray-300 px-3 py-2 text-sm text-gray-900 bg-white outline-none focus:border-[#b8924a] resize-none"
                 />
               ) : field.type === "array" ? (
                 <ArrayField
@@ -199,7 +199,7 @@ export default function SectionEditor({
                   type="text"
                   value={(config[field.key] as string) ?? ""}
                   onChange={(e) => set(field.key, e.target.value)}
-                  className="w-full border border-gray-300 px-3 py-2 text-sm outline-none focus:border-[#b8924a]"
+                  className="w-full border border-gray-300 px-3 py-2 text-sm text-gray-900 bg-white outline-none focus:border-[#b8924a]"
                 />
               )}
             </div>
