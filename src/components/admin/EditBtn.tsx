@@ -20,7 +20,7 @@ export default function EditBtn({
     <>
       <button
         onClick={() => setOpen(true)}
-        className="absolute top-3 right-3 bg-black/60 hover:bg-black/80 text-white text-xs px-3 py-1.5 z-10 transition-colors"
+        className="absolute top-10 right-3 bg-black/60 hover:bg-black/80 text-white text-xs px-3 py-1.5 z-10 transition-colors"
       >
         {label}
       </button>
