@@ -38,7 +38,7 @@ const DEFAULT: Config = {
     {
       code: "AI",
       name: "AI",
-      image: "/images/0e0445_50fa04b863b54e4abc10490cc84b903c.png",
+      image: "/images/e7ad8b_0fbc585b253d43d5a806495623cf13a4.webp",
       martindale: "> 100 000",
       composition: "100% PES",
       density: "370 g/m² ± 5%",
@@ -49,7 +49,7 @@ const DEFAULT: Config = {
     {
       code: "AT",
       name: "AT",
-      image: "/images/0e0445_d1fcd2e300084e7094699e57e927f139.png",
+      image: "/images/e7ad8b_1df77688fc3245228fbb11d74a0e4a1a.webp",
       martindale: "> 100 000",
       composition: "100% PES",
       density: "450 g/m² ± 5%",
@@ -60,7 +60,7 @@ const DEFAULT: Config = {
     {
       code: "MA",
       name: "MA",
-      image: "/images/0e0445_50fa04b863b54e4abc10490cc84b903c.png",
+      image: "/images/e7ad8b_b09a1e9ade984e15a2ec9e9ee92e7e3e.webp",
       martindale: "100 000",
       composition: "100% POLYESTER",
       density: "–",
@@ -71,7 +71,7 @@ const DEFAULT: Config = {
     {
       code: "AG",
       name: "AG",
-      image: "/images/0e0445_d1fcd2e300084e7094699e57e927f139.png",
+      image: "/images/0e0445_50fa04b863b54e4abc10490cc84b903c.webp",
       martindale: "> 50 000",
       composition: "100% PES",
       density: "340 g/m² ± 5%",
