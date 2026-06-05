@@ -13,6 +13,8 @@ const DEFAULT_LAYOUTS: Record<string, PageLayout> = {
       { id: "home:steps", type: "steps" },
       { id: "home:popular", type: "popular" },
       { id: "home:egyedi", type: "egyedi" },
+      { id: "global:reviews", type: "reviews" },
+      { id: "global:faq", type: "faq" },
       { id: "home:contact", type: "contact" },
     ],
   },
