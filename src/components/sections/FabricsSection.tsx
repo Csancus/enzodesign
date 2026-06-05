@@ -71,7 +71,7 @@ const DEFAULT: Config = {
     {
       code: "AG",
       name: "AG",
-      image: "/images/0e0445_50fa04b863b54e4abc10490cc84b903c.webp",
+      image: "/images/e7ad8b_401077ffc6704fd98ba68bbfa720974e_full.png",
       martindale: "> 50 000",
       composition: "100% PES",
       density: "340 g/m² ± 5%",
