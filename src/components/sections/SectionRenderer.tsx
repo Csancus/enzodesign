@@ -14,6 +14,7 @@ import HeroLightSection from "./HeroLightSection";
 import HeroDarkSection from "./HeroDarkSection";
 import HeroImageSection from "./HeroImageSection";
 import ImageCollageSection from "./ImageCollageSection";
+import EditorialGridSection from "./EditorialGridSection";
 import VideoSection from "./VideoSection";
 import ReviewsSection from "./ReviewsSection";
 import FaqSection from "./FaqSection";
@@ -60,6 +61,8 @@ export default function SectionRenderer({
       return <GallerySection moduleId={id} isAdmin={isAdmin} />;
     case "image-collage":
       return <ImageCollageSection moduleId={id} isAdmin={isAdmin} />;
+    case "editorial-grid":
+      return <EditorialGridSection moduleId={id} isAdmin={isAdmin} />;
     case "video":
       return <VideoSection moduleId={id} isAdmin={isAdmin} />;
     case "reviews":
