@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import ContactFormSection from "@/components/ContactFormSection";
-import PageHero from "@/components/PageHero";
+import PageBuilderPage from "@/components/PageBuilderPage";
 
 export const metadata: Metadata = {
   title: "Modern Chesterfield kanapé – klasszikus stílus, kortalan eleganciával – Enzo Design",
@@ -19,150 +17,56 @@ export default async function Page() {
           <span className="text-[#b8924a]">Modern Chesterfield kanapé</span>
         </div>
       </nav>
-      <PageHero moduleId="blog-modern-chesterfield-kanape:hero" defaults={{ title: "Modern Chesterfield kanapé" }} />
 
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-4">
-          <div className="relative aspect-[16/7] overflow-hidden mb-10">
-            <Image
-              src="/images/chesterfield-modern-enterior-1.webp"
-              alt="Modern Chesterfield kanapé elegáns nappaliban"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          <div className="prose prose-lg max-w-none text-gray-700 space-y-5 leading-relaxed">
-            <p>
-              Sokan azt gondolják, hogy a Chesterfield kanapé csak klasszikus, ódivatú enteriőrbe illik.
-              Ez azonban tévhit – a Chesterfield az egyik legjobban alkalmazkodó bútortípus, amely modern lakásban
-              éppúgy otthon van, mint egy vintage vagy indusztriális stílusú térben. A kulcs az anyagválasztás
-              és a szín.
-            </p>
-
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mt-10" style={{ fontFamily: "var(--font-heading)" }}>
-              Mi is az a modern Chesterfield kanapé?
-            </h2>
-            <p>
-              A modern Chesterfield a klasszikus stílus újragondolása: luxus és letisztultság ötvözete. Az eredeti forma
-              – mélyen gombolt háttámla, ívelt kartámaszok, tömörfa szerkezet – megmarad, de az anyagok, a színek
-              és a méretek a mai igényekhez igazodnak.
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Letisztultabb vonalak, de megőrzött karakter</li>
-              <li>Széles színpaletta: pasztelloktól a mélytónusú árnyalatokig</li>
-              <li>Változatos anyagok: bársony, mikroszálas, prémium hatású szövetek, valódi bőr</li>
-              <li>Rugalmas méretkonfigurációk</li>
-            </ul>
-
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mt-10" style={{ fontFamily: "var(--font-heading)" }}>
-              Milyen enteriőrbe illik legjobban?
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose">
-              {[
-                { style: "Loft / indusztriális", desc: "Sötét bőr, szegecselt részletek, fém és betonfelületek mellett – ez a kombináció igazi jellemet ad a térnek." },
-                { style: "Skandináv", desc: "Szürkéskék vagy homokszín bársony változat, vékony falábakon – természetes anyagokkal kombinálva." },
-                { style: "Modern minimalista", desc: "Egyszínű, semleges árnyalatú Chesterfield, kevés kiegészítővel – a forma önmagáért beszél." },
-                { style: "Vintage / eklektikus", desc: "Barna vagy konyak bőr, fa bútorokkal és vintage részletekkel – időtlen elegancia." },
-              ].map((item) => (
-                <div key={item.style} className="bg-[#f5f0e8] p-4">
-                  <p className="font-semibold text-[#1c1c1c] text-sm mb-1">{item.style}</p>
-                  <p className="text-gray-600 text-sm">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="relative aspect-[16/7] overflow-hidden my-8">
-              <Image
-                src="/images/chesterfield-modern-enterior-2.webp"
-                alt="Chesterfield kanapé indusztriális enteriőrben"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mt-10" style={{ fontFamily: "var(--font-heading)" }}>
-              A forma időtlen, az anyag rugalmas
-            </h2>
-            <p>
-              Az Enzo Design Chesterfield kollekcióban több mint 100 szövet- és bőrfajtából lehet választani.
-              A mélyen gombolt háttámla és az ívelt kartámaszok az eredeti formát tartják – de a szín, az anyag
-              és a méret szabadon testreszabható. Legyen szó kétszemélyes kanapéról, háromszemelyesről vagy
-              sarokkanapéról – minden konfiguráció elérhető, 399.810 Ft-tól.
-            </p>
-
-            <blockquote className="border-l-4 border-[#7d6142] pl-4 italic text-gray-500 my-6">
-              „Bizonyos bútorok, amelyek mellett felnő az ember, valamiképpen fontossá válnak." – Bernlef
-            </blockquote>
-
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mt-10" style={{ fontFamily: "var(--font-heading)" }}>
-              Mit érdemes mérlegelni a választáskor?
-            </h2>
-            <h3 className="text-lg font-semibold text-[#1c1c1c]">Méretek és elrendezés</h3>
-            <p>
-              A Chesterfield karfái és háttámlája miatt általában kissé nagyobb helyet igényel, mint egy hasonló
-              befogadóképességű egyszerűbb kanapé. Mérd fel a teret, mielőtt döntesz – különösen kisebb lakásban.
-            </p>
-            <h3 className="text-lg font-semibold text-[#1c1c1c]">Szín és anyag összehangolása</h3>
-            <p>
-              Ha a szoba többi bútora semleges tónusú, egy merészebb szín (például smaragdzöld bársony vagy mélykék)
-              izgalmas kontrasztot adhat. Ha inkább harmonikus összképet szeretnél, válassz a falszínnel rokon árnyalatot.
-            </p>
-            <h3 className="text-lg font-semibold text-[#1c1c1c]">Láb és részletek</h3>
-            <p>
-              A lábak magassága és anyaga sokat számít: magasabb, vékonyabb falábakon a Chesterfield könnyedebb,
-              modernebb hatást kelt; alacsonyabb, tömörebb lábakon tradicionálisabb.
-            </p>
-
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mt-10" style={{ fontFamily: "var(--font-heading)" }}>
-              Kiegészítő bútorok
-            </h2>
-            <p>
-              A Chesterfield kanapé mellé érdemes illő foteleket vagy puffot választani a teljes ülőgarnitúrához.
-              Az Enzo Design kínálatában Chesterfield fotelok és zsámolyok is elérhetők, amelyek stílusban tökéletesen
-              kiegészítik a kanapét.
-            </p>
-
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mt-10" style={{ fontFamily: "var(--font-heading)" }}>
-              Enzo Design – 100% kézzel készített, magyar műhelyben
-            </h2>
-            <p>
-              Minden Chesterfield bútorunk Nagykanizsán, saját műhelyünkben készül kézzel. Tömörfa szerkezet,
-              prémium rugózás, min. 50.000 martindale kopásállóságú kárpit – és 3 + 10 év garancia.
-              Az ár, a méret és az anyag teljes mértékben testreszabható.
-            </p>
-
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mt-10" style={{ fontFamily: "var(--font-heading)" }}>
-              Gyakran ismételt kérdések
-            </h2>
-            <div className="space-y-4">
-              <div>
-                <p className="font-semibold text-[#1c1c1c]">Mennyi idő alatt készül el az egyedi Chesterfield?</p>
-                <p>Általában 4–6 hét a megrendelés visszaigazolásától számítva.</p>
-              </div>
-              <div>
-                <p className="font-semibold text-[#1c1c1c]">Elérhető-e nem bőr anyagban?</p>
-                <p>Igen – bársony, mikroszálas, sennilé és egyéb prémium szövetek széles választékában.</p>
-              </div>
-              <div>
-                <p className="font-semibold text-[#1c1c1c]">Hogyan kell karbantartani?</p>
-                <p>Szövet esetén rendszeres porszívózás ajánlott. Bőr esetén félévente bőrápolóval kezelendő.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-10 bg-[#f5f0e8] p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-gray-700 font-medium">Rendelje meg Chesterfield kanapéját!</p>
-            <Link href="/butoraink/kanapek/chesterfield-kanapek" className="bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-6 py-3 text-sm transition-colors">
-              Árak és kollekció
-            </Link>
-          </div>
-
-          <div className="mt-6">
-            <Link href="/blog" className="text-[#7d6142] font-semibold hover:underline text-sm">← Vissza a bloghoz</Link>
-          </div>
-        </div>
-      </section>
+      <PageBuilderPage
+        pageId="blog:modern-chesterfield-kanape"
+        defaultSections={[
+          {
+            type: "hero-light",
+            config: {
+              label: "Blog",
+              title: "Modern Chesterfield kanapé",
+              subtitle: "Sokan azt gondolják, hogy a Chesterfield csak klasszikus enteriőrbe illik – ez tévhit. A Chesterfield az egyik legjobban alkalmazkodó bútortípus, amely modern lakásban éppúgy otthon van, mint vintage térben.",
+              bgColor: "#ffffff",
+            },
+          },
+          {
+            type: "banner",
+            config: {
+              image: "/images/chesterfield-modern-enterior-1.webp",
+              alt: "Modern Chesterfield kanapé elegáns nappaliban",
+              height: "420",
+            },
+          },
+          {
+            type: "text-block",
+            config: {
+              title: "Mi is az a modern Chesterfield kanapé?",
+              body: "A modern Chesterfield a klasszikus stílus újragondolása: luxus és letisztultság ötvözete. Az eredeti forma – mélyen gombolt háttámla, ívelt kartámaszok, tömörfa szerkezet – megmarad, de az anyagok, a színek és a méretek a mai igényekhez igazodnak.\n\nLetisztultabb vonalak, de megőrzött karakter\nSzéles színpaletta: pasztelloktól a mélytónusú árnyalatokig\nVáltozatos anyagok: bársony, mikroszálas, prémium hatású szövetek, valódi bőr\nRugalmas méretkonfigurációk\n\nMilyen enteriőrbe illik legjobban?\nLoft / indusztriális: Sötét bőr, szegecselt részletek, fém és betonfelületek mellett – igazi jellem.\nSkandináv: Szürkéskék vagy homokszín bársony változat, vékony falábakon, természetes anyagokkal kombinálva.\nModern minimalista: Egyszínű, semleges árnyalatú Chesterfield, kevés kiegészítővel – a forma önmagáért beszél.\nVintage / eklektikus: Barna vagy konyak bőr, fa bútorokkal és vintage részletekkel.",
+              align: "left",
+              bgColor: "#ffffff",
+            },
+          },
+          {
+            type: "banner",
+            config: {
+              image: "/images/chesterfield-modern-enterior-2.webp",
+              alt: "Chesterfield kanapé indusztriális enteriőrben",
+              height: "360",
+            },
+          },
+          {
+            type: "text-block",
+            config: {
+              title: "A forma időtlen, az anyag rugalmas",
+              body: "Az Enzo Design Chesterfield kollekcióban több mint 100 szövet- és bőrfajtából lehet választani. A mélyen gombolt háttámla és az ívelt kartámaszok az eredeti formát tartják – de a szín, az anyag és a méret szabadon testreszabható. Legyen szó kétszemélyes kanapéról, háromszemelyesről vagy sarokkanapéról – minden konfiguráció elérhető, 399.810 Ft-tól.\n\nMit érdemes mérlegelni a választáskor?\nMéretek: A Chesterfield karfái és háttámlája miatt általában kissé nagyobb helyet igényel. Mérd fel a teret vásárlás előtt.\nSzín és anyag összehangolása: Ha a szoba többi bútora semleges, egy merészebb szín izgalmas kontrasztot adhat.\nLáb és részletek: Magasabb, vékonyabb falábakon a Chesterfield könnyedebb, modernebb hatást kelt.\n\nEnzo Design – 100% kézzel készített, magyar műhelyben\nMinden Chesterfield bútorunk Nagykanizsán, saját műhelyünkben készül kézzel. Tömörfa szerkezet, prémium rugózás, min. 50.000 martindale kopásállóságú kárpit – és 3+10 év garancia. Az ár, a méret és az anyag teljes mértékben testreszabható.\n\nMennyi idő alatt készül el az egyedi Chesterfield?\nÁltalában 4–6 hét a megrendelés visszaigazolásától számítva.",
+              align: "left",
+              bgColor: "#f5f0e8",
+            },
+          },
+          { type: "contact" },
+        ]}
+      />
 
       <section className="py-12 bg-[#f5f0e8]">
         <div className="max-w-3xl mx-auto px-4">
@@ -182,8 +86,6 @@ export default async function Page() {
           </div>
         </div>
       </section>
-
-      <ContactFormSection />
     </>
   );
 }

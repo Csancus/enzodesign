@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import ContactFormSection from "@/components/ContactFormSection";
-import PageHero from "@/components/PageHero";
+import PageBuilderPage from "@/components/PageBuilderPage";
 
 export const metadata: Metadata = {
   title: "Miért éri meg közvetlenül a bútorgyártótól vásárolni? – Enzo Design",
@@ -19,124 +17,48 @@ export default async function Page() {
           <span className="text-[#b8924a]">Miért éri meg közvetlenül a bútorgyártótól vásárolni?</span>
         </div>
       </nav>
-      <PageHero moduleId="blog-miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni:hero" defaults={{ title: "Miért éri meg közvetlenül a bútorgyártótól vásárolni?" }} />
 
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-4">
-          <div className="relative aspect-[16/7] overflow-hidden mb-10">
-            <Image src="/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp" alt="Enzo Design gyártóüzem" fill className="object-cover" />
-          </div>
-          <div className="prose prose-lg max-w-none text-gray-700 space-y-5 leading-relaxed">
-            <p>
-              A bútorvásárlás nem csupán esztétikai döntés, hanem hosszú távú befektetés is. Amikor bútort
-              keresel otthonodba vagy irodádba, érdemes elgondolkodnod azon, hogy miért lehet jobb döntés
-              egyenesen a gyártótól rendelni – akár 30–40%-kal kedvezőbb áron.
-            </p>
-
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mt-10" style={{ fontFamily: "var(--font-heading)" }}>
-              1. Elkerülheted a felárat
-            </h2>
-            <p>
-              A bútorboltok áraikba beépítik a disztribúciós, raktározási és közvetítői költségeket.
-              Az Enzo Design közvetlenül a végfogyasztóval dolgozik – ezek a rejtett költségek teljesen elmaradnak.
-              Versenyképes árat kapsz prémium minőségért, közvetítő nélkül.
-            </p>
-
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mt-10" style={{ fontFamily: "var(--font-heading)" }}>
-              2. Egyediség, amit nem kapsz meg a boltokban
-            </h2>
-            <p>
-              Boltban csak azt kapod, ami van. A gyártónál lehetőséged van teljesen egyedi, személyre szabott
-              bútor rendelésére. Az Enzo Design akár egy fotó alapján is elkészíti, amit megálmodtál –
-              saját méretben, a te szöveteddel és színeddel.
-            </p>
-            <ul className="list-disc pl-6 space-y-1">
-              <li>Több mint 100 szövet- és bőrféleség</li>
-              <li>Egyedi méret és konfiguráció</li>
-              <li>Extra funkciók: ágyazható, tárolós, szögletes vagy lekerekített forma</li>
-            </ul>
-
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mt-10" style={{ fontFamily: "var(--font-heading)" }}>
-              3. Hosszabb élettartam és garancia
-            </h2>
-            <p>
-              Az Enzo Design bútorai tömörfa szerkezettel és nagy kopásállóságú szövettel készülnek.
-              <strong> 3 év termékgaranciával és 10 év vázgaranciával</strong> adjuk ki a bútorokat – ez ritka a piacon.
-              Egy ilyen bútor nem 5–10 évre szól, hanem 20–30-ra is.
-            </p>
-
-            <div className="relative aspect-[16/7] overflow-hidden my-8">
-              <Image src="/images/chesterfield-karpitos-munka.webp" alt="Enzo Design kárpitozás kézimunka" fill className="object-cover" />
-            </div>
-
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mt-10" style={{ fontFamily: "var(--font-heading)" }}>
-              4. Közvetlen kommunikáció
-            </h2>
-            <p>
-              Nem kell üzeneteket közvetíteni egy eladón keresztül. Közvetlen kapcsolatban lehetsz a tervezőkkel
-              és kivitelezőkkel, ami sokkal hatékonyabb és gyorsabb folyamattá teszi a rendelést. Kérdés esetén
-              2 napon belül árajánlatot adunk.
-            </p>
-
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mt-10" style={{ fontFamily: "var(--font-heading)" }}>
-              5. Magyar munka támogatása
-            </h2>
-            <p>
-              A hazai gyártás támogatása nemcsak gazdasági, hanem erkölcsi döntés is. Az Enzo Design Nagykanizsán,
-              közel 20 éve gyárt egyedi kárpitozott bútorokat – helyi szakemberek munkájával, prémium anyagokból.
-              Minden vásárlásoddal egy magyar műhely fennmaradását is támogatod.
-            </p>
-
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mt-10" style={{ fontFamily: "var(--font-heading)" }}>
-              Összehasonlítás: gyártótól vs. bútorboltból
-            </h2>
-            <div className="overflow-x-auto not-prose">
-              <table className="w-full text-sm border-collapse">
-                <thead>
-                  <tr className="bg-[#f5f0e8]">
-                    <th className="border border-gray-200 px-4 py-2 text-left font-semibold text-[#1c1c1c]">Szempont</th>
-                    <th className="border border-gray-200 px-4 py-2 text-left font-semibold text-[#1c1c1c]">Gyártótól (Enzo Design)</th>
-                    <th className="border border-gray-200 px-4 py-2 text-left font-semibold text-[#1c1c1c]">Bútorboltból</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border border-gray-200 px-4 py-2">Ár</td>
-                    <td className="border border-gray-200 px-4 py-2">Gyártói ár, felár nélkül</td>
-                    <td className="border border-gray-200 px-4 py-2">Közvetítői felár beépítve</td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="border border-gray-200 px-4 py-2">Egyediség</td>
-                    <td className="border border-gray-200 px-4 py-2">Teljes testreszabás</td>
-                    <td className="border border-gray-200 px-4 py-2">Csak raktárkészletből</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-200 px-4 py-2">Garancia</td>
-                    <td className="border border-gray-200 px-4 py-2">3 + 10 év</td>
-                    <td className="border border-gray-200 px-4 py-2">Általában 1–2 év</td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="border border-gray-200 px-4 py-2">Kommunikáció</td>
-                    <td className="border border-gray-200 px-4 py-2">Közvetlen a gyártóval</td>
-                    <td className="border border-gray-200 px-4 py-2">Közvetítőn át</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div className="mt-10 bg-[#f5f0e8] p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-gray-700 font-medium">Rendeljön közvetlenül a gyártótól!</p>
-            <Link href="/butoraink" className="bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-6 py-3 text-sm transition-colors">
-              Megnézem a bútorokat
-            </Link>
-          </div>
-
-          <div className="mt-6">
-            <Link href="/blog" className="text-[#7d6142] font-semibold hover:underline text-sm">← Vissza a bloghoz</Link>
-          </div>
-        </div>
-      </section>
+      <PageBuilderPage
+        pageId="blog:miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni"
+        defaultSections={[
+          {
+            type: "hero-light",
+            config: {
+              label: "Blog",
+              title: "Miért éri meg közvetlenül a bútorgyártótól vásárolni?",
+              subtitle: "A bútorvásárlás hosszú távú befektetés. Amikor bútort keresel otthonodba vagy irodádba, érdemes elgondolkodnod azon, hogy miért lehet jobb döntés egyenesen a gyártótól rendelni – akár 30–40%-kal kedvezőbb áron.",
+              bgColor: "#ffffff",
+            },
+          },
+          {
+            type: "banner",
+            config: {
+              image: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp",
+              alt: "Enzo Design gyártóüzem kézimunka",
+              height: "420",
+            },
+          },
+          {
+            type: "text-block",
+            config: {
+              title: "5 ok, amiért érdemes gyártótól vásárolni",
+              body: "1. Elkerülheted a felárat\nA bútorboltok áraikba beépítik a disztribúciós, raktározási és közvetítői költségeket. Az Enzo Design közvetlenül a végfogyasztóval dolgozik – ezek a rejtett költségek teljesen elmaradnak. Versenyképes árat kapsz prémium minőségért.\n\n2. Egyediség, amit nem kapsz meg a boltokban\nBoltban csak azt kapod, ami van. A gyártónál lehetőséged van teljesen egyedi, személyre szabott bútor rendelésére. Az Enzo Design akár egy fotó alapján is elkészíti, amit megálmodtál – saját méretben, a te szöveteddel és színeddel.\n\n3. Hosszabb élettartam és garancia\nAz Enzo Design bútorai tömörfa szerkezettel és nagy kopásállóságú szövettel készülnek. 3 év termékgaranciával és 10 év vázgaranciával adjuk ki a bútorokat – ez ritka a piacon.\n\n4. Közvetlen kommunikáció\nNem kell üzeneteket közvetíteni egy eladón keresztül. Közvetlen kapcsolatban lehetsz a tervezőkkel és kivitelezőkkel – kérdés esetén 2 napon belül árajánlatot adunk.\n\n5. Magyar munka támogatása\nA hazai gyártás támogatása nemcsak gazdasági, hanem erkölcsi döntés is. Az Enzo Design Nagykanizsán, közel 20 éve gyárt egyedi kárpitozott bútorokat – helyi szakemberek munkájával, prémium anyagokból.",
+              align: "left",
+              bgColor: "#ffffff",
+            },
+          },
+          {
+            type: "text-block",
+            config: {
+              title: "Összehasonlítás: gyártótól vs. bútorboltból",
+              body: "Ár: Gyártói ár, felár nélkül – vs. – közvetítői felár beépítve.\nEgyediség: Teljes testreszabás – vs. – csak raktárkészletből.\nGarancia: 3 + 10 év – vs. – általában 1–2 év.\nKommunikáció: Közvetlen a gyártóval – vs. – közvetítőn át.\nÉlettartam: 20–30+ év tömörfával – vs. – átlagos, gyorsabb kopás.\n\nA bútorboltok korlátozott kínálattal dolgoznak, míg az Enzo Design személyre szabott, egyedi bútorok készítésére képes – minden négyzetméternyi és minden szövettípusban, amit megálmodsz.",
+              align: "left",
+              bgColor: "#f5f0e8",
+            },
+          },
+          { type: "contact" },
+        ]}
+      />
 
       <section className="py-12 bg-[#f5f0e8]">
         <div className="max-w-3xl mx-auto px-4">
@@ -156,8 +78,6 @@ export default async function Page() {
           </div>
         </div>
       </section>
-
-      <ContactFormSection />
     </>
   );
 }
