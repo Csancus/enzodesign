@@ -1,101 +1,125 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
 import PageHero from "@/components/PageHero";
-import BlogList from "./BlogList";
 
 export const metadata: Metadata = {
-  title: "Blog – Enzo Design",
+  title: "Blog",
   description: "Enzo Design blog – bútorokról, kárpitozásról, Chesterfieldről és trendekről.",
 };
 
 const POSTS = [
   {
     slug: "butorbolt-nagykanizsán",
-    title: "Bútorbolt Nagykanizsán: Prémium választék, személyesen és kiszállítással is elérhető",
-    excerpt: "Megbízható bútorboltot keresel Nagykanizsán? Mutatjuk, hol találod meg álmaid bútorait! Egyedi bútorok készítése Nagykanizsán – személyes egyeztetéssel, kiszállítással és garanciával.",
-    category: "",
+    title: "Bútorbolt Nagykanizsán",
+    excerpt: "Prémium kárpitozott bútorok helyi megvásárlásával és kiszállításával – az Enzo Design nagykanizsai bemutatóterme.",
+    category: "Általános",
     readTime: "2 perc",
-    image: "/images/slide5.webp",
+    date: "2025",
   },
   {
     slug: "kanape-zalaegerszegen",
-    title: "Kanapé Zalaegerszegen: Hogyan találod meg a tökéletes bútort otthonodba?",
-    excerpt: "Kényelmes kanapét keresel Zalaegerszegen? Mutatjuk a legjobb megoldást! Egy új kanapé kiválasztása nem csupán esztétikai kérdés – ez a döntés évekre meghatározza a nappalid hangulatát.",
-    category: "",
+    title: "Kanapé Zalaegerszegen",
+    excerpt: "Egy új kanapé kiválasztása nem csupán esztétikai kérdés – útmutató Zalaegerszeg és közelének vásárlóinak.",
+    category: "Általános",
     readTime: "3 perc",
-    image: "/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp",
+    date: "2025",
   },
   {
     slug: "bor-fotel",
-    title: "Bőr fotel: Időtálló kényelem és stílus egyetlen bútordarabban",
-    excerpt: "Miért érdemes valódi bőr fotelt választani? A bőr fotel egyedi megjelenése, tartóssága és karbantarthatósága miatt évtizedekig megőrzi szépségét – és értékét.",
-    category: "fotel",
+    title: "Bőr fotel",
+    excerpt: "Időtálló kényelem és stílus egyetlen bútordarabban – miért érdemes valódi bőr fotelt választani.",
+    category: "Chesterfield",
     readTime: "3 perc",
-    image: "/images/e7ad8b_b0943221b51548cbbe6d97a0e24fbeb6.webp",
+    date: "2025",
   },
   {
     slug: "modern-chesterfield-kanape",
     title: "Modern Chesterfield kanapé",
-    excerpt: "A Chesterfield kanapé nem csak elegáns, hanem rendkívül sokoldalú is. Mutatjuk, hogyan illik modern enteriőrbe, és milyen színek, szövetek emelik ki legjobban.",
-    category: "chesterfield",
-    readTime: "3 perc",
-    image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp",
+    excerpt: "A Chesterfield kanapé nem csak elegáns, hanem rendkívül sokoldalú is – hogyan illik modern enteriőrbe?",
+    category: "Chesterfield",
+    readTime: "4 perc",
+    date: "2025",
   },
   {
     slug: "melyik-chesterfield-butor-illik-hozzad",
-    title: "Melyik Chesterfield bútor illik hozzád? – Stíluskalauz színekhez és formákhoz",
-    excerpt: "Chesterfield kanapé, fotel vagy sarokgarnitúra? Útmutató a stílusokhoz, formákhoz és színekhez – hogy megtaláld azt a darabot, amelyik tökéletesen illik az otthonodba.",
-    category: "chesterfield",
-    readTime: "2 perc",
-    image: "/images/e7ad8b_b8e06512bf824479b51f4152def251fa.webp",
-  },
-  {
-    slug: "agyazhato-chesterfield-kanape",
-    title: "Ágyazható Chesterfield kanapé – Stílus és praktikum egy bútorban",
-    excerpt: "Az ágyazható Chesterfield kanapé egyesíti a klasszikus eleganciát a modern igényekkel. Ideális kisebb lakásokba, ahol a stílus és a funkcionalitás egyszerre fontos.",
-    category: "chesterfield",
-    readTime: "2 perc",
-    image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp",
-  },
-  {
-    slug: "miert-idotallo-valasztas-a-chesterfield-kanape",
-    title: "Miért időtálló választás a Chesterfield kanapé?",
-    excerpt: "A Chesterfield kanapé több mint 200 éves múltra tekint vissza – és nem véletlenül maradt ennyire népszerű. Mutatjuk, miért éri meg most is Chesterfieldbe fektetni.",
-    category: "chesterfield",
-    readTime: "2 perc",
-    image: "/images/e7ad8b_6a9bc07515294a40a1f7777272c2786e.webp",
-  },
-  {
-    slug: "tomorfa-butor",
-    title: "Tömörfa bútor: időtálló befektetés vagy elavult megoldás?",
-    excerpt: "Tévhitek a tömörfáról, előnyök az MDF-fel szemben, és miért garantálja a tartósságot. A tömörfa bútor nemcsak szép – évtizedekig megőrzi formáját és szilárdságát.",
-    category: "",
-    readTime: "1 perc",
-    image: "/images/nsplsh_1b3884fd54de4bf38b65c3212fdc76c7.webp",
+    title: "Melyik Chesterfield bútor illik hozzád?",
+    excerpt: "Stíluskalauz Chesterfield bútorokhoz: szék, puff, étkezőszék, forgószék – és a színek jelentése.",
+    category: "Chesterfield",
+    readTime: "4 perc",
+    date: "2025",
   },
   {
     slug: "egyedi-butor-keszittetes",
-    title: "Egyedi bútor készíttetés – mire figyelj, ha saját ötleted van?",
-    excerpt: "Vizuális kiindulópont, méretek, anyagválasztás és konzultáció – minden, amit tudni érdemes, mielőtt egyedi bútor rendelésbe kezdesz.",
-    category: "",
-    readTime: "1 perc",
-    image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp",
+    title: "Egyedi bútor készíttetés",
+    excerpt: "Mire figyelj, ha saját ötleted van? Vizuális kiindulópont, méretek, anyagválasztás és konzultáció.",
+    category: "Chesterfield",
+    readTime: "3 perc",
+    date: "2025",
   },
   {
     slug: "miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni",
     title: "Miért éri meg közvetlenül a bútorgyártótól vásárolni?",
-    excerpt: "5 ok, amiért érdemes egyenesen a gyártótól rendelni – ár, egyediség, minőség, gyorsabb átfutás és közvetlen kapcsolat. Így spórolhatsz akár 30-40%-ot is.",
-    category: "",
-    readTime: "2 perc",
-    image: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp",
+    excerpt: "5 ok, amiért érdemes egyenesen a gyártótól rendelni – ár, egyediség, minőség és közvetlen kapcsolat.",
+    category: "Chesterfield",
+    readTime: "3 perc",
+    date: "2025",
+  },
+  {
+    slug: "miert-idotallo-valasztas-a-chesterfield-kanape",
+    title: "Miért időtálló választás a Chesterfield kanapé?",
+    excerpt: "A Chesterfield kanapé történelme, stílusok, modern enteriőrökbe illesztés és a legjobb színek.",
+    category: "Chesterfield",
+    readTime: "5 perc",
+    date: "2025",
+  },
+  {
+    slug: "tomorfa-butor",
+    title: "Tömörfa bútor: időtálló befektetés vagy elavult megoldás?",
+    excerpt: "Tévhitek a tömörfáról, előnyök az MDF-fel szemben, és miért garantálja a tartósságot.",
+    category: "Chesterfield",
+    readTime: "3 perc",
+    date: "2025",
+  },
+  {
+    slug: "agyazhato-chesterfield-kanape",
+    title: "Ágyazható Chesterfield kanapé",
+    excerpt: "Stílus és praktikum egy bútorban – az ágyazható Chesterfield kanapé minden előnye.",
+    category: "Chesterfield",
+    readTime: "3 perc",
+    date: "2025",
   },
 ];
 
-export default function BlogPage() {
+export default async function BlogPage() {
   return (
     <>
-      <PageHero moduleId="hero:blog" defaults={{ title: "Blog", label: "Írások" }} />
-      <BlogList posts={POSTS} />
+      <PageHero moduleId="blog:hero" defaults={{ title: "Blog", label: "Írások" }} />
+
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="space-y-8">
+            {POSTS.map((post) => (
+              <article key={post.slug} className="border-b border-gray-100 pb-8 last:border-0">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="bg-[#f5f0e8] text-[#7d6142] text-xs font-semibold px-2.5 py-1 uppercase tracking-wide">
+                    {post.category}
+                  </span>
+                  <span className="text-gray-400 text-xs">{post.readTime} olvasás</span>
+                  <span className="text-gray-400 text-xs">{post.date}</span>
+                </div>
+                <h2 className="text-2xl font-bold text-[#1c1c1c] mb-3 hover:text-[#7d6142] transition-colors" style={{ fontFamily: "var(--font-heading)" }}>
+                  {post.title}
+                </h2>
+                <p className="text-gray-600 leading-relaxed mb-4">{post.excerpt}</p>
+                <Link href={`/blog/${post.slug}`} className="text-[#7d6142] font-semibold text-sm hover:underline">
+                  Olvasd el →
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
       <ContactFormSection />
     </>
   );
