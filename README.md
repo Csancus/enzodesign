@@ -1,3 +1,7 @@
+# Enzo Design
+
+**Referencia / eredeti Wix oldal:** https://info101529.wixsite.com/enzo-design/home
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactFormSection from "./ContactFormSection";
 import PriceTable from "./PriceTable";
+import FabricsSection from "./sections/FabricsSection";
 import { formatPrice } from "@/data/products";
+import { getAdminStatus } from "@/lib/auth";
 
 type Pricing = {
   fotel?: { alap: number; bor?: number };
@@ -33,7 +35,7 @@ function getStartingPrice(pricing: Pricing): number | null {
   return prices.length ? Math.min(...prices) : null;
 }
 
-export default function ProductPageTemplate({
+export default async function ProductPageTemplate({
   name,
   tagline,
   description,
@@ -44,6 +46,7 @@ export default function ProductPageTemplate({
   breadcrumb,
 }: Props) {
   const startingPrice = getStartingPrice(pricing);
+  const isAdmin = await getAdminStatus();
 
   return (
     <>
@@ -175,6 +178,8 @@ export default function ProductPageTemplate({
           </div>
         </section>
       )}
+
+      <FabricsSection isAdmin={isAdmin} />
 
       {/* FORM */}
       <div id="rendeles">

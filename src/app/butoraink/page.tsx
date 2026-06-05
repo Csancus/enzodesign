@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import FabricsSection from "@/components/sections/FabricsSection";
+import { getAdminStatus } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "Bútoraink – Enzo Design",
@@ -80,7 +82,9 @@ function SectionHeader({ title, href, linkLabel }: { title: string; href: string
   );
 }
 
-export default function ButorainkPage() {
+export default async function ButorainkPage() {
+  const isAdmin = await getAdminStatus();
+
   return (
     <>
       <PageHero
@@ -138,6 +142,8 @@ export default function ButorainkPage() {
           <ProductGrid items={EXTRA_CARDS} />
         </div>
       </section>
+
+      <FabricsSection isAdmin={isAdmin} />
 
       {/* CTA */}
       <section className="bg-[#f5f0e8] py-14 px-4 text-center">

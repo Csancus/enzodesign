@@ -18,6 +18,7 @@ import EditorialGridSection from "./EditorialGridSection";
 import VideoSection from "./VideoSection";
 import ReviewsSection from "./ReviewsSection";
 import FaqSection from "./FaqSection";
+import FabricsSection from "./FabricsSection";
 
 export default function SectionRenderer({
   type,
@@ -69,6 +70,8 @@ export default function SectionRenderer({
       return <ReviewsSection isAdmin={isAdmin} />;
     case "faq":
       return <FaqSection moduleId={id} isAdmin={isAdmin} />;
+    case "fabrics":
+      return <FabricsSection moduleId={id} isAdmin={isAdmin} />;
     case "contact":
       return <ContactFormSection />;
     default:

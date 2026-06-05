@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { getAdminStatus } from "@/lib/auth";
+import FabricsSection from "@/components/sections/FabricsSection";
 
 export const metadata: Metadata = {
   title: "Kanapék – Enzo Design",
@@ -19,7 +21,9 @@ const CARDS = [
   { name: "Üzleti bútor, kanapé", tagline: "Vásárlóid kényelmére", image: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
 ];
 
-export default function KanapekPage() {
+export default async function KanapekPage() {
+  const isAdmin = await getAdminStatus();
+
   return (
     <>
       {/* HERO */}
@@ -77,22 +81,7 @@ export default function KanapekPage() {
         </div>
       </section>
 
-      {/* KÁRPIT ANYAGOK CTA */}
-      <section className="py-10 bg-[#f5f0e8] px-4 text-center">
-        <h2 className="text-xl font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>
-          Nagy kopásállóságú, minőségi kárpit anyagok
-        </h2>
-        <p className="text-sm text-gray-600 mb-6 max-w-xl mx-auto">
-          Minimum 50.000 martindale-es anyagokkal dolgozunk – de nem ritka a 100.000 feletti sem.
-          Tetszőleges szín, anyag és kopásállóság választható.
-        </p>
-        <Link
-          href="/butoraink/karpitoszovetek"
-          className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm"
-        >
-          Kárpitszövetek megtekintése
-        </Link>
-      </section>
+      <FabricsSection isAdmin={isAdmin} />
     </>
   );
 }
