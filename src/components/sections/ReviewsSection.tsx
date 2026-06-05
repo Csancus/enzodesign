@@ -7,14 +7,14 @@ export type Review = { name: string; text: string; rating: string; date: string 
 export const REVIEWS_DEFAULT = {
   title: "Ügyfeleink véleménye",
   reviews: [
-    { name: "Judit Néber",    text: "Karácsonykor vásároltunk két Chesterfield kanapét az Enzo Design-tól – és egyszerűen imádjuk őket! A bútorok minősége, egyedisége és stílusa messze felülmúlta a várakozásainkat.", rating: "5", date: "egy éve" },
-    { name: "Tóth Gábor",     text: "Kedves, korrekt és rendkívül jó minőségű egyedi bútorok!!!! Csak ajánlani tudom!!!", rating: "5", date: "egy éve" },
-    { name: "Judit Palkó",    text: "Gyönyörű bútorok, szakértelem, korrekt és precíz munka, segítőkész csapat!", rating: "5", date: "egy éve" },
+    { name: "Judit Néber",    text: "Karácsonykor vásároltunk két Chesterfield kanapét az Enzo Design-tól – és egyszerűen imádjuk őket! A bútorok minősége, egyedisége és stílusa messze felülmúlta a várakozásainkat.", rating: "5", date: "2 éve" },
+    { name: "Tóth Gábor",     text: "Kedves, korrekt és rendkívül jó minőségű egyedi bútorok!!!! Csak ajánlani tudom!!!", rating: "5", date: "8 hónapja" },
+    { name: "Judit Palkó",    text: "Gyönyörű bútorok, szakértelem, korrekt és precíz munka, segítőkész csapat!", rating: "5", date: "4 hónapja" },
     { name: "Mihály Stampf",  text: "Korrekt, megbízható precíz munka. Ajánlom!", rating: "5", date: "egy éve" },
-    { name: "Máté Temlén",    text: "Nagyon igényes, profi munka!", rating: "5", date: "egy éve" },
+    { name: "Máté Temlén",    text: "Nagyon igényes, profi munka!", rating: "5", date: "6 hónapja" },
     { name: "Anita Ács",      text: "", rating: "5", date: "egy éve" },
-    { name: "Mónika Bartha",  text: "", rating: "5", date: "egy éve" },
-    { name: "Friskó Kata",    text: "", rating: "5", date: "egy éve" },
+    { name: "Mónika Bartha",  text: "", rating: "5", date: "3 hónapja" },
+    { name: "Friskó Kata",    text: "", rating: "5", date: "2 hónapja" },
   ] as Review[],
 };
 
