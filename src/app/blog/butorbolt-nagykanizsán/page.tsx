@@ -73,7 +73,7 @@ export default async function Page() {
               { title: "Miért éri meg gyártótól vásárolni?", href: "/blog/miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni" },
             ].map((a) => (
               <Link key={a.href} href={a.href} className="bg-white p-4 hover:shadow-md transition-shadow text-sm font-semibold text-[#7d6142] hover:text-[#b8924a]">
-                {a.title} →
+                {a.title} ›
               </Link>
             ))}
           </div>

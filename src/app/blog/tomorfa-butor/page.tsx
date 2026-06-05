@@ -42,7 +42,7 @@ export default async function Page() {
             type: "text-block",
             config: {
               title: "Mi az a tömörfa és miért érdemes választani?",
-              body: "Ellentétben az MDF (közepes sűrűségű farostlemez) vagy forgácslap anyagokkal, a tömörfa valódi, egybefüggő fatömbökből áll. Természetes, strapabíró, és egyedi erezetmintája miatt minden darab megismételhetetlen. Az Enzo Design bútoraiban kizárólag tömörfa vázat alkalmazunk – ez az alapja a 10 éves vázgaranciánknak.\n\nTévhitek vs. valóság:\n„Drága és nem éri meg" → Hosszú távon olcsóbb, mert 20–30 évig is tart.\n„Régimódi, nem illik modern lakásba" → Modern szövetekkel és dizájnnal kortárs megjelenésű.\n„Nem látszik, mindegy milyen az alap" → A váz határozza meg a bútor tartósságát és formáját.\n\nMiért érdemes tömörfát választani?\nTartósság több generáción át – egy jó minőségű tömörfa vázú bútor 20–30 évig is kiszolgál.\nTermészetes anyag – nem tartalmaz mesterséges ragasztóanyagokat.\nEsztétika – meleg, otthonos hatást kelt, amit semmilyen más anyag nem tud visszaadni.\nKombinálhatóság – szövetekkel, fémekkel és kortárs stílusokkal egyaránt harmonizál.",
+              body: `Ellentétben az MDF (közepes sűrűségű farostlemez) vagy forgácslap anyagokkal, a tömörfa valódi, egybefüggő fatömbökből áll. Természetes, strapabíró, és egyedi erezetmintája miatt minden darab megismételhetetlen. Az Enzo Design bútoraiban kizárólag tömörfa vázat alkalmazunk – ez az alapja a 10 éves vázgaranciánknak.\n\nTévhitek vs. valóság:\n„Drága és nem éri meg" › Hosszú távon olcsóbb, mert 20–30 évig is tart.\n„Régimódi, nem illik modern lakásba" › Modern szövetekkel és dizájnnal kortárs megjelenésű.\n„Nem látszik, mindegy milyen az alap" › A váz határozza meg a bútor tartósságát és formáját.\n\nMiért érdemes tömörfát választani?\nTartósság több generáción át – egy jó minőségű tömörfa vázú bútor 20–30 évig is kiszolgál.\nTermészetes anyag – nem tartalmaz mesterséges ragasztóanyagokat.\nEsztétika – meleg, otthonos hatást kelt, amit semmilyen más anyag nem tud visszaadni.\nKombinálhatóság – szövetekkel, fémekkel és kortárs stílusokkal egyaránt harmonizál.`,
               align: "left",
               bgColor: "#ffffff",
             },
@@ -72,7 +72,7 @@ export default async function Page() {
               { title: "Modern Chesterfield kanapé", href: "/blog/modern-chesterfield-kanape" },
             ].map((a) => (
               <Link key={a.href} href={a.href} className="bg-white p-4 hover:shadow-md transition-shadow text-sm font-semibold text-[#7d6142] hover:text-[#b8924a]">
-                {a.title} →
+                {a.title} ›
               </Link>
             ))}
           </div>
