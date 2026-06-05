@@ -12,7 +12,6 @@ function genCaptcha() {
 export default function LoginDialog() {
   const { isAdmin, setAdmin } = useAdmin();
   const [open, setOpen] = useState(false);
-  const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [captcha, setCaptcha] = useState({ a: 0, b: 0 });
   const [captchaAnswer, setCaptchaAnswer] = useState("");
@@ -26,7 +25,6 @@ export default function LoginDialog() {
 
   function handleClose() {
     setOpen(false);
-    setEmail("");
     setPw("");
     setCaptchaAnswer("");
     setError("");
@@ -44,7 +42,7 @@ export default function LoginDialog() {
     const res = await fetch("/api/admin/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password: pw, captchaA: captcha.a, captchaB: captcha.b, captchaAnswer: parseInt(captchaAnswer) }),
+      body: JSON.stringify({ password: pw, captchaA: captcha.a, captchaB: captcha.b, captchaAnswer: parseInt(captchaAnswer) }),
     });
     setLoading(false);
     if (res.ok) {
@@ -92,19 +90,11 @@ export default function LoginDialog() {
             <h2 className="text-lg font-bold text-[#1c1c1c] mb-5">Admin belépés</h2>
 
             <input
-              type="email"
-              value={email}
-              onChange={(e) => { setEmail(e.target.value); setError(""); }}
-              placeholder="Email cím"
-              autoFocus
-              required
-              className="w-full border border-gray-300 px-3 py-2.5 text-sm mb-3 outline-none focus:border-[#b8924a]"
-            />
-            <input
               type="password"
               value={pw}
               onChange={(e) => { setPw(e.target.value); setError(""); }}
               placeholder="Jelszó"
+              autoFocus
               required
               className="w-full border border-gray-300 px-3 py-2.5 text-sm mb-3 outline-none focus:border-[#b8924a]"
             />

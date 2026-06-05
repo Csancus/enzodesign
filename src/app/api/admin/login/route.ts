@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Too many attempts. Try again later." }, { status: 429 });
   }
 
-  const { email, password, captchaA, captchaB, captchaAnswer } = await req.json();
+  const { password, captchaA, captchaB, captchaAnswer } = await req.json();
 
   await new Promise((r) => setTimeout(r, 400));
 
@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
     captchaA >= 10 && captchaA <= 99 && captchaB >= 1 && captchaB <= 9 &&
     captchaAnswer === captchaA + captchaB;
 
-  if (!captchaOk || !verifyEmail(email) || !verifyPassword(password)) {
+  if (!captchaOk || !verifyPassword(password)) {
     const current = attempts.get(ip) ?? { count: 0, until: 0 };
     attempts.set(ip, { count: current.count + 1, until: now + LOCKOUT_MS });
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
