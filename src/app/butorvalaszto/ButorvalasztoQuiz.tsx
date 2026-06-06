@@ -6,28 +6,28 @@ import Image from "next/image";
 type Option = { label: string; value: string; image: string };
 
 const FORMA: Option[] = [
-  { label: "Fotel", value: "Fotel", image: "/images/e7ad8b_b0943221b51548cbbe6d97a0e24fbeb6.webp" },
-  { label: "Kettes kanapé", value: "Kettes kanapé", image: "/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp" },
-  { label: "Hármas kanapé", value: "Hármas kanapé", image: "/images/9a0b1d_422ba4768edb46bbabf18c71920c58b5.webp" },
-  { label: "Sarokkanapé", value: "Sarokkanapé", image: "/images/9a0b1d_90d30f27c0514e7dbd3b3937f18c09d6.webp" },
-  { label: "Ágy", value: "Ágy", image: "/images/9a0b1d_90fdfb1584894cccb9dbe73b245823b1.webp" },
-  { label: "Egyedi bútor", value: "Egyedi bútor", image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" },
+  { label: "Fotel", value: "Fotel", image: "/images/d56f41_676a4c24883a4688bf94e8d5a0d64eb6.png" },
+  { label: "Kettes kanapé", value: "Kettes kanapé", image: "/images/d56f41_f0f19cda74b8497e8d3f2a509ae6caea.png" },
+  { label: "Hármas kanapé", value: "Hármas kanapé", image: "/images/d56f41_29dc2a9fee104b6db9336687ebd8770f.png" },
+  { label: "Sarokkanapé", value: "Sarokkanapé", image: "/images/d56f41_3850e23204d245b8accbcdf46013859f.png" },
+  { label: "Ágy", value: "Ágy", image: "/images/d56f41_92b0cb9ed50a43a3888a5730babf9e5a.png" },
+  { label: "Egyedi bútor", value: "Egyedi bútor", image: "/images/d56f41_769357f0c70c4da0a97844526b883a30.png" },
 ];
 
 const STILUS: Option[] = [
-  { label: "Modern", value: "Modern", image: "/images/9a0b1d_044763de7b1c42628cb972936f92346e.webp" },
-  { label: "Minimál", value: "Minimál", image: "/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp" },
-  { label: "Chesterfield", value: "Chesterfield", image: "/images/chesterfield-klasszikus-stilus.webp" },
-  { label: "Skandináv", value: "Skandináv", image: "/images/9a0b1d_8720015a57b84595a2f5a3a3abe73648.webp" },
-  { label: "Glamour", value: "Glamour", image: "/images/e7ad8b_b8e06512bf824479b51f4152def251fa.webp" },
+  { label: "Modern", value: "Modern", image: "/images/d56f41_dda4c8df36424541b6df6120ac359107.png" },
+  { label: "Minimál", value: "Minimál", image: "/images/d56f41_5fd1357cb7db40c28eb775a4e7045c61.png" },
+  { label: "Chesterfield", value: "Chesterfield", image: "/images/d56f41_9ac453092389438b8a7aa408c6f7cfc0.png" },
+  { label: "Skandináv", value: "Skandináv", image: "/images/d56f41_76eec56e21ea4859bf77076fd5bb3dea.png" },
+  { label: "Glamour", value: "Glamour", image: "/images/d56f41_27a01083494743efb6d2d470f8c730ab.png" },
 ];
 
 const ANYAG: Option[] = [
-  { label: "Bársony", value: "Bársony", image: "/images/chesterfield-borszovet-boritasu.webp" },
-  { label: "Bőr", value: "Bőr", image: "/images/chesterfield-bor-anyag.webp" },
-  { label: "Zsenília", value: "Zsenília", image: "/images/9a0b1d_1946145440dc499d9ea4522e3df74f8a.webp" },
-  { label: "Gyapjú", value: "Gyapjú", image: "/images/9a0b1d_b763b84e6b714e8982fbd96f0c9f425d.webp" },
-  { label: "Többféle", value: "Többféle / Nem tudom", image: "/images/9a0b1d_99e6dc96a4804030b9c82ccb7ef9a7f7.webp" },
+  { label: "Bársony", value: "Bársony", image: "/images/d56f41_d2176371a8ae443781e761754acbdaac.png" },
+  { label: "Bőr", value: "Bőr", image: "/images/d56f41_34121c2c4bb34ba4bd94c90e482a2e39.png" },
+  { label: "Zsenília", value: "Zsenília", image: "/images/d56f41_8087504c294d453f92d1b29f2202b479.png" },
+  { label: "Gyapjú", value: "Gyapjú", image: "/images/d56f41_7abc23c13d314ed583d498be566e068d.png" },
+  { label: "Többféle", value: "Többféle / Nem tudom", image: "/images/d56f41_1ff1037e13594f2c8195637abf3107e7.png" },
 ];
 
 function SelectionGrid({
@@ -44,16 +44,17 @@ function SelectionGrid({
   onSelect: (v: string) => void;
 }) {
   return (
-    <div className="mb-14">
-      <div className="flex items-center gap-4 mb-6">
-        <div className="w-10 h-10 rounded-full bg-[#7d6142] text-white flex items-center justify-center font-bold text-lg shrink-0">
-          {step}
-        </div>
-        <h2 className="text-xl font-bold text-[#1c1c1c]" style={{ fontFamily: "var(--font-heading)" }}>
-          {title}
-        </h2>
-      </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+    <div className="mb-10">
+      <h2
+        className="text-lg font-bold text-[#1c1c1c] text-center mb-5"
+        style={{ fontFamily: "var(--font-heading)" }}
+      >
+        {step}. {title}
+      </h2>
+      <div
+        className="grid gap-2"
+        style={{ gridTemplateColumns: `repeat(${options.length}, minmax(0, 1fr))` }}
+      >
         {options.map((opt) => {
           const active = selected === opt.value;
           return (
@@ -64,7 +65,7 @@ function SelectionGrid({
               className={`group relative overflow-hidden text-left transition-all border-2 ${
                 active
                   ? "border-[#b8924a] shadow-md"
-                  : "border-gray-200 hover:border-[#7d6142] hover:shadow-sm"
+                  : "border-transparent hover:border-[#7d6142]"
               }`}
             >
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -76,15 +77,15 @@ function SelectionGrid({
                 />
                 {active && (
                   <div className="absolute inset-0 bg-[#b8924a]/20 flex items-center justify-center">
-                    <div className="bg-[#b8924a] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg">
+                    <div className="bg-[#b8924a] text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs">
                       ✓
                     </div>
                   </div>
                 )}
               </div>
               <div
-                className={`px-3 py-2.5 text-sm font-semibold transition-colors ${
-                  active ? "bg-[#b8924a] text-white" : "bg-white text-[#1c1c1c] group-hover:text-[#7d6142]"
+                className={`px-1 py-1.5 text-xs font-medium text-center transition-colors ${
+                  active ? "text-[#b8924a]" : "text-[#1c1c1c]"
                 }`}
               >
                 {opt.label}
@@ -157,24 +158,13 @@ export default function ButorvalasztoQuiz() {
     <section className="py-16 bg-white">
       <div className="max-w-4xl mx-auto px-4">
 
-        {/* Intro */}
-        <div className="text-center mb-14 max-w-2xl mx-auto">
-          <p className="text-gray-700 leading-relaxed mb-4">
-            20 éve azért dolgozunk, hogy minőségi és strapabíró bútorokat készítsünk.
-          </p>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Gyártók vagyunk, így a magas minőség mellett az ár reális tud maradni, nincs disztribúciós költség.
-            Ezen kívül bármilyen stílusú, anyagú, méretű bútort elkészítünk Neked!
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            Töltsd ki a lenti kapcsolat formot, küldj egy képet vagy írd meg, mit szeretnél és mi elkészítjük neked 4 héten belül!
-          </p>
-          <p className="text-[#7d6142] font-semibold mt-4">
-            Írj a{" "}
-            <a href="mailto:info@enzodesign.hu" className="underline hover:text-[#b8924a]">info@enzodesign.hu</a>
-            {" "}címre vagy hívd bútortervezőnket a{" "}
-            <a href="tel:+36303778983" className="underline hover:text-[#b8924a]">+36 30 377 8983</a>
-            {" "}számon.
+        {/* Title */}
+        <div className="text-center mb-12">
+          <h1 className="text-3xl font-bold text-[#1c1c1c] mb-3" style={{ fontFamily: "var(--font-heading)" }}>
+            Bútorválasztásra <span className="text-[#b8924a]">fel!</span>
+          </h1>
+          <p className="text-gray-500 text-sm">
+            Segíts nekünk, hogy tökéletes bútort ajánljunk neked és kérj egyedi ajánlatot!
           </p>
         </div>
 
@@ -187,7 +177,7 @@ export default function ButorvalasztoQuiz() {
         {/* Step 3 */}
         <SelectionGrid step={3} title="Válaszd ki az anyagot" options={ANYAG} selected={anyag} onSelect={setAnyag} />
 
-        {/* CTA to scroll to form */}
+        {/* CTA if anything selected */}
         {anySelected && (
           <div className="bg-[#f5f0e8] border border-[#b8924a]/30 p-5 mb-10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
@@ -204,6 +194,23 @@ export default function ButorvalasztoQuiz() {
             </button>
           </div>
         )}
+
+        {/* Intro text (below selections) */}
+        <div className="max-w-2xl mx-auto text-center mb-12 space-y-3 text-gray-700 text-sm leading-relaxed">
+          <p>20 éve azért dolgozunk, hogy minőségi és strapabíró bútorokat készítsünk.</p>
+          <p>
+            Gyártók vagyunk, így a magas minőség mellett az ár reális tud maradni, nincs disztribúciós költség.
+            Ezen kívül bármilyen stílusú, anyagú, méretű bútort elkészítünk Neked!
+          </p>
+          <p>Töltsd ki a lenti kapcsolat formot, küldj egy képet vagy írd meg, mit szeretnél és mi elkészítjük neked 4 héten belül!</p>
+          <p className="text-[#7d6142] font-semibold">
+            Írj egy emailt az{" "}
+            <a href="mailto:info@enzodesign.hu" className="underline hover:text-[#b8924a]">info@enzodesign.hu</a>
+            {" "}címre vagy hívd bútortervezőnket a{" "}
+            <a href="tel:+36303778983" className="underline hover:text-[#b8924a]">+36303778983</a>
+            {" "}számon.
+          </p>
+        </div>
 
         {/* Contact form */}
         <div ref={formRef} className="bg-[#f5f0e8] p-8 mt-4">
