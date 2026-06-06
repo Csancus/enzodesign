@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://enzodesign.hu";
+const BASE = "https://enzodesign.hu";
 
 const PAGES = [
   { url: "/", priority: 1.0, changeFrequency: "weekly" },
@@ -57,6 +57,7 @@ const PAGES = [
   { url: "/blog/miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni", priority: 0.6, changeFrequency: "monthly" },
   { url: "/blog/miert-idotallo-valasztas-a-chesterfield-kanape", priority: 0.6, changeFrequency: "monthly" },
   { url: "/blog/tomorfa-butor", priority: 0.6, changeFrequency: "monthly" },
+  { url: "/vasarloi-visszajelzesek", priority: 0.6, changeFrequency: "monthly" },
   { url: "/adatkezelesi-szabalyzat", priority: 0.3, changeFrequency: "yearly" },
 ] as const;
 
