@@ -4,6 +4,7 @@ export const metadata: Metadata = { title: "Ivone Kollekció" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="ivone-kollekcio"
       name="Ivone Kollekció"
       tagline="Nappalid éke"
       description="A klasszikus elegancia és a modern kényelem tökéletes találkozása – ez az Ivone kollekció, amely minden nappalit egy stílusos, otthonos térré varázsol. A gyönyörűen steppelt háttámla és ülőfelület, valamint a gazdagon ívelt karfák az időtlen Chesterfield-stílus modern újraértelmezését kínálják."

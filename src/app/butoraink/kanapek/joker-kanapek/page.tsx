@@ -6,6 +6,7 @@ export const metadata: Metadata = { title: "Joker Kanapék" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="joker-kanapek"
       name="Joker Kanapék"
       tagline="Gáláns megjelenés"
       description="A visszafogott elegancia megtestesítője. Finoman fénylő, prémium szövetborítása tökéletesen harmonizál a mélyen gombolt háttámlával. Modern Chesterfield ihlette vonalak, kényelmes ülőfelület – ideális nappalihoz vagy dolgozószobához egyaránt."

@@ -4,6 +4,7 @@ export const metadata: Metadata = { title: "New York Kollekció" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="new-york-kollekcio"
       name="New York Kollekció"
       tagline="Klasszikus stílus"
       description="A New York kollekció a klasszikus Chesterfield forma eleganciáját ötvözi a modern letisztultsággal. Személyre szabható szövettel, bőrrel és méretben."

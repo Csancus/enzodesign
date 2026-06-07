@@ -4,6 +4,7 @@ export const metadata: Metadata = { title: "További Fotelek" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="tovabbi-fotelek"
       name="További Fotelek"
       tagline="Egyedi megoldások"
       description="Gombolt háttámlás modellek és modern letisztult tervek is elérhetők. Nézd végig a képeket, vagy küldj egy képet Pinterestről és mi elkészítjük neked. 82.820 Ft-tól."

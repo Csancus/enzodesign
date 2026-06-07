@@ -4,6 +4,7 @@ export const metadata: Metadata = { title: "Design Bútorok" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="design-butorok"
       name="Design Bútorok"
       tagline="Modern minőség"
       description="A Design kollekció modern formavilágával, letisztult vonalaival és elegáns steppelésével otthonod stílusos centerpiece-e lesz."

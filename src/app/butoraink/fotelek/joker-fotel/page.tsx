@@ -4,6 +4,7 @@ export const metadata: Metadata = { title: "Joker Fotel" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="joker-fotel"
       name="Joker Fotel"
       tagline="Elegáns bútor, bárhova"
       description="A Joker fotel prémium szövetborítással és gombolt háttámlával otthonod ékköve. Modern Chesterfield ihlette vonalak, maximális kényelem."

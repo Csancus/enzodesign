@@ -4,6 +4,7 @@ export const metadata: Metadata = { title: "Ivone Fotel" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="ivone-fotel"
       name="Ivone Fotel"
       tagline="Nappalid éke"
       description="Az Ivone fotel a klasszikus Chesterfield stílus modern újraértelmezése – gyönyörűen steppelt háttámlával és ívelt kartámaszokkal."

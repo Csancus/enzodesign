@@ -4,6 +4,7 @@ export const metadata: Metadata = { title: "Chesterfield Kollekció" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="chesterfield-kollekcio"
       name="Chesterfield Kollekció"
       tagline="A bútor, aminek történelme van"
       description="Közel 20 éve gyártunk Chesterfield bútorokat tömörfa szerkezettel, minőségi szövettel vagy bőr bevonattal. Az elegancia és hagyomány szimbóluma."

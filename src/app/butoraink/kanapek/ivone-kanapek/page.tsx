@@ -6,6 +6,7 @@ export const metadata: Metadata = { title: "Ivone Kanapék" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="ivone-kanapek"
       name="Ivone Kanapék"
       tagline="Nappalid éke"
       description="Az Ivone kanapé a klasszikus Chesterfield stílus modern újraértelmezése. Gyönyörűen steppelt háttámla és ülőfelület, íves kartámaszok – a modern elegancia megtestesítője. Több száz szövetből és bőrből rendelhető, tetszőleges méretben."

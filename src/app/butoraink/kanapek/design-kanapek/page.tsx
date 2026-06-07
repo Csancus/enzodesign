@@ -6,6 +6,7 @@ export const metadata: Metadata = { title: "Design Kanapék" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="design-kanapek"
       name="Design Kanapék"
       tagline="Modern minőség"
       description="A Design kanapé modern formavilágával, letisztult vonalaival és elegáns steppelésével otthonod stílusos centerpiece-e lesz. Tömörfa váz, prémium szivacs és rugórendszer – korszerű dizájn, maradandó minőség."

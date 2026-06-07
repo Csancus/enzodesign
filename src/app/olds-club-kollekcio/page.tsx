@@ -4,6 +4,7 @@ export const metadata: Metadata = { title: "Old's Club Kollekció" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="olds-club-kollekcio"
       name="Old's Club Kollekció"
       tagline="Karakteres elegancia"
       description="Az Old's Club kollekció letisztult formáival és maximális funkcionalitásával az elegancia és a kényelem tökéletes szintézise. Elérhető fotelben, 2-es, 3-as kanapéban és sarokkanapéban."

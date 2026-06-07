@@ -6,6 +6,7 @@ export const metadata: Metadata = { title: "New York Kanapék" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="new-york-kanapek"
       name="New York Kanapék"
       tagline="Klasszikus stílus"
       description="A New York kanapé a klasszikus Chesterfield forma eleganciáját ötvözi a modern letisztultsággal. Időtálló, kényelmes választás minden nappali számára. Személyre szabható szövettel, bőrrel és méretben."

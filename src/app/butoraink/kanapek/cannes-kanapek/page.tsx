@@ -6,6 +6,7 @@ export const metadata: Metadata = { title: "Cannes Sarokkanapé" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="cannes-kanapek"
       name="Cannes Sarokkanapé"
       tagline="A modern sarok"
       description="A Cannes sarokkanapé letisztult formavilágával és kifinomult részleteivel a modern enteriőr ékköve. Állítható fejtámlák, tágas ülőfelület – a maximális kényelem és stílus szintézise."

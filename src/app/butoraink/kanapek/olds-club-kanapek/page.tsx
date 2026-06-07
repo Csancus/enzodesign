@@ -6,6 +6,7 @@ export const metadata: Metadata = { title: "Old's Club Kanapék" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="olds-club-kanapek"
       name="Old's Club Kanapék"
       tagline="Karakteres elegancia"
       description="Az Old's Club kanapé letisztult formáival és maximális funkcionalitásával az elegancia és a kényelem tökéletes szintézise. Széles ülőfelület, puha háttámla – ideális pihenéshez és vendégfogadáshoz. A sarokváltozat opcionális ágyneműtartóval is rendelhető."

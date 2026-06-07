@@ -4,6 +4,7 @@ export const metadata: Metadata = { title: "Joker Kollekció" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="joker-kollekcio"
       name="Joker Kollekció"
       tagline="Elegáns bútor, bárhova"
       description="A Joker kollekció finoman fénylő, prémium szövetborítással és mélyen gombolt háttámlával – modern Chesterfield ihlette vonalakkal."

@@ -4,6 +4,7 @@ export const metadata: Metadata = { title: "Design Fotel" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="design-fotel"
       name="Design Fotel"
       tagline="Modern minőség"
       description="A Design fotel modern formavilágával és letisztult vonalaival nem egy hagyományos bútordarab – egyedi személyiség, több száz szövetből."

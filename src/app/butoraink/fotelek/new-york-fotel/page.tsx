@@ -4,6 +4,7 @@ export const metadata: Metadata = { title: "New York Fotel" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="new-york-fotel"
       name="New York Fotel"
       tagline="Klasszikus stílus"
       description="A New York fotel a klasszikus Chesterfield forma eleganciáját ötvözi modern letisztultsággal – minden enteriőrbe illik."

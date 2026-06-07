@@ -4,6 +4,7 @@ export const metadata: Metadata = { title: "Chesterfield Fotel" };
 export default function Page() {
   return (
     <ProductPageTemplate
+      pageId="chesterfield-fotel"
       name="Chesterfield Fotel"
       tagline="A bútor, aminek történelme van"
       description="Mélyen gombolt háttámla, jellegzetes ívelt kartámaszok – a Chesterfield fotel igazán karakteres, időtálló darab modern és klasszikus enteriőrbe egyaránt."

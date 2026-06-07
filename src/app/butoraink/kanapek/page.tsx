@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAdminStatus } from "@/lib/auth";
+import { getModuleConfig } from "@/lib/moduleStore";
 import FabricsSection from "@/components/sections/FabricsSection";
 import ProductImageCarousel from "@/components/ProductImageCarousel";
+import EditBtn from "@/components/admin/EditBtn";
+import type { FieldDef } from "@/types/cms";
 
 export const metadata: Metadata = {
   title: "Kanapék – Enzo Design",
@@ -31,44 +34,79 @@ const CARDS = [
   { name: "Üzleti bútor, kanapé", tagline: "Vásárlóid kényelmére", images: ["/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp"], href: "/karpitozott-butor-uzleti-ugyfeleknek" },
 ];
 
+const HERO_SCHEMA: FieldDef[] = [
+  { key: "title", label: "Cím", type: "text" },
+  { key: "subtitle", label: "Alcím", type: "textarea" },
+];
+
+const FEATURES_SCHEMA: FieldDef[] = [
+  { key: "intro", label: "Bevezető szöveg", type: "text" },
+  { key: "body", label: "Felsorolás (soronként egy)", type: "textarea" },
+];
+
+const GRID_SCHEMA: FieldDef[] = [
+  { key: "title", label: "Szekció cím", type: "text" },
+  { key: "subtitle", label: "Alcím szöveg", type: "textarea" },
+];
+
 export default async function KanapekPage() {
   const isAdmin = await getAdminStatus();
+
+  const [heroCfg, featuresCfg, gridCfg] = await Promise.all([
+    getModuleConfig("kanapek-listing:hero"),
+    getModuleConfig("kanapek-listing:features"),
+    getModuleConfig("kanapek-listing:grid"),
+  ]);
+
+  const hero = {
+    title: (heroCfg?.title as string) || "Kanapék",
+    subtitle: (heroCfg?.subtitle as string) || "Válasszon a 2000 nm-es gyárunkból, vagy kérjen egyedi ajánlatot. A Bútoraink szövete és anyagmintája szabadon választható.",
+  };
+
+  const featuresIntro = (featuresCfg?.intro as string) || "Mindegyik bútorunkat ajánljuk:";
+  const featuresBody = (featuresCfg?.body as string) || "Egyedi szín és anyagminta választással\nTetszőleges méretben\nVálasztható kopásállóság-erősséggel (martindale)\nTömörfa szerkezettel, 10 év váz-garanciával";
+  const featuresItems = featuresBody.split("\n").map((s) => s.trim()).filter(Boolean);
+
+  const gridTitle = (gridCfg?.title as string) || "Kanapék";
+  const gridSubtitle = (gridCfg?.subtitle as string) || "Válasszon a 2000 nm-es gyárunkból, kért méretben és anyagmintával.";
 
   return (
     <>
       {/* HERO */}
-      <section className="bg-[#f5f0e8] py-20 px-4">
+      <section className="relative bg-[#f5f0e8] py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">ENZO DESIGN</p>
           <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-            Kanapék
+            {hero.title}
           </h1>
-          <p className="text-gray-600 text-lg max-w-xl mx-auto">
-            Válasszon a 2000 nm-es gyárunkból, vagy kérjen egyedi ajánlatot. A Bútoraink szövete és anyagmintája szabadon választható.
-          </p>
+          <p className="text-gray-600 text-lg max-w-xl mx-auto">{hero.subtitle}</p>
         </div>
+        {isAdmin && <EditBtn moduleId="kanapek-listing:hero" config={hero} schema={HERO_SCHEMA} label="✏ Hero" />}
       </section>
 
       {/* FEATURES */}
-      <section className="py-8 bg-white border-b border-gray-100">
+      <section className="relative py-8 bg-white border-b border-gray-100">
         <div className="max-w-2xl mx-auto px-4">
-          <p className="text-sm font-semibold text-[#b8924a] mb-3">Mindegyik bútorunkat ajánljuk:</p>
+          <p className="text-sm font-semibold text-[#b8924a] mb-3">{featuresIntro}</p>
           <ul className="space-y-1.5 text-sm text-gray-600 list-disc list-inside">
-            <li>Egyedi szín és anyagminta választással</li>
-            <li>Tetszőleges méretben</li>
-            <li>Választható kopásállóság-erősséggel (martindale)</li>
-            <li>Tömörfa szerkezettel, 10 év váz-garanciával</li>
+            {featuresItems.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </div>
+        {isAdmin && (
+          <EditBtn
+            moduleId="kanapek-listing:features"
+            config={{ intro: featuresIntro, body: featuresBody }}
+            schema={FEATURES_SCHEMA}
+            label="✏ Felsorolás"
+          />
+        )}
       </section>
 
       {/* GRID */}
-      <section className="py-12 bg-white">
+      <section className="relative py-12 bg-white">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>Kanapék</h2>
-          <p className="text-sm text-gray-500 mb-1">
-            Válasszon a 2000 nm-es gyárunkból, kért méretben és anyagmintával.
-          </p>
+          <h2 className="text-2xl font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>{gridTitle}</h2>
+          <p className="text-sm text-gray-500 mb-1">{gridSubtitle}</p>
           <Link href="/kapcsolat-es-rendeles" className="text-sm text-[#b8924a] underline block mb-8">
             Egyedi kanapét is elkészítünk →
           </Link>
@@ -82,6 +120,9 @@ export default async function KanapekPage() {
             ))}
           </div>
         </div>
+        {isAdmin && (
+          <EditBtn moduleId="kanapek-listing:grid" config={{ title: gridTitle, subtitle: gridSubtitle }} schema={GRID_SCHEMA} label="✏ Szekció szöveg" />
+        )}
       </section>
 
       <FabricsSection isAdmin={isAdmin} />
