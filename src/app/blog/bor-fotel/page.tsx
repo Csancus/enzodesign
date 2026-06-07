@@ -33,8 +33,8 @@ export default async function Page() {
           {
             type: "banner",
             config: {
-              image: "/images/e7ad8b_b0943221b51548cbbe6d97a0e24fbeb6.webp",
-              alt: "Bőr fotel – Enzo Design Chesterfield",
+              image: "/images/blog-bor-fotel-cover.webp",
+              alt: "Bőr fotel – Enzo Design prémium kárpitozott bútorok",
               height: "420",
             },
           },
@@ -54,6 +54,15 @@ export default async function Page() {
               body: "Modern / minimalista: Fekete vagy szürke bőrfotel, karcsú falábakon – tiszta vonalak, kevés dekoráció.\n\nKlasszikus / tradicionális: Barna vagy konyak árnyalatú Chesterfield fotel, fa bútorok és keleti szőnyeg társaságában.\n\nLoft / indusztriális: Sötét bőr, szegecselt részletek, fém és betonfelületek mellett.\n\nIrodai tér: Fekete bőrfotel – státuszszimbólum és praktikus, könnyen tisztítható megoldás egyszerre.\n\nBőr vagy szövet?\nA bőr tartósabb, könnyebben tisztítható és idővel patinaszerű felületet kap – ideális klasszikus, elegáns enteriőrbe. A szövet puhábbnak érződik, több szín és minta közül lehet választani. Chesterfield foteleink mindkét anyagban rendelhetők: bőr változat 421.695 Ft-tól, szövet változat 324.380 Ft-tól – tömörfa szerkezettel, 3+10 év garanciával.\n\nKarbantartási tippek\nHavonta portold le száraz, puha ruhával.\nFélévente kezeld bőrápoló termékkel – ez megőrzi rugalmasságát.\nKerüld a közvetlen napfényt – elfakítja a bőrt.\nFriss foltot azonnal töröld fel száraz kendővel.",
               align: "left",
               bgColor: "#f5f0e8",
+            },
+          },
+          {
+            type: "text-block",
+            config: {
+              title: "GYIK – Gyakori kérdések a bőr fotelekről",
+              body: "Valódi bőrt használ az Enzo Design?\nIgen – prémium minőségű valódi olasz bőrt kínálunk, de elérhetők alternatív, könnyebben tisztítható bőrhatású anyagok is.\n\nMilyen színekben kérhető?\nSzinte bármilyen színben – a klasszikus fekete és barna mellett sötétzöld, bordó vagy akár tengerészkék árnyalat is választható.\n\nMilyen gyakran kell tisztítani?\nHavonta portalanítás száraz, puha ruhával elegendő. Félévente bőrápolóval érdemes kezelni.\n\nMit érdemes tudni a bőrfotel és a szövetfotel különbségéről?\nA bőr tartósabb és könnyebben tisztítható – hosszú távon jobb befektetés. A szövet puhábbnak érződik és olcsóbb belépőáron elérhető. Mindkét anyag elérhető az Enzo Design foteleknél.\n\nTévhitek és valóság:\n\"A bőr fotel nyáron izzasztó, télen hideg\" → A valódi bőr lélegzik, hőszabályzó tulajdonságokkal bír.\n\"A bőr mindig bőrbarna\" → Ma már széles színválaszték érhető el – akár pasztell vagy élénk árnyalatokban is.\n\"Bőr fotelt csak klasszikus stílushoz lehet választani\" → A modern formatervezésnek köszönhetően bármilyen enteriőrbe illeszthető.",
+              align: "left",
+              bgColor: "#ffffff",
             },
           },
           { type: "contact" },

@@ -50,8 +50,8 @@ export default async function Page() {
           {
             type: "banner",
             config: {
-              image: "/images/chesterfield-modern-enterior-2.webp",
-              alt: "Chesterfield kanapé indusztriális enteriőrben",
+              image: "/images/blog-modern-chesterfield-2.webp",
+              alt: "Modern Chesterfield kanapé indusztriális és skandináv enteriőrben",
               height: "360",
             },
           },
@@ -62,6 +62,15 @@ export default async function Page() {
               body: "Az Enzo Design Chesterfield kollekcióban több mint 100 szövet- és bőrfajtából lehet választani. A mélyen gombolt háttámla és az ívelt kartámaszok az eredeti formát tartják – de a szín, az anyag és a méret szabadon testreszabható. Legyen szó kétszemélyes kanapéról, háromszemelyesről vagy sarokkanapéról – minden konfiguráció elérhető, 399.810 Ft-tól.\n\nMit érdemes mérlegelni a választáskor?\nMéretek: A Chesterfield karfái és háttámlája miatt általában kissé nagyobb helyet igényel. Mérd fel a teret vásárlás előtt.\nSzín és anyag összehangolása: Ha a szoba többi bútora semleges, egy merészebb szín izgalmas kontrasztot adhat.\nLáb és részletek: Magasabb, vékonyabb falábakon a Chesterfield könnyedebb, modernebb hatást kelt.\n\nEnzo Design – 100% kézzel készített, magyar műhelyben\nMinden Chesterfield bútorunk Nagykanizsán, saját műhelyünkben készül kézzel. Tömörfa szerkezet, prémium rugózás, min. 50.000 martindale kopásállóságú kárpit – és 3+10 év garancia. Az ár, a méret és az anyag teljes mértékben testreszabható.\n\nMennyi idő alatt készül el az egyedi Chesterfield?\nÁltalában 4–6 hét a megrendelés visszaigazolásától számítva.",
               align: "left",
               bgColor: "#f5f0e8",
+            },
+          },
+          {
+            type: "text-block",
+            config: {
+              title: "GYIK – Kérdések a modern Chesterfield kanapéról",
+              body: "Mennyi idő alatt készül el egy egyedi modern Chesterfield kanapé?\nÁltalában 4–6 hét a megrendelés visszaigazolásától számítva, az anyagtól és a mérettől függően.\n\nLehet bőr helyett más kárpitot választani?\nTermészetesen! Széles bársony-, mikroszálas- és textilopcióból választhatsz. Minden anyag ellenőrzött minőségű, legalább 50.000 martindale kopásállóságú.\n\nHogyan tisztítható a kárpit?\nA legtöbb modern kárpit vízzel és semleges tisztítószerrel kezelhető. Rendeléskor pontosan tájékoztatjuk az anyagspecifikus ápolási tanácsokról.\n\nMilyen stílusba illik a modern Chesterfield?\nLoft: robusztus forma, sötét szín nyers felületekkel. Skandináv: homokszín bársony, vékony falábakon. Minimalista: semleges egyszínű, kevés kiegészítővel. Vintage: barna bőr, fa bútorokkal.\n\nTévhitek és valóság:\n\"Csak bőrből készülhet\" → A modern Chesterfield bársony, mikroszálas és egyéb textilekből is elérhető.\n\"Csak klasszikus lakásokba illik\" → A letisztult formák miatt modern enteriőrbe is tökéletesen illeszkedik.\n\"Mind ugyanúgy néz ki\" → Az egyedi gyártás miatt nincs két egyforma darab.",
+              align: "left",
+              bgColor: "#ffffff",
             },
           },
           { type: "contact" },
