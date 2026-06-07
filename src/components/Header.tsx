@@ -33,14 +33,8 @@ const NAV_ITEMS = [
     ],
   },
   { label: "Rendelés menete", href: "/rendeles-menete" },
-  {
-    label: "Rólunk",
-    href: "/rolunk",
-    children: [
-      { label: "Rólunk", href: "/rolunk" },
-      { label: "Vásárlói visszajelzések", href: "/vasarloi-visszajelzesek" },
-    ],
-  },
+  { label: "Vélemények", href: "/vasarloi-visszajelzesek" },
+  { label: "Rólunk", href: "/rolunk" },
   { label: "Üzleti bútor", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
 ];
 
