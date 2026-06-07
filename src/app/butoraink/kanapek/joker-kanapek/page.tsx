@@ -10,7 +10,8 @@ export default function Page() {
       name="Joker Kanapék"
       tagline="Gáláns megjelenés"
       description="A visszafogott elegancia megtestesítője. Finoman fénylő, prémium szövetborítása tökéletesen harmonizál a mélyen gombolt háttámlával. Modern Chesterfield ihlette vonalak, kényelmes ülőfelület – ideális nappalihoz vagy dolgozószobához egyaránt."
-      image="/images/e7ad8b_472fb74f2a1746e68ca129dbd34b2de7.webp"
+      image="/images/joker-kanape.png"
+      gallery={["/images/joker-katalogus.jpg", "/images/joker-sarga.jpg"]}
       pricing={{
         fotel: { alap: 324380, bor: 421695 },
         ketSzemelyes: { alap: 399810, bor: 619750 },

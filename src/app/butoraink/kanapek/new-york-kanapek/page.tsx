@@ -10,7 +10,8 @@ export default function Page() {
       name="New York Kanapék"
       tagline="Klasszikus stílus"
       description="A New York kanapé a klasszikus Chesterfield forma eleganciáját ötvözi a modern letisztultsággal. Időtálló, kényelmes választás minden nappali számára. Személyre szabható szövettel, bőrrel és méretben."
-      image="/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp"
+      image="/images/new-york-kettes-kanape.jpg"
+      gallery={["/images/new-york-kettes-kozeli.jpg", "/images/new-york-katalogus.png", "/images/new-york-fotel.png"]}
       pricing={{
         fotel: { alap: 324380, bor: 421695 },
         ketSzemelyes: { alap: 399810, bor: 619750 },
