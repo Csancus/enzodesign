@@ -19,13 +19,10 @@ export default function Page() {
       }}
       features={["50.000 martindale szövet", "Tömörfa szerkezet", "Prémium szivacs és rugó", "3 év garancia", "10 év vázgarancia", "Ágyneműtartó opció"]}
       gallery={[
-        "/images/0e0445_26ed1417f8174764ab6d8d87944fae4f.webp",
-        "/images/e7ad8b_3fa161a4e7b74434bff25cc640badfed.webp",
-        "/images/e7ad8b_7d4917d9067047f4a03874f615da5103.webp",
-        "/images/0e0445_50fa04b863b54e4abc10490cc84b903c.webp",
-        "/images/e7ad8b_3e850ebefb7f4de791cf4a4d08804eca.webp",
-        "/images/d56f41_8730eebebb7849668031c3ee3fa5f624.webp",
-        "/images/0e0445_c570567962c44821978fc817c4298c17.webp",
+        "/images/olds-club-fotel.png",
+        "/images/olds-club-kettes-kanape.png",
+        "/images/olds-club-kettes-kanape-szines.png",
+        "/images/olds-club-kettes-kanape-szines2.png",
       ]}
       breadcrumb={[
         { label: "Főoldal", href: "/" },
