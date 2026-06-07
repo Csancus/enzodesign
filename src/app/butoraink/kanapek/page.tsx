@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 
 const CARDS = [
   {
+    id: "olds-club",
     name: "Old's Club Kanapék",
     tagline: "Karakteres elegancia",
     images: [
@@ -24,14 +25,14 @@ const CARDS = [
     ],
     href: "/butoraink/kanapek/olds-club-kanapek",
   },
-  { name: "Ivone kanapék", tagline: "Nappalid éke", images: ["/images/9a0b1d_99e6dc96a4804030b9c82ccb7ef9a7f7.webp"], href: "/butoraink/kanapek/ivone-kanapek" },
-  { name: "Design Kanapék", tagline: "Modern minőség", images: ["/images/e7ad8b_d510cf607aca449c835d847344231393.webp"], href: "/butoraink/kanapek/design-kanapek" },
-  { name: "Chesterfield kanapék", tagline: "A bútor, aminek történelme van", images: ["/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp"], href: "/butoraink/kanapek/chesterfield-kanapek" },
-  { name: "New York kanapék", tagline: "Klasszikus stílus", images: ["/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp"], href: "/butoraink/kanapek/new-york-kanapek" },
-  { name: "Joker Kanapék", tagline: "Gáláns megjelenés", images: ["/images/e7ad8b_472fb74f2a1746e68ca129dbd34b2de7.webp"], href: "/butoraink/kanapek/joker-kanapek" },
-  { name: "Cannes Kanapé", tagline: "A modern sarok", images: ["/images/e7ad8b_af00972c370c4bc7800fc98bfd927214.webp"], href: "/butoraink/kanapek/cannes-kanapek" },
-  { name: "Egyedi kanapé", tagline: "Elkészítjük álombútorod", images: ["/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp"], href: "/butoraink/egyedi-butor" },
-  { name: "Üzleti bútor, kanapé", tagline: "Vásárlóid kényelmére", images: ["/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp"], href: "/karpitozott-butor-uzleti-ugyfeleknek" },
+  { id: "ivone", name: "Ivone kanapék", tagline: "Nappalid éke", images: ["/images/9a0b1d_99e6dc96a4804030b9c82ccb7ef9a7f7.webp"], href: "/butoraink/kanapek/ivone-kanapek" },
+  { id: "design", name: "Design Kanapék", tagline: "Modern minőség", images: ["/images/e7ad8b_d510cf607aca449c835d847344231393.webp"], href: "/butoraink/kanapek/design-kanapek" },
+  { id: "chesterfield", name: "Chesterfield kanapék", tagline: "A bútor, aminek történelme van", images: ["/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp"], href: "/butoraink/kanapek/chesterfield-kanapek" },
+  { id: "new-york", name: "New York kanapék", tagline: "Klasszikus stílus", images: ["/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp"], href: "/butoraink/kanapek/new-york-kanapek" },
+  { id: "joker", name: "Joker Kanapék", tagline: "Gáláns megjelenés", images: ["/images/e7ad8b_472fb74f2a1746e68ca129dbd34b2de7.webp"], href: "/butoraink/kanapek/joker-kanapek" },
+  { id: "cannes", name: "Cannes Kanapé", tagline: "A modern sarok", images: ["/images/e7ad8b_af00972c370c4bc7800fc98bfd927214.webp"], href: "/butoraink/kanapek/cannes-kanapek" },
+  { id: "egyedi", name: "Egyedi kanapé", tagline: "Elkészítjük álombútorod", images: ["/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp"], href: "/butoraink/egyedi-butor" },
+  { id: "uzleti", name: "Üzleti bútor, kanapé", tagline: "Vásárlóid kényelmére", images: ["/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp"], href: "/karpitozott-butor-uzleti-ugyfeleknek" },
 ];
 
 const HERO_SCHEMA: FieldDef[] = [
@@ -49,13 +50,26 @@ const GRID_SCHEMA: FieldDef[] = [
   { key: "subtitle", label: "Alcím szöveg", type: "textarea" },
 ];
 
+const CARD_SCHEMA: FieldDef[] = [
+  { key: "name", label: "Neve", type: "text" },
+  { key: "tagline", label: "Tagline", type: "text" },
+  { key: "href", label: "Link (pl. /butoraink/kanapek/...)", type: "text" },
+  {
+    key: "images",
+    label: "Képek",
+    type: "array",
+    itemFields: [{ key: "src", label: "Kép", type: "image" }],
+  },
+];
+
 export default async function KanapekPage() {
   const isAdmin = await getAdminStatus();
 
-  const [heroCfg, featuresCfg, gridCfg] = await Promise.all([
+  const [heroCfg, featuresCfg, gridCfg, ...cardCfgs] = await Promise.all([
     getModuleConfig("kanapek-listing:hero"),
     getModuleConfig("kanapek-listing:features"),
     getModuleConfig("kanapek-listing:grid"),
+    ...CARDS.map((c) => getModuleConfig(`kanapek-card:${c.id}`)),
   ]);
 
   const hero = {
@@ -69,6 +83,19 @@ export default async function KanapekPage() {
 
   const gridTitle = (gridCfg?.title as string) || "Kanapék";
   const gridSubtitle = (gridCfg?.subtitle as string) || "Válasszon a 2000 nm-es gyárunkból, kért méretben és anyagmintával.";
+
+  const resolvedCards = CARDS.map((c, i) => {
+    const cfg = cardCfgs[i];
+    const rawImages = cfg?.images as { src: string }[] | undefined;
+    const resolvedImages = rawImages ? rawImages.map((g) => g.src).filter(Boolean) : c.images;
+    return {
+      ...c,
+      name: (cfg?.name as string) || c.name,
+      tagline: (cfg?.tagline as string) || c.tagline,
+      href: (cfg?.href as string) || c.href,
+      images: resolvedImages,
+    };
+  });
 
   return (
     <>
@@ -111,12 +138,28 @@ export default async function KanapekPage() {
             Egyedi kanapét is elkészítünk →
           </Link>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {CARDS.map((c) => (
-              <Link key={c.name} href={c.href} className="group block">
-                <ProductImageCarousel images={c.images} alt={c.name} />
-                <h3 className="text-[#b8924a] text-sm font-semibold group-hover:underline">{c.name}</h3>
-                <p className="text-xs text-gray-500 mt-0.5">{c.tagline}</p>
-              </Link>
+            {resolvedCards.map((c) => (
+              <div key={c.id} className="relative group/card">
+                <Link href={c.href} className="block">
+                  <ProductImageCarousel images={c.images} alt={c.name} />
+                  <h3 className="text-[#b8924a] text-sm font-semibold group-hover/card:underline">{c.name}</h3>
+                  <p className="text-xs text-gray-500 mt-0.5">{c.tagline}</p>
+                </Link>
+                {isAdmin && (
+                  <EditBtn
+                    moduleId={`kanapek-card:${c.id}`}
+                    config={{
+                      name: c.name,
+                      tagline: c.tagline,
+                      href: c.href,
+                      images: c.images.map((src) => ({ src })),
+                    }}
+                    schema={CARD_SCHEMA}
+                    label="✏"
+                    positionClass="absolute top-2 right-2 z-20"
+                  />
+                )}
+              </div>
             ))}
           </div>
         </div>
