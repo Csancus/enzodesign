@@ -3,7 +3,7 @@ import EditBtn from "@/components/admin/EditBtn";
 import ProductImageCarousel from "@/components/ProductImageCarousel";
 import { getModuleConfig } from "@/lib/moduleStore";
 import { formatPrice } from "@/data/products";
-import type { FieldDef } from "@/types/cms";
+import type { FieldDef, SimpleField } from "@/types/cms";
 
 export type SaleProduct = {
   name: string;
@@ -72,7 +72,7 @@ const DEFAULT_CONFIG = {
   products: DEFAULT_PRODUCTS,
 };
 
-const PRODUCT_FIELDS: FieldDef[] = [
+const PRODUCT_FIELDS: SimpleField[] = [
   { key: "name", label: "Termék neve", type: "text" },
   { key: "badge", label: "Felirat (pl. CHESTERFIELD AKCIÓ)", type: "text" },
   { key: "mainImage", label: "Fő kép", type: "image" },
