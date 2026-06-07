@@ -2,13 +2,16 @@ import type { Metadata } from "next";
 import ContactFormSection from "@/components/ContactFormSection";
 import { FABRICS } from "@/data/products";
 import PageHero from "@/components/PageHero";
+import FabricsSection from "@/components/sections/FabricsSection";
+import { getAdminStatus } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "Kárpitszövetek",
   description: "Több mint 100 kárpitszövet – bársony, bőr, sennilé. AI, AT, MA, AG szövetcsaládok.",
 };
 
-export default function KarpitszovetsekPage() {
+export default async function KarpitszovetsekPage() {
+  const isAdmin = await getAdminStatus();
   return (
     <>
       <PageHero moduleId="hero:karpitoszovetek" defaults={{ label: "Anyagok", title: "Kárpitszövetek", subtitle: "Több mint 100 szövetfajtából választhat." }} />
@@ -44,6 +47,7 @@ export default function KarpitszovetsekPage() {
           </p>
         </div>
       </section>
+      <FabricsSection isAdmin={isAdmin} />
       <ContactFormSection />
     </>
   );
