@@ -3,18 +3,36 @@ import Link from "next/link";
 import PageBuilderPage from "@/components/PageBuilderPage";
 
 export const metadata: Metadata = {
-  title: "Tömörfa bútor: időtálló befektetés vagy elavult megoldás? – Enzo Design",
-  description: "Miért érdemes tömörfa bútort választani? Tévhitek, előnyök, összehasonlítás MDF-fel – és miért tartósabb, mint gondolnád.",
+  title: "Tömörfa bútor – tartós befektetés, 20–30 éves élettartam",
+  description: "Miért érdemes tömörfa bútort választani MDF helyett? Tartósság, természetes anyag, 20–30 éves élettartam és 10 év vázgarancia. Enzo Design, Nagykanizsa.",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Tömörfa bútor – tartós befektetés, 20–30 éves élettartam",
+  "description": "Miért érdemes tömörfa bútort választani MDF helyett? Tartósság, természetes anyag, 20–30 éves élettartam és 10 év vázgarancia.",
+  "image": "https://www.enzodesign.hu/images/nsplsh_1b3884fd54de4bf38b65c3212fdc76c7.webp",
+  "datePublished": "2025-06-01",
+  "dateModified": "2026-06-07",
+  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
+  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
+  "url": "https://www.enzodesign.hu/blog/tomorfa-butor",
 };
 
 export default async function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
-        <div className="max-w-3xl mx-auto">
-          <Link href="/blog" className="hover:text-white">Blog</Link>
-          <span className="mx-2">/</span>
-          <span className="text-[#b8924a]">Tömörfa bútor</span>
+        <div className="max-w-3xl mx-auto flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <Link href="/blog" className="hover:text-white">Blog</Link>
+            <span className="mx-2">/</span>
+            <span className="text-[#b8924a]">Tömörfa bútor</span>
+          </div>
+          <time dateTime="2026-06-07" className="text-xs text-gray-500">Frissítve: 2026. június 7.</time>
         </div>
       </nav>
 
@@ -34,7 +52,7 @@ export default async function Page() {
             type: "banner",
             config: {
               image: "/images/nsplsh_1b3884fd54de4bf38b65c3212fdc76c7.webp",
-              alt: "Tömörfa bútor gyártás",
+              alt: "Tömörfa bútor gyártás – kézimunka, természetes faanyag",
               height: "420",
             },
           },
@@ -51,7 +69,7 @@ export default async function Page() {
             type: "text-block",
             config: {
               title: "Tömörfa vs. MDF – melyik jobb?",
-              body: "Élettartam: Tömörfa 20–30+ év – MDF / forgácslap 5–10 év.\nSzilárdság: Tömörfa kiváló – MDF közepes.\nNedvességérzékenység: Tömörfa alacsony – MDF magas.\nÁr: Tömörfa magasabb kezdeti – MDF alacsonyabb kezdeti.\nHossú távú érték: Tömörfa sokkal jobb – MDF gyorsabban amortizálódik.\n\nBefektetés, ami megtérül\nEgy tömörfa bútor nem 5–10 évre szól, hanem 20–30-ra is. Ha jól választasz, a bútor az otthonod értékét is növeli. Az Enzo Design esetében ez tömörfa váz + prémium kárpit + kézi összeszerelés kombinációját jelenti – mindhárom tényező együtt garantálja a hosszú élettartamot és a 3+10 éves garanciát.",
+              body: "Élettartam: Tömörfa 20–30+ év – MDF / forgácslap 5–10 év.\nSzilárdság: Tömörfa kiváló – MDF közepes.\nNedvességérzékenység: Tömörfa alacsony – MDF magas.\nÁr: Tömörfa magasabb kezdeti – MDF alacsonyabb kezdeti.\nHossú távú érték: Tömörfa sokkal jobb – MDF gyorsabban amortizálódik.\n\nBefektetés, ami megtérül\nEgy tömörfa bútor nem 5–10 évre szól, hanem 20–30-ra is. Ha jól választasz, a bútor az otthonod értékét is növeli. Az Enzo Design esetében ez tömörfa váz + prémium kárpit + kézi összeszerelés kombinációját jelenti – mindhárom tényező együtt garantálja a hosszú élettartamot és a 3+10 éves garanciát.\n\nGYIK – Tömörfa bútor\n\nMilyen fafajt használ az Enzo Design?\nKizárólag kiváló minőségű, szárított tömörfát alkalmazunk a bútorváz gyártásához – ez biztosítja a stabilitást és az évtizedes élettartamot.\n\nNehézebb-e a tömörfa bútor szállítani?\nIgen, nehezebb, mint az MDF-alapú társai – de ez a tartósság és a robusztusság mellékhatása. A szállítást mi intézzük, az első ajtóig.\n\nJavítható-e évek után egy tömörfa bútor?\nIgen – a kárpit cserélhető, újrakárpitozható, a váz általában évtizedekig megőrzi állapotát.",
               align: "left",
               bgColor: "#f5f0e8",
             },
@@ -59,6 +77,20 @@ export default async function Page() {
           { type: "contact" },
         ]}
       />
+
+      <section className="py-8 bg-white border-t border-gray-100">
+        <div className="max-w-3xl mx-auto px-4">
+          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Termékek megtekintése</p>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/butoraink/egyedi-butor" className="inline-block border border-[#b8924a] text-[#b8924a] hover:bg-[#b8924a] hover:text-white text-sm font-semibold px-4 py-2 transition-colors">
+              Egyedi bútor rendelés →
+            </Link>
+            <Link href="/butorgyartas" className="inline-block border border-gray-300 text-gray-600 hover:border-[#7d6142] hover:text-[#7d6142] text-sm font-semibold px-4 py-2 transition-colors">
+              Bútorgyártás folyamata →
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <section className="py-12 bg-[#f5f0e8]">
         <div className="max-w-3xl mx-auto px-4">

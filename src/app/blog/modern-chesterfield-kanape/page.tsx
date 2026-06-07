@@ -3,18 +3,36 @@ import Link from "next/link";
 import PageBuilderPage from "@/components/PageBuilderPage";
 
 export const metadata: Metadata = {
-  title: "Modern Chesterfield kanapé – klasszikus stílus, kortalan eleganciával – Enzo Design",
-  description: "A modern Chesterfield kanapé egyesíti a klasszikus formát a mai enteriőr trendekkel. Loft, skandináv, minimalista – minden stílusba illik. Testreszabható, kézzel készített.",
+  title: "Modern Chesterfield kanapé – klasszikus forma, mai anyagok",
+  description: "Modern Chesterfield kanapé loft, skandináv és minimalista enteriőrbe. 100+ szövet és bőr – kézzel készített, tömörfa váz, 399 810 Ft-tól. Enzo Design.",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Modern Chesterfield kanapé – klasszikus forma, mai anyagok",
+  "description": "Modern Chesterfield kanapé loft, skandináv és minimalista enteriőrbe. 100+ szövet és bőr – kézzel készített, tömörfa váz, 399 810 Ft-tól.",
+  "image": "https://www.enzodesign.hu/images/chesterfield-modern-enterior-1.webp",
+  "datePublished": "2025-06-01",
+  "dateModified": "2026-06-07",
+  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
+  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
+  "url": "https://www.enzodesign.hu/blog/modern-chesterfield-kanape",
 };
 
 export default async function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
-        <div className="max-w-3xl mx-auto">
-          <Link href="/blog" className="hover:text-white">Blog</Link>
-          <span className="mx-2">/</span>
-          <span className="text-[#b8924a]">Modern Chesterfield kanapé</span>
+        <div className="max-w-3xl mx-auto flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <Link href="/blog" className="hover:text-white">Blog</Link>
+            <span className="mx-2">/</span>
+            <span className="text-[#b8924a]">Modern Chesterfield kanapé</span>
+          </div>
+          <time dateTime="2026-06-07" className="text-xs text-gray-500">Frissítve: 2026. június 7.</time>
         </div>
       </nav>
 
@@ -34,7 +52,7 @@ export default async function Page() {
             type: "banner",
             config: {
               image: "/images/chesterfield-modern-enterior-1.webp",
-              alt: "Modern Chesterfield kanapé elegáns nappaliban",
+              alt: "Modern Chesterfield kanapé elegáns nappaliban – loft és minimalista stílusban",
               height: "420",
             },
           },
@@ -76,6 +94,20 @@ export default async function Page() {
           { type: "contact" },
         ]}
       />
+
+      <section className="py-8 bg-white border-t border-gray-100">
+        <div className="max-w-3xl mx-auto px-4">
+          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Termékek megtekintése</p>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/butoraink/kanapek/chesterfield-kanapek" className="inline-block border border-[#b8924a] text-[#b8924a] hover:bg-[#b8924a] hover:text-white text-sm font-semibold px-4 py-2 transition-colors">
+              Chesterfield kanapék →
+            </Link>
+            <Link href="/chesterfield-kollekcio" className="inline-block border border-gray-300 text-gray-600 hover:border-[#7d6142] hover:text-[#7d6142] text-sm font-semibold px-4 py-2 transition-colors">
+              Teljes Chesterfield kollekció →
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <section className="py-12 bg-[#f5f0e8]">
         <div className="max-w-3xl mx-auto px-4">
