@@ -122,7 +122,7 @@ export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPa
 
         {/* Mobile toggle */}
         <button
-          className="xl:hidden flex flex-col gap-1.5 p-2"
+          className="xl:hidden flex flex-col gap-1.5 p-3"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menü"
         >

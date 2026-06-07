@@ -17,7 +17,7 @@ const SCHEMA: FieldDef[] = [
 
 function HeroMarkup({ cfg }: { cfg: HeroContent }) {
   return (
-    <section className="bg-[#f5f0e8] py-20 px-4 text-center">
+    <section className="bg-[#f5f0e8] py-12 sm:py-20 px-4 text-center">
       <div className="max-w-3xl mx-auto">
         {cfg.label && (
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">
@@ -25,7 +25,7 @@ function HeroMarkup({ cfg }: { cfg: HeroContent }) {
           </p>
         )}
         <h1
-          className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {cfg.title}
@@ -48,7 +48,7 @@ export default async function PageHero(props: Props) {
     ]);
     const cfg: HeroContent = { ...props.defaults, ...(stored as Partial<HeroContent>) };
     return (
-      <section className="relative bg-[#f5f0e8] py-20 px-4 text-center">
+      <section className="relative bg-[#f5f0e8] py-12 sm:py-20 px-4 text-center">
         <div className="max-w-3xl mx-auto">
           {cfg.label && (
             <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">
@@ -56,7 +56,7 @@ export default async function PageHero(props: Props) {
             </p>
           )}
           <h1
-            className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             {cfg.title}

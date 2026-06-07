@@ -179,7 +179,7 @@ export default async function ProductPageTemplate({
       <section className="relative bg-white py-12 border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-4">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-2">{hdr.tagline}</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
             {hdr.name}
           </h1>
           <p className="text-gray-600 leading-relaxed mb-6 max-w-2xl">{hdr.description}</p>

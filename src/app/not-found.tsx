@@ -11,7 +11,7 @@ export default function NotFound() {
       <div className="text-center max-w-lg mx-auto">
         <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">404</p>
         <h1
-          className="text-5xl font-bold text-[#1c1c1c] mb-4"
+          className="text-3xl sm:text-5xl font-bold text-[#1c1c1c] mb-4"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Az oldal nem található

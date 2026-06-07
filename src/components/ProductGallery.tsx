@@ -22,14 +22,16 @@ export default function ProductGallery({ images, name }: { images: string[]; nam
   }, [active, close, prev, next]);
 
   const cols = Math.min(images.length, 4);
+  const gridColsClass =
+    cols === 1 ? "grid-cols-1" :
+    cols === 2 ? "grid-cols-2" :
+    cols === 3 ? "grid-cols-2 sm:grid-cols-3" :
+    "grid-cols-2 sm:grid-cols-4";
 
   return (
     <>
-      {/* Thumbnail grid – max 4 per row, dynamic via inline style */}
-      <div
-        className="grid gap-3"
-        style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
-      >
+      {/* Thumbnail grid */}
+      <div className={`grid gap-2 sm:gap-3 ${gridColsClass}`}>
         {images.map((src, i) => (
           <button
             key={i}
@@ -79,7 +81,7 @@ export default function ProductGallery({ images, name }: { images: string[]; nam
 
           {/* Image container – fixed height, image fits inside */}
           <div
-            className="relative w-full max-w-4xl mx-14"
+            className="relative w-full max-w-4xl mx-4 sm:mx-14"
             style={{ height: "75vh" }}
             onClick={(e) => e.stopPropagation()}
           >

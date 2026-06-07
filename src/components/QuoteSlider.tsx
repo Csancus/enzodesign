@@ -34,12 +34,12 @@ export default function QuoteSlider() {
 
   return (
     <div className="bg-[#e8e4df] py-16 px-4">
-      <div className="flex items-center justify-center gap-6">
+      <div className="flex items-center justify-center gap-2 sm:gap-6">
         <button onClick={prev} className="text-gray-500 hover:text-[#7d6142] text-4xl font-thin w-10 flex-shrink-0 transition-colors">
           ‹
         </button>
 
-        <div className="bg-white max-w-xl w-full px-10 py-12 text-center shadow-sm">
+        <div className="bg-white max-w-xl w-full px-4 sm:px-10 py-8 sm:py-12 text-center shadow-sm">
           <p className="text-xl italic font-light text-gray-800" style={{ fontFamily: "var(--font-heading)" }}>
             {q.author}
           </p>

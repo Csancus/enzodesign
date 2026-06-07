@@ -29,11 +29,11 @@ export default async function BannerSection({ moduleId, isAdmin }: { moduleId: s
   const cfg = { ...DEFAULT, ...(stored as typeof DEFAULT) };
 
   return (
-    <section className="relative w-full overflow-hidden" style={{ height: `${cfg.height}px` }}>
+    <section className="relative w-full overflow-hidden" style={{ height: `clamp(180px, 40vw, ${cfg.height}px)` }}>
       <Image src={cfg.image} alt={cfg.alt} fill className="object-cover object-center" />
       {(cfg.title || cfg.subtitle || cfg.linkText) && (
         <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-white text-center px-4">
-          {cfg.title && <h2 className="text-3xl font-bold mb-2">{cfg.title}</h2>}
+          {cfg.title && <h2 className="text-xl sm:text-3xl font-bold mb-2">{cfg.title}</h2>}
           {cfg.subtitle && <p className="text-sm mb-4 opacity-90">{cfg.subtitle}</p>}
           {cfg.linkText && cfg.linkHref && (
             <Link href={cfg.linkHref} className="bg-[#b8924a] hover:bg-[#a07840] text-white text-sm font-semibold px-6 py-2 transition-colors">

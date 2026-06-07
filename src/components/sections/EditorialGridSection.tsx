@@ -34,33 +34,29 @@ export default async function EditorialGridSection({
   return (
     <section className="relative bg-white py-2">
       <div className="max-w-5xl mx-auto px-4">
-        <div className="grid grid-cols-5 gap-2" style={{ height: "clamp(240px, 36vw, 500px)" }}>
-          {/* Bal: nagy kép */}
-          <div className="col-span-3 relative overflow-hidden">
-            <Image
-              src={cfg.imageLeft}
-              alt={cfg.imageLeftAlt}
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-500"
-            />
+        {/* Mobile: 2-col grid */}
+        <div className="grid sm:hidden grid-cols-2 gap-2">
+          <div className="relative aspect-[4/3] overflow-hidden col-span-2">
+            <Image src={cfg.imageLeft} alt={cfg.imageLeftAlt} fill className="object-cover" />
           </div>
-          {/* Jobb: 2 kis kép */}
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <Image src={cfg.imageRightTop} alt={cfg.imageRightTopAlt} fill className="object-cover" />
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <Image src={cfg.imageRightBottom} alt={cfg.imageRightBottomAlt} fill className="object-cover" />
+          </div>
+        </div>
+        {/* Desktop: 5-col editorial grid */}
+        <div className="hidden sm:grid grid-cols-5 gap-2" style={{ height: "clamp(240px, 36vw, 500px)" }}>
+          <div className="col-span-3 relative overflow-hidden">
+            <Image src={cfg.imageLeft} alt={cfg.imageLeftAlt} fill className="object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
           <div className="col-span-2 flex flex-col gap-2">
             <div className="relative flex-1 overflow-hidden">
-              <Image
-                src={cfg.imageRightTop}
-                alt={cfg.imageRightTopAlt}
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
+              <Image src={cfg.imageRightTop} alt={cfg.imageRightTopAlt} fill className="object-cover hover:scale-105 transition-transform duration-500" />
             </div>
             <div className="relative flex-1 overflow-hidden">
-              <Image
-                src={cfg.imageRightBottom}
-                alt={cfg.imageRightBottomAlt}
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
+              <Image src={cfg.imageRightBottom} alt={cfg.imageRightBottomAlt} fill className="object-cover hover:scale-105 transition-transform duration-500" />
             </div>
           </div>
         </div>

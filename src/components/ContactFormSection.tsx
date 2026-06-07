@@ -33,7 +33,7 @@ export default async function ContactFormSection() {
           </h2>
           <p className="text-gray-500 text-sm">{cfg.subtitle}</p>
         </div>
-        <div className="bg-white p-8 shadow-sm">
+        <div className="bg-white p-4 sm:p-8 shadow-sm">
           <ContactForm />
         </div>
       </div>

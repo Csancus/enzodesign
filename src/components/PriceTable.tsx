@@ -19,8 +19,8 @@ export default function PriceTable({
   footer?: string;
 }) {
   return (
-    <div className="border border-gray-200 overflow-hidden">
-      <table className="w-full text-sm">
+    <div className="border border-gray-200 overflow-hidden overflow-x-auto">
+      <table className="w-full text-sm min-w-[320px]">
         <thead>
           <tr className="bg-[#1c1c1c] text-white">
             <th className="text-left px-4 py-3 font-medium">Konfiguráció</th>
