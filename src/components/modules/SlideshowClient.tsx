@@ -99,12 +99,12 @@ export default function SlideshowClient({
           <p className="text-[#7d6142] text-xs tracking-widest uppercase mb-6">
             közvetlenül a gyártótól
           </p>
-          <Link
-            href="/butoraink"
+          <a
+            href="#fatol-a-kanapeig"
             className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-widest px-8 py-3 transition-colors text-xs"
           >
             Tovább
-          </Link>
+          </a>
         </div>
       </div>
 

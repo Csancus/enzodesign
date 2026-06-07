@@ -27,7 +27,7 @@ export default async function StepsSection({ moduleId, isAdmin }: { moduleId: st
   const steps = cfg.steps?.length ? cfg.steps : DEFAULT.steps;
 
   return (
-    <section className="relative py-14 bg-white">
+    <section id="fatol-a-kanapeig" className="relative py-14 bg-white">
       <div className="max-w-5xl mx-auto px-4">
         <h2
           className="text-3xl md:text-4xl font-bold text-[#1c1c1c] mb-1"
