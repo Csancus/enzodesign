@@ -17,7 +17,7 @@ export type SaleProduct = {
   href?: string;
 };
 
-const DEFAULT_PRODUCTS: SaleProduct[] = [
+export const DEFAULT_PRODUCTS: SaleProduct[] = [
   {
     name: "Chesterfield kanapé – sötét szövet",
     badge: "CHESTERFIELD AKCIÓ",
@@ -100,7 +100,7 @@ function SaleCard({ product }: { product: SaleProduct }) {
   const images = [product.mainImage, product.image2, product.image3].filter(Boolean) as string[];
   const origPrice = parseInt(product.originalPrice, 10);
   const salePrice = parseInt(product.salePrice, 10);
-  const discount = origPrice && salePrice ? Math.round((1 - salePrice / origPrice) * 100) : 0;
+  const discount = origPrice > 0 && salePrice > 0 ? Math.round((1 - salePrice / origPrice) * 100) : 0;
   const days = product.saleEnds ? daysLeft(product.saleEnds) : null;
 
   const inner = (

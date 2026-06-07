@@ -44,8 +44,8 @@ function StarRating({ rating }: { rating: string }) {
 }
 
 export function Initials({ name }: { name: string }) {
-  const parts = name.trim().split(" ");
-  const letters = parts.length >= 2 ? parts[0][0] + parts[parts.length - 1][0] : name.slice(0, 2);
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  const letters = parts.length >= 2 ? (parts[0][0] ?? "") + (parts[parts.length - 1][0] ?? "") : name.trim().slice(0, 2);
   const colors = ["bg-[#7d6142]", "bg-[#b8924a]", "bg-[#5a7a3a]", "bg-[#4a6a8a]", "bg-[#8a4a6a]"];
   const color = colors[name.charCodeAt(0) % colors.length];
   return (
