@@ -3,6 +3,7 @@ import Link from "next/link";
 import ContactFormSection from "./ContactFormSection";
 import PriceTable from "./PriceTable";
 import FabricsSection from "./sections/FabricsSection";
+import ProductGallery from "./ProductGallery";
 import { formatPrice } from "@/data/products";
 import { getAdminStatus } from "@/lib/auth";
 
@@ -165,16 +166,13 @@ export default async function ProductPageTemplate({
       </section>
 
       {/* GALÉRIA */}
-      {gallery.length > 1 && (
+      {gallery.length > 0 && (
         <section className="py-10 bg-white">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {gallery.slice(1).map((img, i) => (
-                <div key={i} className="relative aspect-square overflow-hidden bg-gray-100">
-                  <Image src={img} alt={`${name} – ${i + 2}`} fill className="object-cover hover:scale-105 transition-transform" />
-                </div>
-              ))}
-            </div>
+          <div className="max-w-5xl mx-auto px-4">
+            <h2 className="text-2xl font-bold text-[#1c1c1c] mb-6" style={{ fontFamily: "var(--font-heading)" }}>
+              Képgaléria
+            </h2>
+            <ProductGallery images={gallery} name={name} />
           </div>
         </section>
       )}
