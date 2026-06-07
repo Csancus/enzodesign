@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 type FormData = {
@@ -46,8 +46,24 @@ export default function ContactForm() {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<FormData>();
+
+  // Pre-fill from URL param (?leiras=...) or custom event dispatched by Rendelés buttons
+  useEffect(() => {
+    const v = new URLSearchParams(window.location.search).get("leiras");
+    if (v) setValue("leiras", v);
+  }, [setValue]);
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const leiras = (e as CustomEvent<{ leiras: string }>).detail?.leiras;
+      if (leiras) setValue("leiras", leiras);
+    };
+    window.addEventListener("fill-rendeles", handler);
+    return () => window.removeEventListener("fill-rendeles", handler);
+  }, [setValue]);
 
   const onSubmit = async (data: FormData) => {
     setSending(true);

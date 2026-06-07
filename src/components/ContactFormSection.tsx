@@ -24,7 +24,7 @@ export default async function ContactFormSection() {
   const cfg = { ...DEFAULT, ...(stored as typeof DEFAULT) };
 
   return (
-    <section className="relative py-20 bg-[#f5f0e8]">
+    <section id="rendeles" className="relative py-20 bg-[#f5f0e8]">
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-10">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-2">{cfg.label}</p>

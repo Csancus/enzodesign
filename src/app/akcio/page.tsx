@@ -66,6 +66,17 @@ export default async function AkcioPage() {
 
       <SaleProductsSection moduleId="akcio:products" isAdmin={isAdmin} />
 
+      {/* Link to full furniture catalogue */}
+      <div className="bg-white py-8 text-center border-t border-gray-100">
+        <p className="text-sm text-gray-500 mb-4">Több bútort keres? Nézze meg teljes kínálatunkat!</p>
+        <a
+          href="/butoraink"
+          className="inline-block bg-[#1c1c1c] hover:bg-[#7d6142] text-white font-bold uppercase tracking-wider px-10 py-3 transition-colors text-xs"
+        >
+          Tovább a többi bútorhoz →
+        </a>
+      </div>
+
       <ContactFormSection />
     </>
   );
