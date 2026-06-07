@@ -3,18 +3,36 @@ import Link from "next/link";
 import PageBuilderPage from "@/components/PageBuilderPage";
 
 export const metadata: Metadata = {
-  title: "Miért éri meg közvetlenül a bútorgyártótól vásárolni? – Enzo Design",
-  description: "5 ok, amiért érdemes egyenesen a gyártótól rendelni bútort – ár, egyediség, minőség, közvetlen kommunikáció és magyar munka.",
+  title: "Miért vásárolj gyártótól? 5 érv az egyedi bútor mellett",
+  description: "5 ok, amiért érdemes egyenesen a gyártótól rendelni: alacsonyabb ár, egyediség, 3+10 év garancia, közvetlen kapcsolat és magyar kézimunka. Enzo Design.",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Miért vásárolj gyártótól? 5 érv az egyedi bútor mellett",
+  "description": "5 ok, amiért érdemes egyenesen a gyártótól rendelni: alacsonyabb ár, egyediség, 3+10 év garancia, közvetlen kapcsolat és magyar kézimunka.",
+  "image": "https://www.enzodesign.hu/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp",
+  "datePublished": "2025-06-01",
+  "dateModified": "2026-06-07",
+  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
+  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
+  "url": "https://www.enzodesign.hu/blog/miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni",
 };
 
 export default async function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
-        <div className="max-w-3xl mx-auto">
-          <Link href="/blog" className="hover:text-white">Blog</Link>
-          <span className="mx-2">/</span>
-          <span className="text-[#b8924a]">Miért éri meg közvetlenül a bútorgyártótól vásárolni?</span>
+        <div className="max-w-3xl mx-auto flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <Link href="/blog" className="hover:text-white">Blog</Link>
+            <span className="mx-2">/</span>
+            <span className="text-[#b8924a]">Miért éri meg közvetlenül a bútorgyártótól vásárolni?</span>
+          </div>
+          <time dateTime="2026-06-07" className="text-xs text-gray-500">Frissítve: 2026. június 7.</time>
         </div>
       </nav>
 
@@ -34,7 +52,7 @@ export default async function Page() {
             type: "banner",
             config: {
               image: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp",
-              alt: "Enzo Design gyártóüzem kézimunka",
+              alt: "Enzo Design gyártóüzem – kézimunka, tömörfa vázkészítés",
               height: "420",
             },
           },
@@ -51,7 +69,7 @@ export default async function Page() {
             type: "text-block",
             config: {
               title: "Összehasonlítás: gyártótól vs. bútorboltból",
-              body: "Ár: Gyártói ár, felár nélkül – vs. – közvetítői felár beépítve.\nEgyediség: Teljes testreszabás – vs. – csak raktárkészletből.\nGarancia: 3 + 10 év – vs. – általában 1–2 év.\nKommunikáció: Közvetlen a gyártóval – vs. – közvetítőn át.\nÉlettartam: 20–30+ év tömörfával – vs. – átlagos, gyorsabb kopás.\n\nA bútorboltok korlátozott kínálattal dolgoznak, míg az Enzo Design személyre szabott, egyedi bútorok készítésére képes – minden négyzetméternyi és minden szövettípusban, amit megálmodsz.",
+              body: "Ár: Gyártói ár, felár nélkül – vs. – közvetítői felár beépítve.\nEgyediség: Teljes testreszabás – vs. – csak raktárkészletből.\nGarancia: 3 + 10 év – vs. – általában 1–2 év.\nKommunikáció: Közvetlen a gyártóval – vs. – közvetítőn át.\nÉlettartam: 20–30+ év tömörfával – vs. – átlagos, gyorsabb kopás.\n\nA bútorboltok korlátozott kínálattal dolgoznak, míg az Enzo Design személyre szabott, egyedi bútorok készítésére képes – minden négyzetméternyi és minden szövettípusban, amit megálmodsz.\n\nGYIK – Gyártótól vásárlás\n\nMennyi időt vesz igénybe az egyedi megrendelés?\nÁltalában 4–6 hét a megrendelés visszaigazolásától a szállításig.\n\nKaphatok-e mintaanyagokat előre?\nIgen – szövetmintákat postafordultával küldünk, hogy otthon, természetes fényben is megtekinthetők legyenek.\n\nMi történik, ha az elkészült bútor nem tetszik?\nKözvetlen gyártói kapcsolatban bármilyen módosítási igényt rugalmasan kezelünk. A garanciális problémákat közvetlenül kezeljük – nincs közvetítő a folyamatban.",
               align: "left",
               bgColor: "#f5f0e8",
             },
@@ -59,6 +77,20 @@ export default async function Page() {
           { type: "contact" },
         ]}
       />
+
+      <section className="py-8 bg-white border-t border-gray-100">
+        <div className="max-w-3xl mx-auto px-4">
+          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Termékek megtekintése</p>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/butoraink/egyedi-butor" className="inline-block border border-[#b8924a] text-[#b8924a] hover:bg-[#b8924a] hover:text-white text-sm font-semibold px-4 py-2 transition-colors">
+              Egyedi bútor rendelés →
+            </Link>
+            <Link href="/butoraink/kanapek" className="inline-block border border-gray-300 text-gray-600 hover:border-[#7d6142] hover:text-[#7d6142] text-sm font-semibold px-4 py-2 transition-colors">
+              Összes kanapé →
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <section className="py-12 bg-[#f5f0e8]">
         <div className="max-w-3xl mx-auto px-4">

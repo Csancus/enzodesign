@@ -172,7 +172,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-[#333] pt-6 text-center">
-          <p className="text-xs text-gray-500">© 2015–2025 Enzo Design. Minden jog fenntartva.</p>
+          <p className="text-xs text-gray-500">© 2015–2026 Enzo Design. Minden jog fenntartva.</p>
           <LoginDialog />
         </div>
       </div>
