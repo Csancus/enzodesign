@@ -4,6 +4,7 @@ import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
 import PageHero from "@/components/PageHero";
 import VideoSection from "@/components/sections/VideoSection";
+import ReviewsSection from "@/components/sections/ReviewsSection";
 import { getAdminStatus } from "@/lib/auth";
 
 export const metadata: Metadata = {
@@ -109,6 +110,7 @@ export default async function RolunkPage() {
         </div>
       </section>
 
+      <ReviewsSection isAdmin={isAdmin} showAll />
       <ContactFormSection />
     </>
   );

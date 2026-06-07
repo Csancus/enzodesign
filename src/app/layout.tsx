@@ -50,8 +50,45 @@ export default async function RootLayout({
     getDynamicPages(),
   ]);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Enzo Design",
+    "description": "Egyedi kárpitozott bútorok gyártása Nagykanizsán. Kanapék, fotelek, Chesterfield bútorok közvetlenül a gyártótól.",
+    "url": "https://enzodesign.hu",
+    "telephone": "+36303778983",
+    "email": "info@enzodesign.hu",
+    "image": "https://enzodesign.hu/images/logo.webp",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Egry József utca 7.",
+      "addressLocality": "Nagykanizsa",
+      "postalCode": "8800",
+      "addressCountry": "HU"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "12",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "sameAs": [
+      "https://www.facebook.com/enzodesignbutor",
+      "https://www.instagram.com/enzodesign2015",
+      "https://www.tiktok.com/@enzodesignbutor"
+    ]
+  };
+
   return (
     <html lang="hu" className={`${playfair.variable} ${lato.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col bg-white">
         <AdminProvider initialAdmin={initialAdmin}>
           <Header dynamicPages={dynamicPages} />
