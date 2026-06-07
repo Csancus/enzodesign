@@ -80,9 +80,15 @@ const SCHEMA: FieldDef[] = [
 
 function resolveImages(p: Record<string, unknown>): string[] {
   if (Array.isArray(p.images) && p.images.length > 0) {
-    return (p.images as { src?: string; url?: string; image?: string }[])
-      .map((img) => img.src ?? img.url ?? img.image ?? "")
-      .filter(Boolean);
+    return (p.images as unknown[]).flatMap((img): string[] => {
+      if (typeof img === "string" && img) return [img];
+      if (typeof img === "object" && img !== null) {
+        const o = img as { src?: string; url?: string; image?: string };
+        const v = o.src ?? o.url ?? o.image ?? "";
+        return v ? [v] : [];
+      }
+      return [];
+    });
   }
   if (typeof p.image === "string" && p.image) return [p.image];
   return [];
