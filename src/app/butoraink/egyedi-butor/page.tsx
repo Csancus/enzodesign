@@ -13,14 +13,14 @@ export const metadata: Metadata = {
 };
 
 const DEFAULT_GALLERY = [
-  "/images/d56f41_1856f7e2d27f49c0970c4b84722b089d.webp",
-  "/images/d56f41_25474a021ee44234972eec82773e58de.webp",
-  "/images/d56f41_2d00c16047994b71b258082850454298.webp",
-  "/images/d56f41_33f0883f221f432e82f585c99d9462af.webp",
-  "/images/d56f41_4ac620604ed74e9abf233f78ead4d1fd.webp",
-  "/images/d56f41_6112327234134a6b97efea35c3078ddc.webp",
-  "/images/d56f41_76121739e60c481ea7e2318fab374f6f.webp",
-  "/images/d56f41_8e5df897a0fb4ab9a8fa551ab9cd1aca.webp",
+  "/images/egyedi-w1.webp",
+  "/images/egyedi-w2.webp",
+  "/images/egyedi-w4.webp",
+  "/images/egyedi-w6.webp",
+  "/images/egyedi-w7.webp",
+  "/images/egyedi-w8.webp",
+  "/images/egyedi-w9.webp",
+  "/images/egyedi-w10.webp",
 ];
 
 const HERO_SCHEMA: FieldDef[] = [

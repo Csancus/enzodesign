@@ -13,11 +13,11 @@ export const metadata: Metadata = {
 };
 
 const CARDS = [
-  { id: "bilbao", name: "Bilbao franciaágy", tagline: "Kényelmedre", images: ["/images/e7ad8b_335724cf7ec5471c89807f009900353d.webp"], href: "/butoraink/franciaagyak" },
-  { id: "madrid", name: "Madrid franciaágy", tagline: "Hálószobád éke", images: ["/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp"], href: "/butoraink/franciaagyak" },
-  { id: "tovabbi", name: "További ágyak", tagline: "Kísértő és zseniális darabok", images: ["/images/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472.webp"], href: "/butoraink/franciaagyak" },
-  { id: "egyedi", name: "Egyedi megoldások", tagline: "Elkészítjük álombútorod", images: ["/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp"], href: "/butoraink/egyedi-butor" },
-  { id: "uzleti", name: "Üzleti ágyak, garnitúrák", tagline: "Vásárlóid kényelmére", images: ["/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp"], href: "/karpitozott-butor-uzleti-ugyfeleknek" },
+  { id: "bilbao", name: "Bilbao franciaágy", tagline: "Kényelmedre", images: ["/images/franciaaggy-w3.webp", "/images/franciaaggy-w6.webp"], href: "/butoraink/franciaagyak" },
+  { id: "madrid", name: "Madrid franciaágy", tagline: "Hálószobád éke", images: ["/images/franciaaggy-w2.webp", "/images/franciaaggy-w5.webp"], href: "/butoraink/franciaagyak" },
+  { id: "tovabbi", name: "További ágyak", tagline: "Kísértő és zseniális darabok", images: ["/images/franciaaggy-w1.webp", "/images/franciaaggy-w4.webp"], href: "/butoraink/franciaagyak" },
+  { id: "egyedi", name: "Egyedi megoldások", tagline: "Elkészítjük álombútorod", images: ["/images/egyedi-w4.webp", "/images/egyedi-w2.webp"], href: "/butoraink/egyedi-butor" },
+  { id: "uzleti", name: "Üzleti ágyak, garnitúrák", tagline: "Vásárlóid kényelmére", images: ["/images/uzleti-w1.webp", "/images/uzleti-w3.webp"], href: "/karpitozott-butor-uzleti-ugyfeleknek" },
 ];
 
 const HERO_SCHEMA: FieldDef[] = [

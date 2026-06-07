@@ -10,7 +10,7 @@ export default function Page() {
       name="Old's Club Kanapék"
       tagline="Karakteres elegancia"
       description="Az Old's Club kanapé letisztult formáival és maximális funkcionalitásával az elegancia és a kényelem tökéletes szintézise. Széles ülőfelület, puha háttámla – ideális pihenéshez és vendégfogadáshoz. A sarokváltozat opcionális ágyneműtartóval is rendelhető."
-      image="/images/e7ad8b_b8e06512bf824479b51f4152def251fa.webp"
+      image="/images/olds-club-w1.webp"
       pricing={{
         fotel: { alap: 360420, bor: 468545 },
         ketSzemelyes: { alap: 444240, bor: 667510 },
@@ -20,10 +20,13 @@ export default function Page() {
       }}
       features={["50.000 martindale szövet", "Tömörfa szerkezet", "Prémium szivacs és rugó", "3 év garancia", "10 év vázgarancia", "Ágyneműtartó opció"]}
       gallery={[
-        "/images/olds-club-fotel.png",
-        "/images/olds-club-kettes-kanape.png",
-        "/images/olds-club-kettes-kanape-szines.png",
-        "/images/olds-club-kettes-kanape-szines2.png",
+        "/images/olds-club-w1.webp",
+        "/images/olds-club-w2.webp",
+        "/images/olds-club-w3.webp",
+        "/images/olds-club-w4.webp",
+        "/images/olds-club-w5.webp",
+        "/images/olds-club-w6.webp",
+        "/images/olds-club-bg.jpg",
       ]}
       breadcrumb={[
         { label: "Főoldal", href: "/" },

@@ -10,8 +10,16 @@ export default function Page() {
       name="Design Kanapék"
       tagline="Modern minőség"
       description="A Design kanapé modern formavilágával, letisztult vonalaival és elegáns steppelésével otthonod stílusos centerpiece-e lesz. Tömörfa váz, prémium szivacs és rugórendszer – korszerű dizájn, maradandó minőség."
-      image="/images/design-kanape.png"
-      gallery={["/images/design-modul1.jpg", "/images/design-modul2.jpg", "/images/design-modul3.jpg", "/images/design-varia2a.jpg", "/images/design-varia2b.jpg", "/images/design-varia2c.jpg", "/images/design-varia2d.jpg"]}
+      image="/images/design-w1.webp"
+      gallery={[
+        "/images/design-w1.webp",
+        "/images/design-w2.webp",
+        "/images/design-w3.webp",
+        "/images/design-w4.webp",
+        "/images/design-w5.webp",
+        "/images/design-w6.webp",
+        "/images/design-w7.webp",
+      ]}
       pricing={{
         fotel: { alap: 360420, bor: 468545 },
         ketSzemelyes: { alap: 444240, bor: 677510 },

@@ -13,9 +13,15 @@ export const metadata: Metadata = {
 };
 
 const CARDS = [
-  { id: "szek", name: "Szék, zsámoly, falvédő", tagline: "Sok féle választék", images: ["/images/9a0b1d_c51fa6474b5a4e789464c038a7b1c1d4.webp"], href: "/butoraink/szek-zsamoly-falvedo" },
-  { id: "egyedi", name: "Egyedi megoldások", tagline: "Elkészítjük álombútorod", images: ["/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp"], href: "/butoraink/egyedi-butor" },
-  { id: "uzleti", name: "Üzleti garnitúrák", tagline: "Vásárlóid kényelmére", images: ["/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp"], href: "/karpitozott-butor-uzleti-ugyfeleknek" },
+  {
+    id: "szek",
+    name: "Szék, zsámoly, falvédő",
+    tagline: "Sok féle választék",
+    images: ["/images/szek-w2.webp", "/images/szek-w9.webp", "/images/szek-w11.webp", "/images/szek-w12.webp", "/images/szek-w7.webp"],
+    href: "/butoraink/szek-zsamoly-falvedo",
+  },
+  { id: "egyedi", name: "Egyedi megoldások", tagline: "Elkészítjük álombútorod", images: ["/images/egyedi-w1.webp", "/images/egyedi-w7.webp"], href: "/butoraink/egyedi-butor" },
+  { id: "uzleti", name: "Üzleti garnitúrák", tagline: "Vásárlóid kényelmére", images: ["/images/uzleti-w1.webp", "/images/uzleti-w4.webp"], href: "/karpitozott-butor-uzleti-ugyfeleknek" },
 ];
 
 const HERO_SCHEMA: FieldDef[] = [
