@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { getAdminStatus } from "@/lib/auth";
 import FabricsSection from "@/components/sections/FabricsSection";
+import ProductImageCarousel from "@/components/ProductImageCarousel";
 
 export const metadata: Metadata = {
   title: "Kanapék – Enzo Design",
@@ -10,15 +10,28 @@ export const metadata: Metadata = {
 };
 
 const CARDS = [
-  { name: "Old's Club Kanapék", tagline: "Karakteres elegancia", image: "/images/e7ad8b_b8e06512bf824479b51f4152def251fa.webp", href: "/butoraink/kanapek/olds-club-kanapek" },
-  { name: "Ivone kanapék", tagline: "Nappalid éke", image: "/images/9a0b1d_99e6dc96a4804030b9c82ccb7ef9a7f7.webp", href: "/butoraink/kanapek/ivone-kanapek" },
-  { name: "Design Kanapék", tagline: "Modern minőség", image: "/images/e7ad8b_d510cf607aca449c835d847344231393.webp", href: "/butoraink/kanapek/design-kanapek" },
-  { name: "Chesterfield kanapék", tagline: "A bútor, aminek történelme van", image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp", href: "/butoraink/kanapek/chesterfield-kanapek" },
-  { name: "New York kanapék", tagline: "Klasszikus stílus", image: "/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp", href: "/butoraink/kanapek/new-york-kanapek" },
-  { name: "Joker Kanapék", tagline: "Gáláns megjelenés", image: "/images/e7ad8b_472fb74f2a1746e68ca129dbd34b2de7.webp", href: "/butoraink/kanapek/joker-kanapek" },
-  { name: "Cannes Kanapé", tagline: "A modern sarok", image: "/images/e7ad8b_af00972c370c4bc7800fc98bfd927214.webp", href: "/butoraink/kanapek/cannes-kanapek" },
-  { name: "Egyedi kanapé", tagline: "Elkészítjük álombútorod", image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp", href: "/butoraink/egyedi-butor" },
-  { name: "Üzleti bútor, kanapé", tagline: "Vásárlóid kényelmére", image: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
+  {
+    name: "Old's Club Kanapék",
+    tagline: "Karakteres elegancia",
+    images: [
+      "https://static.wixstatic.com/media/0e0445_26ed1417f8174764ab6d8d87944fae4f~mv2.png/v1/fill/w_194,h_200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0e0445_26ed1417f8174764ab6d8d87944fae4f~mv2.png",
+      "https://static.wixstatic.com/media/e7ad8b_3fa161a4e7b74434bff25cc640badfed~mv2.jpg/v1/fill/w_194,h_200,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/e7ad8b_3fa161a4e7b74434bff25cc640badfed~mv2.jpg",
+      "https://static.wixstatic.com/media/e7ad8b_7d4917d9067047f4a03874f615da5103~mv2.jpg/v1/fill/w_194,h_200,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/e7ad8b_7d4917d9067047f4a03874f615da5103~mv2.jpg",
+      "https://static.wixstatic.com/media/0e0445_50fa04b863b54e4abc10490cc84b903c~mv2.png/v1/fill/w_194,h_200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0e0445_50fa04b863b54e4abc10490cc84b903c~mv2.png",
+      "https://static.wixstatic.com/media/e7ad8b_3e850ebefb7f4de791cf4a4d08804eca~mv2.jpg/v1/fill/w_194,h_200,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/e7ad8b_3e850ebefb7f4de791cf4a4d08804eca~mv2.jpg",
+      "https://static.wixstatic.com/media/d56f41_8730eebebb7849668031c3ee3fa5f624~mv2.jpg/v1/fill/w_194,h_200,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/d56f41_8730eebebb7849668031c3ee3fa5f624~mv2.jpg",
+      "https://static.wixstatic.com/media/0e0445_c570567962c44821978fc817c4298c17~mv2.png/v1/fill/w_194,h_200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0e0445_c570567962c44821978fc817c4298c17~mv2.png",
+    ],
+    href: "/butoraink/kanapek/olds-club-kanapek",
+  },
+  { name: "Ivone kanapék", tagline: "Nappalid éke", images: ["/images/9a0b1d_99e6dc96a4804030b9c82ccb7ef9a7f7.webp"], href: "/butoraink/kanapek/ivone-kanapek" },
+  { name: "Design Kanapék", tagline: "Modern minőség", images: ["/images/e7ad8b_d510cf607aca449c835d847344231393.webp"], href: "/butoraink/kanapek/design-kanapek" },
+  { name: "Chesterfield kanapék", tagline: "A bútor, aminek történelme van", images: ["/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp"], href: "/butoraink/kanapek/chesterfield-kanapek" },
+  { name: "New York kanapék", tagline: "Klasszikus stílus", images: ["/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp"], href: "/butoraink/kanapek/new-york-kanapek" },
+  { name: "Joker Kanapék", tagline: "Gáláns megjelenés", images: ["/images/e7ad8b_472fb74f2a1746e68ca129dbd34b2de7.webp"], href: "/butoraink/kanapek/joker-kanapek" },
+  { name: "Cannes Kanapé", tagline: "A modern sarok", images: ["/images/e7ad8b_af00972c370c4bc7800fc98bfd927214.webp"], href: "/butoraink/kanapek/cannes-kanapek" },
+  { name: "Egyedi kanapé", tagline: "Elkészítjük álombútorod", images: ["/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp"], href: "/butoraink/egyedi-butor" },
+  { name: "Üzleti bútor, kanapé", tagline: "Vásárlóid kényelmére", images: ["/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp"], href: "/karpitozott-butor-uzleti-ugyfeleknek" },
 ];
 
 export default async function KanapekPage() {
@@ -65,14 +78,7 @@ export default async function KanapekPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {CARDS.map((c) => (
               <Link key={c.name} href={c.href} className="group block">
-                <div className="relative aspect-[4/3] overflow-hidden mb-3">
-                  <Image
-                    src={c.image}
-                    alt={c.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+                <ProductImageCarousel images={c.images} alt={c.name} />
                 <h3 className="text-[#b8924a] text-sm font-semibold group-hover:underline">{c.name}</h3>
                 <p className="text-xs text-gray-500 mt-0.5">{c.tagline}</p>
               </Link>
