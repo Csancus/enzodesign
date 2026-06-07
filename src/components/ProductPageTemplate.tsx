@@ -210,26 +210,14 @@ export default async function ProductPageTemplate({
         )}
       </section>
 
-      {/* KÉPEK */}
+      {/* KÉPEK / GALÉRIA */}
       <section className="relative bg-[#f5f0e8] py-10">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-5xl mx-auto px-4">
           {resolvedGallery.length > 0 ? (
-            <div className="grid grid-cols-2 gap-4">
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <Image src={mainImage} alt={hdr.name} fill className="object-cover" priority />
-              </div>
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <Image src={resolvedGallery[0]} alt={`${hdr.name} – 2`} fill className="object-cover" />
-              </div>
-            </div>
+            <ProductGallery images={resolvedGallery} name={hdr.name} />
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <Image src={mainImage} alt={hdr.name} fill className="object-cover" priority />
-              </div>
-              <div className="relative aspect-[3/4] overflow-hidden bg-gray-200">
-                <Image src={mainImage} alt={hdr.name} fill className="object-cover opacity-70" />
-              </div>
+            <div className="relative aspect-[4/3] overflow-hidden max-w-2xl">
+              <Image src={mainImage} alt={hdr.name} fill className="object-cover" priority />
             </div>
           )}
         </div>
@@ -286,18 +274,6 @@ export default async function ProductPageTemplate({
           <EditBtn moduleId={`${pageId}:info`} config={info} schema={INFO_SCHEMA} label="✏ Info blokkok" />
         )}
       </section>
-
-      {/* GALÉRIA */}
-      {resolvedGallery.length > 0 && (
-        <section className="py-10 bg-white">
-          <div className="max-w-5xl mx-auto px-4">
-            <h2 className="text-2xl font-bold text-[#1c1c1c] mb-6" style={{ fontFamily: "var(--font-heading)" }}>
-              Képgaléria
-            </h2>
-            <ProductGallery images={resolvedGallery} name={hdr.name} />
-          </div>
-        </section>
-      )}
 
       <FabricsSection isAdmin={isAdmin} />
 
