@@ -26,13 +26,12 @@ export default async function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
-        <div className="max-w-3xl mx-auto flex items-center justify-between flex-wrap gap-2">
+        <div className="max-w-3xl mx-auto">
           <div>
             <Link href="/blog" className="hover:text-white">Blog</Link>
             <span className="mx-2">/</span>
             <span className="text-[#b8924a]">Melyik Chesterfield bútor illik hozzád?</span>
           </div>
-          <time dateTime="2026-06-07" className="text-xs text-gray-500">Frissítve: 2026. június 7.</time>
         </div>
       </nav>
 
