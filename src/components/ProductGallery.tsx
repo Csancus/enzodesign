@@ -21,22 +21,28 @@ export default function ProductGallery({ images, name }: { images: string[]; nam
     return () => window.removeEventListener("keydown", onKey);
   }, [active, close, prev, next]);
 
+  const cols = Math.min(images.length, 4);
+
   return (
     <>
-      {/* Thumbnail grid */}
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-2">
+      {/* Thumbnail grid – max 4 per row, dynamic via inline style */}
+      <div
+        className="grid gap-3"
+        style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
+      >
         {images.map((src, i) => (
           <button
             key={i}
             type="button"
             onClick={() => setActive(i)}
-            className="relative aspect-square overflow-hidden group focus:outline-none focus:ring-2 focus:ring-[#b8924a]"
+            className="relative aspect-[4/3] overflow-hidden group focus:outline-none focus:ring-2 focus:ring-[#b8924a] cursor-zoom-in"
           >
             <Image
               src={src}
               alt={`${name} – ${i + 1}`}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 640px) 50vw, 25vw"
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
           </button>
@@ -53,7 +59,7 @@ export default function ProductGallery({ images, name }: { images: string[]; nam
           <button
             type="button"
             onClick={close}
-            className="absolute top-4 right-4 text-white text-3xl leading-none hover:text-[#b8924a] transition-colors z-10"
+            className="absolute top-4 right-5 text-white/80 hover:text-white text-4xl leading-none z-10"
             aria-label="Bezárás"
           >
             ×
@@ -64,27 +70,26 @@ export default function ProductGallery({ images, name }: { images: string[]; nam
             <button
               type="button"
               onClick={(e) => { e.stopPropagation(); prev(); }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl leading-none hover:text-[#b8924a] transition-colors z-10 px-2"
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-5xl leading-none z-10 px-3 py-4"
               aria-label="Előző"
             >
               ‹
             </button>
           )}
 
-          {/* Image */}
+          {/* Image container – fixed height, image fits inside */}
           <div
-            className="relative w-full max-w-4xl max-h-[85vh] mx-16"
+            className="relative w-full max-w-4xl mx-14"
+            style={{ height: "75vh" }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative" style={{ paddingBottom: "66.67%" }}>
-              <Image
-                src={images[active]}
-                alt={`${name} – ${active + 1}`}
-                fill
-                className="object-contain"
-                sizes="(max-width: 1200px) 100vw, 1200px"
-              />
-            </div>
+            <Image
+              src={images[active]}
+              alt={`${name} – ${active + 1}`}
+              fill
+              className="object-contain"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+            />
           </div>
 
           {/* Next */}
@@ -92,7 +97,7 @@ export default function ProductGallery({ images, name }: { images: string[]; nam
             <button
               type="button"
               onClick={(e) => { e.stopPropagation(); next(); }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl leading-none hover:text-[#b8924a] transition-colors z-10 px-2"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-5xl leading-none z-10 px-3 py-4"
               aria-label="Következő"
             >
               ›
@@ -100,7 +105,7 @@ export default function ProductGallery({ images, name }: { images: string[]; nam
           )}
 
           {/* Counter */}
-          <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/60 text-sm">
+          <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/50 text-sm tabular-nums">
             {active + 1} / {images.length}
           </p>
         </div>
