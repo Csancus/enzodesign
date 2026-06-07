@@ -116,7 +116,7 @@ export default async function ReviewsSection({
               </svg>
               <div>
                 <p className="text-sm font-semibold text-[#1c1c1c] leading-none mb-0.5">Google</p>
-                <p className="text-xs text-gray-400">{all.length} értékelés</p>
+                <p className="text-xs text-gray-400">Értékelések</p>
               </div>
             </div>
           </div>
