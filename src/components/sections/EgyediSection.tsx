@@ -15,7 +15,6 @@ const DEFAULT_IMAGES = [
   { src: "/images/e7ad8b_bc066bd9f28f4fbab4b31b619d02e1ff.webp",             alt: "Kék chesterfield kanapé" },
   { src: "/images/e7ad8b_68c0304ad1514869b9827831425d131b.webp",             alt: "Chesterfield falvédő" },
   { src: "/images/e7ad8b_ebf6019015ea4512933aacab43daaf4a.webp",             alt: "Chesterfield zsámoly" },
-  { src: "/images/9a0b1d_b9e3df81bc2441c9964ba64f28230495f003.webp",         alt: "Egyedi bútor" },
 ];
 
 // Explicit grid placement for 11 images — 5 col × 3 row mosaic
@@ -30,8 +29,7 @@ const GRID_LAYOUT = [
   { gridColumn: "4 / 6", gridRow: "2" },       // wide landscape
   { gridColumn: "1 / 3", gridRow: "3" },       // wide landscape
   { gridColumn: "3",     gridRow: "3" },
-  { gridColumn: "4",     gridRow: "3" },
-  { gridColumn: "5",     gridRow: "3" },
+  { gridColumn: "4 / 6", gridRow: "3" },       // wide landscape (fills gap after removing img 11)
 ] as const;
 
 const DEFAULT = {
@@ -56,7 +54,7 @@ const SCHEMA: FieldDef[] = [
 export default async function EgyediSection({ moduleId, isAdmin }: { moduleId: string; isAdmin: boolean }) {
   const stored = await getModuleConfig(moduleId);
   const cfg = { ...DEFAULT, ...(stored as typeof DEFAULT) };
-  const images = (cfg.images?.length ? cfg.images : DEFAULT_IMAGES).slice(0, 11);
+  const images = (cfg.images?.length ? cfg.images : DEFAULT_IMAGES).slice(0, 10);
 
   const rowH = "clamp(110px, 13vw, 180px)";
 
