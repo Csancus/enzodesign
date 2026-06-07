@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ContactFormSection from "./ContactFormSection";
-import PriceTable from "./PriceTable";
+import PriceTable, { type FlexPriceRow } from "./PriceTable";
 import FabricsSection from "./sections/FabricsSection";
 import ProductGallery from "./ProductGallery";
 import EditBtn from "@/components/admin/EditBtn";
@@ -30,20 +30,44 @@ type Props = {
   breadcrumb: { label: string; href: string }[];
 };
 
-function getStartingPrice(pricing: Pricing): number | null {
-  const prices = [
-    pricing.fotel?.alap,
-    pricing.ketSzemelyes?.alap,
-    pricing.haromSzemelyes?.alap,
-    pricing.sarok?.alap,
-  ].filter(Boolean) as number[];
+function getStartingPrice(rows: FlexPriceRow[]): number | null {
+  const prices = rows
+    .map((r) => parseInt(r.alap, 10))
+    .filter((n) => !isNaN(n));
   return prices.length ? Math.min(...prices) : null;
 }
 
-function n(v: unknown, fallback: number): number {
-  const parsed = parseInt(String(v ?? ""), 10);
-  return isNaN(parsed) ? fallback : parsed;
+function pricingToRows(pricing: Pricing): FlexPriceRow[] {
+  const rows: FlexPriceRow[] = [];
+  if (pricing.fotel)
+    rows.push({ label: "Fotel", alap: String(pricing.fotel.alap), bor: pricing.fotel.bor ? String(pricing.fotel.bor) : "" });
+  if (pricing.ketSzemelyes)
+    rows.push({ label: "2 személyes kanapé", alap: String(pricing.ketSzemelyes.alap), bor: pricing.ketSzemelyes.bor ? String(pricing.ketSzemelyes.bor) : "" });
+  if (pricing.haromSzemelyes)
+    rows.push({ label: "3 személyes kanapé", alap: String(pricing.haromSzemelyes.alap), bor: pricing.haromSzemelyes.bor ? String(pricing.haromSzemelyes.bor) : "" });
+  if (pricing.sarok)
+    rows.push({ label: "Sarokkanapé", alap: String(pricing.sarok.alap), bor: pricing.sarok.bor ? String(pricing.sarok.bor) : "" });
+  if (pricing.agyFunkcio)
+    rows.push({ label: "+ Ágyfunkció", alap: String(pricing.agyFunkcio), bor: "" });
+  return rows;
 }
+
+const DEFAULT_FOOTER =
+  "Az árak tájékoztató jellegűek és az alapkonfigurációra vonatkoznak. Egyéni méret és anyagválasztás esetén az ár változhat. Gyártási idő: 4–6 hét. Garancia: 3 év (váz: 10 év).";
+
+const PRICING_SCHEMA: FieldDef[] = [
+  {
+    key: "rows",
+    label: "Ársorok (hozzáadhatsz újat is)",
+    type: "array",
+    itemFields: [
+      { key: "label", label: "Megnevezés (pl. Fotel)", type: "text" },
+      { key: "alap", label: "Alap szövet ár (Ft)", type: "text" },
+      { key: "bor", label: "Prémium bőr ár (Ft, üres ha nincs)", type: "text" },
+    ],
+  },
+  { key: "footer", label: "Lábjegyzet szöveg", type: "textarea" },
+];
 
 export default async function ProductPageTemplate({
   pageId,
@@ -79,49 +103,17 @@ export default async function ProductPageTemplate({
     { key: "description", label: "Leírás", type: "textarea" },
   ];
 
-  // Pricing
-  const prc: Pricing = {
-    fotel: pricing.fotel ? {
-      alap: n(pricingCfg?.fotel_alap, pricing.fotel.alap),
-      bor: pricing.fotel.bor !== undefined ? n(pricingCfg?.fotel_bor, pricing.fotel.bor) : undefined,
-    } : undefined,
-    ketSzemelyes: pricing.ketSzemelyes ? {
-      alap: n(pricingCfg?.ket_alap, pricing.ketSzemelyes.alap),
-      bor: pricing.ketSzemelyes.bor !== undefined ? n(pricingCfg?.ket_bor, pricing.ketSzemelyes.bor) : undefined,
-    } : undefined,
-    haromSzemelyes: pricing.haromSzemelyes ? {
-      alap: n(pricingCfg?.harom_alap, pricing.haromSzemelyes.alap),
-      bor: pricing.haromSzemelyes.bor !== undefined ? n(pricingCfg?.harom_bor, pricing.haromSzemelyes.bor) : undefined,
-    } : undefined,
-    sarok: pricing.sarok ? {
-      alap: n(pricingCfg?.sarok_alap, pricing.sarok.alap),
-      bor: pricing.sarok.bor !== undefined ? n(pricingCfg?.sarok_bor, pricing.sarok.bor) : undefined,
-    } : undefined,
-    agyFunkcio: pricing.agyFunkcio !== undefined ? n(pricingCfg?.agy_funkio, pricing.agyFunkcio) : undefined,
-  };
-  const PRICING_SCHEMA: FieldDef[] = [
-    { key: "fotel_alap", label: "Fotel – alap ár (Ft)", type: "text" },
-    { key: "fotel_bor", label: "Fotel – bőr ár (Ft)", type: "text" },
-    { key: "ket_alap", label: "Kétszemélyes – alap ár (Ft)", type: "text" },
-    { key: "ket_bor", label: "Kétszemélyes – bőr ár (Ft)", type: "text" },
-    { key: "harom_alap", label: "Háromszemélyes – alap ár (Ft)", type: "text" },
-    { key: "harom_bor", label: "Háromszemélyes – bőr ár (Ft)", type: "text" },
-    { key: "sarok_alap", label: "Sarokkanapé – alap ár (Ft)", type: "text" },
-    { key: "sarok_bor", label: "Sarokkanapé – bőr ár (Ft)", type: "text" },
-    { key: "agy_funkio", label: "Ágyfunkció felár (Ft)", type: "text" },
-  ];
+  // Pricing – flexible rows
+  const defaultRows = pricingToRows(pricing);
+  const storedRows = pricingCfg?.rows as FlexPriceRow[] | undefined;
+  const priceRows: FlexPriceRow[] = storedRows && storedRows.length > 0 ? storedRows : defaultRows;
+  const priceFooter = (pricingCfg?.footer as string) || DEFAULT_FOOTER;
   const pricingEditConfig: Record<string, unknown> = {
-    fotel_alap: pricing.fotel?.alap ?? "",
-    fotel_bor: pricing.fotel?.bor ?? "",
-    ket_alap: pricing.ketSzemelyes?.alap ?? "",
-    ket_bor: pricing.ketSzemelyes?.bor ?? "",
-    harom_alap: pricing.haromSzemelyes?.alap ?? "",
-    harom_bor: pricing.haromSzemelyes?.bor ?? "",
-    sarok_alap: pricing.sarok?.alap ?? "",
-    sarok_bor: pricing.sarok?.bor ?? "",
-    agy_funkio: pricing.agyFunkcio ?? "",
-    ...pricingCfg,
+    rows: priceRows,
+    footer: priceFooter,
   };
+
+  const startingPrice = getStartingPrice(priceRows);
 
   // Features
   const defaultFeaturesBody = features.join("\n");
@@ -162,8 +154,6 @@ export default async function ProductPageTemplate({
     mainImage,
     gallery: resolvedGallery.map((src) => ({ src })),
   };
-
-  const startingPrice = getStartingPrice(prc);
 
   return (
     <>
@@ -210,14 +200,26 @@ export default async function ProductPageTemplate({
         )}
       </section>
 
-      {/* KÉPEK / GALÉRIA */}
+      {/* KÉPEK */}
       <section className="relative bg-[#f5f0e8] py-10">
-        <div className="max-w-5xl mx-auto px-4">
+        <div className="max-w-4xl mx-auto px-4">
           {resolvedGallery.length > 0 ? (
-            <ProductGallery images={resolvedGallery} name={hdr.name} />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image src={mainImage} alt={hdr.name} fill className="object-cover" priority />
+              </div>
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image src={resolvedGallery[0]} alt={`${hdr.name} – 2`} fill className="object-cover" />
+              </div>
+            </div>
           ) : (
-            <div className="relative aspect-[4/3] overflow-hidden max-w-2xl">
-              <Image src={mainImage} alt={hdr.name} fill className="object-cover" priority />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image src={mainImage} alt={hdr.name} fill className="object-cover" priority />
+              </div>
+              <div className="relative aspect-[3/4] overflow-hidden bg-gray-200">
+                <Image src={mainImage} alt={hdr.name} fill className="object-cover opacity-70" />
+              </div>
             </div>
           )}
         </div>
@@ -244,7 +246,7 @@ export default async function ProductPageTemplate({
           <h2 className="text-2xl font-bold text-[#1c1c1c] mb-6" style={{ fontFamily: "var(--font-heading)" }}>
             Árak
           </h2>
-          <PriceTable pricing={prc} />
+          <PriceTable rows={priceRows} footer={priceFooter} />
         </div>
         {isAdmin && (
           <>
@@ -274,6 +276,18 @@ export default async function ProductPageTemplate({
           <EditBtn moduleId={`${pageId}:info`} config={info} schema={INFO_SCHEMA} label="✏ Info blokkok" />
         )}
       </section>
+
+      {/* GALÉRIA */}
+      {resolvedGallery.length > 0 && (
+        <section className="py-10 bg-white">
+          <div className="max-w-5xl mx-auto px-4">
+            <h2 className="text-2xl font-bold text-[#1c1c1c] mb-6" style={{ fontFamily: "var(--font-heading)" }}>
+              Képgaléria
+            </h2>
+            <ProductGallery images={resolvedGallery} name={hdr.name} />
+          </div>
+        </section>
+      )}
 
       <FabricsSection isAdmin={isAdmin} />
 
