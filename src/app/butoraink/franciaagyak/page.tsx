@@ -1,88 +1,110 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { getAdminStatus } from "@/lib/auth";
+import { getModuleConfig } from "@/lib/moduleStore";
 import FabricsSection from "@/components/sections/FabricsSection";
+import ProductImageCarousel from "@/components/ProductImageCarousel";
+import EditBtn from "@/components/admin/EditBtn";
+import type { FieldDef } from "@/types/cms";
 
 export const metadata: Metadata = {
   title: "Franciaágyak – Enzo Design",
   description: "Kárpitozott franciaágyak – Bilbao, Madrid és egyedi modellek. 351.160 Ft-tól, tömörfa szerkezettel.",
 };
 
-const BEDS_ROW1 = [
-  { name: "Bilbao franciaágy", tagline: "Kényelmedre", image: "/images/e7ad8b_335724cf7ec5471c89807f009900353d.webp", href: "/butoraink/franciaagyak" },
-  { name: "Madrid franciaágy", tagline: "Hálószobád éke", image: "/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp", href: "/butoraink/franciaagyak" },
-  { name: "További ágyak", tagline: "Kísértő és zseniális darabok", image: "/images/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472.webp", href: "/butoraink/franciaagyak" },
+const CARDS = [
+  { id: "bilbao", name: "Bilbao franciaágy", tagline: "Kényelmedre", images: ["/images/e7ad8b_335724cf7ec5471c89807f009900353d.webp"], href: "/butoraink/franciaagyak" },
+  { id: "madrid", name: "Madrid franciaágy", tagline: "Hálószobád éke", images: ["/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp"], href: "/butoraink/franciaagyak" },
+  { id: "tovabbi", name: "További ágyak", tagline: "Kísértő és zseniális darabok", images: ["/images/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472.webp"], href: "/butoraink/franciaagyak" },
+  { id: "egyedi", name: "Egyedi megoldások", tagline: "Elkészítjük álombútorod", images: ["/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp"], href: "/butoraink/egyedi-butor" },
+  { id: "uzleti", name: "Üzleti ágyak, garnitúrák", tagline: "Vásárlóid kényelmére", images: ["/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp"], href: "/karpitozott-butor-uzleti-ugyfeleknek" },
 ];
 
-const BEDS_ROW2 = [
-  { name: "Egyedi megoldások", tagline: "Elkészítjük álombútorod", image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp", href: "/butoraink/egyedi-butor" },
-  { name: "Üzleti ágyak, garnitúrák", tagline: "Vásárlóid kényelmére", image: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
+const HERO_SCHEMA: FieldDef[] = [
+  { key: "title", label: "Cím", type: "text" },
+  { key: "subtitle", label: "Alcím", type: "textarea" },
+];
+const FEATURES_SCHEMA: FieldDef[] = [
+  { key: "intro", label: "Bevezető szöveg", type: "text" },
+  { key: "body", label: "Felsorolás (soronként egy)", type: "textarea" },
+];
+const GRID_SCHEMA: FieldDef[] = [{ key: "title", label: "Szekció cím", type: "text" }];
+const CARD_SCHEMA: FieldDef[] = [
+  { key: "name", label: "Neve", type: "text" },
+  { key: "tagline", label: "Tagline", type: "text" },
+  { key: "href", label: "Link", type: "text" },
+  { key: "images", label: "Képek", type: "array", itemFields: [{ key: "src", label: "Kép", type: "image" }] },
 ];
 
 export default async function FranciaagyakPage() {
   const isAdmin = await getAdminStatus();
+  const [heroCfg, featuresCfg, gridCfg, ...cardCfgs] = await Promise.all([
+    getModuleConfig("franciaagyak-listing:hero"),
+    getModuleConfig("franciaagyak-listing:features"),
+    getModuleConfig("franciaagyak-listing:grid"),
+    ...CARDS.map((c) => getModuleConfig(`franciaagyak-card:${c.id}`)),
+  ]);
+
+  const hero = {
+    title: (heroCfg?.title as string) || "Franciaágyak",
+    subtitle: (heroCfg?.subtitle as string) || "Kárpitozott franciaágyak – Bilbao, Madrid és egyedi modellek. Tömörfa szerkezettel, prémium szövetekkel.",
+  };
+  const featuresIntro = (featuresCfg?.intro as string) || "Mindegyik bútorunkat ajánljuk:";
+  const featuresBody = (featuresCfg?.body as string) || "Egyedi szín és anyagminta választással\nTetszőleges méretben\nVálasztható kopásállóság-erősséggel (martindale)\nTömörfa szerkezettel, 10 év váz-garanciával";
+  const featuresItems = featuresBody.split("\n").map((s) => s.trim()).filter(Boolean);
+  const gridTitle = (gridCfg?.title as string) || "Franciaágyak";
+
+  const resolvedCards = CARDS.map((c, i) => {
+    const cfg = cardCfgs[i];
+    const rawImages = cfg?.images as { src: string }[] | undefined;
+    return {
+      ...c,
+      name: (cfg?.name as string) || c.name,
+      tagline: (cfg?.tagline as string) || c.tagline,
+      href: (cfg?.href as string) || c.href,
+      images: rawImages ? rawImages.map((g) => g.src).filter(Boolean) : c.images,
+    };
+  });
 
   return (
     <>
-      {/* HERO */}
-      <section className="bg-[#f5f0e8] py-20 px-4">
+      <section className="relative bg-[#f5f0e8] py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">ENZO DESIGN</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-            Franciaágyak
-          </h1>
-          <p className="text-gray-600 text-lg max-w-xl mx-auto">
-            Kárpitozott franciaágyak – Bilbao, Madrid és egyedi modellek. Tömörfa szerkezettel, prémium szövetekkel.
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>{hero.title}</h1>
+          <p className="text-gray-600 text-lg max-w-xl mx-auto">{hero.subtitle}</p>
         </div>
+        {isAdmin && <EditBtn moduleId="franciaagyak-listing:hero" config={hero} schema={HERO_SCHEMA} label="✏ Hero" />}
       </section>
 
-      {/* FEATURES */}
-      <section className="py-8 bg-white border-b border-gray-100">
+      <section className="relative py-8 bg-white border-b border-gray-100">
         <div className="max-w-2xl mx-auto px-4">
-          <p className="text-sm font-semibold text-[#b8924a] mb-3">Mindegyik bútorunkat ajánljuk:</p>
+          <p className="text-sm font-semibold text-[#b8924a] mb-3">{featuresIntro}</p>
           <ul className="space-y-1.5 text-sm text-gray-600 list-disc list-inside">
-            <li>Egyedi szín és anyagminta választással</li>
-            <li>Tetszőleges méretben</li>
-            <li>Választható kopásállóság-erősséggel (martindale)</li>
-            <li>Tömörfa szerkezettel, 10 év váz-garanciával</li>
+            {featuresItems.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </div>
+        {isAdmin && <EditBtn moduleId="franciaagyak-listing:features" config={{ intro: featuresIntro, body: featuresBody }} schema={FEATURES_SCHEMA} label="✏ Felsorolás" />}
       </section>
 
-      {/* FRANCIAÁGYAK GRID */}
-      <section className="py-12 bg-white">
+      <section className="relative py-12 bg-white">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>Franciaágyak</h2>
-          <Link href="/kapcsolat-es-rendeles" className="text-sm text-[#b8924a] underline block mb-8">
-            Egyedi franciaágyat is elkészítünk →
-          </Link>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-            {BEDS_ROW1.map((b) => (
-              <Link key={b.name} href={b.href} className="group block">
-                <div className="relative aspect-[4/3] overflow-hidden mb-3">
-                  <Image src={b.image} alt={b.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <h3 className="text-[#b8924a] text-sm font-semibold group-hover:underline">{b.name}</h3>
-                <p className="text-xs text-gray-500 mt-0.5">{b.tagline}</p>
-              </Link>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {BEDS_ROW2.map((b) => (
-              <Link key={b.name} href={b.href} className="group block">
-                <div className="relative aspect-[16/9] overflow-hidden mb-3">
-                  <Image src={b.image} alt={b.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <h3 className="text-[#b8924a] text-sm font-semibold group-hover:underline">{b.name}</h3>
-                <p className="text-xs text-gray-500 mt-0.5">{b.tagline}</p>
-              </Link>
+          <h2 className="text-2xl font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>{gridTitle}</h2>
+          <Link href="/kapcsolat-es-rendeles" className="text-sm text-[#b8924a] underline block mb-8">Egyedi franciaágyat is elkészítünk →</Link>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {resolvedCards.map((c) => (
+              <div key={c.id} className="relative group/card">
+                <Link href={c.href} className="block">
+                  <ProductImageCarousel images={c.images} alt={c.name} />
+                  <h3 className="text-[#b8924a] text-sm font-semibold group-hover/card:underline">{c.name}</h3>
+                  <p className="text-xs text-gray-500 mt-0.5">{c.tagline}</p>
+                </Link>
+                {isAdmin && <EditBtn moduleId={`franciaagyak-card:${c.id}`} config={{ name: c.name, tagline: c.tagline, href: c.href, images: c.images.map((src) => ({ src })) }} schema={CARD_SCHEMA} label="✏" positionClass="absolute top-2 right-2 z-20" />}
+              </div>
             ))}
           </div>
         </div>
+        {isAdmin && <EditBtn moduleId="franciaagyak-listing:grid" config={{ title: gridTitle }} schema={GRID_SCHEMA} label="✏ Szekció szöveg" />}
       </section>
 
       <FabricsSection isAdmin={isAdmin} />

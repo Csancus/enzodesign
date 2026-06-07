@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { getAdminStatus } from "@/lib/auth";
+import { getModuleConfig } from "@/lib/moduleStore";
 import FabricsSection from "@/components/sections/FabricsSection";
+import ProductImageCarousel from "@/components/ProductImageCarousel";
+import EditBtn from "@/components/admin/EditBtn";
+import type { FieldDef } from "@/types/cms";
 
 export const metadata: Metadata = {
   title: "Fotelek – Enzo Design",
@@ -10,75 +13,148 @@ export const metadata: Metadata = {
 };
 
 const CARDS = [
-  { name: "Old's Club Fotel", tagline: "Karakteres elegancia", image: "/images/e7ad8b_b8e06512bf824479b51f4152def251fa.webp", href: "/butoraink/fotelek/olds-club-fotel" },
-  { name: "Ivone Fotel", tagline: "Nappalid éke", image: "/images/9a0b1d_99e6dc96a4804030b9c82ccb7ef9a7f7.webp", href: "/butoraink/fotelek/ivone-fotel" },
-  { name: "Design Fotel", tagline: "Modern minőség", image: "/images/e7ad8b_aceaccd7ca6746cb804d31e17d3c8352.webp", href: "/butoraink/fotelek/design-fotel" },
-  { name: "Chesterfield Fotel", tagline: "A bútor, aminek történelme van", image: "/images/e7ad8b_b0943221b51548cbbe6d97a0e24fbeb6.webp", href: "/butoraink/fotelek/chesterfield-fotel" },
-  { name: "New York Fotel", tagline: "Klasszikus stílus", image: "/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp", href: "/butoraink/fotelek/new-york-fotel" },
-  { name: "Joker Fotel", tagline: "Elegáns bútor, bárhova", image: "/images/e7ad8b_472fb74f2a1746e68ca129dbd34b2de7.webp", href: "/butoraink/fotelek/joker-fotel" },
-  { name: "További Fotelek", tagline: "Kényelem, karfával", image: "/images/9a0b1d_c8383ea1a11840a380b79e4cbddd1c96.webp", href: "/butoraink/fotelek/tovabbi-fotelek" },
-  { name: "Egyedi Fotelek", tagline: "Elkészítjük álombútorod", image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp", href: "/butoraink/egyedi-butor" },
-  { name: "Üzleti Fotelek, székek", tagline: "Vásárlóid kényelmére", image: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
+  { id: "olds-club", name: "Old's Club Fotel", tagline: "Karakteres elegancia", images: ["/images/e7ad8b_b8e06512bf824479b51f4152def251fa.webp"], href: "/butoraink/fotelek/olds-club-fotel" },
+  { id: "ivone", name: "Ivone Fotel", tagline: "Nappalid éke", images: ["/images/9a0b1d_99e6dc96a4804030b9c82ccb7ef9a7f7.webp"], href: "/butoraink/fotelek/ivone-fotel" },
+  { id: "design", name: "Design Fotel", tagline: "Modern minőség", images: ["/images/e7ad8b_aceaccd7ca6746cb804d31e17d3c8352.webp"], href: "/butoraink/fotelek/design-fotel" },
+  { id: "chesterfield", name: "Chesterfield Fotel", tagline: "A bútor, aminek történelme van", images: ["/images/e7ad8b_b0943221b51548cbbe6d97a0e24fbeb6.webp"], href: "/butoraink/fotelek/chesterfield-fotel" },
+  { id: "new-york", name: "New York Fotel", tagline: "Klasszikus stílus", images: ["/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp"], href: "/butoraink/fotelek/new-york-fotel" },
+  { id: "joker", name: "Joker Fotel", tagline: "Elegáns bútor, bárhova", images: ["/images/e7ad8b_472fb74f2a1746e68ca129dbd34b2de7.webp"], href: "/butoraink/fotelek/joker-fotel" },
+  { id: "tovabbi", name: "További Fotelek", tagline: "Kényelem, karfával", images: ["/images/9a0b1d_c8383ea1a11840a380b79e4cbddd1c96.webp"], href: "/butoraink/fotelek/tovabbi-fotelek" },
+  { id: "egyedi", name: "Egyedi Fotelek", tagline: "Elkészítjük álombútorod", images: ["/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp"], href: "/butoraink/egyedi-butor" },
+  { id: "uzleti", name: "Üzleti Fotelek, székek", tagline: "Vásárlóid kényelmére", images: ["/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp"], href: "/karpitozott-butor-uzleti-ugyfeleknek" },
+];
+
+const HERO_SCHEMA: FieldDef[] = [
+  { key: "title", label: "Cím", type: "text" },
+  { key: "subtitle", label: "Alcím", type: "textarea" },
+];
+
+const FEATURES_SCHEMA: FieldDef[] = [
+  { key: "intro", label: "Bevezető szöveg", type: "text" },
+  { key: "body", label: "Felsorolás (soronként egy)", type: "textarea" },
+];
+
+const GRID_SCHEMA: FieldDef[] = [
+  { key: "title", label: "Szekció cím", type: "text" },
+  { key: "subtitle", label: "Alcím szöveg", type: "textarea" },
+];
+
+const CARD_SCHEMA: FieldDef[] = [
+  { key: "name", label: "Neve", type: "text" },
+  { key: "tagline", label: "Tagline", type: "text" },
+  { key: "href", label: "Link (pl. /butoraink/fotelek/...)", type: "text" },
+  {
+    key: "images",
+    label: "Képek",
+    type: "array",
+    itemFields: [{ key: "src", label: "Kép", type: "image" }],
+  },
 ];
 
 export default async function FotelekPage() {
   const isAdmin = await getAdminStatus();
 
+  const [heroCfg, featuresCfg, gridCfg, ...cardCfgs] = await Promise.all([
+    getModuleConfig("fotelek-listing:hero"),
+    getModuleConfig("fotelek-listing:features"),
+    getModuleConfig("fotelek-listing:grid"),
+    ...CARDS.map((c) => getModuleConfig(`fotelek-card:${c.id}`)),
+  ]);
+
+  const hero = {
+    title: (heroCfg?.title as string) || "Fotelek",
+    subtitle: (heroCfg?.subtitle as string) || "Válasszon a 2000 nm-es gyárunkból, vagy kérjen egyedi ajánlatot. A Bútoraink szövete és anyagmintája szabadon választható.",
+  };
+
+  const featuresIntro = (featuresCfg?.intro as string) || "Mindegyik bútorunkat ajánljuk:";
+  const featuresBody = (featuresCfg?.body as string) || "Egyedi szín és anyagminta választással\nTetszőleges méretben\nVálasztható kopásállóság-erősséggel (martindale)\nTömörfa szerkezettel, 10 év váz-garanciával";
+  const featuresItems = featuresBody.split("\n").map((s) => s.trim()).filter(Boolean);
+
+  const gridTitle = (gridCfg?.title as string) || "Fotelek";
+  const gridSubtitle = (gridCfg?.subtitle as string) || "Válasszon a 2000 nm-es gyárunkból, kért méretben és anyagmintával.";
+
+  const resolvedCards = CARDS.map((c, i) => {
+    const cfg = cardCfgs[i];
+    const rawImages = cfg?.images as { src: string }[] | undefined;
+    const resolvedImages = rawImages ? rawImages.map((g) => g.src).filter(Boolean) : c.images;
+    return {
+      ...c,
+      name: (cfg?.name as string) || c.name,
+      tagline: (cfg?.tagline as string) || c.tagline,
+      href: (cfg?.href as string) || c.href,
+      images: resolvedImages,
+    };
+  });
+
   return (
     <>
       {/* HERO */}
-      <section className="bg-[#f5f0e8] py-20 px-4">
+      <section className="relative bg-[#f5f0e8] py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">ENZO DESIGN</p>
           <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-            Fotelek
+            {hero.title}
           </h1>
-          <p className="text-gray-600 text-lg max-w-xl mx-auto">
-            Válasszon a 2000 nm-es gyárunkból, vagy kérjen egyedi ajánlatot. A Bútoraink szövete és anyagmintája szabadon választható.
-          </p>
+          <p className="text-gray-600 text-lg max-w-xl mx-auto">{hero.subtitle}</p>
         </div>
+        {isAdmin && <EditBtn moduleId="fotelek-listing:hero" config={hero} schema={HERO_SCHEMA} label="✏ Hero" />}
       </section>
 
       {/* FEATURES */}
-      <section className="py-8 bg-white border-b border-gray-100">
+      <section className="relative py-8 bg-white border-b border-gray-100">
         <div className="max-w-2xl mx-auto px-4">
-          <p className="text-sm font-semibold text-[#b8924a] mb-3">Mindegyik bútorunkat ajánljuk:</p>
+          <p className="text-sm font-semibold text-[#b8924a] mb-3">{featuresIntro}</p>
           <ul className="space-y-1.5 text-sm text-gray-600 list-disc list-inside">
-            <li>Egyedi szín és anyagminta választással</li>
-            <li>Tetszőleges méretben</li>
-            <li>Választható kopásállóság-erősséggel (martindale)</li>
-            <li>Tömörfa szerkezettel, 10 év váz-garanciával</li>
+            {featuresItems.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </div>
+        {isAdmin && (
+          <EditBtn
+            moduleId="fotelek-listing:features"
+            config={{ intro: featuresIntro, body: featuresBody }}
+            schema={FEATURES_SCHEMA}
+            label="✏ Felsorolás"
+          />
+        )}
       </section>
 
       {/* GRID */}
-      <section className="py-12 bg-white">
+      <section className="relative py-12 bg-white">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>Fotelek</h2>
-          <p className="text-sm text-gray-500 mb-1">
-            Válasszon a 2000 nm-es gyárunkból, kért méretben és anyagmintával.
-          </p>
+          <h2 className="text-2xl font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>{gridTitle}</h2>
+          <p className="text-sm text-gray-500 mb-1">{gridSubtitle}</p>
           <Link href="/kapcsolat-es-rendeles" className="text-sm text-[#b8924a] underline block mb-8">
             Egyedi fotelt is elkészítünk →
           </Link>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {CARDS.map((c) => (
-              <Link key={c.name} href={c.href} className="group block">
-                <div className="relative aspect-[4/3] overflow-hidden mb-3">
-                  <Image
-                    src={c.image}
-                    alt={c.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+            {resolvedCards.map((c) => (
+              <div key={c.id} className="relative group/card">
+                <Link href={c.href} className="block">
+                  <ProductImageCarousel images={c.images} alt={c.name} />
+                  <h3 className="text-[#b8924a] text-sm font-semibold group-hover/card:underline">{c.name}</h3>
+                  <p className="text-xs text-gray-500 mt-0.5">{c.tagline}</p>
+                </Link>
+                {isAdmin && (
+                  <EditBtn
+                    moduleId={`fotelek-card:${c.id}`}
+                    config={{
+                      name: c.name,
+                      tagline: c.tagline,
+                      href: c.href,
+                      images: c.images.map((src) => ({ src })),
+                    }}
+                    schema={CARD_SCHEMA}
+                    label="✏"
+                    positionClass="absolute top-2 right-2 z-20"
                   />
-                </div>
-                <h3 className="text-[#b8924a] text-sm font-semibold group-hover:underline">{c.name}</h3>
-                <p className="text-xs text-gray-500 mt-0.5">{c.tagline}</p>
-              </Link>
+                )}
+              </div>
             ))}
           </div>
         </div>
+        {isAdmin && (
+          <EditBtn moduleId="fotelek-listing:grid" config={{ title: gridTitle, subtitle: gridSubtitle }} schema={GRID_SCHEMA} label="✏ Szekció szöveg" />
+        )}
       </section>
 
       <FabricsSection isAdmin={isAdmin} />
