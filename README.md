@@ -2,6 +2,8 @@
 
 **Referencia / eredeti Wix oldal:** https://info101529.wixsite.com/enzo-design/home
 
+**Google Merchant Center (termékek):** https://merchants.google.com/mc/items?a=5805605667&timePeriod=2026-05-14%2C2026-06-10&marketingMethod=4&src=ome&authuser=7
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
