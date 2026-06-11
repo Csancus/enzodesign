@@ -3,7 +3,6 @@ import path from "path";
 import { unstable_cache, revalidateTag } from "next/cache";
 
 const DATA_FILE = path.join(process.cwd(), "data", "modules.json");
-const configKey = (id: string) => `modules/${id.replace(/:/g, "--")}.json`;
 
 async function readLocalConfig(id: string): Promise<Record<string, unknown>> {
   try {
@@ -25,40 +24,26 @@ async function writeLocalConfig(id: string, config: Record<string, unknown>): Pr
   await writeFile(DATA_FILE, JSON.stringify(store, null, 2));
 }
 
-// Load all module configs from Blob in a single list() call, cached for 1 hour.
-// This replaces individual head() calls (1 operation each) with a single list()
-// call shared across all requests in the cache window.
-const loadAllBlobConfigs = unstable_cache(
+// Load all module configs from Supabase in one query, cached for 1 hour.
+const loadAllSupabaseConfigs = unstable_cache(
   async (): Promise<Record<string, Record<string, unknown>>> => {
-    const { list } = await import("@vercel/blob");
-    const { blobs } = await list({ prefix: "modules/" });
-    const entries = await Promise.all(
-      blobs.map(async (b) => {
-        const id = b.pathname
-          .replace(/^modules\//, "")
-          .replace(/\.json$/, "")
-          .replace(/--/g, ":");
-        try {
-          const res = await fetch(b.url, { cache: "no-store" });
-          const data = await res.json();
-          return [id, data] as const;
-        } catch {
-          return [id, {}] as const;
-        }
-      })
-    );
-    return Object.fromEntries(entries);
+    const { getSupabaseAdmin } = await import("@/lib/supabase");
+    const { data, error } = await getSupabaseAdmin()
+      .from("module_configs")
+      .select("id, config") as { data: { id: string; config: Record<string, unknown> }[] | null; error: unknown };
+    if (error || !data) return {};
+    return Object.fromEntries(data.map((r) => [r.id, r.config]));
   },
   ["module-configs"],
   { revalidate: 3600, tags: ["module-configs"] }
 );
 
 export async function getModuleConfig(id: string): Promise<Record<string, unknown>> {
-  if (!process.env.BLOB_STORE_ID) {
+  if (!process.env.SUPABASE_URL) {
     return readLocalConfig(id);
   }
   try {
-    const all = await loadAllBlobConfigs();
+    const all = await loadAllSupabaseConfigs();
     return all[id] ?? {};
   } catch {
     return {};
@@ -66,15 +51,13 @@ export async function getModuleConfig(id: string): Promise<Record<string, unknow
 }
 
 export async function setModuleConfig(id: string, config: Record<string, unknown>): Promise<void> {
-  if (!process.env.BLOB_STORE_ID) {
+  if (!process.env.SUPABASE_URL) {
     return writeLocalConfig(id, config);
   }
-  const { put } = await import("@vercel/blob");
-  await put(configKey(id), JSON.stringify(config), {
-    access: "public",
-    contentType: "application/json",
-    addRandomSuffix: false,
-  });
-  // Invalidate the cached config list so next read picks up the change
+  const { getSupabaseAdmin } = await import("@/lib/supabase");
+  const { error } = await (getSupabaseAdmin()
+    .from("module_configs") as any)
+    .upsert({ id, config, updated_at: new Date().toISOString() });
+  if (error) throw new Error(error.message);
   revalidateTag("module-configs", "max");
 }

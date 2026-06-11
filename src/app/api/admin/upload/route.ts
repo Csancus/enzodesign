@@ -20,13 +20,16 @@ export async function POST(req: NextRequest) {
     .webp({ quality: 82 })
     .toBuffer();
 
-  if (process.env.BLOB_STORE_ID) {
-    const { put } = await import("@vercel/blob");
-    const { url } = await put(`slideshow/${id}.webp`, optimized, {
-      access: "public",
-      contentType: "image/webp",
-    });
-    return NextResponse.json({ src: url });
+  if (process.env.SUPABASE_URL) {
+    const { getSupabaseAdmin } = await import("@/lib/supabase");
+    const supabase = getSupabaseAdmin();
+    const filePath = `slideshow/${id}.webp`;
+    const { error } = await supabase.storage
+      .from("enzodesign")
+      .upload(filePath, optimized, { contentType: "image/webp", upsert: false });
+    if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+    const { data } = supabase.storage.from("enzodesign").getPublicUrl(filePath);
+    return NextResponse.json({ src: data.publicUrl });
   }
 
   const UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "slideshow");
