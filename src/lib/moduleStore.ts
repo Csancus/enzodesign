@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir } from "fs/promises";
 import path from "path";
+import { unstable_cache, revalidateTag } from "next/cache";
 
 const DATA_FILE = path.join(process.cwd(), "data", "modules.json");
 const configKey = (id: string) => `modules/${id.replace(/:/g, "--")}.json`;
@@ -24,15 +25,41 @@ async function writeLocalConfig(id: string, config: Record<string, unknown>): Pr
   await writeFile(DATA_FILE, JSON.stringify(store, null, 2));
 }
 
+// Load all module configs from Blob in a single list() call, cached for 1 hour.
+// This replaces individual head() calls (1 operation each) with a single list()
+// call shared across all requests in the cache window.
+const loadAllBlobConfigs = unstable_cache(
+  async (): Promise<Record<string, Record<string, unknown>>> => {
+    const { list } = await import("@vercel/blob");
+    const { blobs } = await list({ prefix: "modules/" });
+    const entries = await Promise.all(
+      blobs.map(async (b) => {
+        const id = b.pathname
+          .replace(/^modules\//, "")
+          .replace(/\.json$/, "")
+          .replace(/--/g, ":");
+        try {
+          const res = await fetch(b.url, { cache: "no-store" });
+          const data = await res.json();
+          return [id, data] as const;
+        } catch {
+          return [id, {}] as const;
+        }
+      })
+    );
+    return Object.fromEntries(entries);
+  },
+  ["module-configs"],
+  { revalidate: 3600, tags: ["module-configs"] }
+);
+
 export async function getModuleConfig(id: string): Promise<Record<string, unknown>> {
   if (!process.env.BLOB_STORE_ID) {
     return readLocalConfig(id);
   }
   try {
-    const { head } = await import("@vercel/blob");
-    const info = await head(configKey(id));
-    const res = await fetch(info.url, { cache: "no-store" });
-    return await res.json();
+    const all = await loadAllBlobConfigs();
+    return all[id] ?? {};
   } catch {
     return {};
   }
@@ -48,4 +75,6 @@ export async function setModuleConfig(id: string, config: Record<string, unknown
     contentType: "application/json",
     addRandomSuffix: false,
   });
+  // Invalidate the cached config list so next read picks up the change
+  revalidateTag("module-configs", "max");
 }
