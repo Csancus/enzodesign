@@ -61,6 +61,94 @@ const defaults = {
   "franciaagyak-card:madrid": { name: "Madrid franciaágy", tagline: "Hálószobád éke", href: "/butoraink/franciaagyak", images: ["/images/franciaaggy-w2.webp", "/images/franciaaggy-w5.webp"] },
   "franciaagyak-card:tovabbi": { name: "További ágyak", tagline: "Kísértő és zseniális darabok", href: "/butoraink/franciaagyak", images: ["/images/franciaaggy-w1.webp", "/images/franciaaggy-w4.webp"] },
   "szek-card:szek": { name: "Szék, zsámoly, falvédő", tagline: "Sok féle választék", href: "/butoraink/szek-zsamoly-falvedo", images: ["/images/szek-w2.webp", "/images/szek-w9.webp"] },
+
+  // --- RÓLUNK ---
+  "rolunk:story": {
+    title: "Történetünk",
+    p1: "Nagykanizsán közel 20 éve készítünk bútorokat melyeket főleg Magyarországon és Németországban, de Európa szerte használnak.",
+    p2: "A minőség elsődleges számunkra, ezért kizárólag tömörfa szerkezettel és nagy kopásállóságú anyagokkal dolgozunk.",
+    p3: "Mivel mi vagyunk a gyártó és az eladó is, ezért nincs extra reklámköltségünk, így reális áron tudjuk adni bútoraink.",
+    p4: "2000 nm-es üzemünkben bármilyen egyedi, vagy típusbútort el tudunk készíteni lakásokba, kávézókba, éttermekbe vagy szállodákba is.",
+    quote: "Bizonyos bútorok, amelyek mellett felnő az ember, valamiképpen fontossá válnak.",
+    quoteAuthor: "Bernlef",
+  },
+  "rolunk:stats": {
+    items: [
+      { label: "Alapítva", value: "2015" },
+      { label: "Telephely", value: "2000 nm" },
+      { label: "Tapasztalat", value: "~20 év" },
+      { label: "Garancia", value: "3+10 év" },
+    ],
+  },
+  "rolunk:cta": {
+    title: "Szeretne egyedi bútort?",
+    subtitle: "Vegye fel velünk a kapcsolatot – 24 órán belül visszahívjuk!",
+    phone: "+36 30 377 8983",
+  },
+
+  // --- CHESTERFIELD KATEGÓRIA ---
+  "chesterfield:hero": {
+    title: "A Chesterfield",
+    body: "A Chesterfield bútorok az elegancia, a hagyomány és a stílus tökéletes kombinációi. A mély gombolás, a bőrborítás és a karakteres formavilág évszázadok óta a luxus és a kifinomult ízlés szimbólumai. Legyen szó klasszikus bőrkanapéról vagy modern újragondolásról, a Chesterfield mindig időtálló választás.",
+  },
+  "chesterfield:subtopics": {
+    sectionTitle: "Ismerkedj meg a Chesterfieldel",
+    items: [
+      { title: "A Chesterfield kanapé eredete", href: "/chesterfield/a-chesterfield-kanape-eredete", desc: "Fedezd fel, hogyan született meg a Chesterfield kanapé legendája az angol arisztokrácia világában! A stílusos bútor gyökerei egészen a 18. századig nyúlnak vissza, és máig az elegancia szimbóluma maradt." },
+      { title: "Chesterfield stílus és formajegyek", href: "/chesterfield/chesterfield-stilus-es-formajegyek", desc: "Mi teszi a Chesterfieldtet igazán különlegessé? Ismerd meg a jellegzetes gombolást, mély ülőrészt, bőrborítást és díszes karfákat – a formai jegyeket, amik ikonikus bútordarabbá tették." },
+      { title: "Anyagok és gyártási technikák", href: "/chesterfield/chesterfield-anyagok-es-gyartai-technikak", desc: "A Chesterfield bútorok nemcsak szépek, hanem időtállók is – de vajon mitől? Bemutatjuk a leggyakoribb bőr- és kárpitfajtákat, illetve a tradicionális kézműves technikákat, amelyek a minőséget garantálják." },
+      { title: "A Chesterfield a modern enteriőrben", href: "/chesterfield/chesterfield-a-modern-enteriorben", desc: "Bár klasszikus darab, a Chesterfield remekül illeszkedik a mai modern terekbe is. Inspirációk és tippek arra, hogyan kombinálhatod ezt az időtlen bútort a mai stílusokkal – legyen az minimalista, loft vagy vintage." },
+    ],
+  },
+  "chesterfield:eternal": {
+    title: "A Chesterfield örök",
+    body: "Közel 20 éve gyártunk Chesterfield bútorokat. Mondhatni, ők már családtagok. Rendelj tőlünk Chesterfield bútort és mi elkészítjük tömörfa szerkezettel és minőségi szövettel vagy bőr bevonattal.",
+  },
+
+  // --- ÜZLETI OLDAL ---
+  "uzleti:hero": {
+    tagline: "Üzleti megrendelések",
+    title: "Éttermeknek, szállodáknak, rendelőknek, fogadóterekbe",
+    body: "2000 nm-es üzemünkben rendszeresen gyártunk nem csak lakossági, hanem üzleti megrendelésre is termékeket. Tömörfa szerkezettel, nagy kopásállóságú anyagokkal dolgozunk, így a bútor forgalmas helyeken is hosszú élettartammal rendelkezik.",
+  },
+  "uzleti:intro": {
+    body: "Minden ügyfelünkkel egyedileg foglalkozunk.\n\nTelefonos vagy emailes egyeztetést követően ingyenes helyszíni egyeztetéssel rövid határidőn belül elkészítjük a kért bútorokat.\n\nNézd meg referenciáinkat és kérj árajánlatot!",
+  },
+  "uzleti:segments": {
+    items: [
+      { title: "Szálloda, fogadótér", desc: "Örömmel készítünk azonos designban többféle, egyedi méretű terméket.", image: "/images/uzleti-szalloda.webp" },
+      { title: "Rendelő", desc: "Egy orvosi rendelő nem lehetne autentikus egy Chesterfield kanapé vagy néhány fotel nélkül.", image: "/images/uzleti-rendelo.webp" },
+      { title: "Étterem, kávézó", desc: "Teljes, nagy teherbírású szetteket gyártunk kis kávézók vagy nagy éttermek részére.", image: "/images/uzleti-etterem.webp" },
+      { title: "Airbnb", desc: "Egyedi, kisebb helységű Airbnb-k számára készítünk okos és vagány megoldásokat.", image: "/images/uzleti-airbnb.webp" },
+    ],
+  },
+  "uzleti:benefits": {
+    title: "Miért válasszon minket üzleti célra?",
+    items: "Nagy teherbírású kárpit anyagok (>100.000 martindale)\nTömörfa váz – 10 év vázgarancia\nEgyedi méret, szín és kialakítás\nTömegtermelési lehetőség – 2000 nm-es üzem\nIngyenes helyszíni egyeztetés\nRövid határidő – 4–6 hét",
+  },
+  "uzleti:refs": {
+    title: "Referenciák és inspirációk",
+    images: [
+      { src: "/images/uzleti-ref1.webp" },
+      { src: "/images/uzleti-ref2.webp" },
+      { src: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp" },
+    ],
+  },
+
+  // --- BÚTORGYÁRTÁS ---
+  "butorgyartas:subtopics": {
+    items: [
+      { title: "Bútortervezés", href: "/butorgyartas/tervezes", desc: "CAD modellezés, ergonómia, fenntarthatóság." },
+      { title: "Alapanyagok", href: "/butorgyartas/anyagok", desc: "Tömörfa, kárpit, szövet – mi számít a minőségben?" },
+      { title: "A bútorgyártás menete", href: "/butorgyartas/butorgyartas-folyamata", desc: "Tervezéstől a kész darabig – hogyan készül egy bútor?" },
+    ],
+  },
+  "butorgyartas:content": {
+    title: "Kézműves precizitás modern technológiával",
+    p1: "A bútorgyártás komplex, precíz folyamat, ahol minden fázis hatással van a végső minőségre. A munkafolyamat a tervezéstől indul, és az anyagbeszerzésen, alkatrészelőkészítésen, összeszerelésen, kárpitozáson át vezet a kész darabig.",
+    p2: "Automatizált berendezéseket (CNC marók, lézervágók) és hagyományos kézimunkát egyaránt alkalmazunk – a részletmunka, kárpitozás és végső kikészítés kézzel történik.",
+    quote: "Egy jól megmunkált sarok, feszesen húzott kárpit, precízen illeszkedő elemek – ezek mind hozzájárulnak a bútor karakteréhez és tartósságához.",
+  },
 };
 
 const rows = Object.entries(defaults).map(([id, config]) => ({ id, config, updated_at: new Date().toISOString() }));
