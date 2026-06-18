@@ -1,4 +1,17 @@
+import type { Metadata } from "next";
 import { getAdminStatus } from "@/lib/auth";
+
+export const metadata: Metadata = {
+  title: "Egyedi kárpitozott bútorok gyártótól – Enzo Design",
+  description: "Közel 20 éve gyártunk kanapékat, foteleket, Chesterfield bútorokat Nagykanizsán. Tömörfa váz, prémium szövetek, egyedi méretben. Rendelj közvetlenül a gyártótól.",
+  alternates: { canonical: "https://enzodesign.hu" },
+  openGraph: {
+    title: "Egyedi kárpitozott bútorok – Enzo Design",
+    description: "Közel 20 éve gyártunk kanapékat, foteleket, Chesterfield bútorokat Nagykanizsán. Tömörfa váz, prémium szövetek, egyedi méretben.",
+    url: "https://enzodesign.hu",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800, alt: "Enzo Design kanapék és fotelek" }],
+  },
+};
 import { getPageLayout } from "@/lib/pageLayout";
 import SectionRenderer from "@/components/sections/SectionRenderer";
 import SectionAdminOverlay from "@/components/admin/SectionAdminOverlay";

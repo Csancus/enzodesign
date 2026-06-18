@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
-export const metadata: Metadata = { title: "New York Fotel" };
+export const metadata: Metadata = {
+  title: "New York Fotel – klasszikus-modern kárpit",
+  description: "A New York fotel a klasszikus és modern stílus ötvözete. Tömörfa váz, prémium szövetek, egyedi méretben – közvetlen gyártótól, Nagykanizsáról.",
+  alternates: { canonical: "https://enzodesign.hu/butoraink/fotelek/new-york-fotel" },
+  openGraph: {
+    title: "New York Fotel – klasszikus-modern kárpit | Enzo Design",
+    description: "Klasszikus-modern stílus, tömörfa váz. Prémium szövetek, egyedi méretben.",
+    url: "https://enzodesign.hu/butoraink/fotelek/new-york-fotel",
+    images: [{ url: "/images/new-york-w5.webp", width: 1920, height: 800 }],
+  },
+};
 export default function Page() {
   return (
     <ProductPageTemplate

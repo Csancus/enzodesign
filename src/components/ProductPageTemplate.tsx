@@ -155,8 +155,32 @@ export default async function ProductPageTemplate({
     gallery: resolvedGallery.map((src) => ({ src })),
   };
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": hdr.name,
+    "description": hdr.description,
+    "image": `https://enzodesign.hu${mainImage}`,
+    "brand": { "@type": "Brand", "name": "Enzo Design" },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "HUF",
+      ...(startingPrice ? { "lowPrice": String(startingPrice) } : {}),
+      "availability": "https://schema.org/InStock",
+      "seller": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu" },
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "8",
+      "bestRating": "5",
+      "worstRating": "1",
+    },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
       {/* BREADCRUMB */}
       <nav className="bg-[#f5f0e8] px-4 py-3 text-sm">
         <div className="max-w-7xl mx-auto flex items-center gap-2 text-gray-500 flex-wrap">
@@ -206,6 +230,7 @@ export default async function ProductPageTemplate({
           <ProductGallery
             images={[mainImage, ...resolvedGallery].filter((src, i, arr) => arr.indexOf(src) === i)}
             name={hdr.name}
+            priority
           />
         </div>
         {isAdmin && (

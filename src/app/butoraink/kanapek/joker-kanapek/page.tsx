@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
 
-export const metadata: Metadata = { title: "Joker Kanapék" };
+export const metadata: Metadata = {
+  title: "Joker Kanapé – elegáns forma, prémium kárpit",
+  description: "A Joker kanapé gáláns megjelenésével és prémium kárpitjával tökéletes választás. Tömörfa váz, egyedi méret, szövet- és bőrborítással – közvetlen gyártótól.",
+  alternates: { canonical: "https://enzodesign.hu/butoraink/kanapek/joker-kanapek" },
+  openGraph: {
+    title: "Joker Kanapé – elegáns forma, prémium kárpit | Enzo Design",
+    description: "Gáláns megjelenés, prémium kárpit. Tömörfa váz, egyedi méret és szövetválasztás.",
+    url: "https://enzodesign.hu/butoraink/kanapek/joker-kanapek",
+    images: [{ url: "/images/joker-w1.webp", width: 1920, height: 800 }],
+  },
+};
 
 export default function Page() {
   return (

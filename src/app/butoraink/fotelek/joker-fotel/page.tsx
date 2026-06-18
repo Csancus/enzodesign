@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
-export const metadata: Metadata = { title: "Joker Fotel" };
+export const metadata: Metadata = {
+  title: "Joker Fotel – elegáns kárpitozott ülőbútor",
+  description: "A Joker fotel elegáns megjelenésével és prémium kárpitjával tökéletes kiegészítő. Tömörfa váz, egyedi méret – közvetlen gyártótól, Nagykanizsáról.",
+  alternates: { canonical: "https://enzodesign.hu/butoraink/fotelek/joker-fotel" },
+  openGraph: {
+    title: "Joker Fotel – elegáns kárpitozott ülőbútor | Enzo Design",
+    description: "Elegáns megjelenés, prémium kárpit. Tömörfa váz, egyedi méret és szövetválasztás.",
+    url: "https://enzodesign.hu/butoraink/fotelek/joker-fotel",
+    images: [{ url: "/images/joker-w1.webp", width: 1920, height: 800 }],
+  },
+};
 export default function Page() {
   return (
     <ProductPageTemplate

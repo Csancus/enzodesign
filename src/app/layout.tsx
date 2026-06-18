@@ -33,10 +33,14 @@ export const metadata: Metadata = {
   verification: {
     google: "GF7nw14w_hoZNowLq5g0-aCKhNo279gnC0B_h2sYdGA",
   },
+  alternates: {
+    canonical: "https://enzodesign.hu",
+  },
   openGraph: {
     siteName: "Enzo Design",
     locale: "hu_HU",
     type: "website",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800, alt: "Enzo Design – Egyedi kárpitozott bútorok" }],
   },
 };
 
@@ -70,7 +74,7 @@ export default async function RootLayout({
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "12",
+      "reviewCount": "8",
       "bestRating": "5",
       "worstRating": "1"
     },

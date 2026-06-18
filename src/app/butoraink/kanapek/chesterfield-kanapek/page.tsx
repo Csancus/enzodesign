@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
 
-export const metadata: Metadata = { title: "Chesterfield Kanapék" };
+export const metadata: Metadata = {
+  title: "Chesterfield Kanapé – tömörfa váz, szövet vagy bőr",
+  description: "Kézzel gombolva, tömörfa szerkezettel. Chesterfield kanapé 2, 3 személyes és sarok kivitelben, 324 380 Ft-tól. Közvetlen gyártótól, Nagykanizsáról.",
+  alternates: { canonical: "https://enzodesign.hu/butoraink/kanapek/chesterfield-kanapek" },
+  openGraph: {
+    title: "Chesterfield Kanapé – tömörfa váz, szövet vagy bőr | Enzo Design",
+    description: "Kézzel gombolva, tömörfa szerkezettel. 2, 3 személyes és sarok kivitel, 324 380 Ft-tól.",
+    url: "https://enzodesign.hu/butoraink/kanapek/chesterfield-kanapek",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+  },
+};
 
 export default function Page() {
   return (

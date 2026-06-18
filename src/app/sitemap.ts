@@ -64,7 +64,6 @@ const PAGES = [
 export default function sitemap(): MetadataRoute.Sitemap {
   return PAGES.map(({ url, priority, changeFrequency }) => ({
     url: `${BASE}${url}`,
-    lastModified: new Date(),
     changeFrequency,
     priority,
   }));

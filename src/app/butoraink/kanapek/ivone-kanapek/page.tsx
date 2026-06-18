@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
 
-export const metadata: Metadata = { title: "Ivone Kanapék" };
+export const metadata: Metadata = {
+  title: "Ivone Kanapé – steppelt kárpit, klasszikus forma",
+  description: "Az Ivone kanapé jellegzetes steppelt kárpitjával és klasszikus vonalaival nappalid ékköve. Tömörfa váz, egyedi méret és szövetválasztás – közvetlen gyártótól.",
+  alternates: { canonical: "https://enzodesign.hu/butoraink/kanapek/ivone-kanapek" },
+  openGraph: {
+    title: "Ivone Kanapé – steppelt kárpit, klasszikus forma | Enzo Design",
+    description: "Steppelt kárpit, klasszikus vonalak. Tömörfa váz, egyedi méret és szövetválasztás.",
+    url: "https://enzodesign.hu/butoraink/kanapek/ivone-kanapek",
+    images: [{ url: "/images/ivone-w1.webp", width: 1920, height: 800 }],
+  },
+};
 
 export default function Page() {
   return (

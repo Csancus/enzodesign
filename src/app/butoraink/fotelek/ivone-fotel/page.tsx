@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
-export const metadata: Metadata = { title: "Ivone Fotel" };
+export const metadata: Metadata = {
+  title: "Ivone Fotel – steppelt kárpit, elegáns forma",
+  description: "Az Ivone fotel jellegzetes steppelt kárpitjával és elegáns formájával szobád ékköve. Tömörfa váz, 3 év garancia, egyedi méretben – közvetlen gyártótól.",
+  alternates: { canonical: "https://enzodesign.hu/butoraink/fotelek/ivone-fotel" },
+  openGraph: {
+    title: "Ivone Fotel – steppelt kárpit, elegáns forma | Enzo Design",
+    description: "Steppelt kárpit, elegáns forma. Tömörfa váz, 3 év garancia, egyedi méret.",
+    url: "https://enzodesign.hu/butoraink/fotelek/ivone-fotel",
+    images: [{ url: "/images/ivone-w1.webp", width: 1920, height: 800 }],
+  },
+};
 export default function Page() {
   return (
     <ProductPageTemplate

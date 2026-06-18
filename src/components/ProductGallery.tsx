@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
-export default function ProductGallery({ images, name }: { images: string[]; name: string }) {
+export default function ProductGallery({ images, name, priority }: { images: string[]; name: string; priority?: boolean }) {
   const [active, setActive] = useState<number | null>(null);
 
   const close = useCallback(() => setActive(null), []);
@@ -43,6 +43,7 @@ export default function ProductGallery({ images, name }: { images: string[]; nam
               src={src}
               alt={`${name} – ${i + 1}`}
               fill
+              priority={priority && i === 0}
               className="object-cover group-hover:scale-105 transition-transform duration-300"
               sizes="(max-width: 640px) 50vw, 25vw"
             />
