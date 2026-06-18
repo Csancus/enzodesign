@@ -4,7 +4,16 @@ import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
 import PageHero from "@/components/PageHero";
 
-export const metadata: Metadata = { title: "Chesterfield – Anyagok és gyártási technikák" };
+export const metadata: Metadata = {
+  title: "Chesterfield – Anyagok és gyártási technikák – Enzo Design",
+  alternates: { canonical: "https://enzodesign.hu/chesterfield/chesterfield-anyagok-es-gyartai-technikak" },
+  openGraph: {
+    title: "Chesterfield – Anyagok és gyártási technikák – Enzo Design",
+    description: "Chesterfield bútorok anyagai és gyártási technikái: tömörfa váz, kézzel feszített kárpit, gombolt háttámla, prémium szövetek és bőr.",
+    url: "https://enzodesign.hu/chesterfield/chesterfield-anyagok-es-gyartai-technikak",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+  },
+};
 
 export default async function Page() {
   return (

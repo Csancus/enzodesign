@@ -11,6 +11,14 @@ import type { FieldDef } from "@/types/cms";
 export const metadata: Metadata = {
   title: "Bútoraink – Enzo Design",
   description: "Kanapék, fotelek, franciaágyak – 2000 nm-es telephelyünkön készülnek. Tömörfa, prémium szövetek.",
+
+  alternates: { canonical: "https://enzodesign.hu/butoraink" },
+  openGraph: {
+    title: "Bútoraink – Enzo Design",
+    description: "Kanapék, fotelek, franciaágyak – 2000 nm-es telephelyünkön készülnek. Tömörfa, prémium szövetek.",
+    url: "https://enzodesign.hu/butoraink",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+  },
 };
 
 type Card = { id: string; name: string; tagline: string; image: string; href: string };

@@ -4,7 +4,16 @@ import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
 import PageHero from "@/components/PageHero";
 
-export const metadata: Metadata = { title: "A Chesterfield kanapé eredete" };
+export const metadata: Metadata = {
+  title: "A Chesterfield kanapé eredete – Enzo Design",
+  alternates: { canonical: "https://enzodesign.hu/chesterfield/a-chesterfield-kanape-eredete" },
+  openGraph: {
+    title: "A Chesterfield kanapé eredete – Enzo Design",
+    description: "A Chesterfield kanapé 300 éves brit örökség. Hogyan vált a 4. Chesterfield Earl bútorstílusa időtálló ikonná? Eredet, hagyomány és mai formák.",
+    url: "https://enzodesign.hu/chesterfield/a-chesterfield-kanape-eredete",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+  },
+};
 
 export default async function Page() {
   return (

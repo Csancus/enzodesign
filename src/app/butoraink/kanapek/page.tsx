@@ -10,6 +10,14 @@ import type { FieldDef } from "@/types/cms";
 export const metadata: Metadata = {
   title: "Kanapék – Enzo Design",
   description: "Kanapé kollekciók: Old's Club, Ivone, Design, Chesterfield, New York, Joker, Cannes – egyedi méretben és szövetben.",
+
+  alternates: { canonical: "https://enzodesign.hu/butoraink/kanapek" },
+  openGraph: {
+    title: "Kanapék – Enzo Design",
+    description: "Kanapé kollekciók: Old's Club, Ivone, Design, Chesterfield, New York, Joker, Cannes – egyedi méretben és szövetben.",
+    url: "https://enzodesign.hu/butoraink/kanapek",
+    images: [{ url: "/images/olds-club-w1.webp", width: 1920, height: 800 }],
+  },
 };
 
 const CARDS = [

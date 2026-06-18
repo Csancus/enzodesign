@@ -13,6 +13,14 @@ import type { FieldDef } from "@/types/cms";
 export const metadata: Metadata = {
   title: "Rólunk – Enzo Design",
   description: "Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán, 2000 nm-es telephelyünkön.",
+
+  alternates: { canonical: "https://enzodesign.hu/rolunk" },
+  openGraph: {
+    title: "Rólunk – Enzo Design",
+    description: "Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán, 2000 nm-es telephelyünkön.",
+    url: "https://enzodesign.hu/rolunk",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+  },
 };
 
 const STORY_SCHEMA: FieldDef[] = [

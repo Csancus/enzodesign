@@ -9,7 +9,15 @@ import type { FieldDef } from "@/types/cms";
 
 export const metadata: Metadata = {
   title: "Egyedi Bútor – Enzo Design",
-  description: "Egyedi kárpitozott bútor rendelés. Küldj egy képet és mi elkészítjük álmaid bútorát.",
+  description: "Egyedi kárpitozott bútor gyártótól: küldj egy képet és 2 napon belül árajánlatot kapsz. Tömörfa szerkezet, 100+ szövet, 3 év garancia.",
+
+  alternates: { canonical: "https://enzodesign.hu/butoraink/egyedi-butor" },
+  openGraph: {
+    title: "Egyedi Bútor – Enzo Design",
+    description: "Egyedi kárpitozott bútor gyártótól: küldj egy képet és 2 napon belül árajánlatot kapsz. Tömörfa szerkezet, 100+ szövet, 3 év garancia.",
+    url: "https://enzodesign.hu/butoraink/egyedi-butor",
+    images: [{ url: "/images/egyedi-w1.webp", width: 1920, height: 800 }],
+  },
 };
 
 const DEFAULT_GALLERY = [

@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
-export const metadata: Metadata = { title: "Ivone Kollekció" };
+export const metadata: Metadata = {
+  title: "Ivone Kollekció – Enzo Design",
+  alternates: { canonical: "https://enzodesign.hu/ivone-kollekcio" },
+  openGraph: {
+    title: "Ivone Kollekció – Enzo Design",
+    description: "A klasszikus elegancia és a modern kényelem tökéletes találkozása – steppelt háttámla, ívelt karfák, fotel és kanapé szériában. 444.240 Ft-tól.",
+    url: "https://enzodesign.hu/ivone-kollekcio",
+    images: [{ url: "/images/ivone-w1.webp", width: 1920, height: 800 }],
+  },
+};
 export default function Page() {
   return (
     <ProductPageTemplate

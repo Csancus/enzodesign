@@ -10,6 +10,14 @@ import type { FieldDef } from "@/types/cms";
 export const metadata: Metadata = {
   title: "Franciaágyak – Enzo Design",
   description: "Kárpitozott franciaágyak – Bilbao, Madrid és egyedi modellek. 351.160 Ft-tól, tömörfa szerkezettel.",
+
+  alternates: { canonical: "https://enzodesign.hu/butoraink/franciaagyak" },
+  openGraph: {
+    title: "Franciaágyak – Enzo Design",
+    description: "Kárpitozott franciaágyak – Bilbao, Madrid és egyedi modellek. 351.160 Ft-tól, tömörfa szerkezettel.",
+    url: "https://enzodesign.hu/butoraink/franciaagyak",
+    images: [{ url: "/images/franciaaggy-w3.webp", width: 1920, height: 800 }],
+  },
 };
 
 const CARDS = [

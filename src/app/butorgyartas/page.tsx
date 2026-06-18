@@ -9,8 +9,16 @@ import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
 
 export const metadata: Metadata = {
-  title: "Bútorgyártás",
+  title: "Bútorgyártás – Enzo Design",
   description: "A bútorgyártás komplex, precíz folyamat. Megismerheti az Enzo Design gyártástechnológiáját.",
+
+  alternates: { canonical: "https://enzodesign.hu/butorgyartas" },
+  openGraph: {
+    title: "Bútorgyártás – Enzo Design",
+    description: "A bútorgyártás komplex, precíz folyamat. Megismerheti az Enzo Design gyártástechnológiáját.",
+    url: "https://enzodesign.hu/butorgyartas",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+  },
 };
 
 const SUBTOPICS_SCHEMA: FieldDef[] = [

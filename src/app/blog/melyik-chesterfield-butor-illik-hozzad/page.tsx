@@ -5,6 +5,14 @@ import PageBuilderPage from "@/components/PageBuilderPage";
 export const metadata: Metadata = {
   title: "Melyik Chesterfield bútor illik hozzád? Stíluskalauz",
   description: "Chesterfield szék, fotel, puff, étkezőszék vagy kanapé – stíluskalauz a típusokhoz, színekhez és az ideális enteriőrhez. Egyedi gyártás, 3+10 év garancia. Enzo Design.",
+
+  alternates: { canonical: "https://enzodesign.hu/blog/melyik-chesterfield-butor-illik-hozzad" },
+  openGraph: {
+    title: "Melyik Chesterfield bútor illik hozzád? Stíluskalauz",
+    description: "Chesterfield szék, fotel, puff, étkezőszék vagy kanapé – stíluskalauz a típusokhoz, színekhez és az ideális enteriőrhez. Egyedi gyártás, 3+10 év garancia. Enzo Design.",
+    url: "https://enzodesign.hu/blog/melyik-chesterfield-butor-illik-hozzad",
+    images: [{ url: "/images/e7ad8b_b8e06512bf824479b51f4152def251fa.webp", width: 1920, height: 800 }],
+  },
 };
 
 const jsonLd = {

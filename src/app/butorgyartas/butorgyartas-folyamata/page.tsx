@@ -4,7 +4,16 @@ import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
 import PageHero from "@/components/PageHero";
 
-export const metadata: Metadata = { title: "A bútorgyártás menete" };
+export const metadata: Metadata = {
+  title: "A bútorgyártás menete – Enzo Design",
+  alternates: { canonical: "https://enzodesign.hu/butorgyartas/butorgyartas-folyamata" },
+  openGraph: {
+    title: "A bútorgyártás menete – Enzo Design",
+    description: "A tervezéstől a kiszállításig – az Enzo Design bútorgyártási folyamata: 6 lépéses minőségellenőrzött gyártás, 10 év vázgaranciával.",
+    url: "https://enzodesign.hu/butorgyartas/butorgyartas-folyamata",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+  },
+};
 
 const STEPS = [
   { step: "01", title: "Tervezés", desc: "CAD modellezés, az ügyfél igényeinek részletes dokumentálása. Egyedi bútoroknál szoros kommunikáció és precíz dokumentáció szükséges." },

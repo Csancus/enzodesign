@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
-export const metadata: Metadata = { title: "Joker Kollekció" };
+export const metadata: Metadata = {
+  title: "Joker Kollekció – Enzo Design",
+  alternates: { canonical: "https://enzodesign.hu/joker-kollekcio" },
+  openGraph: {
+    title: "Joker Kollekció – Enzo Design",
+    description: "A Joker kollekció prémium szövetborítással és mélyen gombolt háttámlával – modern Chesterfield ihlette vonalakkal. 399.810 Ft-tól.",
+    url: "https://enzodesign.hu/joker-kollekcio",
+    images: [{ url: "/images/joker-w1.webp", width: 1920, height: 800 }],
+  },
+};
 export default function Page() {
   return (
     <ProductPageTemplate

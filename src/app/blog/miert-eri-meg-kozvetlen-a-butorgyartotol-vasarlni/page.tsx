@@ -5,6 +5,14 @@ import PageBuilderPage from "@/components/PageBuilderPage";
 export const metadata: Metadata = {
   title: "Miért vásárolj gyártótól? 5 érv az egyedi bútor mellett",
   description: "5 ok, amiért érdemes egyenesen a gyártótól rendelni: alacsonyabb ár, egyediség, 3+10 év garancia, közvetlen kapcsolat és magyar kézimunka. Enzo Design.",
+
+  alternates: { canonical: "https://enzodesign.hu/blog/miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni" },
+  openGraph: {
+    title: "Miért vásárolj gyártótól? 5 érv az egyedi bútor mellett",
+    description: "5 ok, amiért érdemes egyenesen a gyártótól rendelni: alacsonyabb ár, egyediség, 3+10 év garancia, közvetlen kapcsolat és magyar kézimunka. Enzo Design.",
+    url: "https://enzodesign.hu/blog/miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni",
+    images: [{ url: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp", width: 1920, height: 800 }],
+  },
 };
 
 const jsonLd = {

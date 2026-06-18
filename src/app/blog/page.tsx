@@ -5,7 +5,15 @@ import BlogList from "./BlogList";
 
 export const metadata: Metadata = {
   title: "Blog – Enzo Design",
-  description: "Enzo Design blog – bútorokról, kárpitozásról, Chesterfieldről és trendekről.",
+  description: "Kárpitozott bútorokról, Chesterfieldről, egyedi rendelésről és enteriőr trendekről – az Enzo Design blog.",
+
+  alternates: { canonical: "https://enzodesign.hu/blog" },
+  openGraph: {
+    title: "Blog – Enzo Design",
+    description: "Kárpitozott bútorokról, Chesterfieldről, egyedi rendelésről és enteriőr trendekről – az Enzo Design blog.",
+    url: "https://enzodesign.hu/blog",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+  },
 };
 
 const POSTS = [

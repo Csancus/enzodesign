@@ -10,6 +10,14 @@ import type { FieldDef } from "@/types/cms";
 export const metadata: Metadata = {
   title: "Fotelek – Enzo Design",
   description: "Fotel kollekciók: Old's Club, Ivone, Design, Chesterfield, New York, Joker – 82.820 Ft-tól.",
+
+  alternates: { canonical: "https://enzodesign.hu/butoraink/fotelek" },
+  openGraph: {
+    title: "Fotelek – Enzo Design",
+    description: "Fotel kollekciók: Old's Club, Ivone, Design, Chesterfield, New York, Joker – 82.820 Ft-tól.",
+    url: "https://enzodesign.hu/butoraink/fotelek",
+    images: [{ url: "/images/fotelek-w1.webp", width: 1920, height: 800 }],
+  },
 };
 
 const CARDS = [

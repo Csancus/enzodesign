@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
-export const metadata: Metadata = { title: "Old's Club Kollekció" };
+export const metadata: Metadata = {
+  title: "Old's Club Kollekció – Enzo Design",
+  alternates: { canonical: "https://enzodesign.hu/olds-club-kollekcio" },
+  openGraph: {
+    title: "Old's Club Kollekció – Enzo Design",
+    description: "Az Old's Club kollekció letisztult formáival és maximális funkcionalitásával az elegancia és a kényelem tökéletes szintézise. 444.240 Ft-tól.",
+    url: "https://enzodesign.hu/olds-club-kollekcio",
+    images: [{ url: "/images/olds-club-w1.webp", width: 1920, height: 800 }],
+  },
+};
 export default function Page() {
   return (
     <ProductPageTemplate

@@ -5,6 +5,14 @@ import PageBuilderPage from "@/components/PageBuilderPage";
 export const metadata: Metadata = {
   title: "Bőr fotel – prémium kárpitozott fotel | Enzo Design",
   description: "Miért érdemes valódi bőr fotelt választani? Típusok, enteriőr tippek, karbantartás és árak 421 695 Ft-tól. Személyre szabható, kézzel készített, 3+10 év garancia.",
+
+  alternates: { canonical: "https://enzodesign.hu/blog/bor-fotel" },
+  openGraph: {
+    title: "Bőr fotel – prémium kárpitozott fotel | Enzo Design",
+    description: "Miért érdemes valódi bőr fotelt választani? Típusok, enteriőr tippek, karbantartás és árak 421 695 Ft-tól. Személyre szabható, kézzel készített, 3+10 év garancia.",
+    url: "https://enzodesign.hu/blog/bor-fotel",
+    images: [{ url: "/images/blog-bor-fotel-cover.webp", width: 1920, height: 800 }],
+  },
 };
 
 const jsonLd = {

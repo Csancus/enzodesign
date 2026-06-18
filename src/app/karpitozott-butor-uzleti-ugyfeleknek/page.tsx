@@ -9,6 +9,14 @@ import type { FieldDef } from "@/types/cms";
 export const metadata: Metadata = {
   title: "Kárpitozott bútor üzleti ügyfeleknek – Enzo Design",
   description: "Éttermeknek, szállodáknak, rendelőknek, fogadóterekbe. Tömörfa szerkezettel, nagy kopásállóságú anyagokkal. Ingyenes helyszíni egyeztetés.",
+
+  alternates: { canonical: "https://enzodesign.hu/karpitozott-butor-uzleti-ugyfeleknek" },
+  openGraph: {
+    title: "Kárpitozott bútor üzleti ügyfeleknek – Enzo Design",
+    description: "Éttermeknek, szállodáknak, rendelőknek, fogadóterekbe. Tömörfa szerkezettel, nagy kopásállóságú anyagokkal. Ingyenes helyszíni egyeztetés.",
+    url: "https://enzodesign.hu/karpitozott-butor-uzleti-ugyfeleknek",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+  },
 };
 
 const HERO_SCHEMA: FieldDef[] = [

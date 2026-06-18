@@ -12,6 +12,14 @@ export const metadata: Metadata = {
   title: "Akciók – Enzo Design",
   description:
     "Aktuális akciós kárpitozott bútorok közvetlenül a gyártótól – Chesterfield kanapék, franciaágyak, fotelek kedvező áron.",
+
+  alternates: { canonical: "https://enzodesign.hu/akcio" },
+  openGraph: {
+    title: "Akciók – Enzo Design",
+    description: "Aktuális akciós kárpitozott bútorok közvetlenül a gyártótól – Chesterfield kanapék, franciaágyak, fotelek kedvező áron.",
+    url: "https://enzodesign.hu/akcio",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+  },
 };
 
 function buildProductSchema(products: SaleProduct[]) {

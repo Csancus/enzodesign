@@ -5,6 +5,14 @@ import PageBuilderPage from "@/components/PageBuilderPage";
 export const metadata: Metadata = {
   title: "Modern Chesterfield kanapé – klasszikus forma, mai anyagok",
   description: "Modern Chesterfield kanapé loft, skandináv és minimalista enteriőrbe. 100+ szövet és bőr – kézzel készített, tömörfa váz, 399 810 Ft-tól. Enzo Design.",
+
+  alternates: { canonical: "https://enzodesign.hu/blog/modern-chesterfield-kanape" },
+  openGraph: {
+    title: "Modern Chesterfield kanapé – klasszikus forma, mai anyagok",
+    description: "Modern Chesterfield kanapé loft, skandináv és minimalista enteriőrbe. 100+ szövet és bőr – kézzel készített, tömörfa váz, 399 810 Ft-tól. Enzo Design.",
+    url: "https://enzodesign.hu/blog/modern-chesterfield-kanape",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+  },
 };
 
 const jsonLd = {

@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
-export const metadata: Metadata = { title: "Chesterfield Kollekció" };
+export const metadata: Metadata = {
+  title: "Chesterfield Kollekció – Enzo Design",
+  alternates: { canonical: "https://enzodesign.hu/chesterfield-kollekcio" },
+  openGraph: {
+    title: "Chesterfield Kollekció – Enzo Design",
+    description: "Közel 20 éve gyártunk Chesterfield bútorokat tömörfa szerkezettel, minőségi szövettel vagy bőr bevonattal. Az elegancia szimbóluma – 399.810 Ft-tól.",
+    url: "https://enzodesign.hu/chesterfield-kollekcio",
+    images: [{ url: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp", width: 1920, height: 800 }],
+  },
+};
 export default function Page() {
   return (
     <ProductPageTemplate

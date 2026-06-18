@@ -10,6 +10,14 @@ import type { FieldDef } from "@/types/cms";
 export const metadata: Metadata = {
   title: "Szék, zsámoly, falvédő – Enzo Design",
   description: "Kárpitozott székek 76.000 Ft-tól, zsámolyok és falvédők egyedi méretben.",
+
+  alternates: { canonical: "https://enzodesign.hu/butoraink/szek-zsamoly-falvedo" },
+  openGraph: {
+    title: "Szék, zsámoly, falvédő – Enzo Design",
+    description: "Kárpitozott székek 76.000 Ft-tól, zsámolyok és falvédők egyedi méretben.",
+    url: "https://enzodesign.hu/butoraink/szek-zsamoly-falvedo",
+    images: [{ url: "/images/szek-w2.webp", width: 1920, height: 800 }],
+  },
 };
 
 const CARDS = [

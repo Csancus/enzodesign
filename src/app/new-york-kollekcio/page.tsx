@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
-export const metadata: Metadata = { title: "New York Kollekció" };
+export const metadata: Metadata = {
+  title: "New York Kollekció – Enzo Design",
+  alternates: { canonical: "https://enzodesign.hu/new-york-kollekcio" },
+  openGraph: {
+    title: "New York Kollekció – Enzo Design",
+    description: "A New York kollekció a klasszikus Chesterfield forma eleganciáját ötvözi a modern letisztultsággal. Személyre szabható – 399.810 Ft-tól.",
+    url: "https://enzodesign.hu/new-york-kollekcio",
+    images: [{ url: "/images/new-york-w5.webp", width: 1920, height: 800 }],
+  },
+};
 export default function Page() {
   return (
     <ProductPageTemplate

@@ -4,7 +4,16 @@ import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
 import PageHero from "@/components/PageHero";
 
-export const metadata: Metadata = { title: "A bútortervezés alapjai" };
+export const metadata: Metadata = {
+  title: "A bútortervezés alapjai – Enzo Design",
+  alternates: { canonical: "https://enzodesign.hu/butorgyartas/tervezes" },
+  openGraph: {
+    title: "A bútortervezés alapjai – Enzo Design",
+    description: "A bútortervezés folyamata: mérettől a formáig, anyagválasztástól az ügyfél-egyeztetésig. Hogyan lesz az ötletedből kész bútor az Enzo Designnál.",
+    url: "https://enzodesign.hu/butorgyartas/tervezes",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+  },
+};
 
 export default async function Page() {
   return (

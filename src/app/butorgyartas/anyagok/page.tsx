@@ -5,7 +5,16 @@ import ContactFormSection from "@/components/ContactFormSection";
 import { FABRICS } from "@/data/products";
 import PageHero from "@/components/PageHero";
 
-export const metadata: Metadata = { title: "Alapanyagok a bútorgyártásban" };
+export const metadata: Metadata = {
+  title: "Alapanyagok a bútorgyártásban – Enzo Design",
+  alternates: { canonical: "https://enzodesign.hu/butorgyartas/anyagok" },
+  openGraph: {
+    title: "Alapanyagok a bútorgyártásban – Enzo Design",
+    description: "Tömörfa, rugók, szivacs, prémium kárpitszövetek – megtudhatja, milyen alapanyagokból készülnek az Enzo Design bútorai. Tartósság és esztétika.",
+    url: "https://enzodesign.hu/butorgyartas/anyagok",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+  },
+};
 
 export default async function Page() {
   return (
