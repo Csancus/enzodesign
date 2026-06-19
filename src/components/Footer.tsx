@@ -13,6 +13,7 @@ const NAV = [
       { label: "Üzleti bútor", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
       { label: "Rendelés menete", href: "/rendeles-menete" },
       { label: "Kapcsolat", href: "/kapcsolat-es-rendeles" },
+      { label: "Vásárlói vélemények", href: "/vasarloi-visszajelzesek" },
       { label: "Adatkezelési tájékoztató", href: "/adatkezelesi-szabalyzat" },
     ],
   },
@@ -92,6 +93,20 @@ const NAV = [
       { label: "Tömörfa bútor", href: "/blog/tomorfa-butor" },
     ],
   },
+  {
+    heading: "Városok",
+    links: [
+      { label: "Bútor Zalaegerszegen", href: "/butorbolt-zalaegerszegen" },
+      { label: "Bútor Kaposváron", href: "/butorbolt-kaposvaron" },
+      { label: "Bútor Keszthelyen", href: "/butorbolt-keszthelyen" },
+      { label: "Bútor Siófokon", href: "/butorbolt-siofokon" },
+      { label: "Bútor Tapolcán", href: "/butorbolt-tapolcan" },
+      { label: "Bútor Marcaliban", href: "/butorbolt-marcaliban" },
+      { label: "Bútor Körmenden", href: "/butorbolt-kormenden" },
+      { label: "Bútor Barcson", href: "/butorbolt-barcson" },
+      { label: "Bútor Szigetváron", href: "/butorbolt-szigetvaron" },
+    ],
+  },
 ];
 
 export default function Footer() {
@@ -100,7 +115,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4">
 
         {/* Top: logo + nav columns */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-9 gap-8 mb-10">
           {/* Logo + info */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <Image src="/images/logo.webp" alt="Enzo Design" width={80} height={60} className="object-contain mb-4" />
