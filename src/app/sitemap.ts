@@ -58,7 +58,6 @@ const PAGES = [
   { url: "/blog/miert-idotallo-valasztas-a-chesterfield-kanape", priority: 0.6, changeFrequency: "monthly" },
   { url: "/blog/tomorfa-butor", priority: 0.6, changeFrequency: "monthly" },
   { url: "/vasarloi-visszajelzesek", priority: 0.6, changeFrequency: "monthly" },
-  { url: "/adatkezelesi-szabalyzat", priority: 0.3, changeFrequency: "yearly" },
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -22,10 +22,13 @@ const jsonLd = {
   "description": "Miért érdemes valódi bőr fotelt választani? Típusok, enteriőr tippek, karbantartás és árak 421 695 Ft-tól. Személyre szabható, kézzel készített, 3+10 év garancia.",
   "image": "https://www.enzodesign.hu/images/blog-bor-fotel-cover.webp",
   "datePublished": "2025-06-01",
-  "dateModified": "2026-06-07",
+  "dateModified": "2026-06-19",
   "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
   "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
   "url": "https://www.enzodesign.hu/blog/bor-fotel",
+  "wordCount": 650,
+  "articleSection": "Fotelek",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.enzodesign.hu/blog/bor-fotel" },
 };
 
 export default async function Page() {
@@ -40,6 +43,27 @@ export default async function Page() {
             <span className="mx-2">/</span>
             <span className="text-[#b8924a]">Bőr fotel</span>
           </div>
+        </div>
+      </nav>
+
+      {/* Reading time + publish date */}
+      <div className="bg-white border-b border-gray-100">
+        <div className="max-w-3xl mx-auto px-4 py-3 flex items-center gap-3 text-sm text-gray-500">
+          <time dateTime="2025-06-01">2025. június 1.</time>
+          <span aria-hidden="true">·</span>
+          <span>3 perc olvasás</span>
+        </div>
+      </div>
+
+      {/* TOC */}
+      <nav aria-label="Tartalomjegyzék" className="bg-[#f5f0e8] border-b border-[#e8ddd0]">
+        <div className="max-w-3xl mx-auto px-4 py-5">
+          <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">Tartalomjegyzék</p>
+          <ol className="space-y-1">
+          <li className="flex items-start gap-2 text-sm text-[#1c1c1c]"><span className="text-[#b8924a] font-bold min-w-[1.5rem]">1.</span><span>Bőrfotel típusok – melyik illik hozzád?</span></li>
+          <li className="flex items-start gap-2 text-sm text-[#1c1c1c]"><span className="text-[#b8924a] font-bold min-w-[1.5rem]">2.</span><span>Hogyan illik a bőr fotel a különböző enteriőr stílusokhoz?</span></li>
+          <li className="flex items-start gap-2 text-sm text-[#1c1c1c]"><span className="text-[#b8924a] font-bold min-w-[1.5rem]">3.</span><span>GYIK – Bőr fotel</span></li>
+          </ol>
         </div>
       </nav>
 
