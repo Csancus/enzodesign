@@ -12,10 +12,12 @@ export default function SlideshowClient({
   images,
   moduleId,
   isAdmin,
+  heading = "Egyedi kárpitozott bútorok gyártótól",
 }: {
   images: SlideImage[];
   moduleId: string;
   isAdmin: boolean;
+  heading?: string;
 }) {
   const [current, setCurrent] = useState(0);
   const [animated, setAnimated] = useState(true);
@@ -90,12 +92,12 @@ export default function SlideshowClient({
             <Image src="/images/logo.webp" alt="Enzo Design" width={52} height={40} className="object-contain" />
           </div>
           <div className="w-8 h-px bg-[#b8924a] mx-auto mb-4" />
-          <p
+          <h1
             className="text-[#1c1c1c] text-base leading-snug mb-1 font-semibold"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Egyedi kárpitozott bútorok
-          </p>
+            {heading}
+          </h1>
           <p className="text-[#7d6142] text-xs tracking-widest uppercase mb-6">
             közvetlenül a gyártótól
           </p>

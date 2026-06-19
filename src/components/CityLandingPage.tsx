@@ -41,9 +41,9 @@ export default async function CityLandingPage({
 }: CityLandingPageProps) {
   return (
     <>
-      {/* Slider — same as homepage */}
+      {/* Slider — same as homepage, with city-specific H1 in the white card */}
       <Suspense fallback={<div style={{ height: "clamp(320px,48vw,560px)" }} className="bg-gray-100" />}>
-        <SlideshowModule moduleId="home:slideshow" showOverlay={false} />
+        <SlideshowModule moduleId="home:slideshow" heading={`Kárpitozott bútor ${locative}`} />
       </Suspense>
 
       {/* Breadcrumb */}
@@ -55,18 +55,12 @@ export default async function CityLandingPage({
         </div>
       </nav>
 
-      {/* City H1 hero */}
-      <section className="bg-[#1c1c1c] py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* City intro — description + CTAs */}
+      <section className="bg-[#1c1c1c] py-12 px-4">
+        <div className="max-w-3xl mx-auto text-center">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-4">
             Kárpitozott bútor – {city} körzete
           </p>
-          <h1
-            className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Kárpitozott bútor {locative}
-          </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
             {description}
           </p>
