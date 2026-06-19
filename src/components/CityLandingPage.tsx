@@ -44,7 +44,7 @@ export default async function CityLandingPage({
     <>
       {/* Slider — same as homepage, with city-specific H1 in the white card */}
       <Suspense fallback={<div style={{ height: "clamp(320px,48vw,560px)" }} className="bg-gray-100" />}>
-        <SlideshowModule moduleId="home:slideshow" heading={`Kárpitozott bútor ${locative}`} />
+        <SlideshowModule moduleId="home:slideshow" heading={`Bútorbolt ${locative} – Kárpitozott bútor`} />
       </Suspense>
 
       {/* Stats bar */}
@@ -72,7 +72,7 @@ export default async function CityLandingPage({
             className="text-2xl sm:text-3xl font-bold text-[#1c1c1c] mb-6"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Miért érdemes {ablative} az Enzo Designhoz fordulni?
+            Bútorbolt {locative} – Miért érdemes az Enzo Designhoz fordulni?
           </h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
