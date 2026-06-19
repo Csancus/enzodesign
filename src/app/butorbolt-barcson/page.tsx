@@ -1,0 +1,89 @@
+import type { Metadata } from "next";
+import CityLandingPage from "@/components/CityLandingPage";
+
+export const metadata: Metadata = {
+  title: "Bútor Barcson – kárpitozott kanapé, fotel gyártótól",
+  description: "Egyedi kárpitozott bútort keresel Barcson? Az Enzo Design Nagykanizsán, 60 km-re – prémium kanapé, fotel, franciaágy tömörfa szerkezettel. Szállítás Barcsra.",
+  alternates: { canonical: "https://enzodesign.hu/butorbolt-barcson" },
+  openGraph: {
+    title: "Bútor Barcson – kárpitozott kanapé, fotel gyártótól",
+    description: "Egyedi kárpitozott bútort keresel Barcson? Az Enzo Design Nagykanizsán, 60 km-re – prémium kanapé, fotel, franciaágy tömörfa szerkezettel. Szállítás Barcsra.",
+    url: "https://enzodesign.hu/butorbolt-barcson",
+    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Kárpitozott bútor gyártás és szállítás – Barcs",
+  "description": "Egyedi kárpitozott bútort keresel Barcson? Az Enzo Design Nagykanizsán, 60 km-re – prémium kanapé, fotel, franciaágy tömörfa szerkezettel. Szállítás Barcsra.",
+  "url": "https://enzodesign.hu/butorbolt-barcson",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Enzo Design",
+    "url": "https://www.enzodesign.hu",
+    "telephone": "+36303778983",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Egry József utca 7",
+      "addressLocality": "Nagykanizsa",
+      "postalCode": "8800",
+      "addressCountry": "HU"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Barcs",
+    "containedInPlace": {
+      "@type": "Country",
+      "name": "Hungary"
+    }
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Kárpitozott bútorok",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Chesterfield kanapé"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Kárpitozott fotel"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Kárpitozott franciaágy"
+        }
+      }
+    ]
+  }
+};
+
+export default function Page() {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <CityLandingPage
+        city="Barcs"
+        locative="Barcson"
+        ablative="Barcsról"
+        dative="Barcsnak"
+        distanceKm={60}
+        driveMin={50}
+        slug="butorbolt-barcson"
+        description="Egyedi kárpitozott bútort keresel Barcson? Az Enzo Design Nagykanizsán, 60 km-re – prémium kanapé, fotel, franciaágy tömörfa szerkezettel. Szállítás Barcsra."
+        neighborCities={[{"name":"Zalaegerszeg","locative":"Zalaegerszegen","href":"/butorbolt-zalaegerszegen"},{"name":"Kaposvár","locative":"Kaposváron","href":"/butorbolt-kaposvaron"},{"name":"Keszthely","locative":"Keszthelyen","href":"/butorbolt-keszthelyen"},{"name":"Siófok","locative":"Siófokon","href":"/butorbolt-siofokon"},{"name":"Tapolca","locative":"Tapolcán","href":"/butorbolt-tapolcan"}]}
+      />
+    </>
+  );
+}
