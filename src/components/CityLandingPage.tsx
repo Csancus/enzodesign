@@ -46,41 +46,6 @@ export default async function CityLandingPage({
         <SlideshowModule moduleId="home:slideshow" heading={`Kárpitozott bútor ${locative}`} />
       </Suspense>
 
-      {/* Breadcrumb */}
-      <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
-        <div className="max-w-4xl mx-auto flex items-center gap-2">
-          <Link href="/" className="hover:text-white">Főoldal</Link>
-          <span>/</span>
-          <span className="text-[#b8924a]">Bútor {locative}</span>
-        </div>
-      </nav>
-
-      {/* City intro — description + CTAs */}
-      <section className="bg-[#1c1c1c] py-12 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-4">
-            Kárpitozott bútor – {city} körzete
-          </p>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-            {description}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#rendeles"
-              className="bg-[#b8924a] hover:bg-[#a07a3a] text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm"
-            >
-              Árajánlatot kérek
-            </a>
-            <Link
-              href="/butoraink"
-              className="border-2 border-[#b8924a] text-[#b8924a] hover:bg-[#b8924a] hover:text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm"
-            >
-              Bútoraink megtekintése
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Stats bar */}
       <section className="bg-[#b8924a] py-6 px-4">
         <div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
