@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import CityLandingPage from "@/components/CityLandingPage";
 
 export const metadata: Metadata = {
-  title: "Bútor Keszthelyen – kárpitozott kanapé, fotel gyártótól",
-  description: "Prémium kárpitozott bútort keresel Keszthely közelében? Az Enzo Design Nagykanizsán, 45 km-re – egyedi méret, 100+ szövet, 3+10 év garancia. Szállítás Keszthelyig.",
+  title: "Bútorbolt Keszthelyen – Egyedi kárpit bútor | Enzo Design",
+  description: "Bútorbolt Keszthelyen: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 45 km-re – 3+10 év garancia, online rendelés.",
   alternates: { canonical: "https://enzodesign.hu/butorbolt-keszthelyen" },
   openGraph: {
-    title: "Bútor Keszthelyen – kárpitozott kanapé, fotel gyártótól",
-    description: "Prémium kárpitozott bútort keresel Keszthely közelében? Az Enzo Design Nagykanizsán, 45 km-re – egyedi méret, 100+ szövet, 3+10 év garancia. Szállítás Keszthelyig.",
+    title: "Bútorbolt Keszthelyen – Egyedi kárpit bútor | Enzo Design",
+    description: "Bútorbolt Keszthelyen: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 45 km-re – 3+10 év garancia, online rendelés.",
     url: "https://enzodesign.hu/butorbolt-keszthelyen",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },

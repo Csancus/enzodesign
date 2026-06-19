@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import CityLandingPage from "@/components/CityLandingPage";
 
 export const metadata: Metadata = {
-  title: "Bútor Marcaliban – kárpitozott kanapé, fotel gyártótól",
-  description: "Prémium kárpitozott bútort keresel Marcaliban? Az Enzo Design Nagykanizsán, 35 km-re – kanapé, fotel, franciaágy egyedi méretben. Szállítás Marcaliba.",
+  title: "Bútorbolt Marcaliban – Egyedi kárpit bútor | Enzo Design",
+  description: "Bútorbolt Marcaliban: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 35 km-re – 3+10 év garancia, online rendelés.",
   alternates: { canonical: "https://enzodesign.hu/butorbolt-marcaliban" },
   openGraph: {
-    title: "Bútor Marcaliban – kárpitozott kanapé, fotel gyártótól",
-    description: "Prémium kárpitozott bútort keresel Marcaliban? Az Enzo Design Nagykanizsán, 35 km-re – kanapé, fotel, franciaágy egyedi méretben. Szállítás Marcaliba.",
+    title: "Bútorbolt Marcaliban – Egyedi kárpit bútor | Enzo Design",
+    description: "Bútorbolt Marcaliban: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 35 km-re – 3+10 év garancia, online rendelés.",
     url: "https://enzodesign.hu/butorbolt-marcaliban",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },

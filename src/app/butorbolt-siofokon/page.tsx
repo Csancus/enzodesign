@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import CityLandingPage from "@/components/CityLandingPage";
 
 export const metadata: Metadata = {
-  title: "Bútor Siófokon – kárpitozott kanapé, fotel gyártótól",
-  description: "Egyedi kárpitozott bútort keresel Siófokon? Az Enzo Design Nagykanizsán gyárt prémium kanapékat, fotelokat – szállítás Siófokra, 3+10 év garancia.",
+  title: "Bútorbolt Siófokon – Egyedi kárpit bútor | Enzo Design",
+  description: "Bútorbolt Siófokon: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 74 km-re – 3+10 év garancia, online rendelés.",
   alternates: { canonical: "https://enzodesign.hu/butorbolt-siofokon" },
   openGraph: {
-    title: "Bútor Siófokon – kárpitozott kanapé, fotel gyártótól",
-    description: "Egyedi kárpitozott bútort keresel Siófokon? Az Enzo Design Nagykanizsán gyárt prémium kanapékat, fotelokat – szállítás Siófokra, 3+10 év garancia.",
+    title: "Bútorbolt Siófokon – Egyedi kárpit bútor | Enzo Design",
+    description: "Bútorbolt Siófokon: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 74 km-re – 3+10 év garancia, online rendelés.",
     url: "https://enzodesign.hu/butorbolt-siofokon",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },

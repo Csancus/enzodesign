@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import CityLandingPage from "@/components/CityLandingPage";
 
 export const metadata: Metadata = {
-  title: "Bútor Barcson – kárpitozott kanapé, fotel gyártótól",
-  description: "Egyedi kárpitozott bútort keresel Barcson? Az Enzo Design Nagykanizsán, 60 km-re – prémium kanapé, fotel, franciaágy tömörfa szerkezettel. Szállítás Barcsra.",
+  title: "Bútorbolt Barcson – Egyedi kárpit bútor | Enzo Design",
+  description: "Bútorbolt Barcson: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 60 km-re – 3+10 év garancia, online rendelés.",
   alternates: { canonical: "https://enzodesign.hu/butorbolt-barcson" },
   openGraph: {
-    title: "Bútor Barcson – kárpitozott kanapé, fotel gyártótól",
-    description: "Egyedi kárpitozott bútort keresel Barcson? Az Enzo Design Nagykanizsán, 60 km-re – prémium kanapé, fotel, franciaágy tömörfa szerkezettel. Szállítás Barcsra.",
+    title: "Bútorbolt Barcson – Egyedi kárpit bútor | Enzo Design",
+    description: "Bútorbolt Barcson: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 60 km-re – 3+10 év garancia, online rendelés.",
     url: "https://enzodesign.hu/butorbolt-barcson",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },

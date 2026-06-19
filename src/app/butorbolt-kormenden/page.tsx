@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import CityLandingPage from "@/components/CityLandingPage";
 
 export const metadata: Metadata = {
-  title: "Bútor Körmenden – kárpitozott kanapé, fotel gyártótól",
-  description: "Kárpitozott kanapét, fotelt keresel Körmend közelében? Az Enzo Design Nagykanizsán, 62 km-re gyárt egyedi bútorait. Házhozszállítás Körmendre, 3+10 év garancia.",
+  title: "Bútorbolt Körmenden – Egyedi kárpit bútor | Enzo Design",
+  description: "Bútorbolt Körmenden: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 62 km-re – 3+10 év garancia, online rendelés.",
   alternates: { canonical: "https://enzodesign.hu/butorbolt-kormenden" },
   openGraph: {
-    title: "Bútor Körmenden – kárpitozott kanapé, fotel gyártótól",
-    description: "Kárpitozott kanapét, fotelt keresel Körmend közelében? Az Enzo Design Nagykanizsán, 62 km-re gyárt egyedi bútorait. Házhozszállítás Körmendre, 3+10 év garancia.",
+    title: "Bútorbolt Körmenden – Egyedi kárpit bútor | Enzo Design",
+    description: "Bútorbolt Körmenden: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 62 km-re – 3+10 év garancia, online rendelés.",
     url: "https://enzodesign.hu/butorbolt-kormenden",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
