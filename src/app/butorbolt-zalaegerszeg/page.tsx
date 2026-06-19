@@ -4,11 +4,11 @@ import CityLandingPage from "@/components/CityLandingPage";
 export const metadata: Metadata = {
   title: "Bútorbolt Zalaegerszeg – Egyedi kárpit bútor | Enzo Design",
   description: "Bútorbolt Zalaegerszeg: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 30 km-re – 3+10 év garancia, online rendelés.",
-  alternates: { canonical: "https://enzodesign.hu/butorbolt-zalaegerszegen" },
+  alternates: { canonical: "https://enzodesign.hu/butorbolt-zalaegerszeg" },
   openGraph: {
     title: "Bútorbolt Zalaegerszeg – Egyedi kárpit bútor | Enzo Design",
     description: "Bútorbolt Zalaegerszeg: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 30 km-re – 3+10 év garancia, online rendelés.",
-    url: "https://enzodesign.hu/butorbolt-zalaegerszegen",
+    url: "https://enzodesign.hu/butorbolt-zalaegerszeg",
     images: [{ url: "/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp", width: 1920, height: 800 }],
   },
 };
@@ -17,8 +17,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Kárpitozott bútor gyártás és szállítás – Zalaegerszeg",
-  "description": "Kényelmes, egyedi kárpitozott bútort keresel Zalaegerszegen? Az Enzo Design Nagykanizsán, mindössze 30 km-re várja vásárlóit – 2000 nm bemutatóterem, 100+ szövet, házhozszállítás.",
-  "url": "https://enzodesign.hu/butorbolt-zalaegerszegen",
+  "description": "Bútorbolt Zalaegerszeg: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 30 km-re – 3+10 év garancia, online rendelés.",
+  "url": "https://enzodesign.hu/butorbolt-zalaegerszeg",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Enzo Design",
@@ -80,9 +80,9 @@ export default function Page() {
         dative="Zalaegerszegnek"
         distanceKm={30}
         driveMin={30}
-        slug="butorbolt-zalaegerszegen"
-        description="Kényelmes, egyedi kárpitozott bútort keresel Zalaegerszegen? Az Enzo Design Nagykanizsán, mindössze 30 km-re várja vásárlóit – 2000 nm bemutatóterem, 100+ szövet, házhozszállítás."
-        neighborCities={[{"name":"Kaposvár","locative":"Kaposváron","href":"/butorbolt-kaposvaron"},{"name":"Keszthely","locative":"Keszthelyen","href":"/butorbolt-keszthelyen"},{"name":"Siófok","locative":"Siófokon","href":"/butorbolt-siofokon"},{"name":"Tapolca","locative":"Tapolcán","href":"/butorbolt-tapolcan"},{"name":"Marcali","locative":"Marcaliban","href":"/butorbolt-marcaliban"}]}
+        slug="butorbolt-zalaegerszeg"
+        description="Bútorbolt Zalaegerszeg: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 30 km-re – 3+10 év garancia, online rendelés."
+        neighborCities={[{"name":"Kaposvár","locative":"Kaposváron","href":"/butorbolt-kaposvar"},{"name":"Keszthely","locative":"Keszthelyen","href":"/butorbolt-keszthely"},{"name":"Siófok","locative":"Siófokon","href":"/butorbolt-siofok"},{"name":"Tapolca","locative":"Tapolcán","href":"/butorbolt-tapolca"},{"name":"Marcali","locative":"Marcaliban","href":"/butorbolt-marcali"}]}
       />
     </>
   );

@@ -4,11 +4,11 @@ import CityLandingPage from "@/components/CityLandingPage";
 export const metadata: Metadata = {
   title: "Bútorbolt Barcs – Egyedi kárpit bútor | Enzo Design",
   description: "Bútorbolt Barcs: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 60 km-re – 3+10 év garancia, online rendelés.",
-  alternates: { canonical: "https://enzodesign.hu/butorbolt-barcson" },
+  alternates: { canonical: "https://enzodesign.hu/butorbolt-barcs" },
   openGraph: {
     title: "Bútorbolt Barcs – Egyedi kárpit bútor | Enzo Design",
     description: "Bútorbolt Barcs: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 60 km-re – 3+10 év garancia, online rendelés.",
-    url: "https://enzodesign.hu/butorbolt-barcson",
+    url: "https://enzodesign.hu/butorbolt-barcs",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -17,8 +17,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Kárpitozott bútor gyártás és szállítás – Barcs",
-  "description": "Egyedi kárpitozott bútort keresel Barcson? Az Enzo Design Nagykanizsán, 60 km-re – prémium kanapé, fotel, franciaágy tömörfa szerkezettel. Szállítás Barcsra.",
-  "url": "https://enzodesign.hu/butorbolt-barcson",
+  "description": "Bútorbolt Barcs: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 60 km-re – 3+10 év garancia, online rendelés.",
+  "url": "https://enzodesign.hu/butorbolt-barcs",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Enzo Design",
@@ -80,9 +80,9 @@ export default function Page() {
         dative="Barcsnak"
         distanceKm={60}
         driveMin={50}
-        slug="butorbolt-barcson"
-        description="Egyedi kárpitozott bútort keresel Barcson? Az Enzo Design Nagykanizsán, 60 km-re – prémium kanapé, fotel, franciaágy tömörfa szerkezettel. Szállítás Barcsra."
-        neighborCities={[{"name":"Zalaegerszeg","locative":"Zalaegerszegen","href":"/butorbolt-zalaegerszegen"},{"name":"Kaposvár","locative":"Kaposváron","href":"/butorbolt-kaposvaron"},{"name":"Keszthely","locative":"Keszthelyen","href":"/butorbolt-keszthelyen"},{"name":"Siófok","locative":"Siófokon","href":"/butorbolt-siofokon"},{"name":"Tapolca","locative":"Tapolcán","href":"/butorbolt-tapolcan"}]}
+        slug="butorbolt-barcs"
+        description="Bútorbolt Barcs: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 60 km-re – 3+10 év garancia, online rendelés."
+        neighborCities={[{"name":"Zalaegerszeg","locative":"Zalaegerszegen","href":"/butorbolt-zalaegerszeg"},{"name":"Kaposvár","locative":"Kaposváron","href":"/butorbolt-kaposvar"},{"name":"Keszthely","locative":"Keszthelyen","href":"/butorbolt-keszthely"},{"name":"Siófok","locative":"Siófokon","href":"/butorbolt-siofok"},{"name":"Tapolca","locative":"Tapolcán","href":"/butorbolt-tapolca"}]}
       />
     </>
   );

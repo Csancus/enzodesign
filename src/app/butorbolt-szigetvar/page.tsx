@@ -4,11 +4,11 @@ import CityLandingPage from "@/components/CityLandingPage";
 export const metadata: Metadata = {
   title: "Bútorbolt Szigetvár – Egyedi kárpit bútor | Enzo Design",
   description: "Bútorbolt Szigetvár: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 65 km-re – 3+10 év garancia, online rendelés.",
-  alternates: { canonical: "https://enzodesign.hu/butorbolt-szigetvaron" },
+  alternates: { canonical: "https://enzodesign.hu/butorbolt-szigetvar" },
   openGraph: {
     title: "Bútorbolt Szigetvár – Egyedi kárpit bútor | Enzo Design",
     description: "Bútorbolt Szigetvár: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 65 km-re – 3+10 év garancia, online rendelés.",
-    url: "https://enzodesign.hu/butorbolt-szigetvaron",
+    url: "https://enzodesign.hu/butorbolt-szigetvar",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -17,8 +17,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Kárpitozott bútor gyártás és szállítás – Szigetvár",
-  "description": "Kárpitozott kanapét, fotelt keresel Szigetvár közelében? Az Enzo Design Nagykanizsán, 65 km-re vár – egyedi méret, 100+ szövet, 3+10 év garancia. Szállítás Szigetvárra.",
-  "url": "https://enzodesign.hu/butorbolt-szigetvaron",
+  "description": "Bútorbolt Szigetvár: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 65 km-re – 3+10 év garancia, online rendelés.",
+  "url": "https://enzodesign.hu/butorbolt-szigetvar",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Enzo Design",
@@ -80,9 +80,9 @@ export default function Page() {
         dative="Szigetvárnak"
         distanceKm={65}
         driveMin={55}
-        slug="butorbolt-szigetvaron"
-        description="Kárpitozott kanapét, fotelt keresel Szigetvár közelében? Az Enzo Design Nagykanizsán, 65 km-re vár – egyedi méret, 100+ szövet, 3+10 év garancia. Szállítás Szigetvárra."
-        neighborCities={[{"name":"Zalaegerszeg","locative":"Zalaegerszegen","href":"/butorbolt-zalaegerszegen"},{"name":"Kaposvár","locative":"Kaposváron","href":"/butorbolt-kaposvaron"},{"name":"Keszthely","locative":"Keszthelyen","href":"/butorbolt-keszthelyen"},{"name":"Siófok","locative":"Siófokon","href":"/butorbolt-siofokon"},{"name":"Tapolca","locative":"Tapolcán","href":"/butorbolt-tapolcan"}]}
+        slug="butorbolt-szigetvar"
+        description="Bútorbolt Szigetvár: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 65 km-re – 3+10 év garancia, online rendelés."
+        neighborCities={[{"name":"Zalaegerszeg","locative":"Zalaegerszegen","href":"/butorbolt-zalaegerszeg"},{"name":"Kaposvár","locative":"Kaposváron","href":"/butorbolt-kaposvar"},{"name":"Keszthely","locative":"Keszthelyen","href":"/butorbolt-keszthely"},{"name":"Siófok","locative":"Siófokon","href":"/butorbolt-siofok"},{"name":"Tapolca","locative":"Tapolcán","href":"/butorbolt-tapolca"}]}
       />
     </>
   );
