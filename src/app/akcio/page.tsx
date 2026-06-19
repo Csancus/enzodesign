@@ -11,7 +11,7 @@ import ContactFormSection from "@/components/ContactFormSection";
 export const metadata: Metadata = {
   title: "Akciók – Enzo Design",
   description:
-    "Aktuális akciós kárpitozott bútorok közvetlenül a gyártótól – Chesterfield kanapék, franciaágyak, fotelek kedvező áron.",
+    "Akciós egyedi bútor – bútorbolt Nagykanizsán, online rendelés. Chesterfield kanapék, fotelek, franciaágyak kedvező áron közvetlenül a gyártótól.",
 
   alternates: { canonical: "https://enzodesign.hu/akcio" },
   openGraph: {

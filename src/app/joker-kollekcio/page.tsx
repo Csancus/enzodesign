@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Joker Kollekció – Enzo Design",
+  description: "Joker kanapé és fotel egyedi méretben – bútorbolt Nagykanizsán, online rendelés. Prémium szövetborítás mélyen gombolt háttámlával, 399.810 Ft-tól.",
   alternates: { canonical: "https://enzodesign.hu/joker-kollekcio" },
   openGraph: {
     title: "Joker Kollekció – Enzo Design",

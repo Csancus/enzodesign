@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Design Bútorok – Enzo Design",
+  description: "Design kanapé és fotel egyedi méretben – bútorbolt Nagykanizsán, online rendelés. Modern formavilág letisztult vonalakkal, tömörfa szerkezet, 444.240 Ft-tól.",
   alternates: { canonical: "https://enzodesign.hu/design-butorok" },
   openGraph: {
     title: "Design Bútorok – Enzo Design",

@@ -10,12 +10,12 @@ import type { FieldDef } from "@/types/cms";
 
 export const metadata: Metadata = {
   title: "Bútoraink – Enzo Design",
-  description: "Kanapék, fotelek, franciaágyak – 2000 nm-es telephelyünkön készülnek. Tömörfa, prémium szövetek.",
+  description: "Bútorbolt Nagykanizsán – egyedi bútor online rendelés: kanapék, fotelek, franciaágyak 2000 nm-es bemutatóteremből. Tömörfa, prémium szövetek, 3+10 év garancia.",
 
   alternates: { canonical: "https://enzodesign.hu/butoraink" },
   openGraph: {
     title: "Bútoraink – Enzo Design",
-    description: "Kanapék, fotelek, franciaágyak – 2000 nm-es telephelyünkön készülnek. Tömörfa, prémium szövetek.",
+    description: "Bútorbolt Nagykanizsán – egyedi bútor online rendelés: kanapék, fotelek, franciaágyak 2000 nm-es bemutatóteremből. Tömörfa, prémium szövetek, 3+10 év garancia.",
     url: "https://enzodesign.hu/butoraink",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },

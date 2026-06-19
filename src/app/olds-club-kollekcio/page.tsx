@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Old's Club Kollekció – Enzo Design",
+  description: "Old's Club kanapé és fotel egyedi méretben – bútorbolt Nagykanizsán, online rendelés. Letisztult elegancia tömörfa szerkezettel, 444.240 Ft-tól.",
   alternates: { canonical: "https://enzodesign.hu/olds-club-kollekcio" },
   openGraph: {
     title: "Old's Club Kollekció – Enzo Design",

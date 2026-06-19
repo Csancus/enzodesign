@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "New York Kollekció – Enzo Design",
+  description: "New York kanapé és fotel egyedi méretben – bútorbolt Nagykanizsán, online rendelés. Modern Chesterfield ihlette bútor tömörfa szerkezettel, 399.810 Ft-tól.",
   alternates: { canonical: "https://enzodesign.hu/new-york-kollekcio" },
   openGraph: {
     title: "New York Kollekció – Enzo Design",

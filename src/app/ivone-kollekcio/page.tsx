@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Ivone Kollekció – Enzo Design",
+  description: "Ivone kanapé és fotel egyedi méretben – bútorbolt Nagykanizsán, online rendelés. Klasszikus elegancia steppelt háttámlával, tömörfa szerkezet, 444.240 Ft-tól.",
   alternates: { canonical: "https://enzodesign.hu/ivone-kollekcio" },
   openGraph: {
     title: "Ivone Kollekció – Enzo Design",

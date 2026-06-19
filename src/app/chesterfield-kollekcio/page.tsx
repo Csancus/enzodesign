@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Chesterfield Kollekció – Enzo Design",
+  description: "Chesterfield kanapé és fotel egyedi méretben – bútorbolt Nagykanizsán, online rendelés. Tömörfa szerkezet, 50.000 martindale szövet, 399.810 Ft-tól.",
   alternates: { canonical: "https://enzodesign.hu/chesterfield-kollekcio" },
   openGraph: {
     title: "Chesterfield Kollekció – Enzo Design",
