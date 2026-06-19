@@ -31,7 +31,7 @@ export default async function HeroLightSection({
 
   return (
     <section
-      className="relative py-24 text-center overflow-hidden"
+      className="relative py-12 sm:py-24 text-center overflow-hidden"
       style={{ backgroundColor: cfg.bgColor }}
     >
       {cfg.imageSrc && (
@@ -44,7 +44,7 @@ export default async function HeroLightSection({
           </p>
         )}
         <h1
-          className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {cfg.title}

@@ -25,7 +25,7 @@ export default async function HeroDarkSection({
   const cfg = { ...DEFAULT, ...(stored as typeof DEFAULT) };
 
   return (
-    <section className="relative py-24 text-center bg-[#1c1c1c] overflow-hidden">
+    <section className="relative py-12 sm:py-24 text-center bg-[#1c1c1c] overflow-hidden">
       <div className="relative z-10 max-w-2xl mx-auto px-4">
         {cfg.label && (
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">
@@ -33,7 +33,7 @@ export default async function HeroDarkSection({
           </p>
         )}
         <h1
-          className="text-4xl md:text-5xl font-bold text-white mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {cfg.title}

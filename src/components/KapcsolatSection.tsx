@@ -37,7 +37,7 @@ export default async function KapcsolatSection({ isAdmin }: { isAdmin: boolean }
   const steps = cfg.steps.split("\n").filter(Boolean);
 
   return (
-    <section className="relative py-20 bg-white">
+    <section className="relative py-12 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Elérhetőségek */}
         <div>

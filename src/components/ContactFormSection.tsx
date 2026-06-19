@@ -24,11 +24,11 @@ export default async function ContactFormSection() {
   const cfg = { ...DEFAULT, ...(stored as typeof DEFAULT) };
 
   return (
-    <section id="rendeles" className="relative py-20 bg-[#f5f0e8]">
+    <section id="rendeles" className="relative py-12 sm:py-20 bg-[#f5f0e8]">
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-10">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-2">{cfg.label}</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1c1c1c] mb-3" style={{ fontFamily: "var(--font-heading)" }}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1c1c1c] mb-3" style={{ fontFamily: "var(--font-heading)" }}>
             {cfg.title}
           </h2>
           <p className="text-gray-500 text-sm">{cfg.subtitle}</p>

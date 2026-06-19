@@ -106,10 +106,10 @@ export default async function UzletiButorPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative bg-[#1c1c1c] py-20 px-4">
+      <section className="relative bg-[#1c1c1c] py-12 sm:py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-4">{hero.tagline}</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-heading)" }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-heading)" }}>
             {hero.title}
           </h1>
           <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">{hero.body}</p>

@@ -39,7 +39,7 @@ export default async function HeroImageSection({
   const isLight = cfg.textColor === "black";
 
   return (
-    <section className="relative py-16 md:py-32 text-center overflow-hidden" style={{ minHeight: 280 }}>
+    <section className="relative py-10 sm:py-16 md:py-32 text-center overflow-hidden" style={{ minHeight: 220 }}>
       <Image src={cfg.image} alt={cfg.title} fill className="object-cover object-center" priority />
       <div className="absolute inset-0" style={{ backgroundColor: `rgba(0,0,0,${opacity})` }} />
       <div className="relative z-10 max-w-2xl mx-auto px-4">
@@ -49,7 +49,7 @@ export default async function HeroImageSection({
           </p>
         )}
         <h1
-          className={`text-4xl md:text-5xl font-bold mb-4 ${isLight ? "text-[#1c1c1c]" : "text-white"}`}
+          className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isLight ? "text-[#1c1c1c]" : "text-white"}`}
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {cfg.title}

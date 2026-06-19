@@ -115,10 +115,10 @@ export default async function FotelekPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative bg-[#f5f0e8] py-20 px-4">
+      <section className="relative bg-[#f5f0e8] py-12 sm:py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">ENZO DESIGN</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
             {hero.title}
           </h1>
           <p className="text-gray-600 text-lg max-w-xl mx-auto">{hero.subtitle}</p>

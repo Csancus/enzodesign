@@ -95,7 +95,7 @@ export default async function ReviewsSection({
 
         {/* Google rating badge */}
         <div className="flex justify-center mb-10">
-          <div className="border border-gray-200 bg-white px-8 py-4 flex items-center gap-6">
+          <div className="border border-gray-200 bg-white px-4 sm:px-8 py-3 sm:py-4 flex items-center gap-3 sm:gap-6">
             <div className="flex items-center gap-2">
               <span className="flex gap-0.5">
                 {[1,2,3,4,5].map(i => (
