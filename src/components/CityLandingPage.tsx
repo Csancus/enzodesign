@@ -21,11 +21,12 @@ export type CityLandingPageProps = {
 };
 
 const PRODUCTS = [
-  { label: "Chesterfield kanapék", href: "/butoraink/kanapek/chesterfield-kanapek" },
-  { label: "Ivone kollekció", href: "/butoraink/kanapek/ivone-kanapek" },
+  { label: "Kanapék", href: "/butoraink/kanapek" },
   { label: "Fotelek", href: "/butoraink/fotelek" },
   { label: "Franciaágyak", href: "/butoraink/franciaagyak" },
   { label: "Egyedi bútor", href: "/butoraink/egyedi-butor" },
+  { label: "Szék, zsámoly, falvédő", href: "/butoraink/szek-zsamoly-falvedo" },
+  { label: "Kárpitszövetek", href: "/butoraink/karpitoszovetek" },
 ];
 
 export default async function CityLandingPage({
@@ -110,18 +111,20 @@ export default async function CityLandingPage({
             className="text-xl font-bold text-[#1c1c1c] mb-6"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Termékek {dative}
+            Termékkategóriáink
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {PRODUCTS.map((p) => (
-              <Link
+              <a
                 key={p.href}
                 href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white p-4 hover:shadow-md transition-shadow text-sm font-semibold text-[#7d6142] hover:text-[#b8924a] border border-gray-100"
               >
                 {p.label} →
-              </Link>
-            ))}
+              </a>
+            )}
           </div>
         </div>
       </section>
