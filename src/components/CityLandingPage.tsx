@@ -147,33 +147,41 @@ export default async function CityLandingPage({
       {/* Contact form */}
       <ContactFormSection />
 
-      {/* Other cities */}
-      {neighborCities.length > 0 && (
-        <section className="py-12 bg-white px-4">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4">
-              Más városokból is kiszállítunk
-            </p>
+      {/* Delivery coverage */}
+      <section className="py-12 bg-[#f5f0e8] px-4">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-xl font-bold text-[#1c1c1c] mb-2"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Kiszállítás {locative} és az egész országba
+          </h2>
+          <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+            Bútorait az első zárt ajtóig szállítjuk – {locative} és a környező városokba, egész
+            Magyarországra, valamint külföldre is: <strong>Ausztriába, Szlovéniába,
+            Horvátországba és Németországba</strong> egyaránt vállalunk kiszállítást.
+          </p>
+          {neighborCities.length > 0 && (
             <div className="flex flex-wrap gap-3">
               {neighborCities.map((nc) => (
                 <Link
                   key={nc.href}
                   href={nc.href}
-                  className="text-sm border border-gray-200 px-4 py-2 text-[#7d6142] hover:border-[#b8924a] hover:text-[#b8924a] transition-colors"
+                  className="text-sm border border-gray-200 px-4 py-2 text-[#7d6142] hover:border-[#b8924a] hover:text-[#b8924a] transition-colors bg-white"
                 >
                   Bútor {nc.locative} →
                 </Link>
               ))}
               <Link
                 href="/blog/butorbolt-nagykanizsán"
-                className="text-sm border border-gray-200 px-4 py-2 text-[#7d6142] hover:border-[#b8924a] hover:text-[#b8924a] transition-colors"
+                className="text-sm border border-gray-200 px-4 py-2 text-[#7d6142] hover:border-[#b8924a] hover:text-[#b8924a] transition-colors bg-white"
               >
                 Bútorbolt Nagykanizsán →
               </Link>
             </div>
-          </div>
-        </section>
-      )}
+          )}
+        </div>
+      </section>
     </>
   );
 }
