@@ -1,5 +1,12 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import ContactFormSection from "./ContactFormSection";
+import SlideshowModule from "./modules/SlideshowModule";
+import StepsSection from "./sections/StepsSection";
+import RolunkSection from "./sections/RolunkSection";
+import EgyediSection from "./sections/EgyediSection";
+import ReviewsSection from "./sections/ReviewsSection";
+import FaqSection from "./sections/FaqSection";
 
 export type CityLandingPageProps = {
   city: string;
@@ -34,6 +41,11 @@ export default async function CityLandingPage({
 }: CityLandingPageProps) {
   return (
     <>
+      {/* Slider — same as homepage */}
+      <Suspense fallback={<div style={{ height: "clamp(320px,48vw,560px)" }} className="bg-gray-100" />}>
+        <SlideshowModule moduleId="home:slideshow" showOverlay={false} />
+      </Suspense>
+
       {/* Breadcrumb */}
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
         <div className="max-w-4xl mx-auto flex items-center gap-2">
@@ -43,8 +55,8 @@ export default async function CityLandingPage({
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="bg-[#1c1c1c] py-20 px-4">
+      {/* City H1 hero */}
+      <section className="bg-[#1c1c1c] py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-4">
             Kárpitozott bútor – {city} körzete
@@ -92,7 +104,7 @@ export default async function CityLandingPage({
         </div>
       </section>
 
-      {/* Main content 1 */}
+      {/* Why choose us — city-specific */}
       <section className="py-16 bg-white px-4">
         <div className="max-w-3xl mx-auto">
           <h2
@@ -117,13 +129,13 @@ export default async function CityLandingPage({
               {[
                 "Kanapé, fotel, franciaágy és szék egyedi méretben",
                 "100+ szövet és bőr közül választhatsz",
-                "Házhozszállítás az egész országba, beleértve {city} körzetét",
+                `Házhozszállítás az egész országba, beleértve ${city} körzetét`,
                 "Árajánlat 2 munkanapon belül",
                 "Gyártási idő: 4–6 hét",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2">
                   <span className="text-[#b8924a] mt-1">✓</span>
-                  <span>{item.replace("{city}", city)}</span>
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
@@ -154,90 +166,20 @@ export default async function CityLandingPage({
         </div>
       </section>
 
-      {/* Main content 2: how to order */}
-      <section className="py-16 bg-white px-4">
-        <div className="max-w-3xl mx-auto">
-          <h2
-            className="text-2xl sm:text-3xl font-bold text-[#1c1c1c] mb-6"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Hogyan rendelhetsz {ablative}?
-          </h2>
-          <ol className="space-y-5 text-gray-700">
-            {[
-              {
-                n: "01",
-                title: "Kapcsolatfelvétel",
-                desc: "Töltsd ki az alábbi űrlapot, vagy hívj minket a +36 30 377 8983-as számon. Küldj egy képet, ami alapján elkezdhetjük az egyeztetést.",
-              },
-              {
-                n: "02",
-                title: "Szabad konzultáció",
-                desc: "Megbeszéljük a méretet, szövetet, funkciót. Ha teheted, látogass el bemutatótermünkbe Nagykanizsán – a szövetmintákat személyesen is meg lehet nézni.",
-              },
-              {
-                n: "03",
-                title: "Árajánlat 2 napon belül",
-                desc: "Pontosan tudod, mennyit fizetsz – rejtett költségek nélkül.",
-              },
-              {
-                n: "04",
-                title: "Gyártás és szállítás",
-                desc: `Gyártás 4–6 hét. Szállítás az első zárt ajtóig – ${city} körzetébe is.`,
-              },
-            ].map(({ n, title, desc }) => (
-              <li key={n} className="flex gap-4">
-                <span className="text-[#b8924a] font-bold text-lg min-w-[2.5rem]">{n}</span>
-                <div>
-                  <p className="font-semibold text-[#1c1c1c] mb-1">{title}</p>
-                  <p className="text-sm leading-relaxed">{desc}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      {/* Steps — Fától a kanapéig */}
+      <StepsSection moduleId="home:steps" isAdmin={false} />
 
-      {/* FAQ */}
-      <section className="py-16 bg-[#f5f0e8] px-4">
-        <div className="max-w-3xl mx-auto">
-          <h2
-            className="text-2xl font-bold text-[#1c1c1c] mb-8"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Gyakori kérdések
-          </h2>
-          <div className="space-y-6">
-            {[
-              {
-                q: `Szállítotok ${dative}?`,
-                a: `Igen, az ország bármely pontjára, köztük ${city} körzetébe is szállítjuk a bútorokat az első zárt ajtóig. A szállítás díját az árajánlatban tüntetjük fel.`,
-              },
-              {
-                q: "Kell-e előre bejelentkezni a bemutatóterembe?",
-                a: "Nem kötelező, de ajánlott, hogy szakemberünk biztosan rendelkezésre álljon. Hívj minket a +36 30 377 8983-as számon.",
-              },
-              {
-                q: "Milyen anyagokból lehet választani?",
-                a: "Több mint 100 szövetféléből és valódi bőrből választhatsz. Szövetmintákat postán is küldünk, ha személyesen nem tudsz eljönni.",
-              },
-              {
-                q: "Mennyibe kerül egy kanapé?",
-                a: "A Chesterfield kanapéink 399.810 Ft-tól, fotelek 324.380 Ft-tól, franciaágyak 351.160 Ft-tól elérhetők. Egyedi megrendelésnél pontos árajánlatot 2 napon belül küldünk.",
-              },
-              {
-                q: "Mennyi ideig tart a gyártás?",
-                a: "Általában 4–6 hét a megrendeléstől számítva. Ha sürgős, kérdezz rá az aktuális kapacitásra.",
-              },
-            ].map(({ q, a }) => (
-              <div key={q} className="border-b border-[#e8ddd0] pb-5">
-                <p className="font-semibold text-[#1c1c1c] mb-2">{q}</p>
-                <p className="text-gray-600 text-sm leading-relaxed">{a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Rólunk */}
+      <RolunkSection moduleId="home:rolunk" isAdmin={false} />
+
+      {/* Megrendelésre készített bútorok */}
+      <EgyediSection moduleId="home:egyedi" isAdmin={false} />
+
+      {/* Értékelések */}
+      <ReviewsSection isAdmin={false} />
+
+      {/* FAQ — accordion */}
+      <FaqSection moduleId="global:faq" isAdmin={false} />
 
       {/* Contact form */}
       <ContactFormSection />
