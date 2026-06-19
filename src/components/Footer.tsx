@@ -105,6 +105,8 @@ const NAV = [
       { label: "Bútor Körmenden", href: "/butorbolt-kormenden" },
       { label: "Bútor Barcson", href: "/butorbolt-barcson" },
       { label: "Bútor Szigetváron", href: "/butorbolt-szigetvaron" },
+      { label: "Bútorbolt Nagykanizsa", href: "/butorbolt-nagykanizsán" },
+      { label: "Bútorbolt Budapest", href: "/butorbolt-budapesten" },
     ],
   },
 ];

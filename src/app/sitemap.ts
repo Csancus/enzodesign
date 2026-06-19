@@ -55,6 +55,8 @@ const PAGES = [
   { url: "/butorbolt-kormenden", priority: 0.8, changeFrequency: "monthly" },
   { url: "/butorbolt-barcson", priority: 0.8, changeFrequency: "monthly" },
   { url: "/butorbolt-szigetvaron", priority: 0.8, changeFrequency: "monthly" },
+  { url: "/butorbolt-nagykanizsán", priority: 0.9, changeFrequency: "monthly" },
+  { url: "/butorbolt-budapesten", priority: 0.9, changeFrequency: "monthly" },
   { url: "/blog", priority: 0.7, changeFrequency: "weekly" },
   { url: "/blog/butorbolt-nagykanizsán", priority: 0.6, changeFrequency: "monthly" },
   { url: "/blog/kanape-zalaegerszegen", priority: 0.6, changeFrequency: "monthly" },

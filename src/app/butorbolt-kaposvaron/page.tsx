@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import CityLandingPage from "@/components/CityLandingPage";
 
 export const metadata: Metadata = {
-  title: "Bútorbolt Kaposváron – Egyedi kárpit bútor | Enzo Design",
-  description: "Bútorbolt Kaposváron: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 52 km-re – 3+10 év garancia, online rendelés.",
+  title: "Bútorbolt Kaposvár – Egyedi kárpit bútor | Enzo Design",
+  description: "Bútorbolt Kaposvár: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 52 km-re – 3+10 év garancia, online rendelés.",
   alternates: { canonical: "https://enzodesign.hu/butorbolt-kaposvaron" },
   openGraph: {
-    title: "Bútorbolt Kaposváron – Egyedi kárpit bútor | Enzo Design",
-    description: "Bútorbolt Kaposváron: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 52 km-re – 3+10 év garancia, online rendelés.",
+    title: "Bútorbolt Kaposvár – Egyedi kárpit bútor | Enzo Design",
+    description: "Bútorbolt Kaposvár: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 52 km-re – 3+10 év garancia, online rendelés.",
     url: "https://enzodesign.hu/butorbolt-kaposvaron",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },

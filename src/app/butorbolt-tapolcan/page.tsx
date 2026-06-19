@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import CityLandingPage from "@/components/CityLandingPage";
 
 export const metadata: Metadata = {
-  title: "Bútorbolt Tapolcán – Egyedi kárpit bútor | Enzo Design",
-  description: "Bútorbolt Tapolcán: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 58 km-re – 3+10 év garancia, online rendelés.",
+  title: "Bútorbolt Tapolca – Egyedi kárpit bútor | Enzo Design",
+  description: "Bútorbolt Tapolca: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 58 km-re – 3+10 év garancia, online rendelés.",
   alternates: { canonical: "https://enzodesign.hu/butorbolt-tapolcan" },
   openGraph: {
-    title: "Bútorbolt Tapolcán – Egyedi kárpit bútor | Enzo Design",
-    description: "Bútorbolt Tapolcán: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 58 km-re – 3+10 év garancia, online rendelés.",
+    title: "Bútorbolt Tapolca – Egyedi kárpit bútor | Enzo Design",
+    description: "Bútorbolt Tapolca: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 58 km-re – 3+10 év garancia, online rendelés.",
     url: "https://enzodesign.hu/butorbolt-tapolcan",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },

@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import CityLandingPage from "@/components/CityLandingPage";
 
 export const metadata: Metadata = {
-  title: "Bútorbolt Szigetváron – Egyedi kárpit bútor | Enzo Design",
-  description: "Bútorbolt Szigetváron: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 65 km-re – 3+10 év garancia, online rendelés.",
+  title: "Bútorbolt Szigetvár – Egyedi kárpit bútor | Enzo Design",
+  description: "Bútorbolt Szigetvár: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 65 km-re – 3+10 év garancia, online rendelés.",
   alternates: { canonical: "https://enzodesign.hu/butorbolt-szigetvaron" },
   openGraph: {
-    title: "Bútorbolt Szigetváron – Egyedi kárpit bútor | Enzo Design",
-    description: "Bútorbolt Szigetváron: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 65 km-re – 3+10 év garancia, online rendelés.",
+    title: "Bútorbolt Szigetvár – Egyedi kárpit bútor | Enzo Design",
+    description: "Bútorbolt Szigetvár: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 65 km-re – 3+10 év garancia, online rendelés.",
     url: "https://enzodesign.hu/butorbolt-szigetvaron",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
