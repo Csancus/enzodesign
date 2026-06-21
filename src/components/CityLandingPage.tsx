@@ -49,7 +49,7 @@ export default async function CityLandingPage({
 
       {/* Stats bar */}
       <section className="bg-[#b8924a] py-6 px-4">
-        <div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 text-center">
+        <div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 text-center [&>*:last-child]:col-span-2 sm:[&>*:last-child]:col-span-1">
           {[
             { value: `${distanceKm} km`, label: `Nagykanizsától` },
             { value: `~${driveMin} perc`, label: "autóval" },
