@@ -124,7 +124,7 @@ export default async function CityLandingPage({
               >
                 {p.label} →
               </a>
-            )}
+            ))}
           </div>
         </div>
       </section>
