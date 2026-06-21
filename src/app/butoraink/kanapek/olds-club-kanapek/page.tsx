@@ -35,6 +35,7 @@ export default function Page() {
         "/images/olds-club-a4.webp",
         "/images/olds-club-a34.jpg",
         "/images/olds-club-a2.webp",
+        "/images/olds-club-a3.webp",
         "/images/olds-club-w1.webp",
         "/images/olds-club-w2.webp",
         "/images/olds-club-w3.webp",

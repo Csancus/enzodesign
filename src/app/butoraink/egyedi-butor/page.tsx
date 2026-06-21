@@ -21,6 +21,22 @@ export const metadata: Metadata = {
 };
 
 const DEFAULT_GALLERY = [
+  "/images/egyedi-a1.webp",
+  "/images/egyedi-a2.webp",
+  "/images/egyedi-a4.webp",
+  "/images/egyedi-a6.webp",
+  "/images/egyedi-a7.webp",
+  "/images/egyedi-a8.webp",
+  "/images/egyedi-a9.webp",
+  "/images/egyedi-a10.webp",
+  "/images/egyedi-a11.webp",
+  "/images/egyedi-a13.webp",
+  "/images/egyedi-a14.webp",
+  "/images/egyedi-a15.webp",
+  "/images/egyedi-a16.webp",
+  "/images/egyedi-a18.webp",
+  "/images/egyedi-dsc1.jpg",
+  "/images/egyedi-dsc2.jpg",
   "/images/egyedi-w1.webp",
   "/images/egyedi-w2.webp",
   "/images/egyedi-w4.webp",

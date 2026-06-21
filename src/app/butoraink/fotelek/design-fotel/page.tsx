@@ -18,7 +18,8 @@ export default function Page() {
       name="Design Fotel"
       tagline="Modern minőség"
       description="A Design fotel modern formavilágával és letisztult vonalaival nem egy hagyományos bútordarab – egyedi személyiség, több száz szövetből."
-      image="/images/e7ad8b_aceaccd7ca6746cb804d31e17d3c8352.webp"
+      image="/images/design-a1.webp"
+      gallery={["/images/design-a1.webp", "/images/design-a3.webp", "/images/design-a4.webp", "/images/design-a5.webp", "/images/design-a6.webp", "/images/design-a7.webp", "/images/design-a2.webp", "/images/design-a26.jpg", "/images/design-a27bg.jpg", "/images/design-a28.jpg", "/images/design-a32bg.jpg", "/images/design-a33.jpg", "/images/design-extra1.jpg", "/images/design-dsc1.jpg", "/images/design-dsc2.jpg", "/images/design-fb1.jpg", "/images/design-fb2.jpg", "/images/design-img1.jpg"]}
       pricing={{ fotel: { alap: 82820, bor: 120000 } }}
       features={["50.000 martindale szövet", "Modern dizájn", "3 év garancia", "10 év vázgarancia"]}
       breadcrumb={[{ label: "Főoldal", href: "/" }, { label: "Bútoraink", href: "/butoraink" }, { label: "Fotelek", href: "/butoraink/fotelek" }, { label: "Design Fotel", href: "/butoraink/fotelek/design-fotel" }]}

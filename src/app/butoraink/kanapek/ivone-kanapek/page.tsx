@@ -23,6 +23,7 @@ export default function Page() {
       image="/images/ivone-w1.webp"
       gallery={[
         "/images/ivone-a1.webp",
+        "/images/ivone-a2.webp",
         "/images/ivone-dsc1.jpg",
         "/images/ivone-a7.webp",
         "/images/ivone-a8.webp",
