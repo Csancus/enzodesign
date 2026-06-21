@@ -92,6 +92,7 @@ export default async function UzletiButorPage() {
   const benefits = {
     title: (benefitsCfg.title as string) || "Miért válasszon minket üzleti célra?",
     items: (benefitsCfg.items as string) || defaultBenefits,
+    image: (benefitsCfg.image as string) || "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp",
   };
   const benefitsList = benefits.items.split("\n").map((s) => s.trim()).filter(Boolean);
 
@@ -192,7 +193,7 @@ export default async function UzletiButorPage() {
               </a>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden">
-              <Image src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" alt="Üzleti bútor gyártás" fill className="object-cover" />
+              <Image src={benefits.image} alt="Üzleti bútor gyártás" fill className="object-cover" />
             </div>
           </div>
         </div>

@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 const HERO_SCHEMA: FieldDef[] = [
   { key: "title", label: "Főcím", type: "text" },
   { key: "body", label: "Leírás szöveg", type: "textarea" },
+  { key: "image", label: "Háttérkép", type: "image" },
 ];
 
 const SUBTOPICS_SCHEMA: FieldDef[] = [
@@ -49,6 +50,7 @@ export default async function ChesterfieldPage() {
   const hero = {
     title: (heroCfg.title as string) || "A Chesterfield",
     body: (heroCfg.body as string) || "A Chesterfield bútorok az elegancia, a hagyomány és a stílus tökéletes kombinációi. A mély gombolás, a bőrborítás és a karakteres formavilág évszázadok óta a luxus és a kifinomult ízlés szimbólumai. Legyen szó klasszikus bőrkanapéról vagy modern újragondolásról, a Chesterfield mindig időtálló választás.",
+    image: (heroCfg.image as string) || "/images/e7ad8b_f3e7dfd04f494d26b0ab4fb0b4548113.webp",
   };
 
   const defaultSubtopics = [
@@ -69,7 +71,7 @@ export default async function ChesterfieldPage() {
     <>
       {/* HERO */}
       <section className="relative bg-[#f5f0ea] py-16 sm:py-32 text-center overflow-hidden">
-        <Image src="/images/e7ad8b_f3e7dfd04f494d26b0ab4fb0b4548113.webp" alt="Chesterfield kanapé" fill priority className="object-cover opacity-10" />
+        <Image src={hero.image} alt="Chesterfield kanapé" fill priority className="object-cover opacity-10" />
         <div className="relative z-10 max-w-2xl mx-auto px-4">
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 text-[#1c1c1c]" style={{ fontFamily: "var(--font-heading)" }}>
             {hero.title}
