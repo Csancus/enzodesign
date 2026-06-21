@@ -80,8 +80,8 @@ export default async function RootLayout({
     },
     "sameAs": [
       "https://www.facebook.com/enzodesignbutor",
-      "https://www.instagram.com/enzodesign2015",
-      "https://www.tiktok.com/@enzodesignbutor"
+      "https://www.instagram.com/enzodesignbutor/",
+      "https://www.tiktok.com/@enzodesign2015"
     ]
   };
 
