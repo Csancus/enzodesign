@@ -80,14 +80,14 @@ const CARDS = [
     id: "egyedi",
     name: "Egyedi kanapé",
     tagline: "Elkészítjük álombútorod",
-    images: ["/images/egyedi-w2.webp", "/images/egyedi-w4.webp"],
+    images: ["/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp", "/images/e7ad8b_aca61fd0c27746da9f91a44377825085.webp", "/images/e7ad8b_a6ef192520f14d18bb7296848c319c17.webp", "/images/9a0b1d_e2873d90b1d04241a6382d7da598e821.webp", "/images/e7ad8b_1a5a2fd2adb04b7cbf6faa50280714d4.webp", "/images/e7ad8b_a6f2120917464fd084a819fbd6828556.webp", "/images/e7ad8b_af00972c370c4bc7800fc98bfd927214.webp", "/images/e7ad8b_bc066bd9f28f4fbab4b31b619d02e1ff.webp", "/images/e7ad8b_68c0304ad1514869b9827831425d131b.webp", "/images/e7ad8b_ebf6019015ea4512933aacab43daaf4a.webp"],
     href: "/butoraink/egyedi-butor",
   },
   {
     id: "uzleti",
     name: "Üzleti bútor, kanapé",
     tagline: "Vásárlóid kényelmére",
-    images: ["/images/uzleti-w1.webp", "/images/uzleti-w3.webp"],
+    images: ["/images/uzleti-szalloda.webp", "/images/uzleti-w1.webp", "/images/uzleti-w2.webp", "/images/uzleti-w3.webp", "/images/uzleti-w4.webp"],
     href: "/karpitozott-butor-uzleti-ugyfeleknek",
   },
 ];
