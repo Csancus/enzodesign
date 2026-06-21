@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import type { FieldDef, SimpleField } from "@/types/cms";
+import type { FieldDef } from "@/types/cms";
 
 type Config = Record<string, unknown>;
 
@@ -68,14 +68,56 @@ function ImageField({
   );
 }
 
+function FieldInput({ field, value, onChange, nested }: {
+  field: FieldDef;
+  value: unknown;
+  onChange: (v: unknown) => void;
+  nested?: boolean;
+}) {
+  if (field.type === "image") {
+    return <ImageField value={(value as string) ?? ""} onChange={onChange as (v: string) => void} />;
+  }
+  if (field.type === "textarea") {
+    return (
+      <textarea
+        value={(value as string) ?? ""}
+        onChange={(e) => onChange(e.target.value)}
+        rows={nested ? 2 : 3}
+        className="w-full border border-gray-200 px-2 py-1.5 text-xs text-gray-900 bg-white outline-none focus:border-[#b8924a] resize-none"
+      />
+    );
+  }
+  if (field.type === "array") {
+    const items = Array.isArray(value) ? (value as Config[]) : [];
+    return (
+      <ArrayField
+        items={items}
+        itemFields={field.itemFields}
+        onChange={onChange as (v: Config[]) => void}
+        nested
+      />
+    );
+  }
+  return (
+    <input
+      type="text"
+      value={(value as string) ?? ""}
+      onChange={(e) => onChange(e.target.value)}
+      className="w-full border border-gray-200 px-2 py-1.5 text-xs text-gray-900 bg-white outline-none focus:border-[#b8924a]"
+    />
+  );
+}
+
 function ArrayField({
   items,
   itemFields,
   onChange,
+  nested,
 }: {
   items: Config[];
-  itemFields: SimpleField[];
+  itemFields: FieldDef[];
   onChange: (v: Config[]) => void;
+  nested?: boolean;
 }) {
   function update(i: number, key: string, value: unknown) {
     const next = items.map((item, j) => (j === i ? { ...item, [key]: value } : item));
@@ -96,16 +138,23 @@ function ArrayField({
 
   function add() {
     const blank: Config = {};
-    itemFields.forEach((f) => (blank[f.key] = ""));
+    itemFields.forEach((f) => { blank[f.key] = f.type === "array" ? [] : ""; });
     onChange([...items, blank]);
   }
 
+  const wrapCls = nested
+    ? "border border-dashed border-gray-300 p-2 bg-white space-y-2"
+    : "space-y-3";
+  const itemCls = nested
+    ? "border border-gray-200 p-2 bg-gray-50"
+    : "border border-gray-200 p-3 bg-gray-50";
+
   return (
-    <div className="space-y-3">
+    <div className={wrapCls}>
       {items.map((item, i) => (
-        <div key={i} className="border border-gray-200 p-3 bg-gray-50">
+        <div key={i} className={itemCls}>
           <div className="flex justify-between items-center mb-2">
-            <span className="text-xs text-gray-500 font-medium">#{i + 1}</span>
+            <span className="text-xs text-gray-400 font-medium">#{i + 1}</span>
             <div className="flex gap-1">
               <button onClick={() => move(i, -1)} disabled={i === 0} className="text-xs text-gray-400 hover:text-[#b8924a] disabled:opacity-20 px-1">↑</button>
               <button onClick={() => move(i, 1)} disabled={i === items.length - 1} className="text-xs text-gray-400 hover:text-[#b8924a] disabled:opacity-20 px-1">↓</button>
@@ -115,23 +164,12 @@ function ArrayField({
           {itemFields.map((f) => (
             <div key={f.key} className="mb-2">
               <label className="block text-xs text-gray-500 mb-0.5">{f.label}</label>
-              {f.type === "image" ? (
-                <ImageField value={(item[f.key] as string) ?? ""} onChange={(v) => update(i, f.key, v)} />
-              ) : f.type === "textarea" ? (
-                <textarea
-                  value={(item[f.key] as string) ?? ""}
-                  onChange={(e) => update(i, f.key, e.target.value)}
-                  rows={2}
-                  className="w-full border border-gray-200 px-2 py-1.5 text-xs text-gray-900 bg-white outline-none focus:border-[#b8924a] resize-none"
-                />
-              ) : (
-                <input
-                  type="text"
-                  value={(item[f.key] as string) ?? ""}
-                  onChange={(e) => update(i, f.key, e.target.value)}
-                  className="w-full border border-gray-200 px-2 py-1.5 text-xs text-gray-900 bg-white outline-none focus:border-[#b8924a]"
-                />
-              )}
+              <FieldInput
+                field={f}
+                value={item[f.key]}
+                onChange={(v) => update(i, f.key, v)}
+                nested
+              />
             </div>
           ))}
         </div>
@@ -140,7 +178,7 @@ function ArrayField({
         onClick={add}
         className="w-full border-2 border-dashed border-gray-300 py-2 text-xs text-gray-500 hover:border-[#b8924a] hover:text-[#b8924a] transition-colors"
       >
-        + Elem hozzáadása
+        + Kép hozzáadása
       </button>
     </div>
   );
@@ -202,30 +240,7 @@ export default function SectionEditor({
           {schema.map((field) => (
             <div key={field.key}>
               <label className="block text-sm font-medium text-gray-700 mb-1.5">{field.label}</label>
-
-              {field.type === "image" ? (
-                <ImageField value={(config[field.key] as string) ?? ""} onChange={(v) => set(field.key, v)} />
-              ) : field.type === "textarea" ? (
-                <textarea
-                  value={(config[field.key] as string) ?? ""}
-                  onChange={(e) => set(field.key, e.target.value)}
-                  rows={3}
-                  className="w-full border border-gray-300 px-3 py-2 text-sm text-gray-900 bg-white outline-none focus:border-[#b8924a] resize-none"
-                />
-              ) : field.type === "array" ? (
-                <ArrayField
-                  items={(config[field.key] as Config[]) ?? []}
-                  itemFields={field.itemFields}
-                  onChange={(v) => set(field.key, v)}
-                />
-              ) : (
-                <input
-                  type="text"
-                  value={(config[field.key] as string) ?? ""}
-                  onChange={(e) => set(field.key, e.target.value)}
-                  className="w-full border border-gray-300 px-3 py-2 text-sm text-gray-900 bg-white outline-none focus:border-[#b8924a]"
-                />
-              )}
+              <FieldInput field={field} value={config[field.key]} onChange={(v) => set(field.key, v)} />
             </div>
           ))}
         </div>

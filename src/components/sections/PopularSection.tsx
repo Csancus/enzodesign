@@ -72,8 +72,13 @@ const SCHEMA: FieldDef[] = [
       { key: "name", label: "Név", type: "text" },
       { key: "tagline", label: "Tagline", type: "text" },
       { key: "price", label: "Ár szöveg (pl. 2-es kanapé 444 240 Ft-tól)", type: "text" },
-      { key: "image", label: "Fő kép", type: "image" },
-      { key: "href", label: "Link URL", type: "url" },
+      { key: "href", label: "Link URL", type: "text" },
+      {
+        key: "images",
+        label: "Képek (több is lehet, lapozható)",
+        type: "array",
+        itemFields: [{ key: "src", label: "Kép", type: "image" }],
+      },
     ],
   },
 ];
@@ -149,8 +154,8 @@ export default async function PopularSection({ moduleId, isAdmin }: { moduleId: 
               name: p.name,
               tagline: p.tagline,
               price: p.price,
-              image: p.images[0] ?? "",
               href: p.href,
+              images: p.images.map((src) => ({ src })),
             })),
           }}
           schema={SCHEMA}

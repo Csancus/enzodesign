@@ -8,7 +8,7 @@ export type ArrayField = {
   key: string;
   label: string;
   type: "array";
-  itemFields: SimpleField[];
+  itemFields: FieldDef[];
 };
 
 export type FieldDef = SimpleField | ArrayField;
