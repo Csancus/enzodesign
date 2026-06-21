@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 };
 
 const CARDS = [
-  { id: "bilbao", name: "Bilbao franciaágy", tagline: "Kényelmedre", images: ["/images/franciaaggy-w3.webp", "/images/franciaaggy-w6.webp"], href: "/butoraink/franciaagyak" },
-  { id: "madrid", name: "Madrid franciaágy", tagline: "Hálószobád éke", images: ["/images/franciaaggy-w2.webp", "/images/franciaaggy-w5.webp"], href: "/butoraink/franciaagyak" },
-  { id: "tovabbi", name: "További ágyak", tagline: "Kísértő és zseniális darabok", images: ["/images/franciaaggy-w1.webp", "/images/franciaaggy-w4.webp"], href: "/butoraink/franciaagyak" },
+  { id: "bilbao", name: "Bilbao franciaágy", tagline: "Kényelmedre", images: ["/images/bilbao-franciaaggy.webp", "/images/franciaaggy-w6.webp"], href: "/butoraink/franciaagyak" },
+  { id: "madrid", name: "Madrid franciaágy", tagline: "Hálószobád éke", images: ["/images/madrid-franciaaggy.webp", "/images/franciaaggy-w5.webp"], href: "/butoraink/franciaagyak" },
+  { id: "tovabbi", name: "További ágyak", tagline: "Kísértő és zseniális darabok", images: ["/images/tovabbi-franciaaggy-1.webp", "/images/tovabbi-franciaaggy-2.webp", "/images/tovabbi-franciaaggy-3.webp", "/images/tovabbi-franciaaggy-4.webp", "/images/tovabbi-franciaaggy-5.webp", "/images/tovabbi-franciaaggy-6.webp"], href: "/butoraink/franciaagyak" },
   { id: "egyedi", name: "Egyedi megoldások", tagline: "Elkészítjük álombútorod", images: ["/images/egyedi-w4.webp", "/images/egyedi-w2.webp"], href: "/butoraink/egyedi-butor" },
   { id: "uzleti", name: "Üzleti ágyak, garnitúrák", tagline: "Vásárlóid kényelmére", images: ["/images/uzleti-w1.webp", "/images/uzleti-w3.webp"], href: "/karpitozott-butor-uzleti-ugyfeleknek" },
 ];
