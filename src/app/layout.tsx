@@ -79,7 +79,7 @@ export default async function RootLayout({
       "worstRating": "1"
     },
     "sameAs": [
-      "https://www.facebook.com/enzodesignbutor",
+      "https://www.facebook.com/enzodesignbutor/",
       "https://www.instagram.com/enzodesignbutor/",
       "https://www.tiktok.com/@enzodesign2015"
     ]
