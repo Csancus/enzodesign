@@ -17,6 +17,7 @@ export default function SlideshowEditor({
 }) {
   const [list, setList] = useState<SlideImage[]>(images);
   const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
@@ -24,13 +25,21 @@ export default function SlideshowEditor({
     const file = e.target.files?.[0];
     if (!file) return;
     setUploading(true);
+    setUploadError(null);
     const fd = new FormData();
     fd.append("file", file);
-    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
-    if (res.ok) {
-      const { src } = await res.json();
-      const alt = file.name.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ");
-      setList((prev) => [...prev, { src, alt }]);
+    try {
+      const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+      if (res.ok) {
+        const { src } = await res.json();
+        const alt = file.name.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ");
+        setList((prev) => [...prev, { src, alt }]);
+      } else {
+        const body = await res.json().catch(() => ({}));
+        setUploadError(body.error ?? `Feltöltési hiba (${res.status})`);
+      }
+    } catch {
+      setUploadError("Hálózati hiba");
     }
     setUploading(false);
     if (fileRef.current) fileRef.current.value = "";
@@ -125,10 +134,13 @@ export default function SlideshowEditor({
         <button
           onClick={() => fileRef.current?.click()}
           disabled={uploading}
-          className="w-full border-2 border-dashed border-gray-300 py-3 text-sm text-gray-500 hover:border-[#b8924a] hover:text-[#b8924a] transition-colors mb-4 disabled:opacity-50"
+          className="w-full border-2 border-dashed border-gray-300 py-3 text-sm text-gray-500 hover:border-[#b8924a] hover:text-[#b8924a] transition-colors mb-2 disabled:opacity-50"
         >
           {uploading ? "Feltöltés folyamatban..." : "+ Kép hozzáadása"}
         </button>
+        {uploadError && (
+          <p className="text-xs text-red-500 mb-3 text-center">{uploadError}</p>
+        )}
 
         <div className="flex gap-3">
           <button

@@ -54,7 +54,9 @@ const SCHEMA: FieldDef[] = [
 export default async function EgyediSection({ moduleId, isAdmin }: { moduleId: string; isAdmin: boolean }) {
   const stored = await getModuleConfig(moduleId);
   const cfg = { ...DEFAULT, ...(stored as typeof DEFAULT) };
-  const images = (cfg.images?.length ? cfg.images : DEFAULT_IMAGES).slice(0, 10);
+  const allImages = cfg.images?.length ? cfg.images : DEFAULT_IMAGES;
+  const mosaicImages = allImages.slice(0, 10);
+  const extraImages = allImages.slice(10);
 
   const rowH = "clamp(110px, 13vw, 180px)";
 
@@ -73,16 +75,16 @@ export default async function EgyediSection({ moduleId, isAdmin }: { moduleId: s
           <p className="text-sm text-gray-500">{cfg.desc}</p>
         </div>
 
-        {/* Desktop collage — 5-column mosaic grid */}
+        {/* Desktop collage — 5-column mosaic grid (first 10) */}
         <div
-          className="hidden sm:grid mb-10"
+          className="hidden sm:grid mb-1"
           style={{
             gridTemplateColumns: "repeat(5, 1fr)",
             gridTemplateRows: `${rowH} ${rowH} ${rowH}`,
             gap: "5px",
           }}
         >
-          {images.map((img, i) => (
+          {mosaicImages.map((img, i) => (
             <div
               key={i}
               className="overflow-hidden"
@@ -99,9 +101,26 @@ export default async function EgyediSection({ moduleId, isAdmin }: { moduleId: s
           ))}
         </div>
 
-        {/* Mobile — 2-column uniform grid */}
+        {/* Extra images beyond 10 — simple auto grid */}
+        {extraImages.length > 0 && (
+          <div className="hidden sm:grid mb-1" style={{ gridTemplateColumns: "repeat(5, 1fr)", gap: "5px" }}>
+            {extraImages.map((img, i) => (
+              <div key={i} className="relative overflow-hidden" style={{ height: rowH }}>
+                <Image
+                  src={img.src}
+                  alt={img.alt || `Egyedi bútor ${mosaicImages.length + i + 1}`}
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                  sizes="20vw"
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Mobile — 2-column uniform grid (all images) */}
         <div className="sm:hidden mb-10 grid grid-cols-2 gap-1">
-          {images.map((img, i) => (
+          {allImages.map((img, i) => (
             <div key={i} className="relative aspect-square overflow-hidden">
               <Image
                 src={img.src}
@@ -123,7 +142,7 @@ export default async function EgyediSection({ moduleId, isAdmin }: { moduleId: s
           </Link>
         </div>
       </div>
-      {isAdmin && <EditBtn moduleId={moduleId} config={{ ...cfg, images }} schema={SCHEMA} />}
+      {isAdmin && <EditBtn moduleId={moduleId} config={{ ...cfg, images: allImages }} schema={SCHEMA} />}
     </section>
   );
 }
