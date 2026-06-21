@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
   const id = randomUUID();
 
   const optimized = await sharp(buffer)
-    .resize(1920, 800, { fit: "cover", position: "center" })
+    .resize(1920, 1920, { fit: "inside", withoutEnlargement: true })
     .webp({ quality: 82 })
     .toBuffer();
 

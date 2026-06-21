@@ -13,21 +13,31 @@ function ImageField({
   onChange: (v: string) => void;
 }) {
   const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
   const ref = useRef<HTMLInputElement>(null);
 
   async function upload(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
     setUploading(true);
-    const fd = new FormData();
-    fd.append("file", file);
-    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
-    if (res.ok) {
-      const { src } = await res.json();
-      onChange(src);
+    setUploadError(null);
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+      if (res.ok) {
+        const { src } = await res.json();
+        onChange(src);
+      } else {
+        const body = await res.json().catch(() => ({}));
+        setUploadError(body.error ?? `Hiba (${res.status})`);
+      }
+    } catch (err) {
+      setUploadError(err instanceof Error ? err.message : "Ismeretlen hiba");
+    } finally {
+      setUploading(false);
+      if (ref.current) ref.current.value = "";
     }
-    setUploading(false);
-    if (ref.current) ref.current.value = "";
   }
 
   return (
@@ -52,6 +62,7 @@ function ImageField({
         >
           {uploading ? "Feltöltés..." : "Feltöltés"}
         </button>
+        {uploadError && <p className="text-xs text-red-500 mt-0.5">{uploadError}</p>}
       </div>
     </div>
   );
@@ -148,6 +159,7 @@ export default function SectionEditor({
 }) {
   const [config, setConfig] = useState<Config>(initialConfig);
   const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
   const router = useRouter();
 
   function set(key: string, value: unknown) {
@@ -156,12 +168,24 @@ export default function SectionEditor({
 
   async function save() {
     setSaving(true);
-    await fetch(`/api/admin/modules?id=${encodeURIComponent(moduleId)}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(config),
-    });
-    setSaving(false);
+    setSaveError(null);
+    try {
+      const res = await fetch(`/api/admin/modules?id=${encodeURIComponent(moduleId)}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(config),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        setSaveError(body.error ?? `Mentési hiba (${res.status})`);
+        return;
+      }
+    } catch (err) {
+      setSaveError(err instanceof Error ? err.message : "Ismeretlen hiba");
+      return;
+    } finally {
+      setSaving(false);
+    }
     onClose();
     router.refresh();
   }
@@ -206,7 +230,10 @@ export default function SectionEditor({
           ))}
         </div>
 
-        <div className="flex gap-3 mt-6">
+        {saveError && (
+          <p className="mt-4 text-sm text-red-600 bg-red-50 border border-red-200 px-3 py-2">{saveError}</p>
+        )}
+        <div className="flex gap-3 mt-4">
           <button onClick={onClose} className="flex-1 border border-gray-300 py-2.5 text-sm text-gray-600 hover:bg-gray-50">
             Mégse
           </button>
