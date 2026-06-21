@@ -38,11 +38,15 @@ export async function requireAdmin(): Promise<NextResponse | null> {
     try {
       const originHost = new URL(origin).hostname.replace(/^www\./, "");
       const allowedHost = new URL(ALLOWED_ORIGIN).hostname.replace(/^www\./, "");
-      if (originHost !== allowedHost && originHost !== "localhost") {
+      const isAllowed =
+        originHost === "localhost" ||
+        originHost === "enzodesign.hu" ||
+        originHost === allowedHost;
+      if (!isAllowed) {
         return NextResponse.json({ error: "Forbidden" }, { status: 403 });
       }
     } catch {
-      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+      // malformed origin header – allow if already authenticated via cookie
     }
   }
 
