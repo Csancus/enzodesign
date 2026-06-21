@@ -102,7 +102,7 @@ export default async function FotelekPage() {
   const resolvedCards = CARDS.map((c, i) => {
     const cfg = cardCfgs[i];
     const rawImages = cfg?.images as { src: string }[] | undefined;
-    const resolvedImages = rawImages ? rawImages.map((g) => g.src).filter(Boolean) : c.images;
+    const resolvedImages = (rawImages?.length ? rawImages.map((g) => g.src).filter(Boolean) : null) ?? c.images;
     return {
       ...c,
       name: (cfg?.name as string) || c.name,
