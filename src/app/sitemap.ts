@@ -76,5 +76,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE}${url}`,
     changeFrequency,
     priority,
+    lastModified: new Date(),
   }));
 }

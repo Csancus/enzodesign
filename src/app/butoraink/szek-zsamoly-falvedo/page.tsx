@@ -80,8 +80,23 @@ export default async function SzekZsamolyPage() {
     };
   });
 
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Szék, zsámoly, falvédő – Enzo Design",
+    "url": "https://enzodesign.hu/butoraink/szek-zsamoly-falvedo",
+    "numberOfItems": resolvedCards.length,
+    "itemListElement": resolvedCards.map((c, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": c.name,
+      "url": `https://enzodesign.hu${c.href}`,
+    })),
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
       <section className="relative bg-[#f5f0e8] py-12 sm:py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">ENZO DESIGN</p>

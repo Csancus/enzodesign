@@ -6,8 +6,10 @@ import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Chesterfield – Anyagok és gyártási technikák – Enzo Design",
+  description: "Chesterfield bútorok anyagai és gyártási technikái: tömörfa váz, kézzel feszített kárpit, gombolt háttámla, prémium szövetek és bőr.",
   alternates: { canonical: "https://enzodesign.hu/chesterfield/chesterfield-anyagok-es-gyartai-technikak" },
   openGraph: {
+    type: "article",
     title: "Chesterfield – Anyagok és gyártási technikák – Enzo Design",
     description: "Chesterfield bútorok anyagai és gyártási technikái: tömörfa váz, kézzel feszített kárpit, gombolt háttámla, prémium szövetek és bőr.",
     url: "https://enzodesign.hu/chesterfield/chesterfield-anyagok-es-gyartai-technikak",
@@ -15,9 +17,22 @@ export const metadata: Metadata = {
   },
 };
 
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Chesterfield – Anyagok és gyártási technikák",
+  "description": "Chesterfield bútorok anyagai és gyártási technikái: tömörfa váz, kézzel feszített kárpit, gombolt háttámla, prémium szövetek és bőr.",
+  "url": "https://enzodesign.hu/chesterfield/chesterfield-anyagok-es-gyartai-technikak",
+  "image": "https://enzodesign.hu/images/chesterfield-w1.webp",
+  "inLanguage": "hu",
+  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu" },
+  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu", "logo": { "@type": "ImageObject", "url": "https://enzodesign.hu/images/logo.webp" } },
+};
+
 export default async function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
         <div className="max-w-4xl mx-auto">
           <Link href="/chesterfield" className="hover:text-white">Chesterfield</Link>

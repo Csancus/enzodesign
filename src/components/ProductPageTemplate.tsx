@@ -178,9 +178,21 @@ export default async function ProductPageTemplate({
     },
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumb.map((crumb, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": crumb.label,
+      "item": `https://enzodesign.hu${crumb.href}`,
+    })),
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {/* BREADCRUMB */}
       <nav className="bg-[#f5f0e8] px-4 py-3 text-sm">
         <div className="max-w-7xl mx-auto flex items-center gap-2 text-gray-500 flex-wrap">

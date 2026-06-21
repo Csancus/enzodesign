@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 
   alternates: { canonical: "https://enzodesign.hu/chesterfield/chesterfield-a-modern-enteriorben" },
   openGraph: {
+    type: "article",
     title: "A Chesterfield a modern enteriőrben – Enzo Design",
     description: "Hogyan illik a klasszikus Chesterfield kanapé a modern otthonba? Minimalista, skandináv, loft és vintage stílusú terekhez egyaránt tökéletes.",
     url: "https://enzodesign.hu/chesterfield/chesterfield-a-modern-enteriorben",
@@ -16,9 +17,22 @@ export const metadata: Metadata = {
   },
 };
 
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A Chesterfield a modern enteriőrben",
+  "description": "Hogyan illik a klasszikus Chesterfield kanapé a modern otthonba? Minimalista, skandináv, loft és vintage stílusú terekhez egyaránt tökéletes.",
+  "url": "https://enzodesign.hu/chesterfield/chesterfield-a-modern-enteriorben",
+  "image": "https://enzodesign.hu/images/chesterfield-w1.webp",
+  "inLanguage": "hu",
+  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu" },
+  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu", "logo": { "@type": "ImageObject", "url": "https://enzodesign.hu/images/logo.webp" } },
+};
+
 export default async function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
         <div className="max-w-4xl mx-auto">
           <Link href="/chesterfield" className="hover:text-white">Chesterfield</Link>

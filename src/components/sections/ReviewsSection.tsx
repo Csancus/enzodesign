@@ -86,7 +86,37 @@ export default async function ReviewsSection({
   const all = cfg.reviews?.length ? cfg.reviews : REVIEWS_DEFAULT.reviews;
   const reviews = showAll ? all : all.slice(0, 3);
 
+  const reviewsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": cfg.title,
+    "url": "https://enzodesign.hu/vasarloi-visszajelzesek",
+    "numberOfItems": all.filter((r) => r.text).length,
+    "itemListElement": all.filter((r) => r.text).map((r, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "item": {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": r.name },
+        "reviewBody": r.text,
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": r.rating,
+          "bestRating": "5",
+          "worstRating": "1",
+        },
+        "itemReviewed": {
+          "@type": "Organization",
+          "name": "Enzo Design",
+          "url": "https://enzodesign.hu",
+        },
+      },
+    })),
+  };
+
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsJsonLd) }} />
     <section className="relative py-14 bg-white">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl font-bold text-[#1c1c1c] mb-6 text-center" style={{ fontFamily: "var(--font-heading)" }}>
@@ -130,5 +160,6 @@ export default async function ReviewsSection({
         <EditBtn moduleId={REVIEWS_MODULE_ID} config={{ ...cfg, reviews: all }} schema={REVIEWS_SCHEMA} />
       )}
     </section>
+    </>
   );
 }

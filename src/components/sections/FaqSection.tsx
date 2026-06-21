@@ -32,7 +32,19 @@ export default async function FaqSection({ moduleId, isAdmin }: { moduleId: stri
   const cfg = { ...DEFAULT, ...(stored as typeof DEFAULT) };
   const items = cfg.items?.length ? cfg.items : DEFAULT.items;
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": items.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer },
+    })),
+  };
+
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
     <section className="relative py-14 bg-[#f5f0e8]">
       <div className="max-w-3xl mx-auto px-4">
         <h2
@@ -45,5 +57,6 @@ export default async function FaqSection({ moduleId, isAdmin }: { moduleId: stri
       </div>
       {isAdmin && <EditBtn moduleId={moduleId} config={{ ...cfg, items }} schema={SCHEMA} />}
     </section>
+    </>
   );
 }
