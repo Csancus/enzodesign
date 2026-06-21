@@ -99,17 +99,16 @@ export default async function EgyediSection({ moduleId, isAdmin }: { moduleId: s
           ))}
         </div>
 
-        {/* Mobile — 2-column masonry */}
-        <div className="sm:hidden mb-10" style={{ columns: "2", columnGap: "5px" }}>
+        {/* Mobile — 2-column uniform grid */}
+        <div className="sm:hidden mb-10 grid grid-cols-2 gap-1">
           {images.map((img, i) => (
-            <div key={i} style={{ breakInside: "avoid", marginBottom: "5px" }}>
+            <div key={i} className="relative aspect-square overflow-hidden">
               <Image
                 src={img.src}
                 alt={img.alt || `Egyedi bútor ${i + 1}`}
-                width={0}
-                height={0}
+                fill
                 sizes="50vw"
-                className="w-full h-auto"
+                className="object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
           ))}
