@@ -146,7 +146,8 @@ export default async function KanapekPage() {
   const resolvedCards = CARDS.map((c, i) => {
     const cfg = cardCfgs[i];
     const rawImages = cfg?.images as { src: string }[] | undefined;
-    const resolvedImages = (rawImages?.length ? rawImages.map((g) => g.src).filter(Boolean) : null) ?? c.images;
+    const mapped = rawImages?.map((g) => g.src).filter(Boolean) ?? [];
+    const resolvedImages = mapped.length ? mapped : c.images;
     return {
       ...c,
       name: (cfg?.name as string) || c.name,

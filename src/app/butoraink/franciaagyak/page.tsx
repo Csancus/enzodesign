@@ -72,7 +72,7 @@ export default async function FranciaagyakPage() {
       name: (cfg?.name as string) || c.name,
       tagline: (cfg?.tagline as string) || c.tagline,
       href: (cfg?.href as string) || c.href,
-      images: (rawImages?.length ? rawImages.map((g) => g.src).filter(Boolean) : null) ?? c.images,
+      images: (() => { const m = rawImages?.map((g) => g.src).filter(Boolean) ?? []; return m.length ? m : c.images; })(),
     };
   });
 
