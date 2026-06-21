@@ -79,7 +79,7 @@ export default async function RolunkPage() {
   const statsItems = (statsCfg.items as { label: string; value: string }[] | undefined) ?? defaultStats;
 
   const cta = {
-    title: (ctaCfg.title as string) || "Szeretne egyedi bútort?",
+    title: (ctaCfg.title as string) || "Egyedi bútort szeretne?",
     subtitle: (ctaCfg.subtitle as string) || "Vegye fel velünk a kapcsolatot – 24 órán belül visszahívjuk!",
     phone: (ctaCfg.phone as string) || "+36 30 377 8983",
   };

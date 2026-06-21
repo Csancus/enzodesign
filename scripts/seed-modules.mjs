@@ -81,7 +81,7 @@ const defaults = {
     ],
   },
   "rolunk:cta": {
-    title: "Szeretne egyedi bútort?",
+    title: "Egyedi bútort szeretne?",
     subtitle: "Vegye fel velünk a kapcsolatot – 24 órán belül visszahívjuk!",
     phone: "+36 30 377 8983",
   },
