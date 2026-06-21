@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import ContactFormSection from "@/components/ContactFormSection";
 import EditBtn from "@/components/admin/EditBtn";
+import UzletiGallery from "@/components/UzletiGallery";
 import { getAdminStatus } from "@/lib/auth";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
@@ -45,6 +46,7 @@ const SEGMENTS_SCHEMA: FieldDef[] = [
 const BENEFITS_SCHEMA: FieldDef[] = [
   { key: "title", label: "Szekció cím", type: "text" },
   { key: "items", label: "Előnyök (soronként egy)", type: "textarea" },
+  { key: "image", label: "Oldalkép", type: "image" },
 ];
 
 const REFS_SCHEMA: FieldDef[] = [
@@ -106,13 +108,13 @@ export default async function UzletiButorPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative bg-[#1c1c1c] py-12 sm:py-20 px-4">
+      <section className="relative bg-[#f5f0e8] py-12 sm:py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-4">{hero.tagline}</p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-heading)" }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1c1c1c] mb-6" style={{ fontFamily: "var(--font-heading)" }}>
             {hero.title}
           </h1>
-          <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">{hero.body}</p>
+          <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">{hero.body}</p>
           <a href="#kapcsolat" className="inline-block bg-[#b8924a] hover:bg-[#7d6142] text-white font-bold uppercase tracking-wider px-10 py-4 transition-colors text-sm">
             Ajánlatot kérek
           </a>
@@ -199,23 +201,14 @@ export default async function UzletiButorPage() {
         )}
       </section>
 
-      {/* REFERENCIÁK */}
-      <section className="relative py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4">
+      {/* REFERENCIÁK – lapozható galéria */}
+      <section className="relative py-16 bg-white overflow-hidden">
+        <div className="max-w-5xl mx-auto px-8">
           <h2 className="text-2xl font-bold text-[#1c1c1c] mb-8" style={{ fontFamily: "var(--font-heading)" }}>
             {refs.title}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {refs.images.map((img, i) => (
-              <div key={i} className="relative aspect-[3/4] overflow-hidden">
-                <Image src={img.src} alt={`Referencia ${i + 1}`} fill className="object-cover hover:scale-105 transition-transform duration-500" />
-              </div>
-            ))}
-          </div>
+          <UzletiGallery />
         </div>
-        {isAdmin && (
-          <EditBtn moduleId="uzleti:refs" config={refs} schema={REFS_SCHEMA} label="✏ Referenciák" />
-        )}
       </section>
 
       <div id="kapcsolat">
