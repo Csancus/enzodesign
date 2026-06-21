@@ -31,11 +31,19 @@ export async function requireAdmin(): Promise<NextResponse | null> {
   const isAdmin = await getAdminStatus();
   if (!isAdmin) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-  // CSRF: verify Origin matches our site
+  // CSRF: verify Origin hostname matches our site (www and non-www both allowed)
   const hdrs = await headers();
   const origin = hdrs.get("origin");
-  if (origin && !origin.startsWith(ALLOWED_ORIGIN)) {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  if (origin) {
+    try {
+      const originHost = new URL(origin).hostname.replace(/^www\./, "");
+      const allowedHost = new URL(ALLOWED_ORIGIN).hostname.replace(/^www\./, "");
+      if (originHost !== allowedHost && originHost !== "localhost") {
+        return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+      }
+    } catch {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
   }
 
   return null;
