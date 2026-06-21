@@ -56,7 +56,7 @@ export default async function RootLayout({
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "FurnitureStore"],
     "name": "Enzo Design",
     "description": "Egyedi kárpitozott bútorok gyártása Nagykanizsán. Kanapék, fotelek, Chesterfield bútorok közvetlenül a gyártótól.",
     "url": "https://enzodesign.hu",
@@ -64,13 +64,28 @@ export default async function RootLayout({
     "email": "info@enzodesign.hu",
     "image": "https://enzodesign.hu/images/logo.webp",
     "priceRange": "$$",
+    "currenciesAccepted": "HUF",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Egry József utca 7.",
       "addressLocality": "Nagykanizsa",
+      "addressRegion": "Zala",
       "postalCode": "8800",
       "addressCountry": "HU"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 46.4490,
+      "longitude": 16.9897
+    },
+    "hasMap": "https://maps.google.com/?q=Enzo+Design+Nagykanizsa+Egry+J%C3%B3zsef+utca+7",
+    "areaServed": [
+      { "@type": "City", "name": "Nagykanizsa" },
+      { "@type": "City", "name": "Zalaegerszeg" },
+      { "@type": "City", "name": "Kaposvár" },
+      { "@type": "City", "name": "Keszthely" },
+      { "@type": "City", "name": "Siófok" }
+    ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
