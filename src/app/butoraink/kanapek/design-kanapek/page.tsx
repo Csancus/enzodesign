@@ -22,6 +22,13 @@ export default function Page() {
       description="A Design kanapé modern formavilágával, letisztult vonalaival és elegáns steppelésével otthonod stílusos centerpiece-e lesz. Tömörfa váz, prémium szivacs és rugórendszer – korszerű dizájn, maradandó minőség."
       image="/images/design-w1.webp"
       gallery={[
+        "/images/design-a1.webp",
+        "/images/design-a3.webp",
+        "/images/design-a4.webp",
+        "/images/design-a5.webp",
+        "/images/design-a6.webp",
+        "/images/design-a7.webp",
+        "/images/design-a2.webp",
         "/images/design-w1.webp",
         "/images/design-w2.webp",
         "/images/design-w3.webp",

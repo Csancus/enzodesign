@@ -21,10 +21,10 @@ export const metadata: Metadata = {
 };
 
 const CARDS = [
-  { id: "olds-club", name: "Old's Club Fotel", tagline: "Karakteres elegancia", images: ["/images/fotelek-w1.webp"], href: "/butoraink/fotelek/olds-club-fotel" },
-  { id: "ivone", name: "Ivone Fotel", tagline: "Nappalid éke", images: ["/images/ivone-w1.webp", "/images/ivone-w7.webp"], href: "/butoraink/fotelek/ivone-fotel" },
-  { id: "design", name: "Design Fotel", tagline: "Modern minőség", images: ["/images/design-w1.webp"], href: "/butoraink/fotelek/design-fotel" },
-  { id: "chesterfield", name: "Chesterfield Fotel", tagline: "A bútor, aminek történelme van", images: ["/images/chesterfield-w4.webp"], href: "/butoraink/fotelek/chesterfield-fotel" },
+  { id: "olds-club", name: "Old's Club Fotel", tagline: "Karakteres elegancia", images: ["/images/olds-club-a5.webp", "/images/olds-club-a1.webp", "/images/olds-club-a6.webp", "/images/olds-club-a4.webp", "/images/olds-club-a34.jpg", "/images/olds-club-a2.webp"], href: "/butoraink/fotelek/olds-club-fotel" },
+  { id: "ivone", name: "Ivone Fotel", tagline: "Nappalid éke", images: ["/images/ivone-a1.webp", "/images/ivone-dsc1.jpg", "/images/ivone-a7.webp", "/images/ivone-a8.webp", "/images/ivone-a5.webp", "/images/ivone-a9.webp", "/images/ivone-a6.webp", "/images/ivone-dsc2.jpg", "/images/ivone-a10.jpg"], href: "/butoraink/fotelek/ivone-fotel" },
+  { id: "design", name: "Design Fotel", tagline: "Modern minőség", images: ["/images/design-a1.webp", "/images/design-a3.webp", "/images/design-a4.webp", "/images/design-a5.webp", "/images/design-a6.webp", "/images/design-a7.webp", "/images/design-a2.webp"], href: "/butoraink/fotelek/design-fotel" },
+  { id: "chesterfield", name: "Chesterfield Fotel", tagline: "A bútor, aminek történelme van", images: ["/images/chesterfield-a4.webp", "/images/chesterfield-a1.webp", "/images/chesterfield-a2.webp", "/images/chesterfield-a3.webp", "/images/chesterfield-a5.jpg"], href: "/butoraink/fotelek/chesterfield-fotel" },
   {
     id: "new-york",
     name: "New York Fotel",

@@ -22,10 +22,15 @@ export default function Page() {
       description="A Chesterfield kanapé az elegancia és a hagyomány szimbóluma. Közel 20 éve gyártunk Chesterfield bútorokat – mondhatni, ők már családtagok. Rendelj tőlünk Chesterfield bútort és mi elkészítjük tömörfa szerkezettel, minőségi szövettel vagy bőr bevonattal."
       image="/images/chesterfield-w1.webp"
       gallery={[
+        "/images/chesterfield-a1.webp",
+        "/images/chesterfield-a2.webp",
+        "/images/chesterfield-a3.webp",
+        "/images/chesterfield-a5.jpg",
         "/images/chesterfield-w1.webp",
         "/images/chesterfield-w2.webp",
         "/images/chesterfield-w3.webp",
         "/images/chesterfield-w4.webp",
+        "/images/chesterfield-a4.webp",
       ]}
       pricing={{
         fotel: { alap: 324380, bor: 421695 },

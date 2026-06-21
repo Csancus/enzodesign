@@ -22,6 +22,15 @@ export default function Page() {
       description="Az Ivone kanapé a klasszikus Chesterfield stílus modern újraértelmezése. Gyönyörűen steppelt háttámla és ülőfelület, íves kartámaszok – a modern elegancia megtestesítője. Több száz szövetből és bőrből rendelhető, tetszőleges méretben."
       image="/images/ivone-w1.webp"
       gallery={[
+        "/images/ivone-a1.webp",
+        "/images/ivone-dsc1.jpg",
+        "/images/ivone-a7.webp",
+        "/images/ivone-a8.webp",
+        "/images/ivone-a5.webp",
+        "/images/ivone-a9.webp",
+        "/images/ivone-a6.webp",
+        "/images/ivone-dsc2.jpg",
+        "/images/ivone-a10.jpg",
         "/images/ivone-w1.webp",
         "/images/ivone-w2.webp",
         "/images/ivone-w5.webp",
