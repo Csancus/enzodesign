@@ -134,9 +134,11 @@ export default async function KanapekPage() {
     subtitle: (heroCfg?.subtitle as string) || "Válasszon a 2000 nm-es gyárunkból, vagy kérjen egyedi ajánlatot. A Bútoraink szövete és anyagmintája szabadon választható.",
   };
 
-  const featuresIntro = (featuresCfg?.intro as string) || "Mindegyik bútorunkat ajánljuk:";
-  const featuresBody = (featuresCfg?.body as string) || "Egyedi szín és anyagminta választással\nTetszőleges méretben\nVálasztható kopásállóság-erősséggel (martindale)\nTömörfa szerkezettel, 10 év váz-garanciával";
-  const featuresItems = featuresBody.split("\n").map((s) => s.trim()).filter(Boolean);
+  const featuresIntro = (featuresCfg?.intro as string) || "Bútoraink 2000 nm-es telephelyünkön készülnek. Tömör fával, nagy kopásállóságú szövetekkel és bőrökkel dolgozunk és minden elkészített bútorunkat kézzel ellenőrzünk.\n\nMivel gyártók vagyunk, ezért áraink továbbra is nagyon versenyképesek maradnak.\n\nSzinte bármilyen egyedi, kárpitozott bútort el tudunk készíteni.";
+  const featuresBody = (featuresCfg?.body as string) || "Mindegyik bútorunk egyedi\nszínben\nanyagmintával\nméretben\nés kopásállóság-erősséggel (martindale)\nkérhető.";
+  const featuresBodyLines = featuresBody.split("\n").map((s) => s.trim()).filter(Boolean);
+  const featuresListLabel = featuresBodyLines[0];
+  const featuresItems = featuresBodyLines.slice(1);
 
   const gridTitle = (gridCfg?.title as string) || "Kanapék";
   const gridSubtitle = (gridCfg?.subtitle as string) || "Válassz az alábbi bútorok közül, vagy küldd el egyedi kérésed.\n\nA bútorok alatt láthatod az anyagmintákat és minőségeket.\n\nKettes, hármas, sarok vagy ágyazható kanapék közül választhatsz.";
@@ -170,9 +172,12 @@ export default async function KanapekPage() {
 
       {/* FEATURES */}
       <section className="relative py-8 bg-white border-b border-gray-100">
-        <div className="max-w-2xl mx-auto px-4">
-          <p className="text-sm font-semibold text-[#b8924a] mb-3">{featuresIntro}</p>
-          <ul className="space-y-1.5 text-sm text-gray-600 list-disc list-inside">
+        <div className="max-w-2xl mx-auto px-4 space-y-3">
+          {featuresIntro.split("\n\n").filter(Boolean).map((para, i) => (
+            <p key={i} className="text-sm text-gray-600">{para}</p>
+          ))}
+          <p className="text-sm font-semibold text-[#b8924a]">{featuresListLabel}</p>
+          <ul className="space-y-1 text-sm text-gray-600 list-disc list-inside">
             {featuresItems.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </div>
