@@ -139,12 +139,12 @@ export default async function KanapekPage() {
   const featuresItems = featuresBody.split("\n").map((s) => s.trim()).filter(Boolean);
 
   const gridTitle = (gridCfg?.title as string) || "Kanapék";
-  const gridSubtitle = (gridCfg?.subtitle as string) || "Válasszon a 2000 nm-es gyárunkból, kért méretben és anyagmintával.";
+  const gridSubtitle = (gridCfg?.subtitle as string) || "Válassz az alábbi bútorok közül, vagy küldd el egyedi kérésed.\n\nA bútorok alatt láthatod az anyagmintákat és minőségeket.\n\nKettes, hármas, sarok vagy ágyazható kanapék közül választhatsz.";
 
   const resolvedCards = CARDS.map((c, i) => {
     const cfg = cardCfgs[i];
     const rawImages = cfg?.images as { src: string }[] | undefined;
-    const resolvedImages = rawImages ? rawImages.map((g) => g.src).filter(Boolean) : c.images;
+    const resolvedImages = (rawImages?.length ? rawImages.map((g) => g.src).filter(Boolean) : null) ?? c.images;
     return {
       ...c,
       name: (cfg?.name as string) || c.name,
@@ -190,7 +190,9 @@ export default async function KanapekPage() {
       <section className="relative py-12 bg-white">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>{gridTitle}</h2>
-          <p className="text-sm text-gray-500 mb-1">{gridSubtitle}</p>
+          <div className="text-sm text-gray-500 mb-1 space-y-1">
+            {gridSubtitle.split("\n").filter(Boolean).map((line, i) => <p key={i}>{line}</p>)}
+          </div>
           <Link href="/kapcsolat-es-rendeles" className="text-sm text-[#b8924a] underline block mb-8">
             Egyedi kanapét is elkészítünk →
           </Link>
