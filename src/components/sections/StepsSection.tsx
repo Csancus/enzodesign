@@ -37,13 +37,13 @@ export default async function StepsSection({ moduleId, isAdmin }: { moduleId: st
         </h2>
         <div className="w-16 h-0.5 bg-[#b8924a] mb-8" />
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 md:gap-6">
           {steps.map((s, i) => (
             <div key={i} className="">
-              <div className="relative aspect-[4/3] md:aspect-[286/335] overflow-hidden mb-3">
+              <div className="relative aspect-square md:aspect-[286/335] overflow-hidden mb-1.5 md:mb-3">
                 <Image src={s.image} alt={s.title} fill className="object-cover" />
               </div>
-              <p className="text-sm text-[#7d6142] leading-snug">{s.title}</p>
+              <p className="text-xs sm:text-sm text-[#7d6142] leading-snug">{s.title}</p>
             </div>
           ))}
         </div>
