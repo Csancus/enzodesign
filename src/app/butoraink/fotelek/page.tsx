@@ -29,25 +29,25 @@ const CARDS = [
     id: "new-york",
     name: "New York Fotel",
     tagline: "Klasszikus stílus",
-    images: ["/images/new-york-w5.webp", "/images/new-york-w3.webp"],
+    images: ["/images/new-york-a1.webp", "/images/new-york-a2.webp", "/images/new-york-a3.webp", "/images/new-york-a4.webp", "/images/new-york-a5.webp", "/images/new-york-a6.webp", "/images/new-york-a7.jpg", "/images/new-york-nc1.jpg", "/images/new-york-nc2.jpg", "/images/new-york-w5.webp", "/images/new-york-w3.webp"],
     href: "/butoraink/fotelek/new-york-fotel",
   },
   {
     id: "joker",
     name: "Joker Fotel",
     tagline: "Elegáns bútor, bárhova",
-    images: ["/images/joker-w1.webp"],
+    images: ["/images/joker-a1.webp", "/images/joker-a2.webp", "/images/joker-a3.webp", "/images/joker-a4.webp", "/images/joker-a5.jpg", "/images/joker-w1.webp"],
     href: "/butoraink/fotelek/joker-fotel",
   },
   {
     id: "tovabbi",
     name: "További Fotelek",
     tagline: "Kényelem, karfával",
-    images: ["/images/fotelek-w2.webp", "/images/fotelek-w3.webp", "/images/fotelek-w5.webp", "/images/fotelek-w6.webp"],
+    images: ["/images/fotelek-a1.webp", "/images/fotelek-a2.webp", "/images/fotelek-a3.webp", "/images/fotelek-a4.webp", "/images/fotelek-a5.webp", "/images/fotelek-a6.webp", "/images/fotelek-a7.webp", "/images/fotelek-a9.webp", "/images/fotelek-a10.webp", "/images/fotelek-a11.webp", "/images/fotelek-a12.webp", "/images/fotelek-a13.webp", "/images/fotelek-a14.webp", "/images/fotelek-a15.webp", "/images/fotelek-a16.webp", "/images/fotelek-a17.webp", "/images/fotelek-brighton.jpg", "/images/fotelek-cleo.jpg", "/images/fotelek-rover.jpg", "/images/fotelek-wales.jpg", "/images/fotelek-dsc1.jpg", "/images/fotelek-dsc2.jpg", "/images/fotelek-dsc3.jpg", "/images/fotelek-fb1.jpg", "/images/fotelek-img1.jpg", "/images/fotelek-w2.webp", "/images/fotelek-w3.webp", "/images/fotelek-w5.webp", "/images/fotelek-w6.webp"],
     href: "/butoraink/fotelek/tovabbi-fotelek",
   },
   { id: "egyedi", name: "Egyedi Fotelek", tagline: "Elkészítjük álombútorod", images: ["/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp", "/images/e7ad8b_aca61fd0c27746da9f91a44377825085.webp", "/images/e7ad8b_a6ef192520f14d18bb7296848c319c17.webp", "/images/9a0b1d_e2873d90b1d04241a6382d7da598e821.webp", "/images/e7ad8b_1a5a2fd2adb04b7cbf6faa50280714d4.webp", "/images/e7ad8b_a6f2120917464fd084a819fbd6828556.webp", "/images/e7ad8b_af00972c370c4bc7800fc98bfd927214.webp", "/images/e7ad8b_bc066bd9f28f4fbab4b31b619d02e1ff.webp", "/images/e7ad8b_68c0304ad1514869b9827831425d131b.webp", "/images/e7ad8b_ebf6019015ea4512933aacab43daaf4a.webp"], href: "/butoraink/egyedi-butor" },
-  { id: "uzleti", name: "Üzleti Fotelek, székek", tagline: "Vásárlóid kényelmére", images: ["/images/uzleti-szalloda.webp", "/images/uzleti-w1.webp", "/images/uzleti-w2.webp", "/images/uzleti-w3.webp", "/images/uzleti-w4.webp"], href: "/karpitozott-butor-uzleti-ugyfeleknek" },
+  { id: "uzleti", name: "Üzleti Fotelek, székek", tagline: "Vásárlóid kényelmére", images: ["/images/uzleti-a1.webp", "/images/uzleti-a2.webp", "/images/uzleti-a3.webp", "/images/uzleti-a4.webp", "/images/uzleti-a5.webp", "/images/uzleti-a6.webp", "/images/uzleti-a7.webp", "/images/uzleti-a8.webp", "/images/uzleti-a9.webp", "/images/uzleti-aria.jpg", "/images/uzleti-wales.jpg", "/images/uzleti-szalloda.webp", "/images/uzleti-w1.webp", "/images/uzleti-w2.webp", "/images/uzleti-w3.webp", "/images/uzleti-w4.webp"], href: "/karpitozott-butor-uzleti-ugyfeleknek" },
 ];
 
 const HERO_SCHEMA: FieldDef[] = [

@@ -22,6 +22,12 @@ export default function Page() {
       description="A Cannes sarokkanapé letisztult formavilágával és kifinomult részleteivel a modern enteriőr ékköve. Állítható fejtámlák, tágas ülőfelület – a maximális kényelem és stílus szintézise."
       image="/images/cannes-w1.webp"
       gallery={[
+        "/images/cannes-a1.webp",
+        "/images/cannes-a2.webp",
+        "/images/cannes-a3.webp",
+        "/images/cannes-a4.jpg",
+        "/images/cannes-a5.jpg",
+        "/images/cannes-a6.jpg",
         "/images/cannes-w1.webp",
         "/images/cannes-w2.webp",
         "/images/cannes-w3.webp",

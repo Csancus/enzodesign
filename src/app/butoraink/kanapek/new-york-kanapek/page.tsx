@@ -22,6 +22,15 @@ export default function Page() {
       description="A New York kanapé a klasszikus Chesterfield forma eleganciáját ötvözi a modern letisztultsággal. Időtálló, kényelmes választás minden nappali számára. Személyre szabható szövettel, bőrrel és méretben."
       image="/images/new-york-w1.webp"
       gallery={[
+        "/images/new-york-a1.webp",
+        "/images/new-york-a2.webp",
+        "/images/new-york-a3.webp",
+        "/images/new-york-a4.webp",
+        "/images/new-york-a5.webp",
+        "/images/new-york-a6.webp",
+        "/images/new-york-a7.jpg",
+        "/images/new-york-nc1.jpg",
+        "/images/new-york-nc2.jpg",
         "/images/new-york-w1.webp",
         "/images/new-york-w2.webp",
         "/images/new-york-w3.webp",

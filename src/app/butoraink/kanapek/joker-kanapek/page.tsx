@@ -22,6 +22,11 @@ export default function Page() {
       description="A visszafogott elegancia megtestesítője. Finoman fénylő, prémium szövetborítása tökéletesen harmonizál a mélyen gombolt háttámlával. Modern Chesterfield ihlette vonalak, kényelmes ülőfelület – ideális nappalihoz vagy dolgozószobához egyaránt."
       image="/images/joker-w1.webp"
       gallery={[
+        "/images/joker-a1.webp",
+        "/images/joker-a2.webp",
+        "/images/joker-a3.webp",
+        "/images/joker-a4.webp",
+        "/images/joker-a5.jpg",
         "/images/joker-w1.webp",
         "/images/joker-w2.webp",
         "/images/joker-w3.webp",

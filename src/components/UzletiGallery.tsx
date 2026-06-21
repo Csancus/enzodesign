@@ -4,6 +4,21 @@ import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
 
 const IMAGES = [
+  "/images/uzleti-a1.webp",
+  "/images/uzleti-a2.webp",
+  "/images/uzleti-a3.webp",
+  "/images/uzleti-a4.webp",
+  "/images/uzleti-a5.webp",
+  "/images/uzleti-a6.webp",
+  "/images/uzleti-a7.webp",
+  "/images/uzleti-a8.webp",
+  "/images/uzleti-a9.webp",
+  "/images/uzleti-a16.webp",
+  "/images/uzleti-aria.jpg",
+  "/images/uzleti-wales.jpg",
+  "/images/uzleti-dsc1.jpg",
+  "/images/uzleti-fb1.jpg",
+  "/images/uzleti-fb2.jpg",
   "/images/uzleti-gal-01.webp",
   "/images/uzleti-gal-02.webp",
   "/images/uzleti-gal-03.webp",
