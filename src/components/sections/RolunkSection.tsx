@@ -55,7 +55,8 @@ export default async function RolunkSection({ moduleId, isAdmin }: { moduleId: s
               muted
               loop
               playsInline
-              className="w-full rounded-sm object-cover"
+              controls
+              className="w-full rounded-sm"
             />
           </div>
         )}
