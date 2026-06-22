@@ -179,6 +179,7 @@ function FieldInput({ field, value, onChange, nested }: {
       <ArrayField
         items={items}
         itemFields={field.itemFields}
+        addLabel={field.addLabel}
         onChange={onChange as (v: Config[]) => void}
         nested
       />
@@ -197,11 +198,13 @@ function FieldInput({ field, value, onChange, nested }: {
 function ArrayField({
   items,
   itemFields,
+  addLabel,
   onChange,
   nested,
 }: {
   items: Config[];
   itemFields: FieldDef[];
+  addLabel?: string;
   onChange: (v: Config[]) => void;
   nested?: boolean;
 }) {
@@ -264,7 +267,7 @@ function ArrayField({
         onClick={add}
         className="w-full border-2 border-dashed border-gray-300 py-2 text-xs text-gray-500 hover:border-[#b8924a] hover:text-[#b8924a] transition-colors"
       >
-        + Kép hozzáadása
+        + {addLabel ?? "Hozzáadás"}
       </button>
     </div>
   );

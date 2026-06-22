@@ -2,7 +2,7 @@ import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
 
-export type Review = { name: string; text: string; rating: string; date: string };
+export type Review = { name: string; text: string; rating: string; date: string; image?: string };
 
 export const REVIEWS_DEFAULT = {
   title: "Ügyfeleink véleménye",
@@ -20,8 +20,9 @@ export const REVIEWS_DEFAULT = {
 
 export const REVIEWS_SCHEMA: FieldDef[] = [
   { key: "title", label: "Cím", type: "text" },
-  { key: "reviews", label: "Vélemények", type: "array", itemFields: [
+  { key: "reviews", label: "Vélemények", type: "array", addLabel: "Vélemény hozzáadása", itemFields: [
     { key: "name",   label: "Név",                    type: "text" },
+    { key: "image",  label: "Profilkép (opcionális)", type: "image" },
     { key: "text",   label: "Vélemény szövege",       type: "textarea" },
     { key: "rating", label: "Értékelés (1–5)",        type: "text" },
     { key: "date",   label: "Dátum (pl. egy éve)",    type: "text" },
@@ -59,7 +60,12 @@ export function ReviewCard({ r }: { r: Review }) {
   return (
     <div className="border border-gray-100 p-5 shadow-sm bg-white">
       <div className="flex items-center gap-3 mb-3">
-        <Initials name={r.name} />
+        {r.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={r.image} alt={r.name} className="w-10 h-10 rounded-full object-cover flex-shrink-0" />
+        ) : (
+          <Initials name={r.name} />
+        )}
         <div>
           <p className="text-sm font-semibold text-[#1c1c1c]">{r.name}</p>
           <p className="text-xs text-gray-400">Vélemény forrása: Google</p>
