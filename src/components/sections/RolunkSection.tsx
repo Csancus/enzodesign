@@ -4,7 +4,7 @@ import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
 
 const DEFAULT = {
-  title: "Bútorbolt Nagykanizsán – Egyedi kárpitozott bútorok",
+  title: "Egyedi kárpitozott bútorok - akár 10 év garanciával",
   desc1: "20 éves tapasztalattal rendelkező magyar bútorgyártó cég vagyunk. Célunk minőségi, tömörfa-szerkezettel és nagy kopásállóságú szövettel borított bútorokat készíteni, elérhető áron. Üzleteinkben megveheti bútorait és azonnal hazaviheti. A minőség, az elérhető ár és a garancia hármasával kínáljuk bútorainkat.",
   desc2: "Mivel gyártók vagyunk, nincs extra reklámköltségünk. Közvetlenül a fogyasztónak, reális áron értékesítünk – így a feljebbi minőséget más vállalkozásoknál megszokott árakon kaphatja meg.",
   image: "",
