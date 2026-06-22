@@ -84,8 +84,38 @@ export default async function RolunkPage() {
     phone: (ctaCfg.phone as string) || "+36 30 377 8983",
   };
 
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "url": "https://enzodesign.hu/rolunk",
+    "name": "Rólunk – Enzo Design",
+    "description": "Bútorbolt Nagykanizsán – közel 20 éve gyártunk egyedi bútorodat: kanapé, fotel, franciaágy.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Enzo Design",
+      "url": "https://enzodesign.hu",
+      "foundingDate": "2005",
+      "description": "Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán. Tömörfa szerkezet, prémium szövetek, 3+10 év garancia.",
+      "telephone": "+36303778983",
+      "email": "info@enzodesign.hu",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Egry József utca 7.",
+        "addressLocality": "Nagykanizsa",
+        "postalCode": "8800",
+        "addressCountry": "HU",
+      },
+      "sameAs": [
+        "https://www.facebook.com/enzodesignbutor/",
+        "https://www.instagram.com/enzodesignbutor/",
+        "https://www.tiktok.com/@enzodesign2015",
+      ],
+    },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
       <PageHero
         moduleId="hero:rolunk"
         defaults={{ label: "Rólunk", title: "Rólunk", subtitle: "Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán." }}

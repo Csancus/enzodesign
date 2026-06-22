@@ -16,11 +16,34 @@ export const metadata: Metadata = {
   },
 };
 
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "url": "https://enzodesign.hu/kapcsolat-es-rendeles",
+  "name": "Kapcsolat és Rendelés – Enzo Design",
+  "description": "Egyedi bútor online rendelés – bútorbolt Nagykanizsán. Töltsd ki az űrlapot, 24 órán belül visszahívunk.",
+  "mainEntity": {
+    "@type": "LocalBusiness",
+    "name": "Enzo Design",
+    "url": "https://enzodesign.hu",
+    "telephone": "+36303778983",
+    "email": "info@enzodesign.hu",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Egry József utca 7.",
+      "addressLocality": "Nagykanizsa",
+      "postalCode": "8800",
+      "addressCountry": "HU",
+    },
+  },
+};
+
 export default async function KapcsolatPage() {
   const isAdmin = await getAdminStatus();
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }} />
       <PageHero
         moduleId="hero:kapcsolat"
         defaults={{ label: "Lépjen kapcsolatba velünk", title: "Kapcsolat, rendelés", subtitle: "Töltse ki az alábbi űrlapot és 24 órán belül visszahívjuk!" }}
