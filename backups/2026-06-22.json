@@ -1,0 +1,1242 @@
+{
+  "snapshot_date": "2026-06-22",
+  "rows": [
+    {
+      "id": "adatkezelesi-szabalyzat:hero",
+      "config": {
+        "title": "Adatkezelési Szabályzat"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "akcio:hero",
+      "config": {
+        "label": "Akciók",
+        "title": "Vásároljon közvetlenül a gyártótól!",
+        "subtitle": "Aktuálisan akciós kárpitozott bútoraink – limitált ideig, közvetlen gyártói áron."
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "akcio:products",
+      "config": {
+        "products": [
+          {
+            "href": "/butoraink/kanapek/chesterfield-kanapek",
+            "name": "Chesterfield kanapé – sötét szövet",
+            "badge": "CHESTERFIELD AKCIÓ",
+            "image2": "/images/chesterfield-w3.webp",
+            "saleEnds": "2026-07-31",
+            "mainImage": "/images/chesterfield-w2.webp",
+            "salePrice": "498000",
+            "originalPrice": "553000"
+          },
+          {
+            "href": "/butoraink/kanapek/chesterfield-kanapek",
+            "name": "Chesterfield kanapé – bézs szövet",
+            "badge": "CHESTERFIELD AKCIÓ",
+            "image2": "/images/chesterfield-w4.webp",
+            "saleEnds": "2026-07-31",
+            "mainImage": "/images/chesterfield-w1.webp",
+            "salePrice": "448000",
+            "originalPrice": "498000"
+          },
+          {
+            "href": "/butoraink/franciaagyak",
+            "name": "Kárpitozott franciaágy",
+            "badge": "SUPER SALE",
+            "image2": "/images/franciaaggy-w2.webp",
+            "saleEnds": "2026-07-31",
+            "mainImage": "/images/franciaaggy-w1.webp",
+            "salePrice": "315000",
+            "originalPrice": "392100"
+          },
+          {
+            "href": "/butoraink/fotelek",
+            "name": "Lila fotel",
+            "badge": "SUPER SALE",
+            "saleEnds": "2026-07-31",
+            "mainImage": "/images/fotelek-w1.webp",
+            "salePrice": "75000",
+            "originalPrice": "82820"
+          }
+        ],
+        "sectionTitle": "Aktuális akciók"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "butoraink:intro",
+      "config": {
+        "body": "Bútoraink 2000 nm-es telephelyünkön készülnek. Tömör fával, nagy kopásállóságú szövetekkel és bőrökkel dolgozunk, és minden elkészített bútorunkat kézzel ellenőrzünk. Mivel gyártók vagyunk, áraink versenyképesek maradnak.",
+        "features": "Egyedi szín és anyagminta választással\nTetszőleges méretben\nVálasztható kopásállóság-erősséggel (martindale)\nTömörfa szerkezettel, 10 év váz-garanciával"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "butorgyartas-anyagok:hero",
+      "config": {
+        "title": "Alapanyagok a bútorgyártásban – A tartósság és esztétika alapkövei"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "butorgyartas-butorgyartas-folyamata:hero",
+      "config": {
+        "title": "A bútorgyártás menete – A részletek mestersége"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "butorgyartas-tervezes:hero",
+      "config": {
+        "title": "A bútortervezés alapjai – Az ötlettől a formáig"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "butorgyartas:content",
+      "config": {
+        "p1": "A bútorgyártás komplex, precíz folyamat, ahol minden fázis hatással van a végső minőségre. A munkafolyamat a tervezéstől indul, és az anyagbeszerzésen, alkatrészelőkészítésen, összeszerelésen, kárpitozáson át vezet a kész darabig.",
+        "p2": "Automatizált berendezéseket (CNC marók, lézervágók) és hagyományos kézimunkát egyaránt alkalmazunk – a részletmunka, kárpitozás és végső kikészítés kézzel történik.",
+        "quote": "Egy jól megmunkált sarok, feszesen húzott kárpit, precízen illeszkedő elemek – ezek mind hozzájárulnak a bútor karakteréhez és tartósságához.",
+        "title": "Kézműves precizitás modern technológiával"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "butorgyartas:hero",
+      "config": {
+        "title": "A bútorgyártás világa – ahol a funkcionalitás találkozik az esztétikummal",
+        "subtitle": "A bútorok otthonaink, irodáink és közösségi tereink alapvető részei."
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "butorgyartas:subtopics",
+      "config": {
+        "items": [
+          {
+            "desc": "CAD modellezés, ergonómia, fenntarthatóság.",
+            "href": "/butorgyartas/tervezes",
+            "title": "Bútortervezés"
+          },
+          {
+            "desc": "Tömörfa, kárpit, szövet – mi számít a minőségben?",
+            "href": "/butorgyartas/anyagok",
+            "title": "Alapanyagok"
+          },
+          {
+            "desc": "Tervezéstől a kész darabig – hogyan készül egy bútor?",
+            "href": "/butorgyartas/butorgyartas-folyamata",
+            "title": "A bútorgyártás menete"
+          }
+        ]
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "chesterfield-a-chesterfield-kanape-eredete:hero",
+      "config": {
+        "title": "A Chesterfield kanapé eredete"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "chesterfield-chesterfield-anyagok-es-gyartai-technikak:hero",
+      "config": {
+        "title": "Anyagok és gyártási technikák"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "chesterfield:eternal",
+      "config": {
+        "body": "Közel 20 éve gyártunk Chesterfield bútorokat. Mondhatni, ők már családtagok. Rendelj tőlünk Chesterfield bútort és mi elkészítjük tömörfa szerkezettel és minőségi szövettel vagy bőr bevonattal.",
+        "title": "A Chesterfield örök"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "chesterfield:hero",
+      "config": {
+        "body": "A Chesterfield bútorok az elegancia, a hagyomány és a stílus tökéletes kombinációi. A mély gombolás, a bőrborítás és a karakteres formavilág évszázadok óta a luxus és a kifinomult ízlés szimbólumai. Legyen szó klasszikus bőrkanapéról vagy modern újragondolásról, a Chesterfield mindig időtálló választás.",
+        "title": "A Chesterfield"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "chesterfield:subtopics",
+      "config": {
+        "items": [
+          {
+            "desc": "Fedezd fel, hogyan született meg a Chesterfield kanapé legendája az angol arisztokrácia világában! A stílusos bútor gyökerei egészen a 18. századig nyúlnak vissza, és máig az elegancia szimbóluma maradt.",
+            "href": "/chesterfield/a-chesterfield-kanape-eredete",
+            "title": "A Chesterfield kanapé eredete"
+          },
+          {
+            "desc": "Mi teszi a Chesterfieldtet igazán különlegessé? Ismerd meg a jellegzetes gombolást, mély ülőrészt, bőrborítást és díszes karfákat – a formai jegyeket, amik ikonikus bútordarabbá tették.",
+            "href": "/chesterfield/chesterfield-stilus-es-formajegyek",
+            "title": "Chesterfield stílus és formajegyek"
+          },
+          {
+            "desc": "A Chesterfield bútorok nemcsak szépek, hanem időtállók is – de vajon mitől? Bemutatjuk a leggyakoribb bőr- és kárpitfajtákat, illetve a tradicionális kézműves technikákat, amelyek a minőséget garantálják.",
+            "href": "/chesterfield/chesterfield-anyagok-es-gyartai-technikak",
+            "title": "Anyagok és gyártási technikák"
+          },
+          {
+            "desc": "Bár klasszikus darab, a Chesterfield remekül illeszkedik a mai modern terekbe is. Inspirációk és tippek arra, hogyan kombinálhatod ezt az időtlen bútort a mai stílusokkal – legyen az minimalista, loft vagy vintage.",
+            "href": "/chesterfield/chesterfield-a-modern-enteriorben",
+            "title": "A Chesterfield a modern enteriőrben"
+          }
+        ],
+        "sectionTitle": "Ismerkedj meg a Chesterfieldel"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "egyedi-butor:features",
+      "config": {
+        "body": "Egyedi szín és anyagminta választással\nTetszőleges méretben\nVálasztható kopásállóság-erősséggel (martindale)\nTömörfa szerkezettel, 10 év váz-garanciával",
+        "intro": "Mindegyik bútorunkat ajánljuk:"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "egyedi-butor:hero",
+      "config": {
+        "title": "Egyedi bútor",
+        "subtitle": "Küldj egy képet vagy leírást, és mi elkészítjük álmaid bútorát. Tömörfa váz, prémium szövetek, egyedi méret."
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "fotelek-card:new-york",
+      "config": {
+        "href": "/butoraink/fotelek/new-york-fotel",
+        "name": "New York Fotel",
+        "images": [
+          {
+            "src": "/images/new-york-a5.webp"
+          },
+          {
+            "src": "/images/new-york-a1.webp"
+          },
+          {
+            "src": "/images/new-york-a2.webp"
+          },
+          {
+            "src": "/images/new-york-a3.webp"
+          },
+          {
+            "src": "/images/new-york-a4.webp"
+          },
+          {
+            "src": "/images/new-york-a6.webp"
+          },
+          {
+            "src": "/images/new-york-a7.jpg"
+          },
+          {
+            "src": "/images/new-york-nc1.jpg"
+          },
+          {
+            "src": "/images/new-york-nc2.jpg"
+          },
+          {
+            "src": "/images/new-york-w5.webp"
+          },
+          {
+            "src": "/images/new-york-w3.webp"
+          }
+        ],
+        "tagline": "Klasszikus stílus"
+      },
+      "updated_at": "2026-06-22T06:11:19.166+00:00"
+    },
+    {
+      "id": "fotelek-card:tovabbi",
+      "config": {
+        "href": "/butoraink/fotelek/tovabbi-fotelek",
+        "name": "További Fotelek",
+        "images": [
+          {
+            "src": "/images/fotelek-a3.webp"
+          },
+          {
+            "src": "/images/fotelek-a1.webp"
+          },
+          {
+            "src": "/images/fotelek-a2.webp"
+          },
+          {
+            "src": "/images/fotelek-a4.webp"
+          },
+          {
+            "src": "/images/fotelek-a5.webp"
+          },
+          {
+            "src": "/images/fotelek-a6.webp"
+          },
+          {
+            "src": "/images/fotelek-a7.webp"
+          },
+          {
+            "src": "/images/fotelek-a9.webp"
+          },
+          {
+            "src": "/images/fotelek-a10.webp"
+          },
+          {
+            "src": "/images/fotelek-a11.webp"
+          },
+          {
+            "src": "/images/fotelek-a12.webp"
+          },
+          {
+            "src": "/images/fotelek-a13.webp"
+          },
+          {
+            "src": "/images/fotelek-a14.webp"
+          },
+          {
+            "src": "/images/fotelek-a15.webp"
+          },
+          {
+            "src": "/images/fotelek-a16.webp"
+          },
+          {
+            "src": "/images/fotelek-a17.webp"
+          },
+          {
+            "src": "/images/fotelek-brighton.jpg"
+          },
+          {
+            "src": "/images/fotelek-cleo.jpg"
+          },
+          {
+            "src": "/images/fotelek-rover.jpg"
+          },
+          {
+            "src": "/images/fotelek-wales.jpg"
+          },
+          {
+            "src": "/images/fotelek-dsc1.jpg"
+          },
+          {
+            "src": "/images/fotelek-dsc2.jpg"
+          },
+          {
+            "src": "/images/fotelek-dsc3.jpg"
+          },
+          {
+            "src": "/images/fotelek-fb1.jpg"
+          },
+          {
+            "src": "/images/fotelek-img1.jpg"
+          },
+          {
+            "src": "/images/fotelek-w2.webp"
+          },
+          {
+            "src": "/images/fotelek-w3.webp"
+          },
+          {
+            "src": "/images/fotelek-w5.webp"
+          },
+          {
+            "src": "/images/fotelek-w6.webp"
+          }
+        ],
+        "tagline": "Kényelem, karfával"
+      },
+      "updated_at": "2026-06-22T06:11:58.538+00:00"
+    },
+    {
+      "id": "fotelek-listing:features",
+      "config": {
+        "body": "Egyedi szín és anyagminta választással\nTetszőleges méretben\nVálasztható kopásállóság-erősséggel (martindale)\nTömörfa szerkezettel, 10 év váz-garanciával",
+        "intro": "Mindegyik bútorunkat ajánljuk:"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "fotelek-listing:grid",
+      "config": {
+        "title": "Fotelek",
+        "subtitle": "Válasszon a 2000 nm-es gyárunkból, kért méretben és anyagmintával."
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "fotelek-listing:hero",
+      "config": {
+        "title": "Fotelek",
+        "subtitle": "Válasszon a 2000 nm-es gyárunkból, vagy kérjen egyedi ajánlatot."
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "franciaagyak-listing:features",
+      "config": {
+        "body": "Egyedi szín és anyagminta választással\nTetszőleges méretben\nVálasztható kopásállóság-erősséggel (martindale)\nTömörfa szerkezettel, 10 év váz-garanciával",
+        "intro": "Mindegyik bútorunkat ajánljuk:"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "franciaagyak-listing:grid",
+      "config": {
+        "title": "Franciaágyak"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "franciaagyak-listing:hero",
+      "config": {
+        "title": "Franciaágyak",
+        "subtitle": "Kárpitozott franciaágyak – Bilbao, Madrid és egyedi modellek. Tömörfa szerkezettel, prémium szövetekkel."
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "global:faq",
+      "config": {
+        "items": [
+          {
+            "answer": "Egyedi megrendelés esetén az átfutási idő általában 4–6 hét, az aktuális rendelésállomány és a választott anyagoktól függően. Ha sürgős a határidő, kérjük jelezze érdeklődésekor – lehetőség szerint alkalmazkodunk. Raktárkészletből elérhető daraboknál azonnal elviheti a bútort nagykanizsai bemutatótermünkből.",
+            "question": "Mennyi idő alatt készül el a bútor?"
+          },
+          {
+            "answer": "Igen, minden bútorunkat elkészítjük egyedi méretben is. Elég ha küld egy képet, vázlatot vagy leírást az elképzeléséről, és 1–2 munkanapon belül személyre szabott árajánlatot küldünk. Kisebb méreteltéréstől egészen teljesen egyedi formáig mindent vállalunk – ez az egyik legnagyobb előnyünk, hogy közvetlenül gyártóként dolgozunk.",
+            "question": "Tudnak-e egyedi méretre gyártani?"
+          },
+          {
+            "answer": "Igen, termékeinkre 3 év garanciát vállalunk, a tömörfa vázelemekre pedig 10 éves szerkezeti garanciát biztosítunk. A garancia kiterjed a kárpitra, a rugózásra és az összes szerkezeti elemre egyaránt. Meghibásodás esetén felvesszük Önnel a kapcsolatot és egyeztetjük a javítás vagy csere lehetőségét.",
+            "question": "Van-e garancia a bútorokra?"
+          },
+          {
+            "answer": "Bútorait az ország egész területére kiszállítjuk az első zárt ajtóig. A szállítás díja a mérettől, súlytól és a célállomástól függ – pontos összeget az árajánlatban adunk meg. Nagykanizsa környékén saját fuvarral szállítunk, távolabb megbízható fuvarozó partnerrel dolgozunk. Kérésre a beemeléssel kapcsolatos részleteket is egyeztetjük.",
+            "question": "Hogyan zajlik a kiszállítás, és mennyibe kerül?"
+          },
+          {
+            "answer": "Megrendelését leadhatja személyesen nagykanizsai bemutatótermünkben, e-mailben (info@enzodesign.hu), telefonon (+36 30 377 8983) vagy a weboldalon található kapcsolati űrlapon keresztül. Az egyedi bútoroknál általában egy rövid egyeztetési folyamat előzi meg a megrendelést: méretek, anyag, szín és forma. Céges megrendelésnél kérjük adja meg az adószámát is – számlát természetesen állítunk ki.",
+            "question": "Hogyan tudok rendelni?"
+          },
+          {
+            "answer": "Bútoraink vázát főként tömörfából készítjük, ami tartósságban messze felülmúlja az MDF vagy forgácslap alapú megoldásokat. A kárpitozáshoz széles szövet- és bőrválasztékból dolgozunk: velúr, strukturált, vízálló és prémium szövetek, valamint valódi és műbőr egyaránt elérhető. Konkrét mintákat és anyagmintákat bemutatótermünkben személyesen is megtekinthet.",
+            "question": "Milyen anyagokból és szövetekből lehet választani?"
+          },
+          {
+            "answer": "Természetesen! Nagykanizsán van bemutatótermünk, ahol személyesen megtekintheti és kipróbálhatja kész bútoraink egy részét. Lehetőség van az anyagminták, színek és kárpitszövetek helyszíni megismerésére is. A látogatás előtt javasoljuk időpontot egyeztetni (+36 30 377 8983), hogy munkatársunk biztosan rendelkezésre álljon és személyre szabottan mutassa be a lehetőségeket.",
+            "question": "Meg lehet-e nézni a bútorokat személyesen?"
+          },
+          {
+            "answer": "Igen, szívesen dolgozunk üzleti ügyfelekkel: éttermek, hotelek, irodák, fodrászatok és más vállalkozások számára egyaránt készítünk kárpitozott bútorokat. Nagyobb tételnél kedvező nagykereskedelmi árat tudunk ajánlani. Céges megrendelésnél számlát állítunk ki, az átfutási időt pedig az igényekhez igazítjuk. Vegye fel velünk a kapcsolatot, és egyeztetjük a részleteket.",
+            "question": "Vállalnak-e üzleti, céges megrendelést?"
+          },
+          {
+            "answer": "Az Enzo Design nem kereskedő, hanem maga a gyártó: a bútorok a mi műhelyünkben készülnek el, közvetítő nélkül. Ez azt jelenti, hogy Ön közvetlenül a készítőtől vesz, ami 30–40%-os árelőnyt eredményezhet a bolti árakhoz képest. Emellett rugalmasabb az egyedi igények kiszolgálása, rövidebb az átfutási idő, és ha bármi kérdése van, közvetlenül a gyártóval egyeztet.",
+            "question": "Mit jelent az, hogy közvetlenül gyártótól vásárolok?"
+          },
+          {
+            "answer": "Igen, vállalunk kárpit-felújítást és javítást is. Ha van egy meglévő bútor – akár régi Chesterfield, akár más kárpitozott darab –, amit meg szeretne újítani, kérjen tőlünk ajánlatot. A felújítás általában jóval kedvezőbb, mint egy új bútor vásárlása, és az eredeti szerkezet megőrzésével hosszú évekre megmenti a kedvenc bútorait.",
+            "question": "Elvállalnak kárpit-javítást vagy régi bútor felújítását?"
+          }
+        ],
+        "title": "Gyakran ismételt kérdések"
+      },
+      "updated_at": "2026-06-21T20:53:02.766+00:00"
+    },
+    {
+      "id": "hero:blog",
+      "config": {
+        "label": "Írások",
+        "title": "Blog"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "hero:butoraink",
+      "config": {
+        "label": "ENZO DESIGN",
+        "title": "Bútoraink",
+        "subtitle": "Kárpitozott bútorok – egyedi méretben, választott szövettel, közvetlenül a gyártótól."
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "hero:kapcsolat",
+      "config": {
+        "label": "Lépjen kapcsolatba velünk",
+        "title": "Kapcsolat, rendelés",
+        "subtitle": "Töltse ki az alábbi űrlapot és 24 órán belül visszahívjuk!"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "hero:karpitoszovetek",
+      "config": {
+        "label": "Anyagok",
+        "title": "Kárpitszövetek",
+        "subtitle": "Több mint 100 szövetfajtából választhat."
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "hero:rendeles-menete",
+      "config": {
+        "label": "Rendelés",
+        "title": "Rendelés menete"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "hero:rolunk",
+      "config": {
+        "label": "Rólunk",
+        "title": "Rólunk",
+        "subtitle": "Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán."
+      },
+      "updated_at": "2026-06-16T23:08:49.686+00:00"
+    },
+    {
+      "id": "hero:vasarloi-visszajelzesek",
+      "config": {
+        "label": "Vélemények",
+        "title": "Vásárlói visszajelzések",
+        "subtitle": "Amit ügyfeleink mondanak rólunk"
+      },
+      "updated_at": "2026-06-21T20:44:07.253+00:00"
+    },
+    {
+      "id": "home:egyedi",
+      "config": {
+        "desc": "Egyedi megrendelésre is vállalunk bármilyen bútorkészítést",
+        "title": "Megrendelésre készített bútorok",
+        "images": [
+          {
+            "alt": "Chesterfield kanapé",
+            "src": "/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp"
+          },
+          {
+            "alt": "U alakú kanapé",
+            "src": "/images/e7ad8b_aca61fd0c27746da9f91a44377825085.webp"
+          },
+          {
+            "alt": "Modern chesterfield kanapé",
+            "src": "/images/e7ad8b_a6ef192520f14d18bb7296848c319c17.webp"
+          },
+          {
+            "alt": "Egyedi bútor",
+            "src": "/images/9a0b1d_e2873d90b1d04241a6382d7da598e821.webp"
+          },
+          {
+            "alt": "Egyedi bőr fotel",
+            "src": "/images/e7ad8b_1a5a2fd2adb04b7cbf6faa50280714d4.webp"
+          },
+          {
+            "alt": "Modern kanapé",
+            "src": "/images/e7ad8b_a6f2120917464fd084a819fbd6828556.webp"
+          },
+          {
+            "alt": "Modern kanapé",
+            "src": "/images/e7ad8b_af00972c370c4bc7800fc98bfd927214.webp"
+          },
+          {
+            "alt": "Kék chesterfield kanapé",
+            "src": "/images/e7ad8b_bc066bd9f28f4fbab4b31b619d02e1ff.webp"
+          },
+          {
+            "alt": "Chesterfield falvédő",
+            "src": "/images/e7ad8b_68c0304ad1514869b9827831425d131b.webp"
+          },
+          {
+            "alt": "Chesterfield zsámoly",
+            "src": "/images/e7ad8b_ebf6019015ea4512933aacab43daaf4a.webp"
+          }
+        ],
+        "buttonHref": "/butoraink/egyedi-butor",
+        "buttonText": "Tovább"
+      },
+      "updated_at": "2026-06-22T06:15:56.647+00:00"
+    },
+    {
+      "id": "home:popular",
+      "config": {
+        "title": "Legnépszerűbb bútoraink",
+        "products": [
+          {
+            "href": "/butoraink/kanapek/olds-club-kanapek",
+            "name": "Old's Club",
+            "price": "2-es kanapé 444 240 Ft-tól",
+            "images": [
+              {
+                "src": "/images/popular-olds-club.webp"
+              },
+              {
+                "src": "/images/olds-club-w1.webp"
+              },
+              {
+                "src": "/images/olds-club-w2.webp"
+              },
+              {
+                "src": "https://lpeqwacpgxiqqmptfakn.supabase.co/storage/v1/object/public/enzodesign/slideshow/5e596ee6-4932-4ce6-bdcf-a0daa2a5b481.webp"
+              }
+            ],
+            "tagline": "Fotel, kanapé, ágy, székek"
+          },
+          {
+            "href": "/butoraink/kanapek/ivone-kanapek",
+            "name": "Ivone",
+            "price": "2-es kanapé 444 240 Ft-tól",
+            "images": [
+              {
+                "src": "/images/popular-ivone.webp"
+              },
+              {
+                "src": "/images/ivone-w1.webp"
+              },
+              {
+                "src": "/images/ivone-w5.webp"
+              }
+            ],
+            "tagline": "Fotel, kanapé, ágy, székek"
+          },
+          {
+            "href": "/butoraink/kanapek/chesterfield-kanapek",
+            "name": "Chesterfield",
+            "price": "2-es kanapé 399 000 Ft-tól",
+            "images": [
+              {
+                "src": "/images/popular-chesterfield.webp"
+              },
+              {
+                "src": "/images/chesterfield-w1.webp"
+              },
+              {
+                "src": "/images/chesterfield-w2.webp"
+              }
+            ],
+            "tagline": "A bútor, melynek történelme van"
+          },
+          {
+            "href": "/butoraink/kanapek/cannes-kanapek",
+            "name": "Cannes-Nizza",
+            "price": "Sarokkanapé 367 340 Ft-tól",
+            "images": [
+              {
+                "src": "/images/popular-cannes.webp"
+              },
+              {
+                "src": "/images/cannes-w1.webp"
+              },
+              {
+                "src": "/images/cannes-w2.webp"
+              }
+            ],
+            "tagline": "Egyik kedvelt darabunk"
+          },
+          {
+            "href": "/butoraink/fotelek",
+            "name": "Fotelek",
+            "price": "Fotelek 82 820 Ft-tól",
+            "images": [
+              {
+                "src": "/images/popular-fotelek.webp"
+              },
+              {
+                "src": "/images/fotelek-w1.webp"
+              }
+            ],
+            "tagline": "Bármilyen egyedi fotelt vagy széket elkészítünk"
+          },
+          {
+            "href": "/karpitozott-butor-uzleti-ugyfeleknek",
+            "name": "Étterem, hotel, üzleti bútorok",
+            "price": "Éttermi székek 76 200 Ft-tól",
+            "images": [
+              {
+                "src": "/images/popular-uzleti.webp"
+              },
+              {
+                "src": "/images/uzleti-w1.webp"
+              },
+              {
+                "src": "/images/uzleti-w2.webp"
+              }
+            ],
+            "tagline": "Nagy teherbírású termékeink üzleti célokra is alkalmasak"
+          }
+        ],
+        "subtitle": "Válassz jelenlegi termékeinkből vagy kérj egyedi ajánlatot"
+      },
+      "updated_at": "2026-06-22T06:04:35.778+00:00"
+    },
+    {
+      "id": "home:slideshow",
+      "config": {
+        "images": [
+          {
+            "alt": "Enzo Design kárpitozott bútorok",
+            "src": "/images/slide1.webp"
+          },
+          {
+            "alt": "Enzo Design kanapék és fotelek",
+            "src": "/images/slide2.webp"
+          },
+          {
+            "alt": "Egyedi kárpitozott bútorok",
+            "src": "/images/slide3.webp"
+          },
+          {
+            "alt": "Enzo Design kollekció",
+            "src": "/images/slide4.webp"
+          },
+          {
+            "alt": "Kárpitozott bútor gyártó",
+            "src": "/images/slide5.webp"
+          },
+          {
+            "alt": "Chesterfield kanapék",
+            "src": "/images/slide6.webp"
+          },
+          {
+            "alt": "Enzo Design bútorok",
+            "src": "/images/slide7.webp"
+          }
+        ]
+      },
+      "updated_at": "2026-06-21T20:49:09.92+00:00"
+    },
+    {
+      "id": "kanapek-listing:features",
+      "config": {
+        "body": "Egyedi szín és anyagminta választással\nTetszőleges méretben\nVálasztható kopásállóság-erősséggel (martindale)\nTömörfa szerkezettel, 10 év váz-garanciával",
+        "intro": "Mindegyik bútorunkat ajánljuk:"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "kanapek-listing:grid",
+      "config": {
+        "title": "Kanapék",
+        "subtitle": "Válasszon a 2000 nm-es gyárunkból, kért méretben és anyagmintával."
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "kanapek-listing:hero",
+      "config": {
+        "title": "Kanapék",
+        "subtitle": "Válasszon a 2000 nm-es gyárunkból, vagy kérjen egyedi ajánlatot. A Bútoraink szövete és anyagmintája szabadon választható."
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "page:blog:agyazhato-chesterfield-kanape",
+      "config": {
+        "sections": [
+          {
+            "id": "blog:agyazhato-chesterfield-kanape:hero-light:1",
+            "type": "hero-light"
+          },
+          {
+            "id": "blog:agyazhato-chesterfield-kanape:banner:1",
+            "type": "banner"
+          },
+          {
+            "id": "blog:agyazhato-chesterfield-kanape:text-block:1",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:agyazhato-chesterfield-kanape:text-block:2",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:agyazhato-chesterfield-kanape:contact:1",
+            "type": "contact"
+          }
+        ]
+      },
+      "updated_at": "2026-06-11T17:01:04.515+00:00"
+    },
+    {
+      "id": "page:blog:bor-fotel",
+      "config": {
+        "sections": [
+          {
+            "id": "blog:bor-fotel:hero-light:1",
+            "type": "hero-light"
+          },
+          {
+            "id": "blog:bor-fotel:banner:1",
+            "type": "banner"
+          },
+          {
+            "id": "blog:bor-fotel:text-block:1",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:bor-fotel:text-block:2",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:bor-fotel:text-block:3",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:bor-fotel:contact:1",
+            "type": "contact"
+          }
+        ]
+      },
+      "updated_at": "2026-06-11T18:52:30.833+00:00"
+    },
+    {
+      "id": "page:blog:egyedi-butor-keszittetes",
+      "config": {
+        "sections": [
+          {
+            "id": "blog:egyedi-butor-keszittetes:hero-light:1",
+            "type": "hero-light"
+          },
+          {
+            "id": "blog:egyedi-butor-keszittetes:banner:1",
+            "type": "banner"
+          },
+          {
+            "id": "blog:egyedi-butor-keszittetes:text-block:1",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:egyedi-butor-keszittetes:text-block:2",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:egyedi-butor-keszittetes:contact:1",
+            "type": "contact"
+          }
+        ]
+      },
+      "updated_at": "2026-06-12T12:00:53.967+00:00"
+    },
+    {
+      "id": "page:blog:kanape-zalaegerszegen",
+      "config": {
+        "sections": [
+          {
+            "id": "blog:kanape-zalaegerszegen:hero-light:1",
+            "type": "hero-light"
+          },
+          {
+            "id": "blog:kanape-zalaegerszegen:banner:1",
+            "type": "banner"
+          },
+          {
+            "id": "blog:kanape-zalaegerszegen:text-block:1",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:kanape-zalaegerszegen:text-block:2",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:kanape-zalaegerszegen:contact:1",
+            "type": "contact"
+          }
+        ]
+      },
+      "updated_at": "2026-06-11T16:02:25.551+00:00"
+    },
+    {
+      "id": "page:blog:melyik-chesterfield-butor-illik-hozzad",
+      "config": {
+        "sections": [
+          {
+            "id": "blog:melyik-chesterfield-butor-illik-hozzad:hero-light:1",
+            "type": "hero-light"
+          },
+          {
+            "id": "blog:melyik-chesterfield-butor-illik-hozzad:banner:1",
+            "type": "banner"
+          },
+          {
+            "id": "blog:melyik-chesterfield-butor-illik-hozzad:text-block:1",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:melyik-chesterfield-butor-illik-hozzad:text-block:2",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:melyik-chesterfield-butor-illik-hozzad:contact:1",
+            "type": "contact"
+          }
+        ]
+      },
+      "updated_at": "2026-06-11T17:10:14.255+00:00"
+    },
+    {
+      "id": "page:blog:miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni",
+      "config": {
+        "sections": [
+          {
+            "id": "blog:miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni:hero-light:1",
+            "type": "hero-light"
+          },
+          {
+            "id": "blog:miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni:banner:1",
+            "type": "banner"
+          },
+          {
+            "id": "blog:miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni:text-block:1",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni:text-block:2",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni:contact:1",
+            "type": "contact"
+          }
+        ]
+      },
+      "updated_at": "2026-06-11T14:59:16.739+00:00"
+    },
+    {
+      "id": "page:blog:miert-idotallo-valasztas-a-chesterfield-kanape",
+      "config": {
+        "sections": [
+          {
+            "id": "blog:miert-idotallo-valasztas-a-chesterfield-kanape:hero-light:1",
+            "type": "hero-light"
+          },
+          {
+            "id": "blog:miert-idotallo-valasztas-a-chesterfield-kanape:banner:1",
+            "type": "banner"
+          },
+          {
+            "id": "blog:miert-idotallo-valasztas-a-chesterfield-kanape:text-block:1",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:miert-idotallo-valasztas-a-chesterfield-kanape:text-block:2",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:miert-idotallo-valasztas-a-chesterfield-kanape:contact:1",
+            "type": "contact"
+          }
+        ]
+      },
+      "updated_at": "2026-06-11T13:13:41.166+00:00"
+    },
+    {
+      "id": "page:blog:modern-chesterfield-kanape",
+      "config": {
+        "sections": [
+          {
+            "id": "blog:modern-chesterfield-kanape:hero-light:1",
+            "type": "hero-light"
+          },
+          {
+            "id": "blog:modern-chesterfield-kanape:banner:1",
+            "type": "banner"
+          },
+          {
+            "id": "blog:modern-chesterfield-kanape:text-block:1",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:modern-chesterfield-kanape:banner:2",
+            "type": "banner"
+          },
+          {
+            "id": "blog:modern-chesterfield-kanape:text-block:2",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:modern-chesterfield-kanape:text-block:3",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:modern-chesterfield-kanape:contact:1",
+            "type": "contact"
+          }
+        ]
+      },
+      "updated_at": "2026-06-11T13:28:44.153+00:00"
+    },
+    {
+      "id": "page:blog:tomorfa-butor",
+      "config": {
+        "sections": [
+          {
+            "id": "blog:tomorfa-butor:hero-light:1",
+            "type": "hero-light"
+          },
+          {
+            "id": "blog:tomorfa-butor:banner:1",
+            "type": "banner"
+          },
+          {
+            "id": "blog:tomorfa-butor:text-block:1",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:tomorfa-butor:text-block:2",
+            "type": "text-block"
+          },
+          {
+            "id": "blog:tomorfa-butor:contact:1",
+            "type": "contact"
+          }
+        ]
+      },
+      "updated_at": "2026-06-11T21:35:54.776+00:00"
+    },
+    {
+      "id": "page:chesterfield:modern-enteriorben",
+      "config": {
+        "sections": [
+          {
+            "id": "chesterfield:modern-enteriorben:hero-light:1",
+            "type": "hero-light"
+          },
+          {
+            "id": "chesterfield:modern-enteriorben:banner:1",
+            "type": "banner"
+          },
+          {
+            "id": "chesterfield:modern-enteriorben:editorial-grid:1",
+            "type": "editorial-grid"
+          },
+          {
+            "id": "chesterfield:modern-enteriorben:text-block:1",
+            "type": "text-block"
+          },
+          {
+            "id": "chesterfield:modern-enteriorben:contact:1",
+            "type": "contact"
+          }
+        ]
+      },
+      "updated_at": "2026-06-11T14:54:41.175+00:00"
+    },
+    {
+      "id": "page:chesterfield:stilus-es-formajegyek",
+      "config": {
+        "sections": [
+          {
+            "id": "chesterfield:stilus-es-formajegyek:hero-light:1",
+            "type": "hero-light"
+          },
+          {
+            "id": "chesterfield:stilus-es-formajegyek:banner:1",
+            "type": "banner"
+          },
+          {
+            "id": "chesterfield:stilus-es-formajegyek:editorial-grid:1",
+            "type": "editorial-grid"
+          },
+          {
+            "id": "chesterfield:stilus-es-formajegyek:text-block:1",
+            "type": "text-block"
+          },
+          {
+            "id": "chesterfield:stilus-es-formajegyek:contact:1",
+            "type": "contact"
+          }
+        ]
+      },
+      "updated_at": "2026-06-11T19:58:21.501+00:00"
+    },
+    {
+      "id": "rendeles-menete:content",
+      "config": {
+        "body": "Honlapunk nem webáruházként működik, ezért a rendelés menete a következő:\n\nRendelését leadhatja személyesen telephelyünkön a 8800 Nagykanizsa, Egry József utca 7 szám alatt, vagy e-mailben az info@enzodesign.hu címen.\n\nGyors egyeztetésre a +36303778983 -mas telefonszámot használják bizalommal, melyen bútortervezőnk érhető el.\n\nOrszágos szinten kiszállítjuk a bútort az első zárt ajtóig.\n\nLegegyszerűbb mód vagy a kapcsolat űrlap kitöltése itt a weboldalon, vagy emailben egy kép csatolása, melyre 2 napon belül árajánlatot adunk.\n\nE-mailes rendelés esetében kérjük adja meg a számlázási nevet, címet, céges rendelésnél pedig az adószámát is, valamint írja a megrendelni kívánt termék nevét, színét és darabszámát, vagy küldjön képet, amennyiben egyedi bútorról van szó.\n\nKollégáink ennek alapján előlegbekérő szerződést küldenek, mely előleget utalással is ki tud egyenlíteni.\n\nVisszaküldést kizárólag hibás termék esetén fogadunk el.",
+        "align": "left",
+        "title": "Rendelés menete"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "rolunk:cta",
+      "config": {
+        "phone": "+36 30 377 8983",
+        "title": "Egyedi bútort szeretne?",
+        "subtitle": "Vegye fel velünk a kapcsolatot – 24 órán belül visszahívjuk!"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "rolunk:stats",
+      "config": {
+        "items": [
+          {
+            "label": "Alapítva",
+            "value": "2015"
+          },
+          {
+            "label": "Telephely",
+            "value": "2000 nm"
+          },
+          {
+            "label": "Tapasztalat",
+            "value": "~20 év"
+          },
+          {
+            "label": "Garancia",
+            "value": "3+10 év"
+          }
+        ]
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "rolunk:story",
+      "config": {
+        "p1": "Nagykanizsán közel 20 éve készítünk bútorokat melyeket főleg Magyarországon és Németországban, de Európa szerte használnak.",
+        "p2": "A minőség elsődleges számunkra, ezért kizárólag tömörfa szerkezettel és nagy kopásállóságú anyagokkal dolgozunk.",
+        "p3": "Mivel mi vagyunk a gyártó és az eladó is, ezért nincs extra reklámköltségünk, így reális áron tudjuk adni bútoraink.",
+        "p4": "2000 nm-es üzemünkben bármilyen egyedi, vagy típusbútort el tudunk készíteni lakásokba, kávézókba, éttermekbe vagy szállodákba is.",
+        "quote": "Bizonyos bútorok, amelyek mellett felnő az ember, valamiképpen fontossá válnak.",
+        "title": "Történetünk",
+        "quoteAuthor": "Bernlef"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "rolunk:video",
+      "config": {
+        "src": "/videos/rolunk.mp4",
+        "title": "",
+        "bgColor": "#1c1c1c"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "szek-listing:features",
+      "config": {
+        "body": "Egyedi szín és anyagminta választással\nTetszőleges méretben\nVálasztható kopásállóság-erősséggel (martindale)\nTömörfa szerkezettel, 10 év váz-garanciával",
+        "intro": "Mindegyik bútorunkat ajánljuk:"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "szek-listing:grid",
+      "config": {
+        "title": "Szék, zsámoly, falvédő"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "szek-listing:hero",
+      "config": {
+        "title": "Szék, zsámoly, falvédő",
+        "subtitle": "Kárpitozott székek, zsámolyok és falvédők – egyedi méretben és szövettel."
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "tovabbi-fotelek:info",
+      "config": {
+        "anyagok": "Mintatermünkben rengeteg magas minőségű, vízlepergető, állat- és gyermekbarát és könnyen tisztítható szövet közül választhatod ki az igazit az új bútorodra. Kínálatunkban prémium minőségű, valódi olasz marhabőröket is találsz.",
+        "gyartas": "Várható gyártási idő: 4-6 hét. Szállítás megegyezés szerint.",
+        "garancia": "3 év gyártói garancia vonatkozik a teljes termékre, továbbá 10 év a szerkezetre."
+      },
+      "updated_at": "2026-06-22T06:15:24.574+00:00"
+    },
+    {
+      "id": "tovabbi-fotelek:pricing",
+      "config": {
+        "rows": [
+          {
+            "bor": "",
+            "alap": "76200",
+            "label": "Székek"
+          },
+          {
+            "bor": "",
+            "alap": "82820",
+            "label": "Fotelek"
+          }
+        ],
+        "footer": "Az árak tájékoztató jellegűek és az alapkonfigurációra vonatkoznak. Egyéni méret és anyagválasztás esetén az ár változhat. Gyártási idő: 4–6 hét. Garancia: 3 év (váz: 10 év)."
+      },
+      "updated_at": "2026-06-22T06:15:24.548+00:00"
+    },
+    {
+      "id": "uzleti:benefits",
+      "config": {
+        "items": "Nagy teherbírású kárpit anyagok (>100.000 martindale)\nTömörfa váz – 10 év vázgarancia\nEgyedi méret, szín és kialakítás\nTömegtermelési lehetőség – 2000 nm-es üzem\nIngyenes helyszíni egyeztetés\nRövid határidő – 4–6 hét",
+        "title": "Miért válasszon minket üzleti célra?"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "uzleti:hero",
+      "config": {
+        "body": "2000 nm-es üzemünkben rendszeresen gyártunk nem csak lakossági, hanem üzleti megrendelésre is termékeket. Tömörfa szerkezettel, nagy kopásállóságú anyagokkal dolgozunk, így a bútor forgalmas helyeken is hosszú élettartammal rendelkezik.",
+        "title": "Éttermeknek, szállodáknak, rendelőknek, fogadóterekbe",
+        "tagline": "Üzleti megrendelések"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "uzleti:intro",
+      "config": {
+        "body": "Minden ügyfelünkkel egyedileg foglalkozunk.\n\nTelefonos vagy emailes egyeztetést követően ingyenes helyszíni egyeztetéssel rövid határidőn belül elkészítjük a kért bútorokat.\n\nNézd meg referenciáinkat és kérj árajánlatot!"
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "uzleti:refs",
+      "config": {
+        "title": "Referenciák és inspirációk",
+        "images": [
+          {
+            "src": "/images/uzleti-ref1.webp"
+          },
+          {
+            "src": "/images/uzleti-ref2.webp"
+          },
+          {
+            "src": "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp"
+          }
+        ]
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    },
+    {
+      "id": "uzleti:segments",
+      "config": {
+        "items": [
+          {
+            "desc": "Örömmel készítünk azonos designban többféle, egyedi méretű terméket.",
+            "image": "/images/uzleti-szalloda.webp",
+            "title": "Szálloda, fogadótér"
+          },
+          {
+            "desc": "Egy orvosi rendelő nem lehetne autentikus egy Chesterfield kanapé vagy néhány fotel nélkül.",
+            "image": "/images/uzleti-rendelo.webp",
+            "title": "Rendelő"
+          },
+          {
+            "desc": "Teljes, nagy teherbírású szetteket gyártunk kis kávézók vagy nagy éttermek részére.",
+            "image": "/images/uzleti-etterem.webp",
+            "title": "Étterem, kávézó"
+          },
+          {
+            "desc": "Egyedi, kisebb helységű Airbnb-k számára készítünk okos és vagány megoldásokat.",
+            "image": "/images/uzleti-airbnb.webp",
+            "title": "Airbnb"
+          }
+        ]
+      },
+      "updated_at": "2026-06-16T23:08:49.687+00:00"
+    }
+  ]
+}
