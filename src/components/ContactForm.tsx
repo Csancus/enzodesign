@@ -42,6 +42,7 @@ const TIPUSA_OPTIONS = [
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
   const {
     register,
     handleSubmit,
@@ -67,18 +68,18 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormData) => {
     setSending(true);
+    setError(false);
     try {
-      await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
+      if (!res.ok) throw new Error("send failed");
       setSent(true);
       reset();
     } catch {
-      // silent fail – show success anyway for UX
-      setSent(true);
-      reset();
+      setError(true);
     } finally {
       setSending(false);
     }
@@ -195,13 +196,18 @@ export default function ContactForm() {
       </div>
       {errors.adatkezeles && <p className="text-red-500 text-xs">{errors.adatkezeles.message}</p>}
 
-      <button
-        type="submit"
-        disabled={sending}
-        className="w-full md:w-auto bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-10 py-3 transition-colors disabled:opacity-60"
-      >
-        {sending ? "Küldés..." : "Küldés"}
-      </button>
+      <div className="flex flex-col sm:flex-row items-start gap-3">
+        <button
+          type="submit"
+          disabled={sending}
+          className="w-full md:w-auto bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-10 py-3 transition-colors disabled:opacity-60"
+        >
+          {sending ? "Küldés..." : "Küldés"}
+        </button>
+        {error && (
+          <p className="text-red-600 text-sm self-center">Hiba történt, kérjük hívjon minket: +36 30 377 8983</p>
+        )}
+      </div>
     </form>
   );
 }

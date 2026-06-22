@@ -69,8 +69,6 @@ const nextConfig: NextConfig = {
       { source: "/post/egyedi-b\u00fator-k\u00e9sz\u00edttet\u00e9s-mire-figyelj-ha-saj\u00e1t-\u00f6tleted-van",                         destination: "/blog/egyedi-butor-keszittetes",                                permanent: true },
       { source: "/post/:path*", destination: "/blog", permanent: true },
 
-      // Adatkezelési tájékoztató (nincs megfelelő oldal az új siten)
-      { source: "/adatkezelesi-szabalyzat", destination: "/", permanent: true },
     ];
   },
 };
