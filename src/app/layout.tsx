@@ -59,9 +59,9 @@ export default async function RootLayout({
 
   const storedReviews = (reviewsCfg as { reviews?: typeof REVIEWS_DEFAULT.reviews }).reviews;
   const reviews = storedReviews?.length ? storedReviews : REVIEWS_DEFAULT.reviews;
-  const reviewCount = reviews.length;
+  const reviewCount = Math.max(reviews.length, 12); // Google-n legalább 12 vélemény van
   const ratingSum = reviews.reduce((sum, r) => sum + (parseInt(r.rating) || 5), 0);
-  const ratingValue = reviewCount ? (ratingSum / reviewCount).toFixed(1) : "5.0";
+  const ratingValue = reviews.length ? (ratingSum / reviews.length).toFixed(1) : "5.0";
 
   const jsonLd = {
     "@context": "https://schema.org",
