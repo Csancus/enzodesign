@@ -60,7 +60,7 @@ const DEFAULT: Config = {
     {
       code: "MA",
       name: "MA",
-      image: "/images/e7ad8b_b09a1e9ade984e15a2ec9e9ee92e7e3e.webp",
+      image: "/images/szovetek-ma-karpitanyag.webp",
       martindale: "100 000",
       composition: "100% POLYESTER",
       density: "–",
