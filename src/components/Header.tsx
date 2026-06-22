@@ -71,7 +71,7 @@ export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPa
   }
 
   return (
-    <header className="bg-white sticky top-0 z-50 border-b-2 border-[#b8924a] shadow-sm">
+    <header className="bg-white border-b-2 border-[#b8924a] shadow-sm">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-14">
 
         {/* Logo */}

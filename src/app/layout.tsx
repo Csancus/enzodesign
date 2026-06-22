@@ -133,11 +133,13 @@ export default async function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-white">
         <AdminProvider initialAdmin={initialAdmin}>
-          <div className="bg-[#2d4a1e] text-white text-xs py-1.5 px-4 flex items-center justify-center gap-2">
-            <img src="/images/fsc-logo.svg" alt="FSC" className="h-5 w-auto brightness-0 invert" />
-            <span className="text-center leading-snug">FSC – felelős erdőgazdálkodásból származó faanyag</span>
+          <div className="sticky top-0 z-50">
+            <div className="bg-[#2d4a1e] text-white text-xs py-1.5 px-4 flex items-center justify-center gap-2">
+              <img src="/images/fsc-logo.svg" alt="FSC" className="h-5 w-auto brightness-0 invert" />
+              <span className="text-center leading-snug">FSC – felelős erdőgazdálkodásból származó faanyag</span>
+            </div>
+            <Header dynamicPages={dynamicPages} />
           </div>
-          <Header dynamicPages={dynamicPages} />
           <main className="flex-1">{children}</main>
           <Footer />
           <AdminFab />
