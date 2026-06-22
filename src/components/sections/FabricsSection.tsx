@@ -148,30 +148,26 @@ export default async function FabricsSection({
           ))}
         </div>
 
-        {/* Fabric cards – 2×2 grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+        {/* Fabric cards – compact grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
           {fabrics.map((fabric, i) => (
             <div key={i} className="bg-white">
               {fabric.image && (
-                <div className="relative aspect-[4/3] overflow-hidden mb-4">
+                <div className="relative aspect-square overflow-hidden mb-3">
                   <Image src={fabric.image} alt={fabric.code} fill className="object-cover" />
                 </div>
               )}
-              <p className="text-sm font-bold text-[#1c1c1c] mb-3">{fabric.code}</p>
-              <div className="text-xs text-gray-600 space-y-1.5 mb-3">
-                <p><span className="font-medium">Kopásállóság (martindale):</span> {fabric.martindale}</p>
+              <p className="text-sm font-bold text-[#1c1c1c] mb-2">{fabric.code}</p>
+              <div className="text-xs text-gray-600 space-y-1 mb-2">
+                <p><span className="font-medium">Kopásállóság:</span> {fabric.martindale}</p>
                 <p><span className="font-medium">Összetétel:</span> {fabric.composition}</p>
                 {fabric.density && fabric.density !== "–" && (
-                  <p><span className="font-medium">Terület sűrűség (g/m²):</span> {fabric.density}</p>
+                  <p><span className="font-medium">Sűrűség:</span> {fabric.density}</p>
                 )}
-                <p><span className="font-medium">Szín:</span> {fabric.colors}</p>
-                <p><span className="font-medium">Szövet típus:</span> {fabric.fabricType}</p>
+                <p className="text-gray-500 leading-relaxed">{fabric.colors}</p>
               </div>
               {fabric.description && (
-                <div className="text-xs text-gray-500 leading-relaxed border-t border-gray-100 pt-3">
-                  <p className="font-medium text-gray-600 mb-1">Termék jellemzők:</p>
-                  <p>{fabric.description}</p>
-                </div>
+                <p className="text-xs text-gray-400 leading-relaxed border-t border-gray-100 pt-2">{fabric.description}</p>
               )}
             </div>
           ))}
