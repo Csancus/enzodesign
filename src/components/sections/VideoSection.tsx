@@ -18,7 +18,25 @@ export default async function VideoSection({ moduleId, isAdmin }: { moduleId: st
   const stored = await getModuleConfig(moduleId);
   const cfg = { ...DEFAULT, ...(stored as typeof DEFAULT) };
 
+  const videoJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": cfg.title || "Enzo Design – Egyedi kárpitozott bútorok gyártása",
+    "description": "Egyedi kárpitozott bútorok gyártása Nagykanizsán. Kanapék, fotelek, Chesterfield bútorok saját műhelyben.",
+    "thumbnailUrl": "https://enzodesign.hu/images/chesterfield-w1.webp",
+    "contentUrl": `https://enzodesign.hu${cfg.src}`,
+    "uploadDate": "2024-01-01",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Enzo Design",
+      "url": "https://enzodesign.hu",
+      "logo": { "@type": "ImageObject", "url": "https://enzodesign.hu/images/logo.webp" },
+    },
+  };
+
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }} />
     <section className="relative py-10 px-4" style={{ backgroundColor: cfg.bgColor }}>
       <div className="max-w-4xl mx-auto">
         {cfg.title && (
@@ -41,5 +59,6 @@ export default async function VideoSection({ moduleId, isAdmin }: { moduleId: st
       </div>
       {isAdmin && <EditBtn moduleId={moduleId} config={cfg} schema={SCHEMA} />}
     </section>
+    </>
   );
 }

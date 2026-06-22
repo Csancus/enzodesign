@@ -7,6 +7,8 @@ import AdminFab from "@/components/admin/AdminFab";
 import { AdminProvider } from "@/context/AdminContext";
 import { getAdminStatus } from "@/lib/auth";
 import { getDynamicPages } from "@/lib/dynamicPages";
+import { getModuleConfig } from "@/lib/moduleStore";
+import { REVIEWS_MODULE_ID, REVIEWS_DEFAULT } from "@/components/sections/ReviewsSection";
 
 const playfair = Playfair_Display({
   variable: "--font-heading",
@@ -49,10 +51,17 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [initialAdmin, dynamicPages] = await Promise.all([
+  const [initialAdmin, dynamicPages, reviewsCfg] = await Promise.all([
     getAdminStatus(),
     getDynamicPages(),
+    getModuleConfig(REVIEWS_MODULE_ID),
   ]);
+
+  const storedReviews = (reviewsCfg as { reviews?: typeof REVIEWS_DEFAULT.reviews }).reviews;
+  const reviews = storedReviews?.length ? storedReviews : REVIEWS_DEFAULT.reviews;
+  const reviewCount = reviews.length;
+  const ratingSum = reviews.reduce((sum, r) => sum + (parseInt(r.rating) || 5), 0);
+  const ratingValue = reviewCount ? (ratingSum / reviewCount).toFixed(1) : "5.0";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -86,10 +95,24 @@ export default async function RootLayout({
       { "@type": "City", "name": "Keszthely" },
       { "@type": "City", "name": "Siófok" }
     ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "8",
+      "ratingValue": ratingValue,
+      "reviewCount": String(reviewCount),
       "bestRating": "5",
       "worstRating": "1"
     },

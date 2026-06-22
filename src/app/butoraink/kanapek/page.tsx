@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getAdminStatus } from "@/lib/auth";
 import { getModuleConfig } from "@/lib/moduleStore";
 import FabricsSection from "@/components/sections/FabricsSection";
+import FaqSection from "@/components/sections/FaqSection";
 import ProductImageCarousel from "@/components/ProductImageCarousel";
 import EditBtn from "@/components/admin/EditBtn";
 import type { FieldDef } from "@/types/cms";
@@ -250,6 +251,7 @@ export default async function KanapekPage() {
         )}
       </section>
 
+      <FaqSection moduleId="global:faq" isAdmin={isAdmin} />
       <FabricsSection isAdmin={isAdmin} />
     </>
   );
