@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import FabricsSection from "@/components/sections/FabricsSection";
 import EditBtn from "@/components/admin/EditBtn";
+import ProductImageCarousel from "@/components/ProductImageCarousel";
 import { getModuleConfig } from "@/lib/moduleStore";
 import { getAdminStatus } from "@/lib/auth";
 import type { FieldDef } from "@/types/cms";
@@ -21,43 +21,43 @@ export const metadata: Metadata = {
   },
 };
 
-type Card = { id: string; name: string; tagline: string; image: string; href: string };
+type Card = { id: string; name: string; tagline: string; images: string[]; href: string };
 
 const SOFA_CARDS: Card[] = [
-  { id: "olds-club", name: "Old's Club Kanapék", tagline: "Karakteres elegancia", image: "/images/e7ad8b_b8e06512bf824479b51f4152def251fa.webp", href: "/butoraink/kanapek/olds-club-kanapek" },
-  { id: "ivone", name: "Ivone kanapék", tagline: "Nappalid éke", image: "/images/9a0b1d_99e6dc96a4804030b9c82ccb7ef9a7f7.webp", href: "/butoraink/kanapek/ivone-kanapek" },
-  { id: "design", name: "Design Kanapék", tagline: "Modern minőség", image: "/images/e7ad8b_d510cf607aca449c835d847344231393.webp", href: "/butoraink/kanapek/design-kanapek" },
-  { id: "chesterfield", name: "Chesterfield kanapék", tagline: "A bútor, aminek történelme van", image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp", href: "/butoraink/kanapek/chesterfield-kanapek" },
-  { id: "new-york", name: "New York kanapék", tagline: "Klasszikus stílus", image: "/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp", href: "/butoraink/kanapek/new-york-kanapek" },
-  { id: "joker", name: "Joker Kanapék", tagline: "Gáláns megjelenés", image: "/images/e7ad8b_472fb74f2a1746e68ca129dbd34b2de7.webp", href: "/butoraink/kanapek/joker-kanapek" },
+  { id: "olds-club", name: "Old's Club Kanapék", tagline: "Karakteres elegancia", images: ["/images/olds-club-a1.webp", "/images/olds-club-a6.webp", "/images/olds-club-a4.webp", "/images/olds-club-a34.jpg", "/images/olds-club-a2.webp", "/images/olds-club-a3.webp", "/images/olds-club-a5.webp"], href: "/butoraink/kanapek/olds-club-kanapek" },
+  { id: "ivone", name: "Ivone kanapék", tagline: "Nappalid éke", images: ["/images/ivone-a1.webp", "/images/ivone-a2.webp", "/images/ivone-dsc1.jpg", "/images/ivone-a7.webp", "/images/ivone-a8.webp", "/images/ivone-a5.webp", "/images/ivone-a9.webp", "/images/ivone-a6.webp", "/images/ivone-dsc2.jpg", "/images/ivone-a10.jpg"], href: "/butoraink/kanapek/ivone-kanapek" },
+  { id: "design", name: "Design Kanapék", tagline: "Modern minőség", images: ["/images/design-a1.webp", "/images/design-a3.webp", "/images/design-a4.webp", "/images/design-a5.webp", "/images/design-a6.webp", "/images/design-a7.webp", "/images/design-a2.webp", "/images/design-a26.jpg", "/images/design-a27bg.jpg", "/images/design-a28.jpg", "/images/design-dsc1.jpg", "/images/design-dsc2.jpg"], href: "/butoraink/kanapek/design-kanapek" },
+  { id: "chesterfield", name: "Chesterfield kanapék", tagline: "A bútor, aminek történelme van", images: ["/images/chesterfield-a1.webp", "/images/chesterfield-a2.webp", "/images/chesterfield-a3.webp", "/images/chesterfield-a5.jpg", "/images/chesterfield-enzo.jpg", "/images/chesterfield-img1.jpg", "/images/chesterfield-img2.jpg", "/images/chesterfield-img3.jpg", "/images/chesterfield-a4.webp"], href: "/butoraink/kanapek/chesterfield-kanapek" },
+  { id: "new-york", name: "New York kanapék", tagline: "Klasszikus stílus", images: ["/images/new-york-a1.webp", "/images/new-york-a2.webp", "/images/new-york-a3.webp", "/images/new-york-a4.webp", "/images/new-york-a5.webp", "/images/new-york-a6.webp", "/images/new-york-a7.jpg", "/images/new-york-nc1.jpg", "/images/new-york-nc2.jpg"], href: "/butoraink/kanapek/new-york-kanapek" },
+  { id: "joker", name: "Joker Kanapék", tagline: "Gáláns megjelenés", images: ["/images/joker-a1.webp", "/images/joker-a2.webp", "/images/joker-a3.webp", "/images/joker-a4.webp", "/images/joker-a5.jpg", "/images/joker-w1.webp", "/images/joker-w3.webp"], href: "/butoraink/kanapek/joker-kanapek" },
 ];
 
 const ARMCHAIR_CARDS: Card[] = [
-  { id: "olds-club", name: "Old's Club Fotel", tagline: "Karakteres elegancia", image: "/images/e7ad8b_b8e06512bf824479b51f4152def251fa.webp", href: "/butoraink/fotelek/olds-club-fotel" },
-  { id: "ivone", name: "Ivone fotel", tagline: "Nappalid éke", image: "/images/9a0b1d_99e6dc96a4804030b9c82ccb7ef9a7f7.webp", href: "/butoraink/fotelek/ivone-fotel" },
-  { id: "design", name: "Design Fotel", tagline: "Modern minőség", image: "/images/e7ad8b_aceaccd7ca6746cb804d31e17d3c8352.webp", href: "/butoraink/fotelek/design-fotel" },
-  { id: "chesterfield", name: "Chesterfield fotel", tagline: "A bútor, aminek történelme van", image: "/images/e7ad8b_b0943221b51548cbbe6d97a0e24fbeb6.webp", href: "/butoraink/fotelek/chesterfield-fotel" },
-  { id: "new-york", name: "New York fotel", tagline: "Klasszikus stílus", image: "/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp", href: "/butoraink/fotelek/new-york-fotel" },
-  { id: "joker", name: "Joker fotel", tagline: "Elegáns bútor, bárhova", image: "/images/e7ad8b_472fb74f2a1746e68ca129dbd34b2de7.webp", href: "/butoraink/fotelek/joker-fotel" },
+  { id: "olds-club", name: "Old's Club Fotel", tagline: "Karakteres elegancia", images: ["/images/olds-club-a5.webp", "/images/olds-club-a1.webp", "/images/olds-club-a6.webp", "/images/olds-club-a4.webp", "/images/olds-club-a34.jpg", "/images/olds-club-a2.webp"], href: "/butoraink/fotelek/olds-club-fotel" },
+  { id: "ivone", name: "Ivone Fotel", tagline: "Nappalid éke", images: ["/images/ivone-a1.webp", "/images/ivone-a2.webp", "/images/ivone-dsc1.jpg", "/images/ivone-a7.webp", "/images/ivone-a8.webp", "/images/ivone-a5.webp", "/images/ivone-a9.webp"], href: "/butoraink/fotelek/ivone-fotel" },
+  { id: "design", name: "Design Fotel", tagline: "Modern minőség", images: ["/images/design-a1.webp", "/images/design-a3.webp", "/images/design-a4.webp", "/images/design-a5.webp", "/images/design-a6.webp", "/images/design-a7.webp", "/images/design-a2.webp"], href: "/butoraink/fotelek/design-fotel" },
+  { id: "chesterfield", name: "Chesterfield Fotel", tagline: "A bútor, aminek történelme van", images: ["/images/chesterfield-a4.webp", "/images/chesterfield-a1.webp", "/images/chesterfield-a2.webp", "/images/chesterfield-a3.webp", "/images/chesterfield-a5.jpg", "/images/chesterfield-enzo.jpg"], href: "/butoraink/fotelek/chesterfield-fotel" },
+  { id: "new-york", name: "New York Fotel", tagline: "Klasszikus stílus", images: ["/images/new-york-a1.webp", "/images/new-york-a2.webp", "/images/new-york-a3.webp", "/images/new-york-a4.webp", "/images/new-york-a5.webp", "/images/new-york-a6.webp"], href: "/butoraink/fotelek/new-york-fotel" },
+  { id: "joker", name: "Joker Fotel", tagline: "Elegáns bútor, bárhova", images: ["/images/joker-a1.webp", "/images/joker-a2.webp", "/images/joker-a3.webp", "/images/joker-a4.webp", "/images/joker-a5.jpg", "/images/joker-w1.webp"], href: "/butoraink/fotelek/joker-fotel" },
 ];
 
 const BED_CARDS: Card[] = [
-  { id: "bilbao", name: "Bilbao franciaágy", tagline: "Kényelmedre", image: "/images/e7ad8b_335724cf7ec5471c89807f009900353d.webp", href: "/butoraink/franciaagyak" },
-  { id: "madrid", name: "Madrid franciaágy", tagline: "Hálószobád éke", image: "/images/9a0b1d_13e53dff0c704be6b672061708d151e6.webp", href: "/butoraink/franciaagyak" },
-  { id: "tovabbi", name: "További ágyak", tagline: "Kísértő és zseniális darabok", image: "/images/9a0b1d_8e6019a82db14e7d8ee1abb2168d6472.webp", href: "/butoraink/franciaagyak" },
+  { id: "bilbao", name: "Bilbao franciaágy", tagline: "Kényelmedre", images: ["/images/bilbao-franciaaggy.webp", "/images/franciaaggy-a1.webp", "/images/franciaaggy-a2.webp", "/images/franciaaggy-a3.webp", "/images/franciaaggy-a4.webp", "/images/franciaaggy-w1.webp", "/images/franciaaggy-w2.webp"], href: "/butoraink/franciaagyak" },
+  { id: "madrid", name: "Madrid franciaágy", tagline: "Hálószobád éke", images: ["/images/madrid-franciaaggy.webp", "/images/franciaaggy-a5.webp", "/images/franciaaggy-a6.webp", "/images/franciaaggy-w3.webp", "/images/franciaaggy-w4.webp", "/images/franciaaggy-w5.webp", "/images/franciaaggy-isabella.jpg"], href: "/butoraink/franciaagyak" },
+  { id: "tovabbi", name: "További ágyak", tagline: "Kísértő és zseniális darabok", images: ["/images/franciaaggy-a7.jpg", "/images/franciaaggy-w6.webp", "/images/franciaaggy-fb1.jpg"], href: "/butoraink/franciaagyak" },
 ];
 
 const EXTRA_CARDS: Card[] = [
-  { id: "szek", name: "Szék, zsámoly, falvédő", tagline: "Sok féle választék", image: "/images/9a0b1d_c51fa6474b5a4e789464c038a7b1c1d4.webp", href: "/butoraink/szek-zsamoly-falvedo" },
-  { id: "egyedi", name: "Egyedi bútor", tagline: "Elkészítjük álombútorod", image: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp", href: "/butoraink/egyedi-butor" },
-  { id: "uzleti", name: "Üzleti bútor", tagline: "Vásárlóid kényelmére", image: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp", href: "/karpitozott-butor-uzleti-ugyfeleknek" },
+  { id: "szek", name: "Szék, zsámoly, falvédő", tagline: "Sok féle választék", images: ["/images/szek-a2.webp", "/images/szek-a5.webp", "/images/szek-a6.webp", "/images/szek-a7.webp", "/images/szek-a8.webp", "/images/szek-a9.webp", "/images/szek-a10.webp", "/images/szek-dsc1.jpg", "/images/szek-dsc2.jpg", "/images/szek-fb1.jpg"], href: "/butoraink/szek-zsamoly-falvedo" },
+  { id: "egyedi", name: "Egyedi bútor", tagline: "Elkészítjük álombútorod", images: ["/images/egyedi-a1.webp", "/images/egyedi-a2.webp", "/images/egyedi-a4.webp", "/images/egyedi-a6.webp", "/images/egyedi-a7.webp", "/images/egyedi-a8.webp", "/images/egyedi-a9.webp", "/images/egyedi-a10.webp", "/images/egyedi-dsc1.jpg", "/images/egyedi-dsc2.jpg"], href: "/butoraink/egyedi-butor" },
+  { id: "uzleti", name: "Üzleti bútor", tagline: "Vásárlóid kényelmére", images: ["/images/uzleti-a1.webp", "/images/uzleti-a2.webp", "/images/uzleti-a3.webp", "/images/uzleti-a4.webp", "/images/uzleti-a5.webp", "/images/uzleti-aria.jpg", "/images/uzleti-szalloda.webp", "/images/uzleti-w1.webp"], href: "/karpitozott-butor-uzleti-ugyfeleknek" },
 ];
 
 const CARD_SCHEMA: FieldDef[] = [
   { key: "name", label: "Neve", type: "text" },
   { key: "tagline", label: "Tagline", type: "text" },
   { key: "href", label: "Link URL", type: "url" },
-  { key: "image", label: "Kép", type: "image" },
+  { key: "images", label: "Képek (lapozható)", type: "array", itemFields: [{ key: "src", label: "Kép", type: "image" }] },
 ];
 
 const INTRO_SCHEMA: FieldDef[] = [
@@ -69,12 +69,14 @@ async function resolveCards(cards: Card[], prefix: string): Promise<Card[]> {
   const cfgs = await Promise.all(cards.map((c) => getModuleConfig(`${prefix}-card:${c.id}`)));
   return cards.map((c, i) => {
     const cfg = cfgs[i];
+    const rawImages = cfg?.images as { src: string }[] | undefined;
+    const resolvedImages = rawImages?.map((g) => g.src).filter(Boolean) ?? [];
     return {
       ...c,
       name: (cfg?.name as string) || c.name,
       tagline: (cfg?.tagline as string) || c.tagline,
       href: (cfg?.href as string) || c.href,
-      image: (cfg?.image as string) || c.image,
+      images: resolvedImages.length ? resolvedImages : c.images,
     };
   });
 }
@@ -84,15 +86,13 @@ function ProductGrid({ items, isAdmin, prefix }: { items: Card[]; isAdmin: boole
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {items.map((item) => (
         <div key={item.id} className="relative group/card">
-          <Link href={item.href} className="group block">
-            <div className="relative aspect-[4/3] overflow-hidden mb-3">
-              <Image src={item.image} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-            </div>
-            <h3 className="text-[#1c1c1c] font-semibold text-sm group-hover:text-[#b8924a] transition-colors">{item.name}</h3>
+          <Link href={item.href} className="block">
+            <ProductImageCarousel images={item.images} alt={item.name} />
+            <h3 className="text-[#1c1c1c] font-semibold text-sm group-hover:text-[#b8924a] transition-colors mt-1">{item.name}</h3>
             <p className="text-xs text-gray-500 mt-0.5">{item.tagline}</p>
           </Link>
           {isAdmin && (
-            <EditBtn moduleId={`${prefix}-card:${item.id}`} config={{ name: item.name, tagline: item.tagline, href: item.href, image: item.image }} schema={CARD_SCHEMA} label="✏" positionClass="absolute top-2 right-2 z-20" />
+            <EditBtn moduleId={`${prefix}-card:${item.id}`} config={{ name: item.name, tagline: item.tagline, href: item.href, images: item.images.map((src) => ({ src })) }} schema={CARD_SCHEMA} label="✏" positionClass="absolute top-2 right-2 z-20" />
           )}
         </div>
       ))}
