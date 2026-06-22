@@ -6,8 +6,10 @@ import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "A bútortervezés alapjai – Enzo Design",
+  description: "A bútortervezés folyamata: mérettől a formáig, anyagválasztástól az ügyfél-egyeztetésig. Hogyan lesz az ötletedből kész bútor az Enzo Designnál.",
   alternates: { canonical: "https://enzodesign.hu/butorgyartas/tervezes" },
   openGraph: {
+    type: "article",
     title: "A bútortervezés alapjai – Enzo Design",
     description: "A bútortervezés folyamata: mérettől a formáig, anyagválasztástól az ügyfél-egyeztetésig. Hogyan lesz az ötletedből kész bútor az Enzo Designnál.",
     url: "https://enzodesign.hu/butorgyartas/tervezes",
@@ -15,9 +17,22 @@ export const metadata: Metadata = {
   },
 };
 
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "A bútortervezés alapjai",
+  "description": "A bútortervezés folyamata: mérettől a formáig, anyagválasztástól az ügyfél-egyeztetésig. Hogyan lesz az ötletedből kész bútor az Enzo Designnál.",
+  "url": "https://enzodesign.hu/butorgyartas/tervezes",
+  "image": "https://enzodesign.hu/images/chesterfield-w1.webp",
+  "inLanguage": "hu",
+  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu" },
+  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu", "logo": { "@type": "ImageObject", "url": "https://enzodesign.hu/images/logo.webp" } },
+};
+
 export default async function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
         <div className="max-w-4xl mx-auto">
           <Link href="/butorgyartas" className="hover:text-white">Bútorgyártás</Link>

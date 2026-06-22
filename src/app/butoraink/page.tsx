@@ -124,8 +124,23 @@ export default async function ButorainkPage() {
   const introFeatures = (introCfg?.features as string) || "Egyedi szín és anyagminta választással\nTetszőleges méretben\nVálasztható kopásállóság-erősséggel (martindale)\nTömörfa szerkezettel, 10 év váz-garanciával";
   const introItems = introFeatures.split("\n").map((s) => s.trim()).filter(Boolean);
 
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Bútoraink – Enzo Design",
+    "url": "https://enzodesign.hu/butoraink",
+    "numberOfItems": 4,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Kanapék", "url": "https://enzodesign.hu/butoraink/kanapek" },
+      { "@type": "ListItem", "position": 2, "name": "Fotelek", "url": "https://enzodesign.hu/butoraink/fotelek" },
+      { "@type": "ListItem", "position": 3, "name": "Franciaágyak", "url": "https://enzodesign.hu/butoraink/franciaagyak" },
+      { "@type": "ListItem", "position": 4, "name": "Szék, zsámoly, falvédő", "url": "https://enzodesign.hu/butoraink/szek-zsamoly-falvedo" },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
       <PageHero moduleId="hero:butoraink" defaults={{ label: "ENZO DESIGN", title: "Bútoraink", subtitle: "Kárpitozott bútorok – egyedi méretben, választott szövettel, közvetlenül a gyártótól." }} />
 
       <section className="relative bg-white py-12 px-4 border-b border-gray-100">

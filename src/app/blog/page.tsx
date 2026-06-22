@@ -99,9 +99,26 @@ const POSTS = [
   },
 ];
 
+const blogJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Blog – Enzo Design",
+  "url": "https://enzodesign.hu/blog",
+  "description": "Kárpitozott bútorokról, Chesterfieldről, egyedi rendelésről és enteriőr trendekről – az Enzo Design blog.",
+  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu" },
+  "blogPost": POSTS.map((p) => ({
+    "@type": "BlogPosting",
+    "headline": p.title,
+    "description": p.excerpt,
+    "url": `https://enzodesign.hu/blog/${p.slug}`,
+    "image": `https://enzodesign.hu${p.image}`,
+  })),
+};
+
 export default function BlogPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }} />
       <PageHero moduleId="hero:blog" defaults={{ title: "Blog", label: "Írások" }} />
       <BlogList posts={POSTS} />
       <ContactFormSection />

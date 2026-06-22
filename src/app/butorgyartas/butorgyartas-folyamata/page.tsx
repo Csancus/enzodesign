@@ -6,8 +6,10 @@ import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "A bútorgyártás menete – Enzo Design",
+  description: "A tervezéstől a kiszállításig – az Enzo Design bútorgyártási folyamata: 6 lépéses minőségellenőrzött gyártás, 10 év vázgaranciával.",
   alternates: { canonical: "https://enzodesign.hu/butorgyartas/butorgyartas-folyamata" },
   openGraph: {
+    type: "article",
     title: "A bútorgyártás menete – Enzo Design",
     description: "A tervezéstől a kiszállításig – az Enzo Design bútorgyártási folyamata: 6 lépéses minőségellenőrzött gyártás, 10 év vázgaranciával.",
     url: "https://enzodesign.hu/butorgyartas/butorgyartas-folyamata",
@@ -24,9 +26,22 @@ const STEPS = [
   { step: "06", title: "Minőségellenőrzés", desc: "Minden elkészített bútort kézzel ellenőrzünk, mielőtt kiszállítjuk." },
 ];
 
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "A bútorgyártás menete",
+  "description": "A tervezéstől a kiszállításig – az Enzo Design bútorgyártási folyamata: 6 lépéses minőségellenőrzött gyártás, 10 év vázgaranciával.",
+  "url": "https://enzodesign.hu/butorgyartas/butorgyartas-folyamata",
+  "image": "https://enzodesign.hu/images/chesterfield-w1.webp",
+  "inLanguage": "hu",
+  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu" },
+  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu", "logo": { "@type": "ImageObject", "url": "https://enzodesign.hu/images/logo.webp" } },
+};
+
 export default async function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
         <div className="max-w-4xl mx-auto">
           <Link href="/butorgyartas" className="hover:text-white">Bútorgyártás</Link>
