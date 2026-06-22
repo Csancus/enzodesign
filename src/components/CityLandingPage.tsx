@@ -7,6 +7,7 @@ import RolunkSection from "./sections/RolunkSection";
 import EgyediSection from "./sections/EgyediSection";
 import ReviewsSection from "./sections/ReviewsSection";
 import FaqSection from "./sections/FaqSection";
+import { getAdminStatus } from "@/lib/auth";
 
 export type CityLandingPageProps = {
   city: string;
@@ -40,6 +41,7 @@ export default async function CityLandingPage({
   description,
   neighborCities,
 }: CityLandingPageProps) {
+  const isAdmin = await getAdminStatus();
   return (
     <>
       {/* Slider — same as homepage, with city-specific H1 in the white card */}
@@ -130,19 +132,19 @@ export default async function CityLandingPage({
       </section>
 
       {/* Steps — Fától a kanapéig */}
-      <StepsSection moduleId="home:steps" isAdmin={false} />
+      <StepsSection moduleId="home:steps" isAdmin={isAdmin} />
 
       {/* Rólunk */}
-      <RolunkSection moduleId="home:rolunk" isAdmin={false} />
+      <RolunkSection moduleId="home:rolunk" isAdmin={isAdmin} />
 
       {/* Megrendelésre készített bútorok */}
-      <EgyediSection moduleId="home:egyedi" isAdmin={false} />
+      <EgyediSection moduleId="home:egyedi" isAdmin={isAdmin} />
 
       {/* Értékelések */}
-      <ReviewsSection isAdmin={false} />
+      <ReviewsSection isAdmin={isAdmin} />
 
       {/* FAQ — accordion */}
-      <FaqSection moduleId="global:faq" isAdmin={false} />
+      <FaqSection moduleId="global:faq" isAdmin={isAdmin} />
 
       {/* Contact form */}
       <ContactFormSection />
