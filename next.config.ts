@@ -50,6 +50,22 @@ const nextConfig: NextConfig = {
       { source: "/new-york-kollekci\u00f3",   destination: "/new-york-kollekcio",              permanent: true },
       { source: "/olds-club-kollekci\u00f3",  destination: "/olds-club-kollekcio",             permanent: true },
       { source: "/butoraink/butorrendeles",   destination: "/kapcsolat-es-rendeles",            permanent: true },
+
+      // Régi Wix /de/ nyelvi változatok → magyar oldalak
+      { source: "/de",         destination: "/", permanent: true },
+      { source: "/de/:path*",  destination: "/:path*", permanent: true },
+
+      // Régi Wix /post/ blog URL-ek → új /blog/ URL-ek
+      { source: "/post/melyik-chesterfield-b\u00fat\u00f3r-illik-hozz\u00e1d-st\u00edluskalauz-sz\u00ednekhez-\u00e9s-form\u00e1khoz", destination: "/blog/melyik-chesterfield-butor-illik-hozzad", permanent: true },
+      { source: "/post/modern-chesterfield-kanap\u00e9",                                                                                destination: "/blog/modern-chesterfield-kanape",              permanent: true },
+      { source: "/post/\u00e1gyazhat\u00f3-chesterfield-kanap\u00e9-st\u00edlus-\u00e9s-praktikum-egy-b\u00fatorban",                  destination: "/blog/agyazhato-chesterfield-kanape",           permanent: true },
+      { source: "/post/kanap\u00e9-zalaegerszegen-hogyan-tal\u00e1lod-meg-a-t\u00f6k\u00e9letes-b\u00fatort-otthonodba",              destination: "/blog/kanape-zalaegerszegen",                    permanent: true },
+      { source: "/post/b\u0151r-fotel-id\u0151t\u00e1ll\u00f3-k\u00e9nyelem-\u00e9s-st\u00edlus-egyetlen-b\u00fatordarabban",       destination: "/blog/bor-fotel",                               permanent: true },
+      { source: "/post/b\u00fatorbolt-nagykanizsán-pr\u00e9mium-v\u00e1laszt\u00e9k-szem\u00e9lyesen-\u00e9s-kisz\u00e1ll\u00edt\u00e1ssal-is-el\u00e9rhet\u0151", destination: "/blog/butorbolt-nagykanizsán", permanent: true },
+      { source: "/post/:path*", destination: "/blog", permanent: true },
+
+      // Adatkezelési tájékoztató (nincs megfelelő oldal az új siten)
+      { source: "/adatkezelesi-szabalyzat", destination: "/", permanent: true },
     ];
   },
 };
