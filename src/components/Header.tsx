@@ -113,7 +113,7 @@ export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPa
           ))}
         </nav>
 
-        {/* Right: phone + Rendelés */}
+        {/* Right: phone + Rendelés + burger */}
         <div className="flex items-center gap-2 flex-shrink-0">
           <a
             href="tel:+36303778983"
@@ -127,18 +127,16 @@ export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPa
           >
             Rendelés
           </Link>
+          <button
+            className="xl:hidden flex flex-col gap-1.5 p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Menü"
+          >
+            <span className={`block w-6 h-0.5 bg-[#1c1c1c] transition-all ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-[#1c1c1c] transition-all ${mobileOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-[#1c1c1c] transition-all ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          </button>
         </div>
-
-        {/* Mobile toggle */}
-        <button
-          className="xl:hidden flex flex-col gap-1.5 p-3"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Menü"
-        >
-          <span className={`block w-6 h-0.5 bg-[#1c1c1c] transition-all ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-[#1c1c1c] transition-all ${mobileOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-[#1c1c1c] transition-all ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-        </button>
       </div>
 
       {/* Mobile Menu */}
