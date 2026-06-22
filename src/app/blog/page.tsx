@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const POSTS = [
   {
-    slug: "butorbolt-nagykanizsán",
+    slug: "butorbolt-nagykanizsan",
     title: "Bútorbolt Nagykanizsán: Prémium választék, személyesen és kiszállítással is elérhető",
     excerpt: "Megbízható bútorboltot keresel Nagykanizsán? Mutatjuk, hol találod meg álmaid bútorait! Egyedi bútorok készítése Nagykanizsán – személyes egyeztetéssel, kiszállítással és garanciával.",
     category: "",

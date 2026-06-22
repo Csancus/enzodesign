@@ -58,7 +58,7 @@ const PAGES = [
   { url: "/butorbolt-nagykanizsa", priority: 0.9, changeFrequency: "monthly" },
   { url: "/butorbolt-budapest", priority: 0.9, changeFrequency: "monthly" },
   { url: "/blog", priority: 0.7, changeFrequency: "weekly" },
-  { url: "/blog/butorbolt-nagykanizsán", priority: 0.6, changeFrequency: "monthly" },
+  { url: "/blog/butorbolt-nagykanizsan", priority: 0.6, changeFrequency: "monthly" },
   { url: "/blog/kanape-zalaegerszegen", priority: 0.6, changeFrequency: "monthly" },
   { url: "/blog/bor-fotel", priority: 0.6, changeFrequency: "monthly" },
   { url: "/blog/modern-chesterfield-kanape", priority: 0.6, changeFrequency: "monthly" },
