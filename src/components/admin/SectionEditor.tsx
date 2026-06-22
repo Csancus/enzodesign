@@ -68,6 +68,89 @@ function ImageField({
   );
 }
 
+const ROUTE_OPTIONS: { group: string; routes: { label: string; value: string }[] }[] = [
+  {
+    group: "Kanapék",
+    routes: [
+      { label: "Kanapék (főoldal)", value: "/butoraink/kanapek" },
+      { label: "Old's Club kanapék", value: "/butoraink/kanapek/olds-club-kanapek" },
+      { label: "Ivone kanapék", value: "/butoraink/kanapek/ivone-kanapek" },
+      { label: "Design kanapék", value: "/butoraink/kanapek/design-kanapek" },
+      { label: "Chesterfield kanapék", value: "/butoraink/kanapek/chesterfield-kanapek" },
+      { label: "New York kanapék", value: "/butoraink/kanapek/new-york-kanapek" },
+      { label: "Joker kanapék", value: "/butoraink/kanapek/joker-kanapek" },
+      { label: "Cannes kanapék", value: "/butoraink/kanapek/cannes-kanapek" },
+    ],
+  },
+  {
+    group: "Fotelek",
+    routes: [
+      { label: "Fotelek (főoldal)", value: "/butoraink/fotelek" },
+      { label: "Old's Club fotel", value: "/butoraink/fotelek/olds-club-fotel" },
+      { label: "Ivone fotel", value: "/butoraink/fotelek/ivone-fotel" },
+      { label: "Design fotel", value: "/butoraink/fotelek/design-fotel" },
+      { label: "Chesterfield fotel", value: "/butoraink/fotelek/chesterfield-fotel" },
+      { label: "New York fotel", value: "/butoraink/fotelek/new-york-fotel" },
+      { label: "Joker fotel", value: "/butoraink/fotelek/joker-fotel" },
+      { label: "További fotelek", value: "/butoraink/fotelek/tovabbi-fotelek" },
+    ],
+  },
+  {
+    group: "Franciaágyak, székek, egyéb bútorok",
+    routes: [
+      { label: "Franciaágyak", value: "/butoraink/franciaagyak" },
+      { label: "Szék, zsámoly, falvédő", value: "/butoraink/szek-zsamoly-falvedo" },
+      { label: "Egyedi bútor", value: "/butoraink/egyedi-butor" },
+      { label: "Bútoraink (főoldal)", value: "/butoraink" },
+    ],
+  },
+  {
+    group: "Kollekciók",
+    routes: [
+      { label: "Old's Club kollekció", value: "/olds-club-kollekcio" },
+      { label: "Ivone kollekció", value: "/ivone-kollekcio" },
+      { label: "Chesterfield oldal", value: "/chesterfield" },
+    ],
+  },
+  {
+    group: "Általános oldalak",
+    routes: [
+      { label: "Üzleti bútor", value: "/karpitozott-butor-uzleti-ugyfeleknek" },
+      { label: "Kapcsolat és rendelés", value: "/kapcsolat-es-rendeles" },
+      { label: "Butorgyártás", value: "/butorgyartas" },
+      { label: "Főoldal", value: "/" },
+    ],
+  },
+];
+
+function UrlField({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  return (
+    <div className="space-y-1.5">
+      <select
+        value={value}
+        onChange={(e) => { if (e.target.value) onChange(e.target.value); }}
+        className="w-full border border-gray-200 px-2 py-1.5 text-xs text-gray-700 bg-white outline-none focus:border-[#b8924a]"
+      >
+        <option value="">— válassz oldalt —</option>
+        {ROUTE_OPTIONS.map((g) => (
+          <optgroup key={g.group} label={g.group}>
+            {g.routes.map((r) => (
+              <option key={r.value} value={r.value}>{r.label} ({r.value})</option>
+            ))}
+          </optgroup>
+        ))}
+      </select>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder="vagy írj be egyedi URL-t"
+        className="w-full border border-gray-200 px-2 py-1.5 text-xs text-gray-900 bg-white outline-none focus:border-[#b8924a]"
+      />
+    </div>
+  );
+}
+
 function FieldInput({ field, value, onChange, nested }: {
   field: FieldDef;
   value: unknown;
@@ -76,6 +159,9 @@ function FieldInput({ field, value, onChange, nested }: {
 }) {
   if (field.type === "image") {
     return <ImageField value={(value as string) ?? ""} onChange={onChange as (v: string) => void} />;
+  }
+  if (field.type === "url") {
+    return <UrlField value={(value as string) ?? ""} onChange={onChange as (v: string) => void} />;
   }
   if (field.type === "textarea") {
     return (

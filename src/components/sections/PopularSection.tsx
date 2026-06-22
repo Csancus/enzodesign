@@ -72,7 +72,7 @@ const SCHEMA: FieldDef[] = [
       { key: "name", label: "Név", type: "text" },
       { key: "tagline", label: "Tagline", type: "text" },
       { key: "price", label: "Ár szöveg (pl. 2-es kanapé 444 240 Ft-tól)", type: "text" },
-      { key: "href", label: "Link URL", type: "text" },
+      { key: "href", label: "Link URL", type: "url" },
       {
         key: "images",
         label: "Képek (több is lehet, lapozható)",

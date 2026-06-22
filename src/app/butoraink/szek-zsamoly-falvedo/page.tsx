@@ -44,7 +44,7 @@ const GRID_SCHEMA: FieldDef[] = [{ key: "title", label: "Szekció cím", type: "
 const CARD_SCHEMA: FieldDef[] = [
   { key: "name", label: "Neve", type: "text" },
   { key: "tagline", label: "Tagline", type: "text" },
-  { key: "href", label: "Link", type: "text" },
+  { key: "href", label: "Link URL", type: "url" },
   { key: "images", label: "Képek", type: "array", itemFields: [{ key: "src", label: "Kép", type: "image" }] },
 ];
 

@@ -68,7 +68,7 @@ const GRID_SCHEMA: FieldDef[] = [
 const CARD_SCHEMA: FieldDef[] = [
   { key: "name", label: "Neve", type: "text" },
   { key: "tagline", label: "Tagline", type: "text" },
-  { key: "href", label: "Link (pl. /butoraink/fotelek/...)", type: "text" },
+  { key: "href", label: "Link URL", type: "url" },
   {
     key: "images",
     label: "Képek",

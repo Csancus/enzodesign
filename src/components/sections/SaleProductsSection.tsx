@@ -79,7 +79,7 @@ const PRODUCT_FIELDS: SimpleField[] = [
   { key: "originalPrice", label: "Eredeti ár (Ft)", type: "text" },
   { key: "salePrice", label: "Akciós ár (Ft)", type: "text" },
   { key: "saleEnds", label: "Akció vége (ÉÉÉÉ-HH-NN)", type: "text" },
-  { key: "href", label: "Link (opcionális)", type: "text" },
+  { key: "href", label: "Link URL (opcionális)", type: "url" },
 ];
 
 const SCHEMA: FieldDef[] = [

@@ -56,7 +56,7 @@ const EXTRA_CARDS: Card[] = [
 const CARD_SCHEMA: FieldDef[] = [
   { key: "name", label: "Neve", type: "text" },
   { key: "tagline", label: "Tagline", type: "text" },
-  { key: "href", label: "Link", type: "text" },
+  { key: "href", label: "Link URL", type: "url" },
   { key: "image", label: "Kép", type: "image" },
 ];
 
