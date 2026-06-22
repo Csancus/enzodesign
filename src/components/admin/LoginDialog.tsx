@@ -13,6 +13,7 @@ export default function LoginDialog() {
   const { isAdmin, setAdmin } = useAdmin();
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
+  const [showPw, setShowPw] = useState(false);
   const [pw, setPw] = useState("");
   const [captcha, setCaptcha] = useState({ a: 0, b: 0 });
   const [captchaAnswer, setCaptchaAnswer] = useState("");
@@ -100,14 +101,33 @@ export default function LoginDialog() {
               required
               className="w-full border border-gray-300 px-3 py-2.5 text-sm mb-3 outline-none focus:border-[#b8924a]"
             />
-            <input
-              type="password"
-              value={pw}
-              onChange={(e) => { setPw(e.target.value); setError(""); }}
-              placeholder="Jelszó"
-              required
-              className="w-full border border-gray-300 px-3 py-2.5 text-sm mb-3 outline-none focus:border-[#b8924a]"
-            />
+            <div className="relative mb-3">
+              <input
+                type={showPw ? "text" : "password"}
+                value={pw}
+                onChange={(e) => { setPw(e.target.value); setError(""); }}
+                placeholder="Jelszó"
+                required
+                className="w-full border border-gray-300 px-3 py-2.5 pr-10 text-sm outline-none focus:border-[#b8924a]"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPw((v) => !v)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                tabIndex={-1}
+              >
+                {showPw ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-5 0-9-4-9-7s4-7 9-7a10.05 10.05 0 011.875.175M15 12a3 3 0 11-6 0 3 3 0 016 0zm6.364-3.364A16.9 16.9 0 0121 12c0 3-4 7-9 7a9.8 9.8 0 01-4.243-.943M3 3l18 18" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                )}
+              </button>
+            </div>
 
             <div className="mb-3">
               <label className="block text-xs text-gray-500 mb-1">
