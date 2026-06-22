@@ -14,7 +14,7 @@ const DEFAULT_IMAGES = [
 
 export default async function SlideshowModule({
   moduleId = "home:slideshow",
-  heading = "Egyedi kárpitozott bútorok gyártótól",
+  heading = "Egyedi kárpitozott bútorok",
 }: {
   moduleId?: string;
   heading?: string;
