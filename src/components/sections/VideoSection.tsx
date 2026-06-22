@@ -53,6 +53,7 @@ export default async function VideoSection({ moduleId, isAdmin }: { moduleId: st
           muted
           loop
           playsInline
+          controls
           className="w-full rounded-sm object-cover"
           style={{ maxHeight: "560px" }}
         />
