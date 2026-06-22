@@ -2,11 +2,13 @@
 import { useState } from "react";
 import { useAdmin } from "@/context/AdminContext";
 import NewPageDialog from "./NewPageDialog";
+import NewBlogDialog from "./NewBlogDialog";
 
 export default function AdminFab() {
   const { isAdmin } = useAdmin();
   const [menuOpen, setMenuOpen] = useState(false);
   const [newPageOpen, setNewPageOpen] = useState(false);
+  const [newBlogOpen, setNewBlogOpen] = useState(false);
 
   if (!isAdmin) return null;
 
@@ -16,8 +18,14 @@ export default function AdminFab() {
         {menuOpen && (
           <div className="bg-white shadow-xl border border-gray-200 rounded-sm overflow-hidden mb-1">
             <button
-              onClick={() => { setMenuOpen(false); setNewPageOpen(true); }}
+              onClick={() => { setMenuOpen(false); setNewBlogOpen(true); }}
               className="block w-full text-left px-5 py-3 text-sm text-[#1c1c1c] hover:bg-[#b8924a] hover:text-white transition-colors whitespace-nowrap"
+            >
+              + Új blog cikk
+            </button>
+            <button
+              onClick={() => { setMenuOpen(false); setNewPageOpen(true); }}
+              className="block w-full text-left px-5 py-3 text-sm text-[#1c1c1c] hover:bg-[#b8924a] hover:text-white transition-colors whitespace-nowrap border-t border-gray-100"
             >
               + Új oldal
             </button>
@@ -34,6 +42,9 @@ export default function AdminFab() {
 
       {newPageOpen && (
         <NewPageDialog onClose={() => setNewPageOpen(false)} />
+      )}
+      {newBlogOpen && (
+        <NewBlogDialog onClose={() => setNewBlogOpen(false)} />
       )}
     </>
   );

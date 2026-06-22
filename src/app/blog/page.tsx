@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import ContactFormSection from "@/components/ContactFormSection";
 import PageHero from "@/components/PageHero";
 import BlogList from "./BlogList";
+import { getModuleConfig } from "@/lib/moduleStore";
+import type { BlogPostMeta } from "@/app/api/admin/blog-posts/route";
 
 export const metadata: Metadata = {
   title: "Blog – Enzo Design",
@@ -115,12 +117,35 @@ const blogJsonLd = {
   })),
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const stored = await getModuleConfig("blog:dynamic-posts");
+  const dynamicPosts = ((stored.posts as BlogPostMeta[]) ?? []).map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    excerpt: p.excerpt,
+    category: p.category,
+    readTime: p.readTime,
+    image: p.image || "/images/chesterfield-w1.webp",
+  }));
+
+  const allPosts = [...dynamicPosts, ...POSTS];
+
+  const allJsonLd = {
+    ...blogJsonLd,
+    blogPost: allPosts.map((p) => ({
+      "@type": "BlogPosting",
+      "headline": p.title,
+      "description": p.excerpt,
+      "url": `https://enzodesign.hu/blog/${p.slug}`,
+      "image": `https://enzodesign.hu${p.image}`,
+    })),
+  };
+
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(allJsonLd) }} />
       <PageHero moduleId="hero:blog" defaults={{ title: "Blog", label: "Írások" }} />
-      <BlogList posts={POSTS} />
+      <BlogList posts={allPosts} />
       <ContactFormSection />
     </>
   );
