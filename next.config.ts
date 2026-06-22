@@ -50,6 +50,7 @@ const nextConfig: NextConfig = {
       { source: "/new-york-kollekci\u00f3",   destination: "/new-york-kollekcio",              permanent: true },
       { source: "/olds-club-kollekci\u00f3",  destination: "/olds-club-kollekcio",             permanent: true },
       { source: "/butoraink/butorrendeles",   destination: "/kapcsolat-es-rendeles",            permanent: true },
+      { source: "/butoraink/egyedi-b\u00fator", destination: "/butoraink/egyedi-butor",          permanent: true },
 
       // Régi Wix /de/ nyelvi változatok → magyar oldalak
       { source: "/de",         destination: "/", permanent: true },
@@ -62,6 +63,10 @@ const nextConfig: NextConfig = {
       { source: "/post/kanap\u00e9-zalaegerszegen-hogyan-tal\u00e1lod-meg-a-t\u00f6k\u00e9letes-b\u00fatort-otthonodba",              destination: "/blog/kanape-zalaegerszegen",                    permanent: true },
       { source: "/post/b\u0151r-fotel-id\u0151t\u00e1ll\u00f3-k\u00e9nyelem-\u00e9s-st\u00edlus-egyetlen-b\u00fatordarabban",       destination: "/blog/bor-fotel",                               permanent: true },
       { source: "/post/b\u00fatorbolt-nagykanizsán-pr\u00e9mium-v\u00e1laszt\u00e9k-szem\u00e9lyesen-\u00e9s-kisz\u00e1ll\u00edt\u00e1ssal-is-el\u00e9rhet\u0151", destination: "/blog/butorbolt-nagykanizsán", permanent: true },
+      { source: "/post/mi\u00e9rt-id\u0151t\u00e1ll\u00f3-v\u00e1laszt\u00e1s-a-chesterfield-kanap\u00e9",                                     destination: "/blog/miert-idotallo-valasztas-a-chesterfield-kanape",         permanent: true },
+      { source: "/post/t\u00f6m\u00f6rfa-b\u00fator-id\u0151t\u00e1ll\u00f3-befektet\u00e9s-vagy-elavult-megold\u00e1s",                   destination: "/blog/tomorfa-butor",                                          permanent: true },
+      { source: "/post/mi\u00e9rt-\u00e9ri-meg-k\u00f6zvetlen\u00fcl-a-b\u00fatorgy\u00e1rt\u00f3t\u00f3l-v\u00e1s\u00e1rolni",          destination: "/blog/miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni",      permanent: true },
+      { source: "/post/egyedi-b\u00fator-k\u00e9sz\u00edttet\u00e9s-mire-figyelj-ha-saj\u00e1t-\u00f6tleted-van",                         destination: "/blog/egyedi-butor-keszittetes",                                permanent: true },
       { source: "/post/:path*", destination: "/blog", permanent: true },
 
       // Adatkezelési tájékoztató (nincs megfelelő oldal az új siten)
