@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getAdminStatus } from "@/lib/auth";
 
 export const metadata: Metadata = {
-  title: "Egyedi kárpitozott bútorok gyártótól – Enzo Design",
+  title: "Egyedi kárpitozott bútorok – Enzo Design",
   description: "Bútorbolt Nagykanizsán – egyedi bútor gyártótól: kanapé, fotel, Chesterfield. Online rendelés, 2 nap alatt árajánlat, 3+10 év garancia. Enzo Design.",
   alternates: { canonical: "https://enzodesign.hu" },
   openGraph: {
