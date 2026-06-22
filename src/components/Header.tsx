@@ -59,7 +59,16 @@ function buildNavItems(dynamicPages: DynamicPage[]): NavItem[] {
 export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPage[] }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openAccordions, setOpenAccordions] = useState<Set<string>>(new Set());
   const navItems = buildNavItems(dynamicPages);
+
+  function toggleAccordion(label: string) {
+    setOpenAccordions((prev) => {
+      const next = new Set(prev);
+      next.has(label) ? next.delete(label) : next.add(label);
+      return next;
+    });
+  }
 
   return (
     <header className="bg-white sticky top-0 z-50 border-b-2 border-[#b8924a] shadow-sm">
@@ -105,16 +114,17 @@ export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPa
         </nav>
 
         {/* Right: phone + Rendelés */}
-        <div className="hidden md:flex items-center gap-2 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <a
             href="tel:+36303778983"
-            className="bg-[#b8924a] hover:bg-[#a07840] text-white text-sm font-semibold px-4 py-2 transition-colors"
+            className="bg-[#b8924a] hover:bg-[#a07840] text-white text-sm font-semibold px-3 py-2 transition-colors"
           >
-            +36303778983
+            <span className="hidden sm:inline">+36303778983</span>
+            <span className="sm:hidden">📞</span>
           </a>
           <Link
             href="/kapcsolat-es-rendeles"
-            className="bg-[#7d6142] hover:bg-[#6a5138] text-white text-sm font-bold uppercase tracking-wide px-5 py-2 transition-colors"
+            className="hidden md:block bg-[#7d6142] hover:bg-[#6a5138] text-white text-sm font-bold uppercase tracking-wide px-5 py-2 transition-colors"
           >
             Rendelés
           </Link>
@@ -134,30 +144,37 @@ export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPa
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="xl:hidden bg-white border-t border-gray-200 pb-4">
-          <div className="max-w-7xl mx-auto px-4">
-            <a
-              href="tel:+36303778983"
-              className="block py-3 text-[#b8924a] font-semibold border-b border-gray-100"
-            >
-              +36303778983
-            </a>
+        <div className="xl:hidden bg-white border-t border-gray-200 flex flex-col" style={{ maxHeight: "calc(100svh - 3.5rem)" }}>
+          <div className="overflow-y-auto flex-1 px-4">
             {navItems.map((item) => (
               <div key={item.label}>
-                <Link
-                  href={item.href}
-                  className="block py-3 text-sm text-[#1c1c1c] border-b border-gray-100 hover:text-[#b8924a]"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {item.label}
-                </Link>
-                {item.children && (
-                  <div className="pl-4 bg-gray-50">
+                <div className="flex items-center border-b border-gray-100">
+                  <Link
+                    href={item.href}
+                    className="flex-1 py-3 text-sm text-[#1c1c1c] hover:text-[#b8924a] font-medium"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.children && (
+                    <button
+                      onClick={() => toggleAccordion(item.label)}
+                      className="px-3 py-3 text-gray-400 hover:text-[#b8924a]"
+                      aria-label="Almenü megnyitása"
+                    >
+                      <svg className={`w-4 h-4 transition-transform duration-200 ${openAccordions.has(item.label) ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+                {item.children && openAccordions.has(item.label) && (
+                  <div className="bg-gray-50 border-b border-gray-100">
                     {item.children.map((child) => (
                       <Link
                         key={child.href + child.label}
                         href={child.href}
-                        className="block py-2 text-xs text-gray-600 border-b border-gray-100 hover:text-[#b8924a]"
+                        className="block pl-5 pr-3 py-2.5 text-xs text-gray-600 border-b border-gray-100 last:border-0 hover:text-[#b8924a]"
                         onClick={() => setMobileOpen(false)}
                       >
                         {child.label}
@@ -167,9 +184,11 @@ export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPa
                 )}
               </div>
             ))}
+          </div>
+          <div className="px-4 py-3 border-t border-gray-200 bg-white flex-shrink-0">
             <Link
               href="/kapcsolat-es-rendeles"
-              className="block mt-4 bg-[#7d6142] text-white text-center py-3 font-bold uppercase tracking-wider"
+              className="block bg-[#7d6142] text-white text-center py-3 font-bold uppercase tracking-wider"
               onClick={() => setMobileOpen(false)}
             >
               Rendelés
