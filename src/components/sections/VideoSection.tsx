@@ -49,12 +49,10 @@ export default async function VideoSection({ moduleId, isAdmin }: { moduleId: st
         )}
         <video
           src={cfg.src}
-          autoPlay
-          muted
-          loop
           playsInline
           controls
-          className="w-full rounded-sm object-cover"
+          preload="metadata"
+          className="w-full rounded-sm"
           style={{ maxHeight: "560px" }}
         />
       </div>
