@@ -26,9 +26,11 @@ export default function AddSectionModal({
 
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-[200]" onClick={onClose}>
-      <div className="bg-white w-full max-w-sm p-6 shadow-2xl" onClick={(e) => e.stopPropagation()}>
-        <h2 className="text-base font-bold text-[#1c1c1c] mb-4">Szekció hozzáadása</h2>
-        <div className="space-y-2">
+      <div className="bg-white w-full max-w-sm shadow-2xl flex flex-col max-h-[90dvh]" onClick={(e) => e.stopPropagation()}>
+        <div className="p-6 pb-3 flex-shrink-0">
+          <h2 className="text-base font-bold text-[#1c1c1c]">Szekció hozzáadása</h2>
+        </div>
+        <div className="overflow-y-auto flex-1 px-6 space-y-2">
           {SECTION_TYPES.map((st) => (
             <button
               key={st.type}
@@ -40,9 +42,11 @@ export default function AddSectionModal({
             </button>
           ))}
         </div>
-        <button onClick={onClose} className="mt-4 w-full border border-gray-300 py-2 text-sm text-gray-600 hover:bg-gray-50">
-          Mégse
-        </button>
+        <div className="p-6 pt-3 flex-shrink-0">
+          <button onClick={onClose} className="w-full border border-gray-300 py-2 text-sm text-gray-600 hover:bg-gray-50">
+            Mégse
+          </button>
+        </div>
       </div>
     </div>
   );
