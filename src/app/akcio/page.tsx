@@ -29,7 +29,9 @@ function buildProductSchema(products: SaleProduct[]) {
       "@context": "https://schema.org/",
       "@type": "Product",
       name: p.name,
+      description: `Egyedi kárpitozott ${p.name} közvetlenül az Enzo Design gyártójától. Tömörfa szerkezetű, nagy kopásállóságú szövettel borított bútor, garanciával.`,
       image: [p.mainImage, p.image2, p.image3].filter(Boolean),
+      brand: { "@type": "Brand", name: "Enzo Design" },
       offers: {
         "@type": "Offer",
         url: "https://www.enzodesign.hu/akcio",
@@ -39,6 +41,23 @@ function buildProductSchema(products: SaleProduct[]) {
         itemCondition: "https://schema.org/NewCondition",
         availability: "https://schema.org/InStock",
         seller: { "@type": "Organization", name: "Enzo Design" },
+        shippingDetails: {
+          "@type": "OfferShippingDetails",
+          shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "HUF" },
+          shippingDestination: { "@type": "DefinedRegion", addressCountry: "HU" },
+          deliveryTime: {
+            "@type": "ShippingDeliveryTime",
+            handlingTime: { "@type": "QuantitativeValue", minValue: 2, maxValue: 6, unitCode: "WEE" },
+          },
+        },
+        hasMerchantReturnPolicy: {
+          "@type": "MerchantReturnPolicy",
+          applicableCountry: "HU",
+          returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+          merchantReturnDays: 14,
+          returnMethod: "https://schema.org/ReturnByMail",
+          returnFees: "https://schema.org/FreeReturn",
+        },
       },
       aggregateRating: {
         "@type": "AggregateRating",
