@@ -21,7 +21,7 @@ const jsonLd = {
   "headline": "Kanapé Zalaegerszegen – minőségi bútor gyártótól",
   "description": "Kényelmes, egyedi kanapét keresel Zalaegerszeg közelében? Az Enzo Design Nagykanizsán, 30 km-re vár – 2000 nm bemutatóterem, 100+ szövet, házhozszállítással.",
   "image": "https://www.enzodesign.hu/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp",
-  "datePublished": "2025-06-01",
+  "datePublished": "2025-03-25",
   "dateModified": "2026-06-19",
   "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
   "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },

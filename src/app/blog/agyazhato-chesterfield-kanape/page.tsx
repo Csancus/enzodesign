@@ -21,7 +21,7 @@ const jsonLd = {
   "headline": "Ágyazható Chesterfield kanapé – vendégágy és stílus egyben",
   "description": "Az ágyazható Chesterfield kanapé elegáns nappalit és kényelmes vendégágyat kínál egy bútorban. Személyre szabható, kézzel készített, 3+10 év garanciával.",
   "image": "https://www.enzodesign.hu/images/chesterfield-borszovet-boritasu.webp",
-  "datePublished": "2025-06-01",
+  "datePublished": "2025-05-20",
   "dateModified": "2026-06-19",
   "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
   "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },

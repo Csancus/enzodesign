@@ -21,7 +21,7 @@ const jsonLd = {
   "headline": "Miért vásárolj gyártótól? 5 érv az egyedi bútor mellett",
   "description": "5 ok, amiért érdemes egyenesen a gyártótól rendelni: alacsonyabb ár, egyediség, 3+10 év garancia, közvetlen kapcsolat és magyar kézimunka.",
   "image": "https://www.enzodesign.hu/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp",
-  "datePublished": "2025-06-01",
+  "datePublished": "2025-07-15",
   "dateModified": "2026-06-19",
   "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
   "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },

@@ -20,6 +20,14 @@ export const metadata: Metadata = {
 
 const POSTS = [
   {
+    slug: "chesterfield-puff",
+    title: "Chesterfield puff – elegáns zsámoly a nappaliba",
+    excerpt: "A Chesterfield puff egyszerre lábzsámoly, extra ülőhely és dekorációs fókuszpont. Mutatjuk, miért illik minden Chesterfield garnitúra mellé, és hogyan rendeld meg egyedi méretben.",
+    category: "chesterfield",
+    readTime: "3 perc",
+    image: "/images/szek-w5.webp",
+  },
+  {
     slug: "butorbolt-nagykanizsan",
     title: "Bútorbolt Nagykanizsán: Prémium választék, személyesen és kiszállítással is elérhető",
     excerpt: "Megbízható bútorboltot keresel Nagykanizsán? Mutatjuk, hol találod meg álmaid bútorait! Egyedi bútorok készítése Nagykanizsán – személyes egyeztetéssel, kiszállítással és garanciával.",

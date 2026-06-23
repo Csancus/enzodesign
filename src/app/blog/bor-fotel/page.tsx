@@ -21,7 +21,7 @@ const jsonLd = {
   "headline": "Bőr fotel – prémium kárpitozott fotel",
   "description": "Miért érdemes valódi bőr fotelt választani? Típusok, enteriőr tippek, karbantartás és árak 421 695 Ft-tól. Személyre szabható, kézzel készített, 3+10 év garancia.",
   "image": "https://www.enzodesign.hu/images/blog-bor-fotel-cover.webp",
-  "datePublished": "2025-06-01",
+  "datePublished": "2025-04-08",
   "dateModified": "2026-06-19",
   "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
   "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },

@@ -21,7 +21,7 @@ const jsonLd = {
   "headline": "Melyik Chesterfield bútor illik hozzád? Stíluskalauz",
   "description": "Chesterfield szék, fotel, puff, étkezőszék vagy kanapé – stíluskalauz a típusokhoz, színekhez és az ideális enteriőrhez. Egyedi gyártás, 3+10 év garancia.",
   "image": "https://www.enzodesign.hu/images/e7ad8b_b8e06512bf824479b51f4152def251fa.webp",
-  "datePublished": "2025-06-01",
+  "datePublished": "2025-05-06",
   "dateModified": "2026-06-19",
   "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
   "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },

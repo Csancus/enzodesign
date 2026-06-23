@@ -21,7 +21,7 @@ const jsonLd = {
   "headline": "Bútorbolt Nagykanizsán – prémium kárpitozott bútorok",
   "description": "Egyedi kárpitozott bútorok gyártótól Nagykanizsán – közel 20 éve. 2000 nm bemutatóterem, 100+ szövet, házhozszállítás az egész országba.",
   "image": "https://www.enzodesign.hu/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp",
-  "datePublished": "2025-06-01",
+  "datePublished": "2025-03-10",
   "dateModified": "2026-06-19",
   "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
   "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },

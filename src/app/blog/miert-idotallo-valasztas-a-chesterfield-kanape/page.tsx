@@ -21,7 +21,7 @@ const jsonLd = {
   "headline": "Miért időtálló a Chesterfield kanapé?",
   "description": "A Chesterfield kanapé 300 éves brit örökség – és ma is trendszetter. Történet, stílusok, anyagok és miért illik minden enteriőrbe. Kézzel készített, 3+10 év garancia.",
   "image": "https://www.enzodesign.hu/images/e7ad8b_6a9bc07515294a40a1f7777272c2786e.webp",
-  "datePublished": "2025-06-01",
+  "datePublished": "2025-06-03",
   "dateModified": "2026-06-19",
   "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
   "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },

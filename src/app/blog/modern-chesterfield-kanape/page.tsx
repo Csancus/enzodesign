@@ -21,7 +21,7 @@ const jsonLd = {
   "headline": "Modern Chesterfield kanapé – klasszikus forma, mai anyagok",
   "description": "Modern Chesterfield kanapé loft, skandináv és minimalista enteriőrbe. 100+ szövet és bőr – kézzel készített, tömörfa váz, 399 810 Ft-tól.",
   "image": "https://www.enzodesign.hu/images/chesterfield-modern-enterior-1.webp",
-  "datePublished": "2025-06-01",
+  "datePublished": "2025-04-22",
   "dateModified": "2026-06-19",
   "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
   "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },

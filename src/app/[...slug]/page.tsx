@@ -16,12 +16,16 @@ export async function generateMetadata({
   const pages = await getDynamicPages();
   const page = pages.find((p) => p.slug === slug);
   if (!page) return {};
+  const description = `${page.title} – Enzo Design kárpitozott bútorok. Egyedi kanapék, fotelek, Chesterfield bútorok közvetlenül a gyártótól, Nagykanizsáról.`;
   return {
     title: page.title,
+    description,
     alternates: { canonical: `https://enzodesign.hu${page.slug}` },
     openGraph: {
       title: page.title,
+      description,
       url: `https://enzodesign.hu${page.slug}`,
+      images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
     },
   };
 }

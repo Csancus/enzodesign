@@ -21,7 +21,7 @@ const jsonLd = {
   "headline": "Tömörfa bútor – tartós befektetés, 20–30 éves élettartam",
   "description": "Miért érdemes tömörfa bútort választani MDF helyett? Tartósság, természetes anyag, 20–30 éves élettartam és 10 év vázgarancia.",
   "image": "https://www.enzodesign.hu/images/nsplsh_1b3884fd54de4bf38b65c3212fdc76c7.webp",
-  "datePublished": "2025-06-01",
+  "datePublished": "2025-06-17",
   "dateModified": "2026-06-19",
   "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
   "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
