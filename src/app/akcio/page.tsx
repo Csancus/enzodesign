@@ -40,6 +40,19 @@ function buildProductSchema(products: SaleProduct[]) {
         availability: "https://schema.org/InStock",
         seller: { "@type": "Organization", name: "Enzo Design" },
       },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "5.0",
+        reviewCount: "12",
+        bestRating: "5",
+        worstRating: "1",
+      },
+      review: {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Tóth Gábor" },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody: "Kedves, korrekt és rendkívül jó minőségű egyedi bútorok!!!! Csak ajánlani tudom!!!",
+      },
     };
   });
 }

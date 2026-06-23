@@ -163,18 +163,25 @@ export default async function ProductPageTemplate({
     "image": `https://enzodesign.hu${mainImage}`,
     "brand": { "@type": "Brand", "name": "Enzo Design" },
     "offers": {
-      "@type": "AggregateOffer",
+      "@type": "Offer",
       "priceCurrency": "HUF",
-      ...(startingPrice ? { "lowPrice": String(startingPrice) } : {}),
+      ...(startingPrice ? { "price": String(startingPrice) } : {}),
       "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition",
       "seller": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu" },
     },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "8",
+      "reviewCount": "12",
       "bestRating": "5",
       "worstRating": "1",
+    },
+    "review": {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Judit Néber" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Karácsonykor vásároltunk két Chesterfield kanapét az Enzo Design-tól – és egyszerűen imádjuk őket! A bútorok minősége, egyedisége és stílusa messze felülmúlta a várakozásainkat.",
     },
   };
 
