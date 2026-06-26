@@ -25,7 +25,7 @@ export default async function VideoSection({ moduleId, isAdmin }: { moduleId: st
     "description": "Egyedi kárpitozott bútorok gyártása Nagykanizsán. Kanapék, fotelek, Chesterfield bútorok saját műhelyben.",
     "thumbnailUrl": "https://enzodesign.hu/images/chesterfield-w1.webp",
     "contentUrl": `https://enzodesign.hu${cfg.src}`,
-    "uploadDate": "2024-01-01T00:00:00+01:00",
+    "uploadDate": "2025-09-01T00:00:00+02:00",
     "publisher": {
       "@type": "Organization",
       "name": "Enzo Design",
