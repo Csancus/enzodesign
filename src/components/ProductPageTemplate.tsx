@@ -32,8 +32,9 @@ type Props = {
 
 function getStartingPrice(rows: FlexPriceRow[]): number | null {
   const prices = rows
+    .filter((r) => !r.label.startsWith("+"))
     .map((r) => parseInt(r.alap, 10))
-    .filter((n) => !isNaN(n));
+    .filter((n) => !isNaN(n) && n > 0);
   return prices.length ? Math.min(...prices) : null;
 }
 
