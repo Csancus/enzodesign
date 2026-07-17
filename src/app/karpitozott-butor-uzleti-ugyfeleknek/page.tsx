@@ -97,8 +97,8 @@ export default async function UzletiButorPage() {
   const benefitsList = benefits.items.split("\n").map((s) => s.trim()).filter(Boolean);
 
   const defaultRefsImages = [
-    { src: "/images/uzleti-ref1.webp" },
-    { src: "/images/uzleti-ref2.webp" },
+    { src: "/images/uzleti-gal-01.webp" },
+    { src: "/images/uzleti-gal-02.webp" },
     { src: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp" },
   ];
   const refs = {

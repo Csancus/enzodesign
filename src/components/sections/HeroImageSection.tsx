@@ -5,7 +5,7 @@ import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
 
 const DEFAULT = {
-  image: "/images/slide1.jpg",
+  image: "/images/slide1.webp",
   label: "",
   title: "Hero cím",
   subtitle: "",
