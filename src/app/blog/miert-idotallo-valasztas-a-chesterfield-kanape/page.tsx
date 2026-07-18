@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import PageBuilderPage from "@/components/PageBuilderPage";
+import BlogArticle from "@/components/BlogArticle";
 
 export const metadata: Metadata = {
   title: "Miért időtálló a Chesterfield kanapé? – Enzo Design",
@@ -15,131 +14,105 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Miért időtálló a Chesterfield kanapé?",
-  "description": "A Chesterfield kanapé 300 éves brit örökség – és ma is trendszetter. Történet, stílusok, anyagok és miért illik minden enteriőrbe. Kézzel készített, 3+10 év garancia.",
-  "image": "https://www.enzodesign.hu/images/e7ad8b_6a9bc07515294a40a1f7777272c2786e.webp",
-  "datePublished": "2025-06-03",
-  "dateModified": "2026-06-19",
-  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
-  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
-  "url": "https://www.enzodesign.hu/blog/miert-idotallo-valasztas-a-chesterfield-kanape",
-  "wordCount": 550,
-  "articleSection": "Chesterfield bútorok",
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.enzodesign.hu/blog/miert-idotallo-valasztas-a-chesterfield-kanape" },
-};
+const faqItems = [
+  { question: "Mennyire kopásálló a kárpit?", answer: "Az Enzo Design kárpitjai legalább 50.000 martindale kopásállóságúak – ez az otthoni és üzleti használatra egyaránt alkalmas minőségi küszöb." },
+  { question: "Miért érdemes Chesterfieldet választani más kanapéval szemben?", answer: "A tömörfa váz, a kézzel gombolt kárpitozás és a tartós rugózás kombinációja 20–30 éves élettartamot biztosít. Formája időtlen, ezért lakásfelújításkor sem válik elavulttá." },
+];
 
-export default async function Page() {
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Miért időtálló a Chesterfield kanapé?",
+    "description": "A Chesterfield kanapé 300 éves brit örökség – és ma is trendszetter. Történet, stílusok, anyagok és miért illik minden enteriőrbe. Kézzel készített, 3+10 év garancia.",
+    "image": "https://www.enzodesign.hu/images/e7ad8b_6a9bc07515294a40a1f7777272c2786e.webp",
+    "datePublished": "2025-06-03",
+    "dateModified": "2026-06-19",
+    "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
+    "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
+    "url": "https://www.enzodesign.hu/blog/miert-idotallo-valasztas-a-chesterfield-kanape",
+    "wordCount": 550,
+    "articleSection": "Chesterfield bútorok",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.enzodesign.hu/blog/miert-idotallo-valasztas-a-chesterfield-kanape" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map((f) => ({
+      "@type": "Question",
+      "name": f.question,
+      "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+    })),
+  },
+];
+
+export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <BlogArticle
+        slug="miert-idotallo-valasztas-a-chesterfield-kanape"
+        defaults={{
+          category: "Chesterfield bútorok",
+          title: "Miért időtálló választás a Chesterfield kanapé?",
+          date: "2025. június 1.",
+          readTime: "2 perc olvasás",
+          coverImage: "/images/e7ad8b_6a9bc07515294a40a1f7777272c2786e.webp",
+          coverAlt: "Chesterfield kanapé – időtálló stílus klasszikus és modern enteriőrben",
+          intro:
+            "A Chesterfield kanapé nem csupán egy bútor, hanem egy életérzés. Klasszikus elegancia, időtlen formavilág és prémium anyaghasználat ötvözete. Akár egy modern loftban, akár egy vidéki kúriában helyezed el – azonnal uralja a teret.",
+          blocks: [
+            {
+              type: "text",
+              heading: "A Chesterfield kanapé története – egy brit ikon születése",
+              body: `A Chesterfield kanapé eredete az 1700-as évekre nyúlik vissza. Lord Phillip Stanhope, Chesterfield negyedik grófja rendelt egy különleges, bőrrel kárpitozott ülőalkalmatosságot. A cél: egy olyan bútordarab, amelyen a vendégek egyenesen ülhetnek anélkül, hogy ruhájuk összegyűrődne. A mélyen gombolt háttámla, az egy szintben futó karfa és háttámla, valamint a masszív fakeret mind ebből az eredeti megrendelésből öröklődött ránk.
 
-      <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
-        <div className="max-w-3xl mx-auto">
-          <div>
-            <Link href="/blog" className="hover:text-white">Blog</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#b8924a]">Miért időtálló választás a Chesterfield kanapé?</span>
-          </div>
-        </div>
-      </nav>
+## Klasszikus jellemzők:
 
-      {/* Reading time + publish date */}
-      <div className="bg-white border-b border-gray-100">
-        <div className="max-w-3xl mx-auto px-4 py-3 flex items-center gap-3 text-sm text-gray-500">
-          <time dateTime="2025-06-01">2025. június 1.</time>
-          <span aria-hidden="true">·</span>
-          <span>2 perc olvasás</span>
-        </div>
-      </div>
+Mélyen gombolt háttámla (deep button-tufting)
+Egy szintben futó háttámla és kartámasz
+Magas minőségű bőr vagy bársony kárpit
+Masszív, kézzel készített tömörfa szerkezet
 
-      {/* TOC */}
-      <nav aria-label="Tartalomjegyzék" className="bg-[#f5f0e8] border-b border-[#e8ddd0]">
-        <div className="max-w-3xl mx-auto px-4 py-5">
-          <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">Tartalomjegyzék</p>
-          <ol className="space-y-1">
-          <li className="flex items-start gap-2 text-sm text-[#1c1c1c]"><span className="text-[#b8924a] font-bold min-w-[1.5rem]">1.</span><span>A Chesterfield kanapé története – egy brit ikon születése</span></li>
-          <li className="flex items-start gap-2 text-sm text-[#1c1c1c]"><span className="text-[#b8924a] font-bold min-w-[1.5rem]">2.</span><span>Egyedi gyártás és a teljes Chesterfield szett</span></li>
-          </ol>
-        </div>
-      </nav>
+## A modern Chesterfield helye a mai enteriőrökben
 
-      <PageBuilderPage
-        pageId="blog:miert-idotallo-valasztas-a-chesterfield-kanape"
-        defaultSections={[
-          {
-            type: "hero-light",
-            config: {
-              label: "Blog",
-              title: "Miért időtálló választás a Chesterfield kanapé?",
-              subtitle: "A Chesterfield kanapé nem csupán egy bútor, hanem egy életérzés. Klasszikus elegancia, időtlen formavilág és prémium anyaghasználat ötvözete. Akár egy modern loftban, akár egy vidéki kúriában helyezed el – azonnal uralja a teret.",
-              bgColor: "#ffffff",
+Sokan úgy gondolják, hogy ez a kanapétípus csak klasszikus vagy vintage terekbe illik – de ez tévedés. Semleges színekben – bézs, szürke, zöld vagy sötétkék – diszkrét eleganciát sugall még egy minimalista nappaliban is. Bársonyos vagy matt bőr felületek textúrát adnak a térnek, a moduláris változatok pedig alkalmazkodnak a mai lakások igényeihez.`,
             },
-          },
-          {
-            type: "banner",
-            config: {
-              image: "/images/e7ad8b_6a9bc07515294a40a1f7777272c2786e.webp",
-              alt: "Chesterfield kanapé – időtálló stílus klasszikus és modern enteriőrben",
-              height: "420",
+            {
+              type: "text",
+              heading: "Egyedi gyártás és a teljes Chesterfield szett",
+              body: `A prémium kategóriás Chesterfield bútor nem futószalagon készül. Az Enzo Design kínálatában megtalálható darabok kézzel készülnek, kiváló minőségű kárpitanyagok és tömörfa szerkezet felhasználásával. Méretre szabott kanapé, szabad szín- és anyagválasztás, extra funkciók – mint az ágyazható változat – mind elérhetők.
+
+## Chesterfield ülőgarnitúra – a teljes szett
+
+A Chesterfield stílus nem ér véget a kanapénál. A teljes garnitúra részeként fotel, puff, sarokkanapé, étkezőszék és akár franciaágy is rendelhető egységes megjelenéssel.
+
+## Zöld és kék – az új klasszikusok
+
+Az utóbbi években a Chesterfield zöld és kék változata egyre népszerűbb. Ezek a színek mélységet, karaktert és nyugalmat sugallnak, miközben friss, modern érzést keltenek. A barna és a bézs a klasszikus bőrhatást idézi – mindkettő időtlen választás.
+
+Zöld: természetközeli, luxus érzet
+Kék: hűvös elegancia, időtlenség
+Barna: klasszikus bőrkanapé stílus
+Szürke: modern, letisztult hatás`,
             },
-          },
-          {
-            type: "text-block",
-            config: {
-              title: "A Chesterfield kanapé története – egy brit ikon születése",
-              body: "A Chesterfield kanapé eredete az 1700-as évekre nyúlik vissza. Lord Phillip Stanhope, Chesterfield negyedik grófja rendelt egy különleges, bőrrel kárpitozott ülőalkalmatosságot. A cél: egy olyan bútordarab, amelyen a vendégek egyenesen ülhetnek anélkül, hogy ruhájuk összegyűrődne. A mélyen gombolt háttámla, az egy szintben futó karfa és háttámla, valamint a masszív fakeret mind ebből az eredeti megrendelésből öröklődött ránk.\n\nKlasszikus jellemzők:\nMélyen gombolt háttámla (deep button-tufting)\nEgy szintben futó háttámla és kartámasz\nMagas minőségű bőr vagy bársony kárpit\nMasszív, kézzel készített tömörfa szerkezet\n\nA modern Chesterfield helye a mai enteriőrökben\nSokan úgy gondolják, hogy ez a kanapétípus csak klasszikus vagy vintage terekbe illik – de ez tévedés. Semleges színekben – bézs, szürke, zöld vagy sötétkék – diszkrét eleganciát sugall még egy minimalista nappaliban is. Bársonyos vagy matt bőr felületek textúrát adnak a térnek, a moduláris változatok pedig alkalmazkodnak a mai lakások igényeihez.",
-              align: "left",
-              bgColor: "#ffffff",
+            {
+              type: "faq",
+              heading: "GYIK – Chesterfield kanapé tartóssága",
+              faqItems,
             },
-          },
-          {
-            type: "text-block",
-            config: {
-              title: "Egyedi gyártás és a teljes Chesterfield szett",
-              body: "A prémium kategóriás Chesterfield bútor nem futószalagon készül. Az Enzo Design kínálatában megtalálható darabok kézzel készülnek, kiváló minőségű kárpitanyagok és tömörfa szerkezet felhasználásával. Méretre szabott kanapé, szabad szín- és anyagválasztás, extra funkciók – mint az ágyazható változat – mind elérhetők.\n\nChesterfield ülőgarnitúra – a teljes szett\nA Chesterfield stílus nem ér véget a kanapénál. A teljes garnitúra részeként fotel, puff, sarokkanapé, étkezőszék és akár franciaágy is rendelhető egységes megjelenéssel.\n\nZöld és kék – az új klasszikusok\nAz utóbbi években a Chesterfield zöld és kék változata egyre népszerűbb. Ezek a színek mélységet, karaktert és nyugalmat sugallnak, miközben friss, modern érzést keltenek. A barna és a bézs a klasszikus bőrhatást idézi – mindkettő időtlen választás.\n\nZöld: természetközeli, luxus érzet\nKék: hűvös elegancia, időtlenség\nBarna: klasszikus bőrkanapé stílus\nSzürke: modern, letisztult hatás\n\nGYIK – Chesterfield kanapé tartóssága\n\nMennyire kopásálló a kárpit?\nAz Enzo Design kárpitjai legalább 50.000 martindale kopásállóságúak – ez az otthoni és üzleti használatra egyaránt alkalmas minőségi küszöb.\n\nMiért érdemes Chesterfieldet választani más kanapéval szemben?\nA tömörfa váz, a kézzel gombolt kárpitozás és a tartós rugózás kombinációja 20–30 éves élettartamot biztosít. Formája időtlen, ezért lakásfelújításkor sem válik elavulttá.",
-              align: "left",
-              bgColor: "#f5f0e8",
-            },
-          },
-          { type: "contact" },
+          ],
+        }}
+        related={[
+          { title: "Modern Chesterfield kanapé", href: "/blog/modern-chesterfield-kanape" },
+          { title: "Melyik Chesterfield illik hozzád?", href: "/blog/melyik-chesterfield-butor-illik-hozzad" },
+          { title: "Bőr fotel", href: "/blog/bor-fotel" },
+        ]}
+        productLinks={[
+          { label: "Chesterfield kanapék →", href: "/butoraink/kanapek/chesterfield-kanapek" },
+          { label: "Teljes Chesterfield kollekció →", href: "/chesterfield-kollekcio" },
         ]}
       />
-
-      <section className="py-8 bg-white border-t border-gray-100">
-        <div className="max-w-3xl mx-auto px-4">
-          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Termékek megtekintése</p>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/butoraink/kanapek/chesterfield-kanapek" className="inline-block border border-[#b8924a] text-[#b8924a] hover:bg-[#b8924a] hover:text-white text-sm font-semibold px-4 py-2 transition-colors">
-              Chesterfield kanapék →
-            </Link>
-            <Link href="/chesterfield-kollekcio" className="inline-block border border-gray-300 text-gray-600 hover:border-[#7d6142] hover:text-[#7d6142] text-sm font-semibold px-4 py-2 transition-colors">
-              Teljes Chesterfield kollekció →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12 bg-[#f5f0e8]">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-xl font-bold text-[#1c1c1c] mb-6" style={{ fontFamily: "var(--font-heading)" }}>
-            Kapcsolódó cikkek
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              { title: "Modern Chesterfield kanapé", href: "/blog/modern-chesterfield-kanape" },
-              { title: "Melyik Chesterfield illik hozzád?", href: "/blog/melyik-chesterfield-butor-illik-hozzad" },
-              { title: "Bőr fotel", href: "/blog/bor-fotel" },
-            ].map((a) => (
-              <Link key={a.href} href={a.href} className="bg-white p-4 hover:shadow-md transition-shadow text-sm font-semibold text-[#7d6142] hover:text-[#b8924a]">
-                {a.title} ›
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 }

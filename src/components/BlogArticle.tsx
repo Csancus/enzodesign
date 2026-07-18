@@ -9,12 +9,14 @@ import { slugify } from "@/lib/slugify";
 import type { FieldDef } from "@/types/cms";
 
 export type ArticleBlock = {
-  type?: "text" | "table" | "faq";
+  type?: "text" | "table" | "faq" | "image";
   heading?: string;
   body?: string;
   tableHead?: string; // "Szempont | Tömörfa | MDF"
   tableRows?: { cells: string }[]; // each cells: "Élettartam | 20–30+ év | 5–10 év"
   faqItems?: { question: string; answer: string }[];
+  image?: string; // for type "image"
+  imageAlt?: string; // alt text for the inline image
 };
 
 export type BlogArticleDefaults = {
@@ -32,6 +34,7 @@ type Props = {
   slug: string; // e.g. "tomorfa-butor"
   defaults: BlogArticleDefaults;
   related?: { title: string; href: string }[];
+  productLinks?: { label: string; href: string }[];
 };
 
 const ARTICLE_SCHEMA: FieldDef[] = [
@@ -69,6 +72,8 @@ const ARTICLE_SCHEMA: FieldDef[] = [
           { key: "answer", label: "Válasz", type: "textarea" },
         ],
       },
+      { key: "image", label: "Kép – IMAGE típushoz", type: "image" },
+      { key: "imageAlt", label: "Kép alt szövege – IMAGE típushoz", type: "text" },
     ],
   },
 ];
@@ -134,7 +139,7 @@ function Paragraphs({ text }: { text: string }) {
   );
 }
 
-export default async function BlogArticle({ slug, defaults, related = [] }: Props) {
+export default async function BlogArticle({ slug, defaults, related = [], productLinks = [] }: Props) {
   const isAdmin = await getAdminStatus();
   const cfg = await getModuleConfig(`blog:${slug}:article`);
 
@@ -242,12 +247,40 @@ export default async function BlogArticle({ slug, defaults, related = [] }: Prop
                 <div className="mb-6">
                   <FaqAccordion items={b.faqItems || []} />
                 </div>
+              ) : b.type === "image" && b.image ? (
+                <figure className="my-7">
+                  <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg">
+                    <Image src={b.image} alt={b.imageAlt || a.title} fill className="object-cover" />
+                  </div>
+                </figure>
               ) : (
                 b.body && <Paragraphs text={b.body} />
               )}
             </section>
           ))}
         </div>
+
+        {/* Product / category links */}
+        {productLinks.length > 0 && (
+          <div className="mt-12 pt-6 border-t border-gray-200">
+            <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Termékek megtekintése</p>
+            <div className="flex flex-wrap gap-3">
+              {productLinks.map((p, i) => (
+                <Link
+                  key={p.href + i}
+                  href={p.href}
+                  className={`inline-block border text-sm font-semibold px-4 py-2 transition-colors ${
+                    i === 0
+                      ? "border-[#b8924a] text-[#b8924a] hover:bg-[#b8924a] hover:text-white"
+                      : "border-gray-300 text-gray-600 hover:border-[#7d6142] hover:text-[#7d6142]"
+                  }`}
+                >
+                  {p.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {isAdmin && (
           <EditBtn moduleId={`blog:${slug}:article`} config={a} schema={ARTICLE_SCHEMA} label="✏ Cikk szerkesztése" positionClass="absolute top-2 right-2" />

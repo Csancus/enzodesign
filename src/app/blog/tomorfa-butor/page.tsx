@@ -97,6 +97,10 @@ export default function Page() {
           { title: "Egyedi bútor készíttetés", href: "/blog/egyedi-butor-keszittetes" },
           { title: "Modern Chesterfield kanapé", href: "/blog/modern-chesterfield-kanape" },
         ]}
+        productLinks={[
+          { label: "Egyedi bútor rendelés →", href: "/butoraink/egyedi-butor" },
+          { label: "Bútorgyártás folyamata →", href: "/butorgyartas" },
+        ]}
       />
     </>
   );

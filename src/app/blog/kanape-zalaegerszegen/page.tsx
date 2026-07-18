@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import PageBuilderPage from "@/components/PageBuilderPage";
+import BlogArticle from "@/components/BlogArticle";
 
 export const metadata: Metadata = {
   title: "Kanapé Zalaegerszegen – minőségi bútor gyártótól",
@@ -15,132 +14,110 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Kanapé Zalaegerszegen – minőségi bútor gyártótól",
-  "description": "Kényelmes, egyedi kanapét keresel Zalaegerszeg közelében? Az Enzo Design Nagykanizsán, 30 km-re vár – 2000 nm bemutatóterem, 100+ szövet, házhozszállítással.",
-  "image": "https://www.enzodesign.hu/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp",
-  "datePublished": "2025-03-25",
-  "dateModified": "2026-06-19",
-  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
-  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
-  "url": "https://www.enzodesign.hu/blog/kanape-zalaegerszegen",
-  "wordCount": 560,
-  "articleSection": "Kanapé vásárlás",
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.enzodesign.hu/blog/kanape-zalaegerszegen" },
-};
+const faqItems = [
+  { question: "Kell-e előre bejelentkezni a bemutatóterembe?", answer: "Nem kötelező, de ajánlott, hogy biztosan legyen jelen szakemberünk. Hívjon minket az +36 30 377 8983-as számon." },
+  { question: "Mit hozzak magammal a bemutatóterembe?", answer: "Érdemes hozni a szoba alaprajzát vagy méreteit, és ha van inspiráló képed, azt is – így pontosabb tanácsot tudunk adni." },
+  { question: "Van lehetőség részletfizetésre?", answer: "Vegye fel a kapcsolatot velünk, és egyedi megállapodásban segítünk a legjobb megoldást megtalálni." },
+];
 
-export default async function Page() {
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Kanapé Zalaegerszegen – minőségi bútor gyártótól",
+    "description": "Kényelmes, egyedi kanapét keresel Zalaegerszeg közelében? Az Enzo Design Nagykanizsán, 30 km-re vár – 2000 nm bemutatóterem, 100+ szövet, házhozszállítással.",
+    "image": "https://www.enzodesign.hu/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp",
+    "datePublished": "2025-03-25",
+    "dateModified": "2026-06-19",
+    "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
+    "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
+    "url": "https://www.enzodesign.hu/blog/kanape-zalaegerszegen",
+    "wordCount": 560,
+    "articleSection": "Kanapé vásárlás",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.enzodesign.hu/blog/kanape-zalaegerszegen" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map((f) => ({
+      "@type": "Question",
+      "name": f.question,
+      "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+    })),
+  },
+];
+
+export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <BlogArticle
+        slug="kanape-zalaegerszegen"
+        defaults={{
+          category: "Kanapé vásárlás",
+          title: "Kanapé Zalaegerszegen",
+          date: "2025. június 1.",
+          readTime: "3 perc olvasás",
+          coverImage: "/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp",
+          coverAlt: "Kanapé Zalaegerszegen – Enzo Design prémium bútorok Nagykanizsán",
+          intro:
+            "Egy új kanapé kiválasztása nem csupán esztétikai kérdés – ez a döntés évekre meghatározza a nappalid hangulatát. Ha Zalaegerszegen keresel minőségi kanapét, az Enzo Design Nagykanizsán, 30 km-re várja.",
+          blocks: [
+            {
+              type: "text",
+              heading: "Milyen típusú kanapék közül válogathatsz?",
+              body: `## Ágyazható kanapé
 
-      <nav className="bg-[#1c1c1c] py-4 px-4 text-sm text-gray-400">
-        <div className="max-w-3xl mx-auto">
-          <div>
-            <Link href="/blog" className="hover:text-white">Blog</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#b8924a]">Kanapé Zalaegerszegen</span>
-          </div>
-        </div>
-      </nav>
+Kisebb lakásban ideális megoldás, ha vendégszoba nincs, de időnként vendégeket fogadsz. A modern ágyazható kanapék mechanizmusa megbízható és kényelmes fekvőfelületet biztosítanak. Az Enzo Design kínálatában több modell elérhető ágyazható kivitelben.
 
-      {/* Reading time + publish date */}
-      <div className="bg-white border-b border-gray-100">
-        <div className="max-w-3xl mx-auto px-4 py-3 flex items-center gap-3 text-sm text-gray-500">
-          <time dateTime="2025-06-01">2025. június 1.</time>
-          <span aria-hidden="true">·</span>
-          <span>3 perc olvasás</span>
-        </div>
-      </div>
+## Klasszikus fix kanapé
 
-      {/* TOC */}
-      <nav aria-label="Tartalomjegyzék" className="bg-[#f5f0e8] border-b border-[#e8ddd0]">
-        <div className="max-w-3xl mx-auto px-4 py-5">
-          <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">Tartalomjegyzék</p>
-          <ol className="space-y-1">
-          <li className="flex items-start gap-2 text-sm text-[#1c1c1c]"><span className="text-[#b8924a] font-bold min-w-[1.5rem]">1.</span><span>Milyen típusú kanapék közül válogathatsz?</span></li>
-          <li className="flex items-start gap-2 text-sm text-[#1c1c1c]"><span className="text-[#b8924a] font-bold min-w-[1.5rem]">2.</span><span>Mire érdemes figyelni kanapévásárlásakor?</span></li>
-          <li className="flex items-start gap-2 text-sm text-[#1c1c1c]"><span className="text-[#b8924a] font-bold min-w-[1.5rem]">3.</span><span>Kanapé vásárlás GYIK</span></li>
-          </ol>
-        </div>
-      </nav>
+Ha nem szükséges az ágyazható funkció, a fix kanapé általában kényelmesebb ülőfelületet és stabilabb szerkezetet kínál. Ezek jellemzően mélyebb ülőrésszel és tartósabb rugózással készülnek.
 
-      <PageBuilderPage
-        pageId="blog:kanape-zalaegerszegen"
-        defaultSections={[
-          {
-            type: "hero-light",
-            config: {
-              label: "Blog",
-              title: "Kanapé Zalaegerszegen",
-              subtitle: "Egy új kanapé kiválasztása nem csupán esztétikai kérdés – ez a döntés évekre meghatározza a nappalid hangulatát. Ha Zalaegerszegen keresel minőségi kanapét, az Enzo Design Nagykanizsán, 30 km-re várja.",
-              bgColor: "#ffffff",
+## Sarokkanapé
+
+Tágas nappaliba ideális, ahol maximálisan ki szeretnéd használni a teret. Az L- vagy U-alakú konfigurációk akár 5–7 személy számára is kényelmes ülőhelyet biztosítanak.`,
             },
-          },
-          {
-            type: "banner",
-            config: {
-              image: "/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp",
-              alt: "Kanapé Zalaegerszegen – Enzo Design prémium bútorok Nagykanizsán",
-              height: "420",
+            {
+              type: "text",
+              heading: "Mire érdemes figyelni kanapévásárlásakor?",
+              body: `## Méret és elhelyezés
+
+Mérd fel a szoba méretét vásárlás előtt. A kanapénak legalább 40–50 cm szabad helyet kell hagynia minden oldalán a mozgáshoz. A sarokkanapénál figyelj a kijáratokra és az egyéb bútorok elhelyezésére.
+
+## Kárpit és anyaghasználat
+
+A szövet kopásállóságát martindale-számmal mérik – legalább 50.000 értékig megbízható háztartási használatra. Kisgyermekes vagy kisállatos otthonban a mikroszálas vagy technikai szövet a legpraktikusabb. A valódi bőr elegáns és tartós, de gondosabb ápolást igényel.
+
+## Funkciók
+
+Ágyazható mechanizmus, ágyneműtartó, USB-töltő – ezek ma már praktikus kiegészítők. Döntsd el előre, mire van szükséged a mindennapokban.
+
+## Hol vásárolj kanapét Zalaegerszeg közelében?
+
+Az Enzo Design Nagykanizsán, mindössze 30 km-re található Zalaegerszegről. 2000 nm-es bemutatótermünkben személyesen megtekintheted és kipróbálhatod a modelleket. Legnépszerűbb modellek: Ivone, Old's Club és a Chesterfield kollekció.
+
+## Szállítás Zalaegerszegre
+
+Bútorainkat az első biztonságos ajtóig szállítjuk az ország bármely pontjára. A szállítást a gyártás befejezésekor – általában 4–6 héttel a megrendelés után – koordináljuk, és előre egyeztetünk a pontos időpontról.`,
             },
-          },
-          {
-            type: "text-block",
-            config: {
-              title: "Milyen típusú kanapék közül válogathatsz?",
-              body: "Ágyazható kanapé\nKisebb lakásban ideális megoldás, ha vendégszoba nincs, de időnként vendégeket fogadsz. A modern ágyazható kanapék mechanizmusa megbízható és kényelmes fekvőfelületet biztosítanak. Az Enzo Design kínálatában több modell elérhető ágyazható kivitelben.\n\nKlasszikus fix kanapé\nHa nem szükséges az ágyazható funkció, a fix kanapé általában kényelmesebb ülőfelületet és stabilabb szerkezetet kínál. Ezek jellemzően mélyebb ülőrésszel és tartósabb rugózással készülnek.\n\nSarokkanapé\nTágas nappaliba ideális, ahol maximálisan ki szeretnéd használni a teret. Az L- vagy U-alakú konfigurációk akár 5–7 személy számára is kényelmes ülőhelyet biztosítanak.",
-              align: "left",
-              bgColor: "#ffffff",
+            {
+              type: "faq",
+              heading: "GYIK – Kanapévásárlás Zalaegerszeg közelében",
+              faqItems,
             },
-          },
-          {
-            type: "text-block",
-            config: {
-              title: "Mire érdemes figyelni kanapévásárlásakor?",
-              body: "Méret és elhelyezés\nMérd fel a szoba méretét vásárlás előtt. A kanapénak legalább 40–50 cm szabad helyet kell hagynia minden oldalán a mozgáshoz. A sarokkanapénál figyelj a kijáratokra és az egyéb bútorok elhelyezésére.\n\nKárpit és anyaghasználat\nA szövet kopásállóságát martindale-számmal mérik – legalább 50.000 értékig megbízható háztartási használatra. Kisgyermekes vagy kisállatos otthonban a mikroszálas vagy technikai szövet a legpraktikusabb. A valódi bőr elegáns és tartós, de gondosabb ápolást igényel.\n\nFunkciók\nÁgyazható mechanizmus, ágyneműtartó, USB-töltő – ezek ma már praktikus kiegészítők. Döntsd el előre, mire van szükséged a mindennapokban.\n\nHol vásárolj kanapét Zalaegerszeg közelében?\nAz Enzo Design Nagykanizsán, mindössze 30 km-re található Zalaegerszegről. 2000 nm-es bemutatótermünkben személyesen megtekintheted és kipróbálhatod a modelleket. Legnépszerűbb modellek: Ivone, Old's Club és a Chesterfield kollekció.\n\nSzállítás Zalaegerszegre\nBútorainkat az első biztonságos ajtóig szállítjuk az ország bármely pontjára. A szállítást a gyártás befejezésekor – általában 4–6 héttel a megrendelés után – koordináljuk, és előre egyeztetünk a pontos időpontról.\n\nGYIK – Kanapévásárlás Zalaegerszeg közelében\n\nKell-e előre bejelentkezni a bemutatóterembe?\nNem kötelező, de ajánlott, hogy biztosan legyen jelen szakemberünk. Hívjon minket az +36 30 377 8983-as számon.\n\nMit hozzak magammal a bemutatóterembe?\nÉrdemes hozni a szoba alaprajzát vagy méreteit, és ha van inspiráló képed, azt is – így pontosabb tanácsot tudunk adni.\n\nVan lehetőség részletfizetésre?\nVegye fel a kapcsolatot velünk, és egyedi megállapodásban segítünk a legjobb megoldást megtalálni.",
-              align: "left",
-              bgColor: "#f5f0e8",
-            },
-          },
-          { type: "contact" },
+          ],
+        }}
+        related={[
+          { title: "Bútorbolt Nagykanizsán", href: "/blog/butorbolt-nagykanizsán" },
+          { title: "Modern Chesterfield kanapé", href: "/blog/modern-chesterfield-kanape" },
+          { title: "Miért éri meg gyártótól vásárolni?", href: "/blog/miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni" },
+        ]}
+        productLinks={[
+          { label: "Kanapék böngészése →", href: "/butoraink/kanapek" },
+          { label: "Chesterfield kanapék →", href: "/butoraink/kanapek/chesterfield-kanapek" },
         ]}
       />
-
-      <section className="py-8 bg-white border-t border-gray-100">
-        <div className="max-w-3xl mx-auto px-4">
-          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Termékek megtekintése</p>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/butoraink/kanapek" className="inline-block border border-[#b8924a] text-[#b8924a] hover:bg-[#b8924a] hover:text-white text-sm font-semibold px-4 py-2 transition-colors">
-              Kanapék böngészése →
-            </Link>
-            <Link href="/butoraink/kanapek/chesterfield-kanapek" className="inline-block border border-gray-300 text-gray-600 hover:border-[#7d6142] hover:text-[#7d6142] text-sm font-semibold px-4 py-2 transition-colors">
-              Chesterfield kanapék →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12 bg-[#f5f0e8]">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-xl font-bold text-[#1c1c1c] mb-6" style={{ fontFamily: "var(--font-heading)" }}>
-            Kapcsolódó cikkek
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              { title: "Bútorbolt Nagykanizsán", href: "/blog/butorbolt-nagykanizsán" },
-              { title: "Modern Chesterfield kanapé", href: "/blog/modern-chesterfield-kanape" },
-              { title: "Miért éri meg gyártótól vásárolni?", href: "/blog/miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni" },
-            ].map((a) => (
-              <Link key={a.href} href={a.href} className="bg-white p-4 hover:shadow-md transition-shadow text-sm font-semibold text-[#7d6142] hover:text-[#b8924a]">
-                {a.title} ›
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 }
