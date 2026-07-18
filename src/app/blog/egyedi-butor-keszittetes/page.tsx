@@ -57,7 +57,7 @@ export default function Page() {
           category: "Egyedi bútor",
           title: "Egyedi bútor készíttetés",
           date: "2025. június 1.",
-          readTime: "1 perc olvasás",
+          readTime: "3 perc olvasás",
           coverImage: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp",
           coverAlt: "Enzo Design műhely – egyedi bútor gyártás Nagykanizsán",
           intro:

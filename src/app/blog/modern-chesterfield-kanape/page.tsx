@@ -101,6 +101,11 @@ Minden Chesterfield bútorunk Nagykanizsán, saját műhelyünkben készül kéz
 Általában 4–6 hét a megrendelés visszaigazolásától számítva.`,
             },
             {
+              type: "image",
+              image: "/images/blog-modern-chesterfield-2.webp",
+              imageAlt: "Modern Chesterfield kanapé indusztriális és skandináv enteriőrben",
+            },
+            {
               type: "faq",
               heading: "GYIK – Kérdések a modern Chesterfield kanapéról",
               faqItems,

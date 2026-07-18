@@ -99,6 +99,11 @@ Fotel mellé vagy elé – lábzsámoly funkcióban
 Dolgozo sarokba – kiegészítő ülőhely, ami nem foglal sok helyet`,
             },
             {
+              type: "image",
+              image: "/images/chesterfield-a1.webp",
+              imageAlt: "Chesterfield puff prémium bőrborítással, nappali enteriőrben",
+            },
+            {
               type: "text",
               heading: "Anyagok, méretek, rendelés",
               body: `Az Enzo Design Chesterfield puffjai egyedileg készülnek – méretük, kárpitjuk és színük szerint teljesen személyre szabhatók.
