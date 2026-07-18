@@ -2,39 +2,7 @@
 
 import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
-
-export const DEFAULT_UZLETI_IMAGES = [
-  "/images/uzleti-a1.webp",
-  "/images/uzleti-a2.webp",
-  "/images/uzleti-a3.webp",
-  "/images/uzleti-a4.webp",
-  "/images/uzleti-a5.webp",
-  "/images/uzleti-a6.webp",
-  "/images/uzleti-a7.webp",
-  "/images/uzleti-a8.webp",
-  "/images/uzleti-a9.webp",
-  "/images/uzleti-a16.webp",
-  "/images/uzleti-aria.jpg",
-  "/images/uzleti-wales.jpg",
-  "/images/uzleti-dsc1.jpg",
-  "/images/uzleti-fb1.jpg",
-  "/images/uzleti-fb2.jpg",
-  "/images/uzleti-gal-01.webp",
-  "/images/uzleti-gal-02.webp",
-  "/images/uzleti-gal-03.webp",
-  "/images/uzleti-gal-04.webp",
-  "/images/uzleti-gal-05.webp",
-  "/images/uzleti-gal-06.webp",
-  "/images/uzleti-gal-07.webp",
-  "/images/uzleti-gal-08.webp",
-  "/images/uzleti-gal-09.webp",
-  "/images/uzleti-gal-10.webp",
-  "/images/uzleti-gal-11.webp",
-  "/images/uzleti-gal-12.webp",
-  "/images/uzleti-gal-13.webp",
-  "/images/uzleti-gal-14.webp",
-  "/images/uzleti-gal-15.webp",
-];
+import { DEFAULT_UZLETI_IMAGES } from "@/data/uzletiGalleryImages";
 
 export default function UzletiGallery({ images }: { images?: string[] }) {
   const list = images && images.length > 0 ? images : DEFAULT_UZLETI_IMAGES;
