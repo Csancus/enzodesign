@@ -2,12 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 import EditBtn from "@/components/admin/EditBtn";
 import ContactFormSection from "@/components/ContactFormSection";
+import FaqAccordion from "@/components/sections/FaqAccordion";
 import { getModuleConfig } from "@/lib/moduleStore";
 import { getAdminStatus } from "@/lib/auth";
 import { slugify } from "@/lib/slugify";
 import type { FieldDef } from "@/types/cms";
 
-export type ArticleBlock = { heading?: string; body: string };
+export type ArticleBlock = {
+  type?: "text" | "table" | "faq";
+  heading?: string;
+  body?: string;
+  tableHead?: string; // "Szempont | Tömörfa | MDF"
+  tableRows?: { cells: string }[]; // each cells: "Élettartam | 20–30+ év | 5–10 év"
+  faqItems?: { question: string; answer: string }[];
+};
 
 export type BlogArticleDefaults = {
   category?: string;
@@ -40,11 +48,64 @@ const ARTICLE_SCHEMA: FieldDef[] = [
     type: "array",
     addLabel: "Szakasz hozzáadása",
     itemFields: [
+      { key: "type", label: "Típus: text / table / faq (üres = text)", type: "text" },
       { key: "heading", label: "Szakasz címe (a tartalomjegyzékbe kerül)", type: "text" },
-      { key: "body", label: "Szöveg (bekezdéseket üres sor választ el)", type: "textarea" },
+      { key: "body", label: "Szöveg – TEXT típushoz (bekezdések üres sorral)", type: "textarea" },
+      { key: "tableHead", label: "Táblázat fejléc – TABLE típushoz (| jellel elválasztva)", type: "text" },
+      {
+        key: "tableRows",
+        label: "Táblázat sorok – TABLE típushoz",
+        type: "array",
+        addLabel: "Sor hozzáadása",
+        itemFields: [{ key: "cells", label: "Cellák (| jellel elválasztva)", type: "text" }],
+      },
+      {
+        key: "faqItems",
+        label: "Kérdések – FAQ típushoz",
+        type: "array",
+        addLabel: "Kérdés hozzáadása",
+        itemFields: [
+          { key: "question", label: "Kérdés", type: "text" },
+          { key: "answer", label: "Válasz", type: "textarea" },
+        ],
+      },
     ],
   },
 ];
+
+function ArticleTable({ head, rows }: { head?: string; rows?: { cells: string }[] }) {
+  const headers = (head || "").split("|").map((s) => s.trim()).filter(Boolean);
+  const body = (rows || []).map((r) => (r.cells || "").split("|").map((s) => s.trim()));
+  if (headers.length === 0 && body.length === 0) return null;
+  return (
+    <div className="overflow-x-auto mb-6 -mx-1">
+      <table className="w-full text-sm border-collapse">
+        {headers.length > 0 && (
+          <thead>
+            <tr>
+              {headers.map((h, i) => (
+                <th key={i} className="text-left font-bold text-[#1c1c1c] border-b-2 border-[#b8924a] py-2.5 px-3 bg-[#f5f0e8]/60">
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+        )}
+        <tbody>
+          {body.map((r, ri) => (
+            <tr key={ri} className="border-b border-gray-200">
+              {r.map((c, ci) => (
+                <td key={ci} className={`py-2.5 px-3 align-top ${ci === 0 ? "font-semibold text-[#1c1c1c]" : "text-gray-600"}`}>
+                  {c}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
 function Paragraphs({ text }: { text: string }) {
   const paras = text.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
@@ -161,7 +222,15 @@ export default async function BlogArticle({ slug, defaults, related = [] }: Prop
                   {b.heading}
                 </h2>
               )}
-              <Paragraphs text={b.body} />
+              {b.type === "table" ? (
+                <ArticleTable head={b.tableHead} rows={b.tableRows} />
+              ) : b.type === "faq" ? (
+                <div className="mb-6">
+                  <FaqAccordion items={b.faqItems || []} />
+                </div>
+              ) : (
+                b.body && <Paragraphs text={b.body} />
+              )}
             </section>
           ))}
         </div>
