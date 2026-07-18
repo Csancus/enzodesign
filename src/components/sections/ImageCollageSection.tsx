@@ -68,7 +68,7 @@ export default async function ImageCollageSection({
           </p>
         )}
       </div>
-      {isAdmin && <EditBtn moduleId={moduleId} config={{ ...cfg, images: validImages }} schema={SCHEMA} />}
+      {isAdmin && <EditBtn moduleId={moduleId} config={{ ...cfg, images }} schema={SCHEMA} />}
     </section>
   );
 }
