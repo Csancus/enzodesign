@@ -123,7 +123,7 @@ export default async function SaleProductsSection({
       {isAdmin && (
         <EditBtn
           moduleId={moduleId}
-          config={cfg as unknown as Record<string, unknown>}
+          config={{ ...cfg, products } as unknown as Record<string, unknown>}
           schema={SCHEMA}
           label="✏ Akciók szerkesztése"
         />

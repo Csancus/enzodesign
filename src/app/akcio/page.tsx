@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getAdminStatus } from "@/lib/auth";
 import { getModuleConfig } from "@/lib/moduleStore";
+import EditBtn from "@/components/admin/EditBtn";
+import type { FieldDef } from "@/types/cms";
 import PageHero from "@/components/PageHero";
 import SaleProductsSection, {
   type SaleProduct,
@@ -76,9 +78,23 @@ function buildProductSchema(products: SaleProduct[]) {
   });
 }
 
+const CTA_SCHEMA: FieldDef[] = [
+  { key: "text", label: "Szöveg", type: "text" },
+  { key: "buttonLabel", label: "Gomb felirata", type: "text" },
+  { key: "buttonHref", label: "Gomb linkje", type: "url" },
+];
+
 export default async function AkcioPage() {
   const isAdmin = await getAdminStatus();
-  const saleCfg = await getModuleConfig("akcio:products");
+  const [saleCfg, ctaCfg] = await Promise.all([
+    getModuleConfig("akcio:products"),
+    getModuleConfig("akcio:cta"),
+  ]);
+  const cta = {
+    text: (ctaCfg?.text as string) || "Több bútort keres? Nézze meg teljes kínálatunkat!",
+    buttonLabel: (ctaCfg?.buttonLabel as string) || "Tovább a többi bútorhoz →",
+    buttonHref: (ctaCfg?.buttonHref as string) || "/butoraink",
+  };
   const storedProducts = (saleCfg as { products?: SaleProduct[] })?.products;
   const products: SaleProduct[] =
     Array.isArray(storedProducts) && storedProducts.length > 0
@@ -107,14 +123,17 @@ export default async function AkcioPage() {
       <SaleProductsSection moduleId="akcio:products" isAdmin={isAdmin} />
 
       {/* Link to full furniture catalogue */}
-      <div className="bg-white py-8 text-center border-t border-gray-100">
-        <p className="text-sm text-gray-500 mb-4">Több bútort keres? Nézze meg teljes kínálatunkat!</p>
+      <div className="relative bg-white py-8 text-center border-t border-gray-100">
+        <p className="text-sm text-gray-500 mb-4">{cta.text}</p>
         <a
-          href="/butoraink"
+          href={cta.buttonHref}
           className="inline-block bg-[#1c1c1c] hover:bg-[#7d6142] text-white font-bold uppercase tracking-wider px-10 py-3 transition-colors text-xs"
         >
-          Tovább a többi bútorhoz →
+          {cta.buttonLabel}
         </a>
+        {isAdmin && (
+          <EditBtn moduleId="akcio:cta" config={cta} schema={CTA_SCHEMA} label="✏ Gomb / szöveg" />
+        )}
       </div>
 
       <ContactFormSection />
