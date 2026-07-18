@@ -65,5 +65,13 @@ export async function setModuleConfig(id: string, config: Record<string, unknown
   if (error) throw new Error(error.message);
   // Bust Next's Full Route Cache so any statically-cached route re-renders with
   // fresh data. Reads are per-request (no cross-instance cache to invalidate).
-  revalidatePath("/", "layout");
+  // Wrapped in try/catch: revalidatePath throws when called during a render pass
+  // (e.g. PageBuilderPage seeding writes section configs while rendering). The
+  // Supabase write above has already committed; swallowing the render-time error
+  // lets seeding persist all writes instead of aborting after the first one.
+  try {
+    revalidatePath("/", "layout");
+  } catch {
+    /* called during render — cache bust not applicable, write already persisted */
+  }
 }
