@@ -3,7 +3,7 @@
 import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
 
-const IMAGES = [
+export const DEFAULT_UZLETI_IMAGES = [
   "/images/uzleti-a1.webp",
   "/images/uzleti-a2.webp",
   "/images/uzleti-a3.webp",
@@ -36,7 +36,8 @@ const IMAGES = [
   "/images/uzleti-gal-15.webp",
 ];
 
-export default function UzletiGallery() {
+export default function UzletiGallery({ images }: { images?: string[] }) {
+  const list = images && images.length > 0 ? images : DEFAULT_UZLETI_IMAGES;
   const trackRef = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
@@ -63,7 +64,7 @@ export default function UzletiGallery() {
         className="flex gap-3 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 scrollbar-hide"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
-        {IMAGES.map((src, i) => (
+        {list.map((src, i) => (
           <div
             key={i}
             className="relative flex-none w-[75vw] sm:w-[40%] lg:w-[30%] snap-start overflow-hidden"

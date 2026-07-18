@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import ContactFormSection from "@/components/ContactFormSection";
 import EditBtn from "@/components/admin/EditBtn";
-import UzletiGallery from "@/components/UzletiGallery";
+import UzletiGallery, { DEFAULT_UZLETI_IMAGES } from "@/components/UzletiGallery";
 import { getAdminStatus } from "@/lib/auth";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
@@ -96,15 +96,13 @@ export default async function UzletiButorPage() {
   };
   const benefitsList = benefits.items.split("\n").map((s) => s.trim()).filter(Boolean);
 
-  const defaultRefsImages = [
-    { src: "/images/uzleti-gal-01.webp" },
-    { src: "/images/uzleti-gal-02.webp" },
-    { src: "/images/e7ad8b_c6dc15a8a80f4a8a95598e5ccea491e4.webp" },
-  ];
+  const defaultRefsImages = DEFAULT_UZLETI_IMAGES.map((src) => ({ src }));
+  const storedRefsImages = refsCfg.images as { src: string }[] | undefined;
   const refs = {
     title: (refsCfg.title as string) || "Referenciák és inspirációk",
-    images: (refsCfg.images as { src: string }[] | undefined) ?? defaultRefsImages,
+    images: storedRefsImages && storedRefsImages.length > 0 ? storedRefsImages : defaultRefsImages,
   };
+  const refsImageSrcs = refs.images.map((i) => i.src).filter(Boolean);
 
   return (
     <>
@@ -208,8 +206,11 @@ export default async function UzletiButorPage() {
           <h2 className="text-2xl font-bold text-[#1c1c1c] mb-8" style={{ fontFamily: "var(--font-heading)" }}>
             {refs.title}
           </h2>
-          <UzletiGallery />
+          <UzletiGallery images={refsImageSrcs} />
         </div>
+        {isAdmin && (
+          <EditBtn moduleId="uzleti:refs" config={{ title: refs.title, images: refs.images }} schema={REFS_SCHEMA} label="✏ Referenciák" />
+        )}
       </section>
 
       <div id="kapcsolat">
