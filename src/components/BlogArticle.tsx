@@ -111,11 +111,25 @@ function Paragraphs({ text }: { text: string }) {
   const paras = text.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
   return (
     <>
-      {paras.map((p, i) => (
-        <p key={i} className="text-gray-600 leading-[1.85] mb-5 whitespace-pre-line">
-          {p}
-        </p>
-      ))}
+      {paras.map((p, i) => {
+        // "## Alcím" -> h3 subheading (editable convention)
+        if (p.startsWith("## ")) {
+          return (
+            <h3
+              key={i}
+              className="text-base sm:text-lg font-bold text-[#1c1c1c] mt-7 mb-2.5"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              {p.slice(3).trim()}
+            </h3>
+          );
+        }
+        return (
+          <p key={i} className="text-gray-600 leading-[1.85] mb-5 whitespace-pre-line">
+            {p}
+          </p>
+        );
+      })}
     </>
   );
 }
