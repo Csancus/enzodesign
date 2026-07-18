@@ -31,6 +31,11 @@ const STORY_SCHEMA: FieldDef[] = [
   { key: "p4", label: "4. bekezdés", type: "textarea" },
   { key: "quote", label: "Idézet szövege", type: "textarea" },
   { key: "quoteAuthor", label: "Idézet szerzője", type: "text" },
+  { key: "image", label: "Kép (jobb oldalon)", type: "image" },
+];
+
+const TOP_IMAGE_SCHEMA: FieldDef[] = [
+  { key: "image", label: "Felső nagy kép", type: "image" },
 ];
 
 const STATS_SCHEMA: FieldDef[] = [
@@ -54,10 +59,11 @@ const CTA_SCHEMA: FieldDef[] = [
 export default async function RolunkPage() {
   const isAdmin = await getAdminStatus();
 
-  const [storyCfg, statsCfg, ctaCfg] = await Promise.all([
+  const [storyCfg, statsCfg, ctaCfg, topImageCfg] = await Promise.all([
     getModuleConfig("rolunk:story"),
     getModuleConfig("rolunk:stats"),
     getModuleConfig("rolunk:cta"),
+    getModuleConfig("rolunk:topimage"),
   ]);
 
   const story = {
@@ -68,7 +74,10 @@ export default async function RolunkPage() {
     p4: (storyCfg.p4 as string) || "2000 nm-es üzemünkben bármilyen egyedi, vagy típusbútort el tudunk készíteni lakásokba, kávézókba, éttermekbe vagy szállodákba is.",
     quote: (storyCfg.quote as string) || "Bizonyos bútorok, amelyek mellett felnő az ember, valamiképpen fontossá válnak.",
     quoteAuthor: (storyCfg.quoteAuthor as string) || "Bernlef",
+    image: (storyCfg.image as string) || "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp",
   };
+
+  const topImage = (topImageCfg.image as string) || "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp";
 
   const defaultStats = [
     { label: "Alapítva", value: "2015" },
@@ -121,11 +130,11 @@ export default async function RolunkPage() {
         defaults={{ label: "Rólunk", title: "Rólunk", subtitle: "Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán." }}
       />
 
-      <section className="bg-white pt-12 pb-0">
+      <section className="relative bg-white pt-12 pb-0">
         <div className="max-w-5xl mx-auto px-4">
           <div className="relative w-full aspect-[16/7] overflow-hidden">
             <Image
-              src="/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp"
+              src={topImage}
               alt="Enzo Design kanapé"
               fill
               className="object-cover"
@@ -133,6 +142,9 @@ export default async function RolunkPage() {
             />
           </div>
         </div>
+        {isAdmin && (
+          <EditBtn moduleId="rolunk:topimage" config={{ image: topImage }} schema={TOP_IMAGE_SCHEMA} label="✏ Felső kép" />
+        )}
       </section>
 
       {/* TÖRTÉNETÜNK */}
@@ -152,7 +164,7 @@ export default async function RolunkPage() {
             </blockquote>
           </div>
           <div className="relative aspect-[4/3] overflow-hidden">
-            <Image src="/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp" alt="Enzo Design telephely" fill className="object-cover" />
+            <Image src={story.image} alt="Enzo Design telephely" fill className="object-cover" />
           </div>
         </div>
         {isAdmin && (

@@ -168,8 +168,8 @@ function FieldInput({ field, value, onChange, nested }: {
       <textarea
         value={(value as string) ?? ""}
         onChange={(e) => onChange(e.target.value)}
-        rows={nested ? 2 : 3}
-        className="w-full border border-gray-200 px-2 py-1.5 text-xs text-gray-900 bg-white outline-none focus:border-[#b8924a] resize-none"
+        rows={nested ? 4 : 8}
+        className="w-full border border-gray-200 px-2 py-1.5 text-xs text-gray-900 bg-white outline-none focus:border-[#b8924a] resize-y min-h-[5rem]"
       />
     );
   }
