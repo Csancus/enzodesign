@@ -7,12 +7,12 @@ import PageHero from "@/components/PageHero";
 export const metadata: Metadata = {
   title: "A Chesterfield kanapé eredete – Enzo Design",
   description: "A Chesterfield kanapé 300 éves brit örökség. Hogyan vált a 4. Chesterfield Earl bútorstílusa időtálló ikonná? Eredet, hagyomány és mai formák.",
-  alternates: { canonical: "https://enzodesign.hu/chesterfield/a-chesterfield-kanape-eredete" },
+  alternates: { canonical: "https://www.enzodesign.hu/chesterfield/a-chesterfield-kanape-eredete" },
   openGraph: {
     type: "article",
     title: "A Chesterfield kanapé eredete – Enzo Design",
     description: "A Chesterfield kanapé 300 éves brit örökség. Hogyan vált a 4. Chesterfield Earl bútorstílusa időtálló ikonná? Eredet, hagyomány és mai formák.",
-    url: "https://enzodesign.hu/chesterfield/a-chesterfield-kanape-eredete",
+    url: "https://www.enzodesign.hu/chesterfield/a-chesterfield-kanape-eredete",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -22,11 +22,11 @@ const articleJsonLd = {
   "@type": "BlogPosting",
   "headline": "A Chesterfield kanapé eredete",
   "description": "A Chesterfield kanapé 300 éves brit örökség. Hogyan vált a 4. Chesterfield Earl bútorstílusa időtálló ikonná? Eredet, hagyomány és mai formák.",
-  "url": "https://enzodesign.hu/chesterfield/a-chesterfield-kanape-eredete",
-  "image": "https://enzodesign.hu/images/chesterfield-w1.webp",
+  "url": "https://www.enzodesign.hu/chesterfield/a-chesterfield-kanape-eredete",
+  "image": "https://www.enzodesign.hu/images/chesterfield-w1.webp",
   "inLanguage": "hu",
-  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu" },
-  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu", "logo": { "@type": "ImageObject", "url": "https://enzodesign.hu/images/logo.webp" } },
+  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
+  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu", "logo": { "@type": "ImageObject", "url": "https://www.enzodesign.hu/images/logo.webp" } },
 };
 
 export default async function Page() {

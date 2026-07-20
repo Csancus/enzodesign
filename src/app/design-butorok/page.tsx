@@ -3,11 +3,11 @@ import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Design Bútorok – Enzo Design",
   description: "Design kanapé és fotel egyedi méretben – bútorbolt Nagykanizsán, online rendelés. Modern formavilág letisztult vonalakkal, tömörfa szerkezet, 444.240 Ft-tól.",
-  alternates: { canonical: "https://enzodesign.hu/design-butorok" },
+  alternates: { canonical: "https://www.enzodesign.hu/design-butorok" },
   openGraph: {
     title: "Design Bútorok – Enzo Design",
     description: "A Design kollekció modern formavilágával, letisztult vonalaival és elegáns steppelésével otthonod stílusos centerpiece-e lesz. 444.240 Ft-tól.",
-    url: "https://enzodesign.hu/design-butorok",
+    url: "https://www.enzodesign.hu/design-butorok",
     images: [{ url: "/images/e7ad8b_d510cf607aca449c835d847344231393.webp", width: 1920, height: 800 }],
   },
 };

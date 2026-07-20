@@ -4,11 +4,11 @@ import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Old's Club Kanapé – karakteres elegancia",
   description: "Az Old's Club kanapé karakteres, elegáns vonalaival és tömörfa szerkezetével évtizedekre szól. Egyedi méret, prémium szövetek – közvetlen gyártótól, Nagykanizsáról.",
-  alternates: { canonical: "https://enzodesign.hu/butoraink/kanapek/olds-club-kanapek" },
+  alternates: { canonical: "https://www.enzodesign.hu/butoraink/kanapek/olds-club-kanapek" },
   openGraph: {
     title: "Old's Club Kanapé – karakteres elegancia | Enzo Design",
     description: "Karakteres elegancia, tömörfa szerkezet. Egyedi méret, prémium szövetek.",
-    url: "https://enzodesign.hu/butoraink/kanapek/olds-club-kanapek",
+    url: "https://www.enzodesign.hu/butoraink/kanapek/olds-club-kanapek",
     images: [{ url: "/images/olds-club-w1.webp", width: 1920, height: 800 }],
   },
 };

@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: "Bútorbolt Nagykanizsán – prémium kárpitozott bútorok",
   description: "Egyedi kárpitozott bútorok gyártótól Nagykanizsán – közel 20 éve. 2000 nm bemutatóterem, 100+ szövet, házhozszállítás az egész országba. Enzo Design.",
 
-  alternates: { canonical: "https://enzodesign.hu/blog/butorbolt-nagykanizsan" },
+  alternates: { canonical: "https://www.enzodesign.hu/blog/butorbolt-nagykanizsan" },
   openGraph: {
     title: "Bútorbolt Nagykanizsán – prémium kárpitozott bútorok",
     description: "Egyedi kárpitozott bútorok gyártótól Nagykanizsán – közel 20 éve. 2000 nm bemutatóterem, 100+ szövet, házhozszállítás az egész országba. Enzo Design.",
-    url: "https://enzodesign.hu/blog/butorbolt-nagykanizsan",
+    url: "https://www.enzodesign.hu/blog/butorbolt-nagykanizsan",
     images: [{ url: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp", width: 1920, height: 800 }],
   },
 };

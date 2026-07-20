@@ -4,11 +4,11 @@ import CityLandingPage from "@/components/CityLandingPage";
 export const metadata: Metadata = {
   title: "Bútorbolt Nagykanizsa – Egyedi kárpit bútor | Enzo Design",
   description: "Bútorbolt Nagykanizsa: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 0 km-re – 3+10 év garancia, online rendelés.",
-  alternates: { canonical: "https://enzodesign.hu/butorbolt-nagykanizsa" },
+  alternates: { canonical: "https://www.enzodesign.hu/butorbolt-nagykanizsa" },
   openGraph: {
     title: "Bútorbolt Nagykanizsa – Egyedi kárpit bútor | Enzo Design",
     description: "Bútorbolt Nagykanizsa: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 0 km-re – 3+10 év garancia, online rendelés.",
-    url: "https://enzodesign.hu/butorbolt-nagykanizsa",
+    url: "https://www.enzodesign.hu/butorbolt-nagykanizsa",
     images: [{ url: "/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp", width: 1920, height: 800 }],
   },
 };
@@ -18,7 +18,7 @@ const jsonLd = {
   "@type": "FurnitureStore",
   "name": "Enzo Design – Bútorbolt Nagykanizsa",
   "description": "Egyedi kárpitozott bútorok gyártója Nagykanizsán. Kanapé, fotel, franciaágy tömörfa szerkezettel.",
-  "url": "https://enzodesign.hu/butorbolt-nagykanizsa",
+  "url": "https://www.enzodesign.hu/butorbolt-nagykanizsa",
   "telephone": "+36303778983",
   "address": {
     "@type": "PostalAddress",

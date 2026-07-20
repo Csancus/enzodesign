@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: "Chesterfield stílus és formajegyek – Enzo Design",
   description: "A Chesterfield kanapék jellegzetes stílusjegyei: mély gombolás, párnázott karfák, egyenes háttámla. Ismerje meg a klasszikus forma titkát.",
 
-  alternates: { canonical: "https://enzodesign.hu/chesterfield/chesterfield-stilus-es-formajegyek" },
+  alternates: { canonical: "https://www.enzodesign.hu/chesterfield/chesterfield-stilus-es-formajegyek" },
   openGraph: {
     type: "article",
     title: "Chesterfield stílus és formajegyek – Enzo Design",
     description: "A Chesterfield kanapék jellegzetes stílusjegyei: mély gombolás, párnázott karfák, egyenes háttámla. Ismerje meg a klasszikus forma titkát.",
-    url: "https://enzodesign.hu/chesterfield/chesterfield-stilus-es-formajegyek",
+    url: "https://www.enzodesign.hu/chesterfield/chesterfield-stilus-es-formajegyek",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -21,11 +21,11 @@ const articleJsonLd = {
   "@type": "BlogPosting",
   "headline": "Chesterfield stílus és formajegyek",
   "description": "A Chesterfield kanapék jellegzetes stílusjegyei: mély gombolás, párnázott karfák, egyenes háttámla. Ismerje meg a klasszikus forma titkát.",
-  "url": "https://enzodesign.hu/chesterfield/chesterfield-stilus-es-formajegyek",
-  "image": "https://enzodesign.hu/images/chesterfield-w1.webp",
+  "url": "https://www.enzodesign.hu/chesterfield/chesterfield-stilus-es-formajegyek",
+  "image": "https://www.enzodesign.hu/images/chesterfield-w1.webp",
   "inLanguage": "hu",
-  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu" },
-  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu", "logo": { "@type": "ImageObject", "url": "https://enzodesign.hu/images/logo.webp" } },
+  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
+  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu", "logo": { "@type": "ImageObject", "url": "https://www.enzodesign.hu/images/logo.webp" } },
 };
 
 export default async function Page() {

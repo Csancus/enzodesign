@@ -7,12 +7,12 @@ import PageHero from "@/components/PageHero";
 export const metadata: Metadata = {
   title: "A bútortervezés alapjai – Enzo Design",
   description: "A bútortervezés folyamata: mérettől a formáig, anyagválasztástól az ügyfél-egyeztetésig. Hogyan lesz az ötletedből kész bútor az Enzo Designnál.",
-  alternates: { canonical: "https://enzodesign.hu/butorgyartas/tervezes" },
+  alternates: { canonical: "https://www.enzodesign.hu/butorgyartas/tervezes" },
   openGraph: {
     type: "article",
     title: "A bútortervezés alapjai – Enzo Design",
     description: "A bútortervezés folyamata: mérettől a formáig, anyagválasztástól az ügyfél-egyeztetésig. Hogyan lesz az ötletedből kész bútor az Enzo Designnál.",
-    url: "https://enzodesign.hu/butorgyartas/tervezes",
+    url: "https://www.enzodesign.hu/butorgyartas/tervezes",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -22,11 +22,11 @@ const articleJsonLd = {
   "@type": "Article",
   "headline": "A bútortervezés alapjai",
   "description": "A bútortervezés folyamata: mérettől a formáig, anyagválasztástól az ügyfél-egyeztetésig. Hogyan lesz az ötletedből kész bútor az Enzo Designnál.",
-  "url": "https://enzodesign.hu/butorgyartas/tervezes",
-  "image": "https://enzodesign.hu/images/chesterfield-w1.webp",
+  "url": "https://www.enzodesign.hu/butorgyartas/tervezes",
+  "image": "https://www.enzodesign.hu/images/chesterfield-w1.webp",
   "inLanguage": "hu",
-  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu" },
-  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu", "logo": { "@type": "ImageObject", "url": "https://enzodesign.hu/images/logo.webp" } },
+  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
+  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu", "logo": { "@type": "ImageObject", "url": "https://www.enzodesign.hu/images/logo.webp" } },
 };
 
 export default async function Page() {

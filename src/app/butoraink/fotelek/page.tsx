@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   title: "Fotelek – Enzo Design",
   description: "Egyedi bútor online – kárpitozott fotelek bútorbolt Nagykanizsán: Old's Club, Ivone, Chesterfield, New York, Joker, Design kollekciók, 82.820 Ft-tól.",
 
-  alternates: { canonical: "https://enzodesign.hu/butoraink/fotelek" },
+  alternates: { canonical: "https://www.enzodesign.hu/butoraink/fotelek" },
   openGraph: {
     title: "Fotelek – Enzo Design",
     description: "Egyedi bútor online – kárpitozott fotelek bútorbolt Nagykanizsán: Old's Club, Ivone, Chesterfield, New York, Joker, Design kollekciók, 82.820 Ft-tól.",
-    url: "https://enzodesign.hu/butoraink/fotelek",
+    url: "https://www.enzodesign.hu/butoraink/fotelek",
     images: [{ url: "/images/fotelek-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -120,13 +120,13 @@ export default async function FotelekPage() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Fotelek – Enzo Design",
-    "url": "https://enzodesign.hu/butoraink/fotelek",
+    "url": "https://www.enzodesign.hu/butoraink/fotelek",
     "numberOfItems": resolvedCards.length,
     "itemListElement": resolvedCards.map((c, i) => ({
       "@type": "ListItem",
       "position": i + 1,
       "name": c.name,
-      "url": `https://enzodesign.hu${c.href}`,
+      "url": `https://www.enzodesign.hu${c.href}`,
     })),
   };
 

@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   title: "Rólunk – Enzo Design",
   description: "Bútorbolt Nagykanizsán – közel 20 éve gyártunk egyedi bútorodat: kanapé, fotel, franciaágy. Online rendelés is lehetséges, 2000 nm-es bemutatóterem.",
 
-  alternates: { canonical: "https://enzodesign.hu/rolunk" },
+  alternates: { canonical: "https://www.enzodesign.hu/rolunk" },
   openGraph: {
     title: "Rólunk – Enzo Design",
     description: "Bútorbolt Nagykanizsán – közel 20 éve gyártunk egyedi bútorodat: kanapé, fotel, franciaágy. Online rendelés is lehetséges, 2000 nm-es bemutatóterem.",
-    url: "https://enzodesign.hu/rolunk",
+    url: "https://www.enzodesign.hu/rolunk",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -96,13 +96,13 @@ export default async function RolunkPage() {
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "url": "https://enzodesign.hu/rolunk",
+    "url": "https://www.enzodesign.hu/rolunk",
     "name": "Rólunk – Enzo Design",
     "description": "Bútorbolt Nagykanizsán – közel 20 éve gyártunk egyedi bútorodat: kanapé, fotel, franciaágy.",
     "mainEntity": {
       "@type": "Organization",
       "name": "Enzo Design",
-      "url": "https://enzodesign.hu",
+      "url": "https://www.enzodesign.hu",
       "foundingDate": "2005",
       "description": "Közel 20 éve gyártunk egyedi kárpitozott bútorokat Nagykanizsán. Tömörfa szerkezet, prémium szövetek, 3+10 év garancia.",
       "telephone": "+36303778983",

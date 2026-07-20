@@ -96,7 +96,7 @@ export default async function ReviewsSection({
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": cfg.title,
-    "url": "https://enzodesign.hu/vasarloi-visszajelzesek",
+    "url": "https://www.enzodesign.hu/vasarloi-visszajelzesek",
     "numberOfItems": all.filter((r) => r.text).length,
     "itemListElement": all.filter((r) => r.text).map((r, i) => ({
       "@type": "ListItem",
@@ -114,7 +114,7 @@ export default async function ReviewsSection({
         "itemReviewed": {
           "@type": "Organization",
           "name": "Enzo Design",
-          "url": "https://enzodesign.hu",
+          "url": "https://www.enzodesign.hu",
         },
       },
     })),

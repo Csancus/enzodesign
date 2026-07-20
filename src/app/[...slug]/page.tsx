@@ -20,11 +20,11 @@ export async function generateMetadata({
   return {
     title: page.title,
     description,
-    alternates: { canonical: `https://enzodesign.hu${page.slug}` },
+    alternates: { canonical: `https://www.enzodesign.hu${page.slug}` },
     openGraph: {
       title: page.title,
       description,
-      url: `https://enzodesign.hu${page.slug}`,
+      url: `https://www.enzodesign.hu${page.slug}`,
       images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
     },
   };

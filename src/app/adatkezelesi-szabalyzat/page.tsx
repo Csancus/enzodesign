@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: "Adatkezelési Szabályzat – Enzo Design",
   description: "Enzo Design adatkezelési tájékoztató – GDPR-kompatibilis adatkezelési szabályzat.",
 
-  alternates: { canonical: "https://enzodesign.hu/adatkezelesi-szabalyzat" },
+  alternates: { canonical: "https://www.enzodesign.hu/adatkezelesi-szabalyzat" },
   openGraph: {
     title: "Adatkezelési Szabályzat – Enzo Design",
     description: "Enzo Design adatkezelési tájékoztató – GDPR-kompatibilis adatkezelési szabályzat.",
-    url: "https://enzodesign.hu/adatkezelesi-szabalyzat",
+    url: "https://www.enzodesign.hu/adatkezelesi-szabalyzat",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
   robots: { index: false, follow: false },

@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   title: "Kapcsolat és Rendelés – Enzo Design",
   description: "Egyedi bútor online rendelés – bútorbolt Nagykanizsán. Töltsd ki az űrlapot, 24 órán belül visszahívunk. 8800 Nagykanizsa, Egry József utca 7.",
 
-  alternates: { canonical: "https://enzodesign.hu/kapcsolat-es-rendeles" },
+  alternates: { canonical: "https://www.enzodesign.hu/kapcsolat-es-rendeles" },
   openGraph: {
     title: "Kapcsolat és Rendelés – Enzo Design",
     description: "Egyedi bútor online rendelés – bútorbolt Nagykanizsán. Töltsd ki az űrlapot, 24 órán belül visszahívunk. 8800 Nagykanizsa, Egry József utca 7.",
-    url: "https://enzodesign.hu/kapcsolat-es-rendeles",
+    url: "https://www.enzodesign.hu/kapcsolat-es-rendeles",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
 const contactJsonLd = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  "url": "https://enzodesign.hu/kapcsolat-es-rendeles",
+  "url": "https://www.enzodesign.hu/kapcsolat-es-rendeles",
   "name": "Kapcsolat és Rendelés – Enzo Design",
   "description": "Egyedi bútor online rendelés – bútorbolt Nagykanizsán. Töltsd ki az űrlapot, 24 órán belül visszahívunk.",
   "mainEntity": {
     "@type": "LocalBusiness",
     "name": "Enzo Design",
-    "url": "https://enzodesign.hu",
+    "url": "https://www.enzodesign.hu",
     "telephone": "+36303778983",
     "email": "info@enzodesign.hu",
     "address": {

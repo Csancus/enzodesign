@@ -4,11 +4,11 @@ import CityLandingPage from "@/components/CityLandingPage";
 export const metadata: Metadata = {
   title: "Bútorbolt Marcali – Egyedi kárpit bútor | Enzo Design",
   description: "Bútorbolt Marcali: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 35 km-re – 3+10 év garancia, online rendelés.",
-  alternates: { canonical: "https://enzodesign.hu/butorbolt-marcali" },
+  alternates: { canonical: "https://www.enzodesign.hu/butorbolt-marcali" },
   openGraph: {
     title: "Bútorbolt Marcali – Egyedi kárpit bútor | Enzo Design",
     description: "Bútorbolt Marcali: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 35 km-re – 3+10 év garancia, online rendelés.",
-    url: "https://enzodesign.hu/butorbolt-marcali",
+    url: "https://www.enzodesign.hu/butorbolt-marcali",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -18,7 +18,7 @@ const jsonLd = {
   "@type": "Service",
   "name": "Kárpitozott bútor gyártás és szállítás – Marcali",
   "description": "Bútorbolt Marcali: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 35 km-re – 3+10 év garancia, online rendelés.",
-  "url": "https://enzodesign.hu/butorbolt-marcali",
+  "url": "https://www.enzodesign.hu/butorbolt-marcali",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Enzo Design",

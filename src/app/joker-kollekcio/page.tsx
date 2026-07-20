@@ -3,11 +3,11 @@ import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Joker Kollekció – Enzo Design",
   description: "Joker kanapé és fotel egyedi méretben – bútorbolt Nagykanizsán, online rendelés. Prémium szövetborítás mélyen gombolt háttámlával, 399.810 Ft-tól.",
-  alternates: { canonical: "https://enzodesign.hu/joker-kollekcio" },
+  alternates: { canonical: "https://www.enzodesign.hu/joker-kollekcio" },
   openGraph: {
     title: "Joker Kollekció – Enzo Design",
     description: "A Joker kollekció prémium szövetborítással és mélyen gombolt háttámlával – modern Chesterfield ihlette vonalakkal. 399.810 Ft-tól.",
-    url: "https://enzodesign.hu/joker-kollekcio",
+    url: "https://www.enzodesign.hu/joker-kollekcio",
     images: [{ url: "/images/joker-w1.webp", width: 1920, height: 800 }],
   },
 };

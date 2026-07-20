@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://enzodesign.hu";
+const BASE = "https://www.enzodesign.hu";
 
 const PAGES = [
   { url: "/", priority: 1.0, changeFrequency: "weekly" },

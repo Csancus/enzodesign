@@ -3,11 +3,11 @@ import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Chesterfield Fotel – tömörfa váz, szövet vagy bőr",
   description: "Klasszikus Chesterfield fotel tömörfa szerkezettel, prémium szövettel vagy bőrborítással. 3 év garancia, egyedi méret – közvetlen gyártótól, Nagykanizsáról.",
-  alternates: { canonical: "https://enzodesign.hu/butoraink/fotelek/chesterfield-fotel" },
+  alternates: { canonical: "https://www.enzodesign.hu/butoraink/fotelek/chesterfield-fotel" },
   openGraph: {
     title: "Chesterfield Fotel – tömörfa váz, szövet vagy bőr | Enzo Design",
     description: "Klasszikus Chesterfield fotel tömörfa szerkezettel. 3 év garancia, egyedi méret.",
-    url: "https://enzodesign.hu/butoraink/fotelek/chesterfield-fotel",
+    url: "https://www.enzodesign.hu/butoraink/fotelek/chesterfield-fotel",
     images: [{ url: "/images/chesterfield-w4.webp", width: 1920, height: 800 }],
   },
 };

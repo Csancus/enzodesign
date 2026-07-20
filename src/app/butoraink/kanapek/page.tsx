@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   title: "Kanapék – Enzo Design",
   description: "Kárpitozott kanapék egyedi méretben – bútorbolt Nagykanizsán, online rendelés. Old's Club, Ivone, Chesterfield, New York, Joker, Cannes kollekciók gyártótól.",
 
-  alternates: { canonical: "https://enzodesign.hu/butoraink/kanapek" },
+  alternates: { canonical: "https://www.enzodesign.hu/butoraink/kanapek" },
   openGraph: {
     title: "Kanapék – Enzo Design",
     description: "Kárpitozott kanapék egyedi méretben – bútorbolt Nagykanizsán, online rendelés. Old's Club, Ivone, Chesterfield, New York, Joker, Cannes kollekciók gyártótól.",
-    url: "https://enzodesign.hu/butoraink/kanapek",
+    url: "https://www.enzodesign.hu/butoraink/kanapek",
     images: [{ url: "/images/olds-club-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -164,13 +164,13 @@ export default async function KanapekPage() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Kanapék – Enzo Design",
-    "url": "https://enzodesign.hu/butoraink/kanapek",
+    "url": "https://www.enzodesign.hu/butoraink/kanapek",
     "numberOfItems": resolvedCards.length,
     "itemListElement": resolvedCards.map((c, i) => ({
       "@type": "ListItem",
       "position": i + 1,
       "name": c.name,
-      "url": `https://enzodesign.hu${c.href}`,
+      "url": `https://www.enzodesign.hu${c.href}`,
     })),
   };
 

@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   title: "Franciaágyak – Enzo Design",
   description: "Kárpitozott franciaágyak – egyedi bútor online rendelés bútorbolt Nagykanizsán. Bilbao, Madrid és egyéni modellek tömörfa szerkezettel, 351.160 Ft-tól.",
 
-  alternates: { canonical: "https://enzodesign.hu/butoraink/franciaagyak" },
+  alternates: { canonical: "https://www.enzodesign.hu/butoraink/franciaagyak" },
   openGraph: {
     title: "Franciaágyak – Enzo Design",
     description: "Kárpitozott franciaágyak – egyedi bútor online rendelés bútorbolt Nagykanizsán. Bilbao, Madrid és egyéni modellek tömörfa szerkezettel, 351.160 Ft-tól.",
-    url: "https://enzodesign.hu/butoraink/franciaagyak",
+    url: "https://www.enzodesign.hu/butoraink/franciaagyak",
     images: [{ url: "/images/franciaaggy-w3.webp", width: 1920, height: 800 }],
   },
 };
@@ -81,13 +81,13 @@ export default async function FranciaagyakPage() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Franciaágyak – Enzo Design",
-    "url": "https://enzodesign.hu/butoraink/franciaagyak",
+    "url": "https://www.enzodesign.hu/butoraink/franciaagyak",
     "numberOfItems": resolvedCards.length,
     "itemListElement": resolvedCards.map((c, i) => ({
       "@type": "ListItem",
       "position": i + 1,
       "name": c.name,
-      "url": `https://enzodesign.hu${c.href}`,
+      "url": `https://www.enzodesign.hu${c.href}`,
     })),
   };
 

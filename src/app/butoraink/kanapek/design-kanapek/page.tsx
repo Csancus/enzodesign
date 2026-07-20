@@ -4,11 +4,11 @@ import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Design Kanapé – modern vonalak, prémium kárpit",
   description: "Modern design kanapék tömörfa szerkezettel és prémium kárpittal. 2, 3 személyes és sarok kivitel – egyedi méretben és szövettel, közvetlen gyártótól.",
-  alternates: { canonical: "https://enzodesign.hu/butoraink/kanapek/design-kanapek" },
+  alternates: { canonical: "https://www.enzodesign.hu/butoraink/kanapek/design-kanapek" },
   openGraph: {
     title: "Design Kanapé – modern vonalak, prémium kárpit | Enzo Design",
     description: "Modern design kanapék tömörfa szerkezettel. Egyedi méret és szövetválasztás, közvetlen gyártótól.",
-    url: "https://enzodesign.hu/butoraink/kanapek/design-kanapek",
+    url: "https://www.enzodesign.hu/butoraink/kanapek/design-kanapek",
     images: [{ url: "/images/design-w1.webp", width: 1920, height: 800 }],
   },
 };

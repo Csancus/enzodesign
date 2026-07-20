@@ -11,11 +11,11 @@ import type { FieldDef } from "@/types/cms";
 export const metadata: Metadata = {
   title: "Chesterfield Bútorok – Kanapék és Fotelek | Enzo Design",
   description: "Chesterfield kanapék és fotelek közel 20 éve. Tömörfa váz, prémium szövet vagy bőr bevonat, 3+10 év garanciával. Egyedi méretben, közvetlenül a gyártótól.",
-  alternates: { canonical: "https://enzodesign.hu/chesterfield" },
+  alternates: { canonical: "https://www.enzodesign.hu/chesterfield" },
   openGraph: {
     title: "Chesterfield Bútorok – Kanapék és Fotelek | Enzo Design",
     description: "Chesterfield kanapék és fotelek közel 20 éve. Tömörfa váz, prémium szövet vagy bőr bevonat, 3+10 év garanciával. Egyedi méretben, közvetlenül a gyártótól.",
-    url: "https://enzodesign.hu/chesterfield",
+    url: "https://www.enzodesign.hu/chesterfield",
     images: [{ url: "/images/e7ad8b_f3e7dfd04f494d26b0ab4fb0b4548113.webp", width: 1920, height: 800 }],
   },
 };

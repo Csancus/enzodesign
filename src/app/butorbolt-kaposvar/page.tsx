@@ -4,11 +4,11 @@ import CityLandingPage from "@/components/CityLandingPage";
 export const metadata: Metadata = {
   title: "Bútorbolt Kaposvár – Egyedi kárpit bútor | Enzo Design",
   description: "Bútorbolt Kaposvár: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 52 km-re – 3+10 év garancia, online rendelés.",
-  alternates: { canonical: "https://enzodesign.hu/butorbolt-kaposvar" },
+  alternates: { canonical: "https://www.enzodesign.hu/butorbolt-kaposvar" },
   openGraph: {
     title: "Bútorbolt Kaposvár – Egyedi kárpit bútor | Enzo Design",
     description: "Bútorbolt Kaposvár: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 52 km-re – 3+10 év garancia, online rendelés.",
-    url: "https://enzodesign.hu/butorbolt-kaposvar",
+    url: "https://www.enzodesign.hu/butorbolt-kaposvar",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -18,7 +18,7 @@ const jsonLd = {
   "@type": "Service",
   "name": "Kárpitozott bútor gyártás és szállítás – Kaposvár",
   "description": "Bútorbolt Kaposvár: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 52 km-re – 3+10 év garancia, online rendelés.",
-  "url": "https://enzodesign.hu/butorbolt-kaposvar",
+  "url": "https://www.enzodesign.hu/butorbolt-kaposvar",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Enzo Design",

@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Blog – Enzo Design",
   description: "Kárpitozott bútorokról, Chesterfieldről, egyedi rendelésről és enteriőr trendekről – az Enzo Design blog.",
 
-  alternates: { canonical: "https://enzodesign.hu/blog" },
+  alternates: { canonical: "https://www.enzodesign.hu/blog" },
   openGraph: {
     title: "Blog – Enzo Design",
     description: "Kárpitozott bútorokról, Chesterfieldről, egyedi rendelésről és enteriőr trendekről – az Enzo Design blog.",
-    url: "https://enzodesign.hu/blog",
+    url: "https://www.enzodesign.hu/blog",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -113,15 +113,15 @@ const blogJsonLd = {
   "@context": "https://schema.org",
   "@type": "Blog",
   "name": "Blog – Enzo Design",
-  "url": "https://enzodesign.hu/blog",
+  "url": "https://www.enzodesign.hu/blog",
   "description": "Kárpitozott bútorokról, Chesterfieldről, egyedi rendelésről és enteriőr trendekről – az Enzo Design blog.",
-  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu" },
+  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
   "blogPost": POSTS.map((p) => ({
     "@type": "BlogPosting",
     "headline": p.title,
     "description": p.excerpt,
-    "url": `https://enzodesign.hu/blog/${p.slug}`,
-    "image": `https://enzodesign.hu${p.image}`,
+    "url": `https://www.enzodesign.hu/blog/${p.slug}`,
+    "image": `https://www.enzodesign.hu${p.image}`,
   })),
 };
 
@@ -144,8 +144,8 @@ export default async function BlogPage() {
       "@type": "BlogPosting",
       "headline": p.title,
       "description": p.excerpt,
-      "url": `https://enzodesign.hu/blog/${p.slug}`,
-      "image": `https://enzodesign.hu${p.image}`,
+      "url": `https://www.enzodesign.hu/blog/${p.slug}`,
+      "image": `https://www.enzodesign.hu${p.image}`,
     })),
   };
 

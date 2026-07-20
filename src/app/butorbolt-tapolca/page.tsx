@@ -4,11 +4,11 @@ import CityLandingPage from "@/components/CityLandingPage";
 export const metadata: Metadata = {
   title: "Bútorbolt Tapolca – Egyedi kárpit bútor | Enzo Design",
   description: "Bútorbolt Tapolca: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 58 km-re – 3+10 év garancia, online rendelés.",
-  alternates: { canonical: "https://enzodesign.hu/butorbolt-tapolca" },
+  alternates: { canonical: "https://www.enzodesign.hu/butorbolt-tapolca" },
   openGraph: {
     title: "Bútorbolt Tapolca – Egyedi kárpit bútor | Enzo Design",
     description: "Bútorbolt Tapolca: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 58 km-re – 3+10 év garancia, online rendelés.",
-    url: "https://enzodesign.hu/butorbolt-tapolca",
+    url: "https://www.enzodesign.hu/butorbolt-tapolca",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -18,7 +18,7 @@ const jsonLd = {
   "@type": "Service",
   "name": "Kárpitozott bútor gyártás és szállítás – Tapolca",
   "description": "Bútorbolt Tapolca: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 58 km-re – 3+10 év garancia, online rendelés.",
-  "url": "https://enzodesign.hu/butorbolt-tapolca",
+  "url": "https://www.enzodesign.hu/butorbolt-tapolca",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Enzo Design",

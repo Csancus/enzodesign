@@ -3,11 +3,11 @@ import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "New York Kollekció – Enzo Design",
   description: "New York kanapé és fotel egyedi méretben – bútorbolt Nagykanizsán, online rendelés. Modern Chesterfield ihlette bútor tömörfa szerkezettel, 399.810 Ft-tól.",
-  alternates: { canonical: "https://enzodesign.hu/new-york-kollekcio" },
+  alternates: { canonical: "https://www.enzodesign.hu/new-york-kollekcio" },
   openGraph: {
     title: "New York Kollekció – Enzo Design",
     description: "A New York kollekció a klasszikus Chesterfield forma eleganciáját ötvözi a modern letisztultsággal. Személyre szabható – 399.810 Ft-tól.",
-    url: "https://enzodesign.hu/new-york-kollekcio",
+    url: "https://www.enzodesign.hu/new-york-kollekcio",
     images: [{ url: "/images/new-york-w5.webp", width: 1920, height: 800 }],
   },
 };

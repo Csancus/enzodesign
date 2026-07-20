@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Rendelés menete – Enzo Design",
   description: "Online rendelés lépései – egyedi bútor bútorbolt Nagykanizsán. Küldj képet, 2 nap alatt árajánlat, 4–6 hét gyártás, házhozszállítás az egész országba.",
 
-  alternates: { canonical: "https://enzodesign.hu/rendeles-menete" },
+  alternates: { canonical: "https://www.enzodesign.hu/rendeles-menete" },
   openGraph: {
     title: "Rendelés menete – Enzo Design",
     description: "Online rendelés lépései – egyedi bútor bútorbolt Nagykanizsán. Küldj képet, 2 nap alatt árajánlat, 4–6 hét gyártás, házhozszállítás az egész országba.",
-    url: "https://enzodesign.hu/rendeles-menete",
+    url: "https://www.enzodesign.hu/rendeles-menete",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };

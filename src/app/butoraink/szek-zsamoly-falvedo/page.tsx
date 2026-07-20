@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   title: "Szék, zsámoly, falvédő – Enzo Design",
   description: "Kárpitozott székek 76.000 Ft-tól, zsámolyok és falvédők egyedi méretben.",
 
-  alternates: { canonical: "https://enzodesign.hu/butoraink/szek-zsamoly-falvedo" },
+  alternates: { canonical: "https://www.enzodesign.hu/butoraink/szek-zsamoly-falvedo" },
   openGraph: {
     title: "Szék, zsámoly, falvédő – Enzo Design",
     description: "Kárpitozott székek 76.000 Ft-tól, zsámolyok és falvédők egyedi méretben.",
-    url: "https://enzodesign.hu/butoraink/szek-zsamoly-falvedo",
+    url: "https://www.enzodesign.hu/butoraink/szek-zsamoly-falvedo",
     images: [{ url: "/images/szek-w2.webp", width: 1920, height: 800 }],
   },
 };
@@ -85,13 +85,13 @@ export default async function SzekZsamolyPage() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Szék, zsámoly, falvédő – Enzo Design",
-    "url": "https://enzodesign.hu/butoraink/szek-zsamoly-falvedo",
+    "url": "https://www.enzodesign.hu/butoraink/szek-zsamoly-falvedo",
     "numberOfItems": resolvedCards.length,
     "itemListElement": resolvedCards.map((c, i) => ({
       "@type": "ListItem",
       "position": i + 1,
       "name": c.name,
-      "url": `https://enzodesign.hu${c.href}`,
+      "url": `https://www.enzodesign.hu${c.href}`,
     })),
   };
 

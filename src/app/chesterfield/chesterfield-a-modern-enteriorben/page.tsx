@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: "A Chesterfield a modern enteriőrben – Enzo Design",
   description: "Hogyan illik a klasszikus Chesterfield kanapé a modern otthonba? Minimalista, skandináv, loft és vintage stílusú terekhez egyaránt tökéletes.",
 
-  alternates: { canonical: "https://enzodesign.hu/chesterfield/chesterfield-a-modern-enteriorben" },
+  alternates: { canonical: "https://www.enzodesign.hu/chesterfield/chesterfield-a-modern-enteriorben" },
   openGraph: {
     type: "article",
     title: "A Chesterfield a modern enteriőrben – Enzo Design",
     description: "Hogyan illik a klasszikus Chesterfield kanapé a modern otthonba? Minimalista, skandináv, loft és vintage stílusú terekhez egyaránt tökéletes.",
-    url: "https://enzodesign.hu/chesterfield/chesterfield-a-modern-enteriorben",
+    url: "https://www.enzodesign.hu/chesterfield/chesterfield-a-modern-enteriorben",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -22,11 +22,11 @@ const articleJsonLd = {
   "@type": "BlogPosting",
   "headline": "A Chesterfield a modern enteriőrben",
   "description": "Hogyan illik a klasszikus Chesterfield kanapé a modern otthonba? Minimalista, skandináv, loft és vintage stílusú terekhez egyaránt tökéletes.",
-  "url": "https://enzodesign.hu/chesterfield/chesterfield-a-modern-enteriorben",
-  "image": "https://enzodesign.hu/images/chesterfield-w1.webp",
+  "url": "https://www.enzodesign.hu/chesterfield/chesterfield-a-modern-enteriorben",
+  "image": "https://www.enzodesign.hu/images/chesterfield-w1.webp",
   "inLanguage": "hu",
-  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu" },
-  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu", "logo": { "@type": "ImageObject", "url": "https://enzodesign.hu/images/logo.webp" } },
+  "author": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
+  "publisher": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu", "logo": { "@type": "ImageObject", "url": "https://www.enzodesign.hu/images/logo.webp" } },
 };
 
 export default async function Page() {

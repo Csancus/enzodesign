@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   title: "Kárpitozott bútor üzleti ügyfeleknek – Enzo Design",
   description: "Egyedi bútor üzleti ügyfeleknek – bútorbolt Nagykanizsán, online rendelés. Éttermeknek, szállodáknak tömörfa szerkezettel, nagy kopásállóságú anyagokkal.",
 
-  alternates: { canonical: "https://enzodesign.hu/karpitozott-butor-uzleti-ugyfeleknek" },
+  alternates: { canonical: "https://www.enzodesign.hu/karpitozott-butor-uzleti-ugyfeleknek" },
   openGraph: {
     title: "Kárpitozott bútor üzleti ügyfeleknek – Enzo Design",
     description: "Egyedi bútor üzleti ügyfeleknek – bútorbolt Nagykanizsán, online rendelés. Éttermeknek, szállodáknak tömörfa szerkezettel, nagy kopásállóságú anyagokkal.",
-    url: "https://enzodesign.hu/karpitozott-butor-uzleti-ugyfeleknek",
+    url: "https://www.enzodesign.hu/karpitozott-butor-uzleti-ugyfeleknek",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };

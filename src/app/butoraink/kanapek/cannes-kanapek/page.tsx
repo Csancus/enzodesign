@@ -4,11 +4,11 @@ import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Cannes Sarokkanapé – modern, dönthető fejtámlával",
   description: "A Cannes sarokkanapé modern sarokbútor állítható fejtámlával. Tömörfa váz, prémium kárpit, egyedi méretben – közvetlen gyártótól, Nagykanizsáról.",
-  alternates: { canonical: "https://enzodesign.hu/butoraink/kanapek/cannes-kanapek" },
+  alternates: { canonical: "https://www.enzodesign.hu/butoraink/kanapek/cannes-kanapek" },
   openGraph: {
     title: "Cannes Sarokkanapé – modern, dönthető fejtámlával | Enzo Design",
     description: "Modern sarokkanapé állítható fejtámlával. Tömörfa váz, prémium kárpit, egyedi méretben.",
-    url: "https://enzodesign.hu/butoraink/kanapek/cannes-kanapek",
+    url: "https://www.enzodesign.hu/butoraink/kanapek/cannes-kanapek",
     images: [{ url: "/images/cannes-w1.webp", width: 1920, height: 800 }],
   },
 };

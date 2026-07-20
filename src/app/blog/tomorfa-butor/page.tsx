@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: "Tömörfa bútor – tartós befektetés, 20–30 éves élettartam",
   description: "Miért érdemes tömörfa bútort választani MDF helyett? Tartósság, természetes anyag, 20–30 éves élettartam és 10 év vázgarancia. Enzo Design, Nagykanizsa.",
 
-  alternates: { canonical: "https://enzodesign.hu/blog/tomorfa-butor" },
+  alternates: { canonical: "https://www.enzodesign.hu/blog/tomorfa-butor" },
   openGraph: {
     title: "Tömörfa bútor – tartós befektetés, 20–30 éves élettartam",
     description: "Miért érdemes tömörfa bútort választani MDF helyett? Tartósság, természetes anyag, 20–30 éves élettartam és 10 év vázgarancia. Enzo Design, Nagykanizsa.",
-    url: "https://enzodesign.hu/blog/tomorfa-butor",
+    url: "https://www.enzodesign.hu/blog/tomorfa-butor",
     images: [{ url: "/images/nsplsh_1b3884fd54de4bf38b65c3212fdc76c7.webp", width: 1920, height: 800 }],
   },
 };

@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   title: "Bútoraink – Enzo Design",
   description: "Bútorbolt Nagykanizsán – egyedi bútor online rendelés: kanapék, fotelek, franciaágyak 2000 nm-es bemutatóteremből. Tömörfa, prémium szövetek, 3+10 év garancia.",
 
-  alternates: { canonical: "https://enzodesign.hu/butoraink" },
+  alternates: { canonical: "https://www.enzodesign.hu/butoraink" },
   openGraph: {
     title: "Bútoraink – Enzo Design",
     description: "Bútorbolt Nagykanizsán – egyedi bútor online rendelés: kanapék, fotelek, franciaágyak 2000 nm-es bemutatóteremből. Tömörfa, prémium szövetek, 3+10 év garancia.",
-    url: "https://enzodesign.hu/butoraink",
+    url: "https://www.enzodesign.hu/butoraink",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -128,13 +128,13 @@ export default async function ButorainkPage() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Bútoraink – Enzo Design",
-    "url": "https://enzodesign.hu/butoraink",
+    "url": "https://www.enzodesign.hu/butoraink",
     "numberOfItems": 4,
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Kanapék", "url": "https://enzodesign.hu/butoraink/kanapek" },
-      { "@type": "ListItem", "position": 2, "name": "Fotelek", "url": "https://enzodesign.hu/butoraink/fotelek" },
-      { "@type": "ListItem", "position": 3, "name": "Franciaágyak", "url": "https://enzodesign.hu/butoraink/franciaagyak" },
-      { "@type": "ListItem", "position": 4, "name": "Szék, zsámoly, falvédő", "url": "https://enzodesign.hu/butoraink/szek-zsamoly-falvedo" },
+      { "@type": "ListItem", "position": 1, "name": "Kanapék", "url": "https://www.enzodesign.hu/butoraink/kanapek" },
+      { "@type": "ListItem", "position": 2, "name": "Fotelek", "url": "https://www.enzodesign.hu/butoraink/fotelek" },
+      { "@type": "ListItem", "position": 3, "name": "Franciaágyak", "url": "https://www.enzodesign.hu/butoraink/franciaagyak" },
+      { "@type": "ListItem", "position": 4, "name": "Szék, zsámoly, falvédő", "url": "https://www.enzodesign.hu/butoraink/szek-zsamoly-falvedo" },
     ],
   };
 

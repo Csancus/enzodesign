@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   description:
     "Akciós egyedi bútor – bútorbolt Nagykanizsán, online rendelés. Chesterfield kanapék, fotelek, franciaágyak kedvező áron közvetlenül a gyártótól.",
 
-  alternates: { canonical: "https://enzodesign.hu/akcio" },
+  alternates: { canonical: "https://www.enzodesign.hu/akcio" },
   openGraph: {
     title: "Akciók – Enzo Design",
     description: "Aktuális akciós kárpitozott bútorok közvetlenül a gyártótól – Chesterfield kanapék, franciaágyak, fotelek kedvező áron.",
-    url: "https://enzodesign.hu/akcio",
+    url: "https://www.enzodesign.hu/akcio",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };

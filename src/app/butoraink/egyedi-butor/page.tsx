@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   title: "Egyedi Bútor – Enzo Design",
   description: "Egyedi bútor online rendelés – bútorbolt Nagykanizsán: küldj képet, 2 napon belül árajánlat. Tömörfa szerkezet, 100+ szövet, 3+10 év garancia.",
 
-  alternates: { canonical: "https://enzodesign.hu/butoraink/egyedi-butor" },
+  alternates: { canonical: "https://www.enzodesign.hu/butoraink/egyedi-butor" },
   openGraph: {
     title: "Egyedi Bútor – Enzo Design",
     description: "Egyedi bútor online rendelés – bútorbolt Nagykanizsán: küldj képet, 2 napon belül árajánlat. Tömörfa szerkezet, 100+ szövet, 3+10 év garancia.",
-    url: "https://enzodesign.hu/butoraink/egyedi-butor",
+    url: "https://www.enzodesign.hu/butoraink/egyedi-butor",
     images: [{ url: "/images/egyedi-w1.webp", width: 1920, height: 800 }],
   },
 };

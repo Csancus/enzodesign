@@ -4,11 +4,11 @@ import CityLandingPage from "@/components/CityLandingPage";
 export const metadata: Metadata = {
   title: "Bútorbolt Barcs – Egyedi kárpit bútor | Enzo Design",
   description: "Bútorbolt Barcs: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 60 km-re – 3+10 év garancia, online rendelés.",
-  alternates: { canonical: "https://enzodesign.hu/butorbolt-barcs" },
+  alternates: { canonical: "https://www.enzodesign.hu/butorbolt-barcs" },
   openGraph: {
     title: "Bútorbolt Barcs – Egyedi kárpit bútor | Enzo Design",
     description: "Bútorbolt Barcs: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 60 km-re – 3+10 év garancia, online rendelés.",
-    url: "https://enzodesign.hu/butorbolt-barcs",
+    url: "https://www.enzodesign.hu/butorbolt-barcs",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -18,7 +18,7 @@ const jsonLd = {
   "@type": "Service",
   "name": "Kárpitozott bútor gyártás és szállítás – Barcs",
   "description": "Bútorbolt Barcs: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 60 km-re – 3+10 év garancia, online rendelés.",
-  "url": "https://enzodesign.hu/butorbolt-barcs",
+  "url": "https://www.enzodesign.hu/butorbolt-barcs",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Enzo Design",

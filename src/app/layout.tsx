@@ -24,7 +24,7 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://enzodesign.hu"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.enzodesign.hu"),
   title: {
     default: "Enzo Design – Egyedi kárpitozott bútorok",
     template: "%s | Enzo Design",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     google: "GF7nw14w_hoZNowLq5g0-aCKhNo279gnC0B_h2sYdGA",
   },
   alternates: {
-    canonical: "https://enzodesign.hu",
+    canonical: "https://www.enzodesign.hu",
   },
   openGraph: {
     siteName: "Enzo Design",
@@ -68,10 +68,10 @@ export default async function RootLayout({
     "@type": ["LocalBusiness", "FurnitureStore"],
     "name": "Enzo Design",
     "description": "Egyedi kárpitozott bútorok gyártása Nagykanizsán. Kanapék, fotelek, Chesterfield bútorok közvetlenül a gyártótól.",
-    "url": "https://enzodesign.hu",
+    "url": "https://www.enzodesign.hu",
     "telephone": "+36303778983",
     "email": "info@enzodesign.hu",
-    "image": "https://enzodesign.hu/images/logo.webp",
+    "image": "https://www.enzodesign.hu/images/logo.webp",
     "priceRange": "$$",
     "currenciesAccepted": "HUF",
     "address": {

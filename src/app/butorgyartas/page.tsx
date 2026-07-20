@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   title: "Bútorgyártás – Enzo Design",
   description: "A bútorgyártás komplex, precíz folyamat. Megismerheti az Enzo Design gyártástechnológiáját.",
 
-  alternates: { canonical: "https://enzodesign.hu/butorgyartas" },
+  alternates: { canonical: "https://www.enzodesign.hu/butorgyartas" },
   openGraph: {
     title: "Bútorgyártás – Enzo Design",
     description: "A bútorgyártás komplex, precíz folyamat. Megismerheti az Enzo Design gyártástechnológiáját.",
-    url: "https://enzodesign.hu/butorgyartas",
+    url: "https://www.enzodesign.hu/butorgyartas",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };

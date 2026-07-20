@@ -3,11 +3,11 @@ import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "További Kárpitozott Fotelek – karfás modellek",
   description: "Karfás és egyedi kárpitozott fotelek gyűjteménye. Tömörfa szerkezet, nagy kopásállóságú szövetek – egyedi méretben, közvetlen gyártótól, Nagykanizsáról.",
-  alternates: { canonical: "https://enzodesign.hu/butoraink/fotelek/tovabbi-fotelek" },
+  alternates: { canonical: "https://www.enzodesign.hu/butoraink/fotelek/tovabbi-fotelek" },
   openGraph: {
     title: "További Kárpitozott Fotelek – karfás modellek | Enzo Design",
     description: "Karfás fotelek gyűjteménye. Tömörfa szerkezet, nagy kopásállóságú szövetek, egyedi méretben.",
-    url: "https://enzodesign.hu/butoraink/fotelek/tovabbi-fotelek",
+    url: "https://www.enzodesign.hu/butoraink/fotelek/tovabbi-fotelek",
     images: [{ url: "/images/fotelek-w2.webp", width: 1920, height: 800 }],
   },
 };

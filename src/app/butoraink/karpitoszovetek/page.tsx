@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Kárpitszövetek – Enzo Design",
   description: "Több mint 100 kárpitszövet – bársony, bőr, sennilé. AI, AT, MA, AG szövetcsaládok. Prémium minőség, hosszú élettartam.",
 
-  alternates: { canonical: "https://enzodesign.hu/butoraink/karpitoszovetek" },
+  alternates: { canonical: "https://www.enzodesign.hu/butoraink/karpitoszovetek" },
   openGraph: {
     title: "Kárpitszövetek – Enzo Design",
     description: "Több mint 100 kárpitszövet – bársony, bőr, sennilé. AI, AT, MA, AG szövetcsaládok. Prémium minőség, hosszú élettartam.",
-    url: "https://enzodesign.hu/butoraink/karpitoszovetek",
+    url: "https://www.enzodesign.hu/butoraink/karpitoszovetek",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };

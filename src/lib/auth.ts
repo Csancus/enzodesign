@@ -3,7 +3,7 @@ import { createHmac } from "crypto";
 import { NextResponse } from "next/server";
 
 const COOKIE = "enzo_admin";
-const ALLOWED_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://enzodesign.hu";
+const ALLOWED_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.enzodesign.hu";
 
 function sessionToken(): string {
   const pw = process.env.ADMIN_PASSWORD ?? "no-password-set";

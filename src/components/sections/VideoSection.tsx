@@ -23,14 +23,14 @@ export default async function VideoSection({ moduleId, isAdmin }: { moduleId: st
     "@type": "VideoObject",
     "name": cfg.title || "Enzo Design – Egyedi kárpitozott bútorok gyártása",
     "description": "Egyedi kárpitozott bútorok gyártása Nagykanizsán. Kanapék, fotelek, Chesterfield bútorok saját műhelyben.",
-    "thumbnailUrl": "https://enzodesign.hu/images/chesterfield-w1.webp",
-    "contentUrl": `https://enzodesign.hu${cfg.src}`,
+    "thumbnailUrl": "https://www.enzodesign.hu/images/chesterfield-w1.webp",
+    "contentUrl": `https://www.enzodesign.hu${cfg.src}`,
     "uploadDate": "2026-06-26T00:00:00+02:00",
     "publisher": {
       "@type": "Organization",
       "name": "Enzo Design",
-      "url": "https://enzodesign.hu",
-      "logo": { "@type": "ImageObject", "url": "https://enzodesign.hu/images/logo.webp" },
+      "url": "https://www.enzodesign.hu",
+      "logo": { "@type": "ImageObject", "url": "https://www.enzodesign.hu/images/logo.webp" },
     },
   };
 

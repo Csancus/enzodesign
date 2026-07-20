@@ -4,11 +4,11 @@ import CityLandingPage from "@/components/CityLandingPage";
 export const metadata: Metadata = {
   title: "Bútorbolt Szigetvár – Egyedi kárpit bútor | Enzo Design",
   description: "Bútorbolt Szigetvár: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 65 km-re – 3+10 év garancia, online rendelés.",
-  alternates: { canonical: "https://enzodesign.hu/butorbolt-szigetvar" },
+  alternates: { canonical: "https://www.enzodesign.hu/butorbolt-szigetvar" },
   openGraph: {
     title: "Bútorbolt Szigetvár – Egyedi kárpit bútor | Enzo Design",
     description: "Bútorbolt Szigetvár: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 65 km-re – 3+10 év garancia, online rendelés.",
-    url: "https://enzodesign.hu/butorbolt-szigetvar",
+    url: "https://www.enzodesign.hu/butorbolt-szigetvar",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -18,7 +18,7 @@ const jsonLd = {
   "@type": "Service",
   "name": "Kárpitozott bútor gyártás és szállítás – Szigetvár",
   "description": "Bútorbolt Szigetvár: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 65 km-re – 3+10 év garancia, online rendelés.",
-  "url": "https://enzodesign.hu/butorbolt-szigetvar",
+  "url": "https://www.enzodesign.hu/butorbolt-szigetvar",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Enzo Design",

@@ -4,11 +4,11 @@ import CityLandingPage from "@/components/CityLandingPage";
 export const metadata: Metadata = {
   title: "Bútorbolt Siófok – Egyedi kárpit bútor | Enzo Design",
   description: "Bútorbolt Siófok: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 74 km-re – 3+10 év garancia, online rendelés.",
-  alternates: { canonical: "https://enzodesign.hu/butorbolt-siofok" },
+  alternates: { canonical: "https://www.enzodesign.hu/butorbolt-siofok" },
   openGraph: {
     title: "Bútorbolt Siófok – Egyedi kárpit bútor | Enzo Design",
     description: "Bútorbolt Siófok: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 74 km-re – 3+10 év garancia, online rendelés.",
-    url: "https://enzodesign.hu/butorbolt-siofok",
+    url: "https://www.enzodesign.hu/butorbolt-siofok",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -18,7 +18,7 @@ const jsonLd = {
   "@type": "Service",
   "name": "Kárpitozott bútor gyártás és szállítás – Siófok",
   "description": "Bútorbolt Siófok: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 74 km-re – 3+10 év garancia, online rendelés.",
-  "url": "https://enzodesign.hu/butorbolt-siofok",
+  "url": "https://www.enzodesign.hu/butorbolt-siofok",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Enzo Design",

@@ -161,7 +161,7 @@ export default async function ProductPageTemplate({
     "@type": "Product",
     "name": hdr.name,
     "description": hdr.description,
-    "image": `https://enzodesign.hu${mainImage}`,
+    "image": `https://www.enzodesign.hu${mainImage}`,
     "brand": { "@type": "Brand", "name": "Enzo Design" },
     "offers": {
       "@type": "Offer",
@@ -169,7 +169,7 @@ export default async function ProductPageTemplate({
       ...(startingPrice ? { "price": String(startingPrice) } : {}),
       "availability": "https://schema.org/InStock",
       "itemCondition": "https://schema.org/NewCondition",
-      "seller": { "@type": "Organization", "name": "Enzo Design", "url": "https://enzodesign.hu" },
+      "seller": { "@type": "Organization", "name": "Enzo Design", "url": "https://www.enzodesign.hu" },
       "shippingDetails": {
         "@type": "OfferShippingDetails",
         "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "HUF" },
@@ -210,7 +210,7 @@ export default async function ProductPageTemplate({
       "@type": "ListItem",
       "position": i + 1,
       "name": crumb.label,
-      "item": `https://enzodesign.hu${crumb.href}`,
+      "item": `https://www.enzodesign.hu${crumb.href}`,
     })),
   };
 

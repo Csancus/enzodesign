@@ -4,11 +4,11 @@ import ProductPageTemplate from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "New York Kanapé – klasszikus-modern bútor",
   description: "A New York kanapé ötvözi a klasszikus és modern stílust. Tömörfa váz, prémium szövetek és bőr, egyedi méretben – közvetlen gyártótól, Nagykanizsáról.",
-  alternates: { canonical: "https://enzodesign.hu/butoraink/kanapek/new-york-kanapek" },
+  alternates: { canonical: "https://www.enzodesign.hu/butoraink/kanapek/new-york-kanapek" },
   openGraph: {
     title: "New York Kanapé – klasszikus-modern bútor | Enzo Design",
     description: "Klasszikus és modern stílus ötvözete. Tömörfa váz, prémium szövetek, egyedi méretben.",
-    url: "https://enzodesign.hu/butoraink/kanapek/new-york-kanapek",
+    url: "https://www.enzodesign.hu/butoraink/kanapek/new-york-kanapek",
     images: [{ url: "/images/new-york-w1.webp", width: 1920, height: 800 }],
   },
 };

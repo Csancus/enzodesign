@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Vásárlói visszajelzések – Enzo Design",
   description: "Olvasson valódi vásárlói véleményeket az Enzo Design bútorainkról. Google értékelések, elégedett ügyfelek.",
 
-  alternates: { canonical: "https://enzodesign.hu/vasarloi-visszajelzesek" },
+  alternates: { canonical: "https://www.enzodesign.hu/vasarloi-visszajelzesek" },
   openGraph: {
     title: "Vásárlói visszajelzések – Enzo Design",
     description: "Olvasson valódi vásárlói véleményeket az Enzo Design bútorainkról. Google értékelések, elégedett ügyfelek.",
-    url: "https://enzodesign.hu/vasarloi-visszajelzesek",
+    url: "https://www.enzodesign.hu/vasarloi-visszajelzesek",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };

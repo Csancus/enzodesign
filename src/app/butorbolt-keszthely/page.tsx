@@ -4,11 +4,11 @@ import CityLandingPage from "@/components/CityLandingPage";
 export const metadata: Metadata = {
   title: "Bútorbolt Keszthely – Egyedi kárpit bútor | Enzo Design",
   description: "Bútorbolt Keszthely: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 45 km-re – 3+10 év garancia, online rendelés.",
-  alternates: { canonical: "https://enzodesign.hu/butorbolt-keszthely" },
+  alternates: { canonical: "https://www.enzodesign.hu/butorbolt-keszthely" },
   openGraph: {
     title: "Bútorbolt Keszthely – Egyedi kárpit bútor | Enzo Design",
     description: "Bútorbolt Keszthely: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 45 km-re – 3+10 év garancia, online rendelés.",
-    url: "https://enzodesign.hu/butorbolt-keszthely",
+    url: "https://www.enzodesign.hu/butorbolt-keszthely",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
 };
@@ -18,7 +18,7 @@ const jsonLd = {
   "@type": "Service",
   "name": "Kárpitozott bútor gyártás és szállítás – Keszthely",
   "description": "Bútorbolt Keszthely: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 45 km-re – 3+10 év garancia, online rendelés.",
-  "url": "https://enzodesign.hu/butorbolt-keszthely",
+  "url": "https://www.enzodesign.hu/butorbolt-keszthely",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Enzo Design",

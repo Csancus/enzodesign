@@ -4,11 +4,11 @@ import BlogArticle from "@/components/BlogArticle";
 export const metadata: Metadata = {
   title: "Chesterfield puff – elegáns zsámoly a nappaliba | Enzo Design",
   description: "A Chesterfield puff egyszerre lábzsámoly, extra ülőhely és dekorációs elem. Egyedi méretben, bőrben vagy szövetben, tömörfa szerkezettel – közvetlenül a gyártótól.",
-  alternates: { canonical: "https://enzodesign.hu/blog/chesterfield-puff" },
+  alternates: { canonical: "https://www.enzodesign.hu/blog/chesterfield-puff" },
   openGraph: {
     title: "Chesterfield puff – elegáns zsámoly a nappaliba",
     description: "A Chesterfield puff egyszerre lábzsámoly, extra ülőhely és dekorációs elem. Egyedi méretben, bőrben vagy szövetben, tömörfa szerkezettel – közvetlenül a gyártótól.",
-    url: "https://enzodesign.hu/blog/chesterfield-puff",
+    url: "https://www.enzodesign.hu/blog/chesterfield-puff",
     images: [{ url: "/images/szek-w5.webp", width: 1920, height: 800 }],
   },
 };

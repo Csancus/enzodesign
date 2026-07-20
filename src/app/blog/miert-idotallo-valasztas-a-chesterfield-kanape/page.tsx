@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: "Miért időtálló a Chesterfield kanapé? – Enzo Design",
   description: "A Chesterfield kanapé 300 éves brit örökség – és ma is trendszetter. Történet, stílusok, anyagok és miért illik minden enteriőrbe. Kézzel készített, 3+10 év garancia.",
 
-  alternates: { canonical: "https://enzodesign.hu/blog/miert-idotallo-valasztas-a-chesterfield-kanape" },
+  alternates: { canonical: "https://www.enzodesign.hu/blog/miert-idotallo-valasztas-a-chesterfield-kanape" },
   openGraph: {
     title: "Miért időtálló a Chesterfield kanapé? – Enzo Design",
     description: "A Chesterfield kanapé 300 éves brit örökség – és ma is trendszetter. Történet, stílusok, anyagok és miért illik minden enteriőrbe. Kézzel készített, 3+10 év garancia.",
-    url: "https://enzodesign.hu/blog/miert-idotallo-valasztas-a-chesterfield-kanape",
+    url: "https://www.enzodesign.hu/blog/miert-idotallo-valasztas-a-chesterfield-kanape",
     images: [{ url: "/images/e7ad8b_6a9bc07515294a40a1f7777272c2786e.webp", width: 1920, height: 800 }],
   },
 };
