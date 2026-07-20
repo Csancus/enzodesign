@@ -76,7 +76,7 @@ export default function Page() {
       <CityLandingPage
         city="Barcs"
         locative="Barcson"
-        ablative="Barcsról"
+        ablative="Barcstól"
         dative="Barcsnak"
         distanceKm={60}
         driveMin={50}

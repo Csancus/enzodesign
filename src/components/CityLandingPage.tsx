@@ -98,7 +98,7 @@ export default async function CityLandingPage({
       (distanceKm > 0
         ? `Az Enzo Design Nagykanizsán, ${distanceKm} km-re ${ablative} közel 20 éve gyárt egyedi kárpitozott bútorokat.`
         : `Az Enzo Design Nagykanizsán közel 20 éve gyárt egyedi kárpitozott bútorokat.`) +
-      ` 2000 nm-es bemutatótermünkben személyesen megtekintheted és kipróbálhatod a modelleket – majd pontosan olyan méretben, szövetben és kivitelben rendelheted meg, ahogy neked illik.` +
+      ` 2000 nm-es bemutatótermünkben személyesen megtekintheted és kipróbálhatod a modelleket – majd pontosan olyan méretben, szövetben és kivitelben rendelheted meg, ahogy neked tetszik.` +
       `\n\n` +
       `A különbség a bolthoz képest: nem készletes darabokat árulunk, hanem minden bútort rendelésre gyártunk tömörfa szerkezettel, prémium szövettel – és 3 év kárpitgaranciával, 10 év vázgaranciával adjuk ki a kezünkből.`,
     bullets: [

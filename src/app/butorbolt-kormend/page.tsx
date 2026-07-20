@@ -76,7 +76,7 @@ export default function Page() {
       <CityLandingPage
         city="Körmend"
         locative="Körmenden"
-        ablative="Körmendről"
+        ablative="Körmendtől"
         dative="Körmendnek"
         distanceKm={62}
         driveMin={55}

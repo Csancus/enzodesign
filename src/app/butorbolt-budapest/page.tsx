@@ -76,7 +76,7 @@ export default function Page() {
       <CityLandingPage
         city="Budapest"
         locative="Budapesten"
-        ablative="Budapestről"
+        ablative="Budapesttől"
         dative="Budapestnek"
         distanceKm={220}
         driveMin={120}

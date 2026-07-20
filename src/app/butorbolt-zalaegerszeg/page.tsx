@@ -76,7 +76,7 @@ export default function Page() {
       <CityLandingPage
         city="Zalaegerszeg"
         locative="Zalaegerszegen"
-        ablative="Zalaegerszegről"
+        ablative="Zalaegerszegtől"
         dative="Zalaegerszegnek"
         distanceKm={30}
         driveMin={30}

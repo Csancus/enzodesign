@@ -36,7 +36,7 @@ export default function Page() {
       <CityLandingPage
         city="Nagykanizsa"
         locative="Nagykanizsán"
-        ablative="Nagykanizsáról"
+        ablative="Nagykanizsától"
         dative="Nagykanizsának"
         distanceKm={0}
         driveMin={0}

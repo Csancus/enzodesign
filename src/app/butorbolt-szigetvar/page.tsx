@@ -76,7 +76,7 @@ export default function Page() {
       <CityLandingPage
         city="Szigetvár"
         locative="Szigetváron"
-        ablative="Szigetvárról"
+        ablative="Szigetvártól"
         dative="Szigetvárnak"
         distanceKm={65}
         driveMin={55}

@@ -76,7 +76,7 @@ export default function Page() {
       <CityLandingPage
         city="Siófok"
         locative="Siófokon"
-        ablative="Siófokról"
+        ablative="Siófoktól"
         dative="Siófoknak"
         distanceKm={74}
         driveMin={60}

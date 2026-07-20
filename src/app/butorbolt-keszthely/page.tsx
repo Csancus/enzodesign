@@ -76,7 +76,7 @@ export default function Page() {
       <CityLandingPage
         city="Keszthely"
         locative="Keszthelyen"
-        ablative="Keszthelyről"
+        ablative="Keszthelytől"
         dative="Keszthelyinek"
         distanceKm={45}
         driveMin={40}

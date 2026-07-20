@@ -76,7 +76,7 @@ export default function Page() {
       <CityLandingPage
         city="Tapolca"
         locative="Tapolcán"
-        ablative="Tapolcáról"
+        ablative="Tapolcától"
         dative="Tapolcának"
         distanceKm={58}
         driveMin={50}

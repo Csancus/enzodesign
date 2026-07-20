@@ -76,7 +76,7 @@ export default function Page() {
       <CityLandingPage
         city="Kaposvár"
         locative="Kaposváron"
-        ablative="Kaposvárról"
+        ablative="Kaposvártól"
         dative="Kaposvárnak"
         distanceKm={52}
         driveMin={45}
