@@ -77,8 +77,13 @@ export default async function CityLandingPage({
 
   // Stats bar — city-specific, editable
   const defaultStats = [
-    { value: `${distanceKm} km`, label: `Nagykanizsától` },
-    { value: `~${driveMin} perc`, label: "autóval" },
+    // Nagykanizsán (0 km) a távolság/menetidő értelmetlen – ilyenkor kihagyjuk
+    ...(distanceKm > 0
+      ? [
+          { value: `${distanceKm} km`, label: `Nagykanizsától` },
+          { value: `~${driveMin} perc`, label: "autóval" },
+        ]
+      : []),
     { value: "100+", label: "szövetféle" },
     { value: "3+10 év", label: "garancia" },
     { value: "Online", label: "rendelési lehetőség" },
@@ -90,7 +95,10 @@ export default async function CityLandingPage({
   const defaultWhy = {
     title: `Bútorbolt ${city} – Miért érdemes az Enzo Designhoz fordulni?`,
     intro:
-      `Az Enzo Design Nagykanizsán, ${distanceKm} km-re ${ablative} közel 20 éve gyárt egyedi kárpitozott bútorokat. 2000 nm-es bemutatótermünkben személyesen megtekintheted és kipróbálhatod a modelleket – majd pontosan olyan méretben, szövetben és kivitelben rendelheted meg, ahogy neked illik.` +
+      (distanceKm > 0
+        ? `Az Enzo Design Nagykanizsán, ${distanceKm} km-re ${ablative} közel 20 éve gyárt egyedi kárpitozott bútorokat.`
+        : `Az Enzo Design Nagykanizsán közel 20 éve gyárt egyedi kárpitozott bútorokat.`) +
+      ` 2000 nm-es bemutatótermünkben személyesen megtekintheted és kipróbálhatod a modelleket – majd pontosan olyan méretben, szövetben és kivitelben rendelheted meg, ahogy neked illik.` +
       `\n\n` +
       `A különbség a bolthoz képest: nem készletes darabokat árulunk, hanem minden bútort rendelésre gyártunk tömörfa szerkezettel, prémium szövettel – és 3 év kárpitgaranciával, 10 év vázgaranciával adjuk ki a kezünkből.`,
     bullets: [
