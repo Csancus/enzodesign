@@ -6,6 +6,7 @@ import EditBtn from "@/components/admin/EditBtn";
 import ProductImageCarousel from "@/components/ProductImageCarousel";
 import { getModuleConfig } from "@/lib/moduleStore";
 import { getAdminStatus } from "@/lib/auth";
+import { resolveProductImages } from "@/lib/productImages";
 import type { FieldDef } from "@/types/cms";
 
 export const metadata: Metadata = {
@@ -57,7 +58,7 @@ const CARD_SCHEMA: FieldDef[] = [
   { key: "name", label: "Neve", type: "text" },
   { key: "tagline", label: "Tagline", type: "text" },
   { key: "href", label: "Link URL", type: "url" },
-  { key: "images", label: "Képek (lapozható)", type: "array", itemFields: [{ key: "src", label: "Kép", type: "image" }] },
+  { key: "imagesEditNote", label: "🖼 A képek a termékoldalról öröklődnek – ott szerkeszd őket (kattints):", type: "note" },
 ];
 
 const INTRO_SCHEMA: FieldDef[] = [
@@ -67,18 +68,21 @@ const INTRO_SCHEMA: FieldDef[] = [
 
 async function resolveCards(cards: Card[], prefix: string): Promise<Card[]> {
   const cfgs = await Promise.all(cards.map((c) => getModuleConfig(`${prefix}-card:${c.id}`)));
-  return cards.map((c, i) => {
-    const cfg = cfgs[i];
-    const rawImages = cfg?.images as { src: string }[] | undefined;
-    const resolvedImages = rawImages?.map((g) => g.src).filter(Boolean) ?? [];
-    return {
-      ...c,
-      name: (cfg?.name as string) || c.name,
-      tagline: (cfg?.tagline as string) || c.tagline,
-      href: (cfg?.href as string) || c.href,
-      images: resolvedImages.length ? resolvedImages : c.images,
-    };
-  });
+  return Promise.all(
+    cards.map(async (c, i) => {
+      const cfg = cfgs[i];
+      const href = (cfg?.href as string) || c.href;
+      // Images are INHERITED from the linked product page (single source of truth)
+      const images = await resolveProductImages(href, c.images);
+      return {
+        ...c,
+        name: (cfg?.name as string) || c.name,
+        tagline: (cfg?.tagline as string) || c.tagline,
+        href,
+        images,
+      };
+    })
+  );
 }
 
 function ProductGrid({ items, isAdmin, prefix }: { items: Card[]; isAdmin: boolean; prefix: string }) {
@@ -92,7 +96,7 @@ function ProductGrid({ items, isAdmin, prefix }: { items: Card[]; isAdmin: boole
             <p className="text-xs text-gray-500 mt-0.5">{item.tagline}</p>
           </Link>
           {isAdmin && (
-            <EditBtn moduleId={`${prefix}-card:${item.id}`} config={{ name: item.name, tagline: item.tagline, href: item.href, images: item.images.map((src) => ({ src })) }} schema={CARD_SCHEMA} label="✏" positionClass="absolute top-2 right-2 z-20" />
+            <EditBtn moduleId={`${prefix}-card:${item.id}`} config={{ name: item.name, tagline: item.tagline, href: item.href, imagesEditNote: item.href }} schema={CARD_SCHEMA} label="✏" positionClass="absolute top-2 right-2 z-20" />
           )}
         </div>
       ))}

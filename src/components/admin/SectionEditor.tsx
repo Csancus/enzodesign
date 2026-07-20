@@ -163,6 +163,20 @@ function FieldInput({ field, value, onChange, nested }: {
   if (field.type === "url") {
     return <UrlField value={(value as string) ?? ""} onChange={onChange as (v: string) => void} />;
   }
+  if (field.type === "note") {
+    const href = (value as string) ?? "";
+    return (
+      <div className="text-xs text-[#7d6142] bg-[#f5f0e8] border border-[#e8ddd0] rounded px-3 py-2 leading-relaxed">
+        {href ? (
+          <a href={href} target="_blank" rel="noopener noreferrer" className="font-semibold underline hover:text-[#b8924a] break-all">
+            {href}
+          </a>
+        ) : (
+          <span className="text-gray-500">—</span>
+        )}
+      </div>
+    );
+  }
   if (field.type === "textarea") {
     return (
       <textarea
@@ -297,10 +311,13 @@ export default function SectionEditor({
     setSaving(true);
     setSaveError(null);
     try {
+      // "note" fields are read-only info — never persist them
+      const noteKeys = new Set(schema.filter((f) => f.type === "note").map((f) => f.key));
+      const payload = Object.fromEntries(Object.entries(config).filter(([k]) => !noteKeys.has(k)));
       const res = await fetch(`/api/admin/modules?id=${encodeURIComponent(moduleId)}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(config),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));

@@ -6,6 +6,7 @@ import FabricsSection from "@/components/sections/FabricsSection";
 import FaqSection from "@/components/sections/FaqSection";
 import ProductImageCarousel from "@/components/ProductImageCarousel";
 import EditBtn from "@/components/admin/EditBtn";
+import { resolveProductImages } from "@/lib/productImages";
 import type { FieldDef } from "@/types/cms";
 
 export const metadata: Metadata = {
@@ -70,12 +71,7 @@ const CARD_SCHEMA: FieldDef[] = [
   { key: "name", label: "Neve", type: "text" },
   { key: "tagline", label: "Tagline", type: "text" },
   { key: "href", label: "Link URL", type: "url" },
-  {
-    key: "images",
-    label: "Képek",
-    type: "array",
-    itemFields: [{ key: "src", label: "Kép", type: "image" }],
-  },
+  { key: "imagesEditNote", label: "🖼 A képek a termékoldalról öröklődnek – ott szerkeszd őket (kattints):", type: "note" },
 ];
 
 export default async function FotelekPage() {
@@ -102,19 +98,21 @@ export default async function FotelekPage() {
   const gridTitle = (gridCfg?.title as string) || "Fotelek";
   const gridSubtitle = (gridCfg?.subtitle as string) || "Válasszon a 2000 nm-es gyárunkból, kért méretben és anyagmintával.";
 
-  const resolvedCards = CARDS.map((c, i) => {
-    const cfg = cardCfgs[i];
-    const rawImages = cfg?.images as { src: string }[] | undefined;
-    const mapped = rawImages?.map((g) => g.src).filter(Boolean) ?? [];
-    const resolvedImages = mapped.length ? mapped : c.images;
-    return {
-      ...c,
-      name: (cfg?.name as string) || c.name,
-      tagline: (cfg?.tagline as string) || c.tagline,
-      href: (cfg?.href as string) || c.href,
-      images: resolvedImages,
-    };
-  });
+  const resolvedCards = await Promise.all(
+    CARDS.map(async (c, i) => {
+      const cfg = cardCfgs[i];
+      const href = (cfg?.href as string) || c.href;
+      // Images are INHERITED from the linked product page (single source of truth)
+      const images = await resolveProductImages(href, c.images);
+      return {
+        ...c,
+        name: (cfg?.name as string) || c.name,
+        tagline: (cfg?.tagline as string) || c.tagline,
+        href,
+        images,
+      };
+    })
+  );
 
   const itemListJsonLd = {
     "@context": "https://schema.org",
@@ -189,7 +187,7 @@ export default async function FotelekPage() {
                       name: c.name,
                       tagline: c.tagline,
                       href: c.href,
-                      images: c.images.map((src) => ({ src })),
+                      imagesEditNote: c.href,
                     }}
                     schema={CARD_SCHEMA}
                     label="✏"
