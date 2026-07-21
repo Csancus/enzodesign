@@ -5,6 +5,7 @@ import { getModuleConfig } from "@/lib/moduleStore";
 import FabricsSection from "@/components/sections/FabricsSection";
 import FaqSection from "@/components/sections/FaqSection";
 import ProductImageCarousel from "@/components/ProductImageCarousel";
+import { resolveProductImages } from "@/lib/productImages";
 import EditBtn from "@/components/admin/EditBtn";
 import type { FieldDef } from "@/types/cms";
 
@@ -38,11 +39,21 @@ const FEATURES_SCHEMA: FieldDef[] = [
   { key: "body", label: "Felsorolás (soronként egy)", type: "textarea" },
 ];
 const GRID_SCHEMA: FieldDef[] = [{ key: "title", label: "Szekció cím", type: "text" }];
+const SELF = "/butoraink/franciaagyak";
+
 const CARD_SCHEMA: FieldDef[] = [
   { key: "name", label: "Neve", type: "text" },
   { key: "tagline", label: "Tagline", type: "text" },
   { key: "href", label: "Link URL", type: "url" },
   { key: "images", label: "Képek", type: "array", itemFields: [{ key: "src", label: "Kép", type: "image" }] },
+];
+
+// For cards that link elsewhere: images are inherited from that page, not editable here.
+const CARD_SCHEMA_NOTE: FieldDef[] = [
+  { key: "name", label: "Neve", type: "text" },
+  { key: "tagline", label: "Tagline", type: "text" },
+  { key: "href", label: "Link URL", type: "url" },
+  { key: "imagesEditNote", label: "🖼 A képek a linkelt oldalról öröklődnek – ott szerkeszd őket (kattints):", type: "note" },
 ];
 
 export default async function FranciaagyakPage() {
@@ -65,17 +76,23 @@ export default async function FranciaagyakPage() {
   const featuresItems = featuresBodyLines.slice(1);
   const gridTitle = (gridCfg?.title as string) || "Franciaágyak";
 
-  const resolvedCards = CARDS.map((c, i) => {
-    const cfg = cardCfgs[i];
-    const rawImages = cfg?.images as { src: string }[] | undefined;
-    return {
-      ...c,
-      name: (cfg?.name as string) || c.name,
-      tagline: (cfg?.tagline as string) || c.tagline,
-      href: (cfg?.href as string) || c.href,
-      images: (() => { const m = rawImages?.map((g) => g.src).filter(Boolean) ?? []; return m.length ? m : c.images; })(),
-    };
-  });
+  const resolvedCards = await Promise.all(
+    CARDS.map(async (c, i) => {
+      const cfg = cardCfgs[i];
+      const href = (cfg?.href as string) || c.href;
+      const inherited = href !== SELF; // cards linking elsewhere inherit their images
+      const ownImages = (() => { const m = (cfg?.images as { src: string }[] | undefined)?.map((g) => g.src).filter(Boolean) ?? []; return m.length ? m : c.images; })();
+      const images = inherited ? await resolveProductImages(href, c.images, c.id) : ownImages;
+      return {
+        ...c,
+        name: (cfg?.name as string) || c.name,
+        tagline: (cfg?.tagline as string) || c.tagline,
+        href,
+        inherited,
+        images,
+      };
+    })
+  );
 
   const itemListJsonLd = {
     "@context": "https://schema.org",
@@ -128,7 +145,11 @@ export default async function FranciaagyakPage() {
                   <h3 className="text-[#b8924a] text-sm font-semibold group-hover/card:underline">{c.name}</h3>
                   <p className="text-xs text-gray-500 mt-0.5">{c.tagline}</p>
                 </Link>
-                {isAdmin && <EditBtn moduleId={`franciaagyak-card:${c.id}`} config={{ name: c.name, tagline: c.tagline, href: c.href, images: c.images.map((src) => ({ src })) }} schema={CARD_SCHEMA} label="✏" positionClass="absolute top-2 right-2 z-20" />}
+                {isAdmin && (
+                  c.inherited
+                    ? <EditBtn moduleId={`franciaagyak-card:${c.id}`} config={{ name: c.name, tagline: c.tagline, href: c.href, imagesEditNote: c.href }} schema={CARD_SCHEMA_NOTE} label="✏" positionClass="absolute top-2 right-2 z-20" />
+                    : <EditBtn moduleId={`franciaagyak-card:${c.id}`} config={{ name: c.name, tagline: c.tagline, href: c.href, images: c.images.map((src) => ({ src })) }} schema={CARD_SCHEMA} label="✏" positionClass="absolute top-2 right-2 z-20" />
+                )}
               </div>
             ))}
           </div>

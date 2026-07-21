@@ -72,8 +72,8 @@ async function resolveCards(cards: Card[], prefix: string): Promise<Card[]> {
     cards.map(async (c, i) => {
       const cfg = cfgs[i];
       const href = (cfg?.href as string) || c.href;
-      // Images are INHERITED from the linked product page (single source of truth)
-      const images = await resolveProductImages(href, c.images);
+      // Images are INHERITED from the linked source page (single source of truth)
+      const images = await resolveProductImages(href, c.images, c.id);
       return {
         ...c,
         name: (cfg?.name as string) || c.name,
