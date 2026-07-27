@@ -197,19 +197,10 @@ export default async function ProductPageTemplate({
         "returnFees": "https://schema.org/FreeReturn",
       },
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "12",
-      "bestRating": "5",
-      "worstRating": "1",
-    },
-    "review": {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "Judit Néber" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "reviewBody": "Karácsonykor vásároltunk két Chesterfield kanapét az Enzo Design-tól – és egyszerűen imádjuk őket! A bútorok minősége, egyedisége és stílusa messze felülmúlta a várakozásainkat.",
-    },
+    // Termékszintű valódi értékelés nincs — a Google-értékelések a CÉGRE
+    // szólnak (lásd layout.tsx LocalBusiness aggregateRating + review). Ezért
+    // itt NEM adunk ki aggregateRating/review-t: a minden terméken azonos,
+    // fiktív rating a Google review-spam policyt sértette.
   };
 
   const breadcrumbJsonLd = {

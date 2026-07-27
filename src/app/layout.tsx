@@ -110,6 +110,22 @@ export default async function RootLayout({
       "bestRating": "5",
       "worstRating": "1"
     },
+    // Valós Google-értékelések (cégszintű) — az aggregateRating-et konkrét
+    // review-k támasztják alá. A relatív "2 éve" dátumot nem tesszük be
+    // (nem valid ISO). Csak a szöveges véleményeket adjuk ki.
+    "review": reviews
+      .filter((r) => (r.text ?? "").trim())
+      .map((r) => ({
+        "@type": "Review",
+        "author": { "@type": "Person", "name": r.name },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": String(parseInt(r.rating) || 5),
+          "bestRating": "5",
+          "worstRating": "1",
+        },
+        "reviewBody": r.text,
+      })),
     "sameAs": [
       "https://www.facebook.com/enzodesignbutor/",
       "https://www.instagram.com/enzodesignbutor/",
