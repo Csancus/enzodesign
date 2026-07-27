@@ -138,6 +138,15 @@ export default async function ProductPageTemplate({
 
   // Images
   const mainImage = (imagesCfg?.mainImage as string) || image;
+  // Strukturált adathoz abszolút, érvényes kép-URL kell. A module_configból
+  // felülírt mainImage lehet már abszolút (domain-duplázódást okozna), üres,
+  // vagy relatív — ezt egységesen abszolutizáljuk.
+  const absImage = (() => {
+    const u = (mainImage || "").trim();
+    if (/^https?:\/\//i.test(u)) return u;
+    if (!u) return `https://www.enzodesign.hu${image}`;
+    return `https://www.enzodesign.hu${u.startsWith("/") ? "" : "/"}${u}`;
+  })();
   const rawGallery = imagesCfg?.gallery as { src: string }[] | undefined;
   const resolvedGallery: string[] = rawGallery
     ? rawGallery.map((g) => g.src).filter(Boolean)
@@ -161,7 +170,7 @@ export default async function ProductPageTemplate({
     "@type": "Product",
     "name": hdr.name,
     "description": hdr.description,
-    "image": `https://www.enzodesign.hu${mainImage}`,
+    "image": absImage,
     "brand": { "@type": "Brand", "name": "Enzo Design" },
     "offers": {
       "@type": "Offer",
