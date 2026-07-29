@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { createCaptchaChallenge, verifyCaptcha } from "@/lib/captcha";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -100,9 +101,24 @@ function buildHtml(data: Record<string, string>) {
 </html>`;
 }
 
+export async function GET() {
+  return NextResponse.json(createCaptchaChallenge(), {
+    headers: { "Cache-Control": "no-store" },
+  });
+}
+
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
+
+    // Honeypot: rejtett mező, amit csak botok töltenek ki — csendben "siker"
+    if (typeof data.website === "string" && data.website.trim() !== "") {
+      return NextResponse.json({ ok: true });
+    }
+
+    if (!verifyCaptcha(data.captcha)) {
+      return NextResponse.json({ ok: false, error: "captcha" }, { status: 400 });
+    }
 
     await resend.emails.send({
       from: process.env.RESEND_FROM ?? "Enzo Design <onboarding@resend.dev>",

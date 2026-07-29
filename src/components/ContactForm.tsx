@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useCaptcha } from "./useCaptcha";
 
 type FormData = {
   nev: string;
@@ -12,6 +13,7 @@ type FormData = {
   alapbutor: string;
   tipusa: string;
   adatkezeles: boolean;
+  website: string; // honeypot
 };
 
 const ALAPBUTOR_OPTIONS = [
@@ -43,6 +45,7 @@ export default function ContactForm() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
+  const { challenge, answer, setAnswer, captchaError, setCaptchaError, refresh, validate, payload } = useCaptcha();
   const {
     register,
     handleSubmit,
@@ -67,15 +70,24 @@ export default function ContactForm() {
   }, [setValue]);
 
   const onSubmit = async (data: FormData) => {
+    if (!validate()) return;
     setSending(true);
     setError(false);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, captcha: payload }),
       });
-      if (!res.ok) throw new Error("send failed");
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        if (body?.error === "captcha") {
+          setCaptchaError("Az ellenőrzés lejárt, kérjük add össze az új számokat.");
+          refresh();
+          return;
+        }
+        throw new Error("send failed");
+      }
       setSent(true);
       reset();
     } catch {
@@ -195,6 +207,35 @@ export default function ContactForm() {
         </label>
       </div>
       {errors.adatkezeles && <p className="text-red-500 text-xs">{errors.adatkezeles.message}</p>}
+
+      {/* Honeypot — emberi látogató nem látja, bot kitölti */}
+      <input
+        type="text"
+        {...register("website")}
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
+
+      {/* Spam-védelem: egyszerű összeadás */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Ellenőrzés: mennyi {challenge ? `${challenge.a} + ${challenge.b}` : "… + …"}? *
+        </label>
+        <input
+          type="text"
+          inputMode="numeric"
+          value={answer}
+          onChange={(e) => {
+            setAnswer(e.target.value);
+            setCaptchaError(null);
+          }}
+          className="w-full sm:w-40 border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#7d6142]"
+          placeholder="Eredmény"
+        />
+        {captchaError && <p className="text-red-500 text-xs mt-1">{captchaError}</p>}
+      </div>
 
       <div className="flex flex-col sm:flex-row items-start gap-3">
         <button

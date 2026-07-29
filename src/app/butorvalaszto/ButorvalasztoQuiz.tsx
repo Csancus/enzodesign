@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
+import { useCaptcha } from "@/components/useCaptcha";
 
 type Option = { label: string; value: string; image: string };
 
@@ -109,9 +110,11 @@ export default function ButorvalasztoQuiz() {
   const [lakcim, setLakcim] = useState("");
   const [extraLeiras, setExtraLeiras] = useState("");
   const [adatkezeles, setAdatkezeles] = useState(false);
+  const [website, setWebsite] = useState(""); // honeypot
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const { challenge, answer, setAnswer, captchaError, setCaptchaError, refresh, validate, payload } = useCaptcha();
 
   const formRef = useRef<HTMLDivElement>(null);
 
@@ -136,13 +139,23 @@ export default function ButorvalasztoQuiz() {
     if (!adatkezeles) errs.adatkezeles = "Az adatkezelési szabályzat elfogadása kötelező";
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setErrors({});
+    if (!validate()) return;
     setSending(true);
     try {
-      await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nev, telefon, email, lakcim, leiras, alapbutor: "", tipusa: "" }),
+        body: JSON.stringify({ nev, telefon, email, lakcim, leiras, alapbutor: "", tipusa: "", website, captcha: payload }),
       });
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        if (body?.error === "captcha") {
+          setCaptchaError("Az ellenőrzés lejárt, kérjük add össze az új számokat.");
+          refresh();
+          setSending(false);
+          return;
+        }
+      }
     } catch { /* silent */ }
     setSending(false);
     setSent(true);
@@ -316,6 +329,37 @@ export default function ButorvalasztoQuiz() {
                 </label>
               </div>
               {errors.adatkezeles && <p className="text-red-500 text-xs">{errors.adatkezeles}</p>}
+
+              {/* Honeypot — emberi látogató nem látja, bot kitölti */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+                className="hidden"
+                aria-hidden="true"
+              />
+
+              {/* Spam-védelem: egyszerű összeadás */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Ellenőrzés: mennyi {challenge ? `${challenge.a} + ${challenge.b}` : "… + …"}? *
+                </label>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={answer}
+                  onChange={(e) => {
+                    setAnswer(e.target.value);
+                    setCaptchaError(null);
+                  }}
+                  className="w-full sm:w-40 border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#7d6142]"
+                  placeholder="Eredmény"
+                />
+                {captchaError && <p className="text-red-500 text-xs mt-1">{captchaError}</p>}
+              </div>
 
               <button
                 type="submit"
