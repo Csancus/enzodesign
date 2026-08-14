@@ -2,7 +2,8 @@ export type SimpleField = {
   key: string;
   label: string;
   // "note": read-only info box (e.g. "images are edited on another page"); not saved.
-  type: "text" | "textarea" | "image" | "url" | "note";
+  // "boolean": on/off switch (stored as true/false).
+  type: "text" | "textarea" | "image" | "url" | "note" | "boolean";
 };
 
 export type ArrayField = {

@@ -3,6 +3,7 @@ import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import TopNoticeBar from "@/components/TopNoticeBar";
 import AdminFab from "@/components/admin/AdminFab";
 import { AdminProvider } from "@/context/AdminContext";
 import { getAdminStatus } from "@/lib/auth";
@@ -144,10 +145,7 @@ export default async function RootLayout({
       <body className="min-h-screen flex flex-col bg-white">
         <AdminProvider initialAdmin={initialAdmin}>
           <div className="sticky top-0 z-50">
-            <div className="bg-[#2d4a1e] text-white text-xs py-1.5 px-4 flex items-center justify-center gap-2">
-              <img src="/images/fsc-logo.svg" alt="FSC" className="h-5 w-auto brightness-0 invert" />
-              <span className="text-center leading-snug">FSC – felelős erdőgazdálkodásból származó faanyag</span>
-            </div>
+            <TopNoticeBar isAdmin={initialAdmin} />
             <Header dynamicPages={dynamicPages} />
           </div>
           <main className="flex-1">{children}</main>

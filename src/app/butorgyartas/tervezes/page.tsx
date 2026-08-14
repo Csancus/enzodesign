@@ -56,7 +56,7 @@ export default async function Page() {
             <h2 className="text-2xl font-bold text-[#1c1c1c]" style={{ fontFamily: "var(--font-heading)" }}>A jó dizájn elve</h2>
             <p>„A jó dizájn figyelembe veszi a használat célját, az adott tér adottságait és a felhasználó életstílusát." A minőségi bútor kényelmes és tartós is legyen – ezért minden egyedi darabunkat részletes tervezési folyamat előzi meg.</p>
             <p>CAD modellezést alkalmazunk a precizitásért és az ügyfélkommunikációért. Az egyedi daraboknál minden egyes lépés dokumentálva van, hogy a végeredmény pontosan megfeleljen az elképzeléseknek.</p>
-            <p>Fenntarthatóság: FSC-tanúsítványú fa, újrahasznosított kárpitanyagok és formaldehidmentes ragasztók is elérhetők igény szerint.</p>
+            <p>Fenntarthatóság: újrahasznosított kárpitanyagok és formaldehidmentes ragasztók is elérhetők igény szerint.</p>
             <ul className="space-y-2 text-sm">
               {["CAD 3D modellezés", "Ergonómiai szempontok figyelembevétele", "Fenntartható anyagválasztás", "Részletes dokumentáció egyedi daraboknál"].map(f => (
                 <li key={f} className="flex items-center gap-2"><span className="w-2 h-2 bg-[#7d6142] flex-shrink-0" />{f}</li>

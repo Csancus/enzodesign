@@ -177,6 +177,25 @@ function FieldInput({ field, value, onChange, nested }: {
       </div>
     );
   }
+  if (field.type === "boolean") {
+    const on = value === true || value === "true";
+    return (
+      <button
+        type="button"
+        onClick={() => onChange(!on)}
+        className="flex items-center gap-2 text-xs text-gray-700"
+      >
+        <span
+          className={`w-9 h-5 rounded-full transition-colors relative ${on ? "bg-[#b8924a]" : "bg-gray-300"}`}
+        >
+          <span
+            className={`absolute top-0.5 w-4 h-4 bg-white rounded-full transition-all ${on ? "left-[1.15rem]" : "left-0.5"}`}
+          />
+        </span>
+        {on ? "Bekapcsolva" : "Kikapcsolva"}
+      </button>
+    );
+  }
   if (field.type === "textarea") {
     return (
       <textarea
