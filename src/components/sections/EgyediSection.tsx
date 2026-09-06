@@ -3,6 +3,7 @@ import Link from "next/link";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
+import { imageAlt } from "@/lib/imageAlt";
 
 const DEFAULT_IMAGES = [
   { src: "/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp",             alt: "Chesterfield kanapé" },
@@ -92,7 +93,7 @@ export default async function EgyediSection({ moduleId, isAdmin }: { moduleId: s
             >
               <Image
                 src={img.src}
-                alt={img.alt || `Egyedi bútor ${i + 1}`}
+                alt={img.alt || imageAlt("Egyedi bútor", i)}
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 1024px) 25vw, 20vw"
@@ -108,7 +109,7 @@ export default async function EgyediSection({ moduleId, isAdmin }: { moduleId: s
               <div key={i} className="relative overflow-hidden" style={{ height: rowH }}>
                 <Image
                   src={img.src}
-                  alt={img.alt || `Egyedi bútor ${mosaicImages.length + i + 1}`}
+                  alt={img.alt || imageAlt("Egyedi bútor", mosaicImages.length + i)}
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-500"
                   sizes="20vw"
@@ -124,7 +125,7 @@ export default async function EgyediSection({ moduleId, isAdmin }: { moduleId: s
             <div key={i} className="relative aspect-square overflow-hidden">
               <Image
                 src={img.src}
-                alt={img.alt || `Egyedi bútor ${i + 1}`}
+                alt={img.alt || imageAlt("Egyedi bútor", i)}
                 fill
                 sizes="50vw"
                 className="object-cover hover:scale-105 transition-transform duration-500"

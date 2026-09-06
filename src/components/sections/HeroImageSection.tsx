@@ -3,6 +3,7 @@ import Link from "next/link";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
+import { imageAlt } from "@/lib/imageAlt";
 
 const DEFAULT = {
   image: "/images/slide1.webp",
@@ -40,7 +41,7 @@ export default async function HeroImageSection({
 
   return (
     <section className="relative py-10 sm:py-16 md:py-32 text-center overflow-hidden" style={{ minHeight: 220 }}>
-      <Image src={cfg.image} alt={cfg.title} fill className="object-cover object-center" priority />
+      <Image src={cfg.image} alt={imageAlt(cfg.title)} fill className="object-cover object-center" priority />
       <div className="absolute inset-0" style={{ backgroundColor: `rgba(0,0,0,${opacity})` }} />
       <div className="relative z-10 max-w-2xl mx-auto px-4">
         {cfg.label && (

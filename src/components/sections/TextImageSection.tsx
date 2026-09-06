@@ -2,6 +2,7 @@ import Image from "next/image";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
+import { imageAlt } from "@/lib/imageAlt";
 
 const DEFAULT = {
   title: "Cím",
@@ -55,7 +56,7 @@ export default async function TextImageSection({ moduleId, isAdmin }: { moduleId
 
         {/* Kép – jobb */}
         <div className="relative aspect-[4/3] overflow-hidden">
-          <Image src={cfg.image} alt={cfg.title} fill className="object-cover" />
+          <Image src={cfg.image} alt={imageAlt(cfg.title)} fill className="object-cover" />
         </div>
       </div>
       {isAdmin && <EditBtn moduleId={moduleId} config={cfg} schema={SCHEMA} />}

@@ -2,6 +2,7 @@ import Image from "next/image";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
+import { imageAlt } from "@/lib/imageAlt";
 
 const DEFAULT = {
   label: "",
@@ -35,7 +36,7 @@ export default async function HeroLightSection({
       style={{ backgroundColor: cfg.bgColor }}
     >
       {cfg.imageSrc && (
-        <Image src={cfg.imageSrc} alt={cfg.title} fill className="object-cover opacity-10" priority />
+        <Image src={cfg.imageSrc} alt={imageAlt(cfg.title)} fill className="object-cover opacity-10" priority />
       )}
       <div className="relative z-10 max-w-2xl mx-auto px-4">
         {cfg.label && (

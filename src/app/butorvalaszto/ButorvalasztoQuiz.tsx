@@ -7,28 +7,28 @@ import { useCaptcha } from "@/components/useCaptcha";
 type Option = { label: string; value: string; image: string };
 
 const FORMA: Option[] = [
-  { label: "Fotel", value: "Fotel", image: "/images/d56f41_676a4c24883a4688bf94e8d5a0d64eb6.png" },
-  { label: "Kettes kanapé", value: "Kettes kanapé", image: "/images/d56f41_f0f19cda74b8497e8d3f2a509ae6caea.png" },
-  { label: "Hármas kanapé", value: "Hármas kanapé", image: "/images/d56f41_29dc2a9fee104b6db9336687ebd8770f.png" },
-  { label: "Sarokkanapé", value: "Sarokkanapé", image: "/images/d56f41_3850e23204d245b8accbcdf46013859f.png" },
-  { label: "Ágy", value: "Ágy", image: "/images/d56f41_92b0cb9ed50a43a3888a5730babf9e5a.png" },
-  { label: "Egyedi bútor", value: "Egyedi bútor", image: "/images/d56f41_769357f0c70c4da0a97844526b883a30.png" },
+  { label: "Fotel", value: "Fotel", image: "/images/d56f41_676a4c24883a4688bf94e8d5a0d64eb6.webp" },
+  { label: "Kettes kanapé", value: "Kettes kanapé", image: "/images/d56f41_f0f19cda74b8497e8d3f2a509ae6caea.webp" },
+  { label: "Hármas kanapé", value: "Hármas kanapé", image: "/images/d56f41_29dc2a9fee104b6db9336687ebd8770f.webp" },
+  { label: "Sarokkanapé", value: "Sarokkanapé", image: "/images/d56f41_3850e23204d245b8accbcdf46013859f.webp" },
+  { label: "Ágy", value: "Ágy", image: "/images/d56f41_92b0cb9ed50a43a3888a5730babf9e5a.webp" },
+  { label: "Egyedi bútor", value: "Egyedi bútor", image: "/images/d56f41_769357f0c70c4da0a97844526b883a30.webp" },
 ];
 
 const STILUS: Option[] = [
-  { label: "Modern", value: "Modern", image: "/images/d56f41_dda4c8df36424541b6df6120ac359107.png" },
-  { label: "Minimál", value: "Minimál", image: "/images/d56f41_5fd1357cb7db40c28eb775a4e7045c61.png" },
-  { label: "Chesterfield", value: "Chesterfield", image: "/images/d56f41_9ac453092389438b8a7aa408c6f7cfc0.png" },
-  { label: "Skandináv", value: "Skandináv", image: "/images/d56f41_76eec56e21ea4859bf77076fd5bb3dea.png" },
-  { label: "Glamour", value: "Glamour", image: "/images/d56f41_27a01083494743efb6d2d470f8c730ab.png" },
+  { label: "Modern", value: "Modern", image: "/images/d56f41_dda4c8df36424541b6df6120ac359107.webp" },
+  { label: "Minimál", value: "Minimál", image: "/images/d56f41_5fd1357cb7db40c28eb775a4e7045c61.webp" },
+  { label: "Chesterfield", value: "Chesterfield", image: "/images/d56f41_9ac453092389438b8a7aa408c6f7cfc0.webp" },
+  { label: "Skandináv", value: "Skandináv", image: "/images/d56f41_76eec56e21ea4859bf77076fd5bb3dea.webp" },
+  { label: "Glamour", value: "Glamour", image: "/images/d56f41_27a01083494743efb6d2d470f8c730ab.webp" },
 ];
 
 const ANYAG: Option[] = [
-  { label: "Bársony", value: "Bársony", image: "/images/d56f41_d2176371a8ae443781e761754acbdaac.png" },
-  { label: "Bőr", value: "Bőr", image: "/images/d56f41_34121c2c4bb34ba4bd94c90e482a2e39.png" },
-  { label: "Zsenília", value: "Zsenília", image: "/images/d56f41_8087504c294d453f92d1b29f2202b479.png" },
-  { label: "Gyapjú", value: "Gyapjú", image: "/images/d56f41_7abc23c13d314ed583d498be566e068d.png" },
-  { label: "Többféle", value: "Többféle / Nem tudom", image: "/images/d56f41_1ff1037e13594f2c8195637abf3107e7.png" },
+  { label: "Bársony", value: "Bársony", image: "/images/d56f41_d2176371a8ae443781e761754acbdaac.webp" },
+  { label: "Bőr", value: "Bőr", image: "/images/d56f41_34121c2c4bb34ba4bd94c90e482a2e39.webp" },
+  { label: "Zsenília", value: "Zsenília", image: "/images/d56f41_8087504c294d453f92d1b29f2202b479.webp" },
+  { label: "Gyapjú", value: "Gyapjú", image: "/images/d56f41_7abc23c13d314ed583d498be566e068d.webp" },
+  { label: "Többféle", value: "Többféle / Nem tudom", image: "/images/d56f41_1ff1037e13594f2c8195637abf3107e7.webp" },
 ];
 
 function SelectionGrid({

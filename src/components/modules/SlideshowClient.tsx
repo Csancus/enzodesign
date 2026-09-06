@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SlideshowEditor from "./SlideshowEditor";
+import { imageAlt } from "@/lib/imageAlt";
 
 type SlideImage = { src: string; alt: string };
 
@@ -76,7 +77,7 @@ export default function SlideshowClient({
           >
             <Image
               src={img.src}
-              alt={img.alt}
+              alt={imageAlt(img.alt, i)}
               fill
               className="object-cover object-center"
               priority={i === 0}

@@ -2,6 +2,7 @@ import Image from "next/image";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
+import { imageAlt } from "@/lib/imageAlt";
 
 const DEFAULT = {
   title: "Galéria",
@@ -31,7 +32,7 @@ export default async function GallerySection({ moduleId, isAdmin }: { moduleId: 
           <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}>
             {cfg.images.map((img, i) => (
               <div key={i} className="relative aspect-square overflow-hidden">
-                <Image src={img.src} alt={img.alt || `Kép ${i + 1}`} fill className="object-cover" />
+                <Image src={img.src} alt={img.alt || imageAlt(cfg.title, i)} fill className="object-cover" />
               </div>
             ))}
           </div>

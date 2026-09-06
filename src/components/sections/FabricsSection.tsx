@@ -2,6 +2,7 @@ import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
 import Image from "next/image";
+import { imageAlt } from "@/lib/imageAlt";
 
 export type Fabric = {
   code: string;
@@ -71,7 +72,7 @@ const DEFAULT: Config = {
     {
       code: "AG",
       name: "AG",
-      image: "/images/e7ad8b_401077ffc6704fd98ba68bbfa720974e_full.png",
+      image: "/images/e7ad8b_401077ffc6704fd98ba68bbfa720974e_full.webp",
       martindale: "> 50 000",
       composition: "100% PES",
       density: "340 g/m² ± 5%",
@@ -154,7 +155,7 @@ export default async function FabricsSection({
             <div key={i} className="bg-white">
               {fabric.image && (
                 <div className="relative aspect-square overflow-hidden mb-3">
-                  <Image src={fabric.image} alt={fabric.code} fill className="object-cover" />
+                  <Image src={fabric.image} alt={imageAlt(`${fabric.code} kárpitszövet`)} fill className="object-cover" />
                 </div>
               )}
               <p className="text-sm font-bold text-[#1c1c1c] mb-2">{fabric.code}</p>

@@ -6,6 +6,7 @@ import { getModuleConfig } from "@/lib/moduleStore";
 import FabricsSection from "@/components/sections/FabricsSection";
 import EditBtn from "@/components/admin/EditBtn";
 import type { FieldDef } from "@/types/cms";
+import { imageAlt } from "@/lib/imageAlt";
 
 export const metadata: Metadata = {
   title: "Egyedi Bútor – Enzo Design",
@@ -35,8 +36,8 @@ const DEFAULT_GALLERY = [
   "/images/egyedi-a15.webp",
   "/images/egyedi-a16.webp",
   "/images/egyedi-a18.webp",
-  "/images/egyedi-dsc1.jpg",
-  "/images/egyedi-dsc2.jpg",
+  "/images/egyedi-dsc1.webp",
+  "/images/egyedi-dsc2.webp",
   "/images/egyedi-w1.webp",
   "/images/egyedi-w2.webp",
   "/images/egyedi-w4.webp",
@@ -108,7 +109,7 @@ export default async function EgyediButorPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {gallery.map((src, i) => (
               <div key={i} className="relative aspect-square overflow-hidden">
-                <Image src={src} alt={`Egyedi bútor ${i + 1}`} fill className="object-cover hover:scale-105 transition-transform" />
+                <Image src={src} alt={imageAlt(galleryTitle, i)} fill className="object-cover hover:scale-105 transition-transform" />
               </div>
             ))}
           </div>

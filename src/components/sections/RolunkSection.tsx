@@ -2,6 +2,7 @@ import Image from "next/image";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
+import { imageAlt } from "@/lib/imageAlt";
 
 const DEFAULT = {
   title: "Egyedi kárpitozott bútorok - akár 10 év garanciával",
@@ -29,7 +30,7 @@ export default async function RolunkSection({ moduleId, isAdmin }: { moduleId: s
         <p className="text-sm leading-relaxed mb-5 opacity-90">{cfg.desc2}</p>
         {cfg.image && (
           <div className="relative w-20 h-20 mx-auto mb-6 overflow-hidden rounded">
-            <Image src={cfg.image} alt="Enzo Design" fill className="object-cover" />
+            <Image src={cfg.image} alt="Enzo Design kárpitos műhely, Nagykanizsa" fill className="object-cover" />
           </div>
         )}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">

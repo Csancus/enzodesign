@@ -3,6 +3,7 @@ import Link from "next/link";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
+import { imageAlt } from "@/lib/imageAlt";
 
 const DEFAULT = {
   image: "/images/slide1.webp",
@@ -30,7 +31,7 @@ export default async function BannerSection({ moduleId, isAdmin }: { moduleId: s
 
   return (
     <section className="relative w-full overflow-hidden" style={{ height: `clamp(180px, 40vw, ${cfg.height}px)` }}>
-      <Image src={cfg.image} alt={cfg.alt} fill className="object-cover object-center" />
+      <Image src={cfg.image} alt={imageAlt(cfg.alt || cfg.title)} fill className="object-cover object-center" />
       {(cfg.title || cfg.subtitle || cfg.linkText) && (
         <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-white text-center px-4">
           {cfg.title && <h2 className="text-xl sm:text-3xl font-bold mb-2">{cfg.title}</h2>}

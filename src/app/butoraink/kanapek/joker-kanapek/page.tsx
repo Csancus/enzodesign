@@ -26,7 +26,7 @@ export default function Page() {
         "/images/joker-a2.webp",
         "/images/joker-a3.webp",
         "/images/joker-a4.webp",
-        "/images/joker-a5.jpg",
+        "/images/joker-a5.webp",
         "/images/joker-w1.webp",
         "/images/joker-w2.webp",
         "/images/joker-w3.webp",

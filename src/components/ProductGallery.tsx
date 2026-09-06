@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { imageAlt } from "@/lib/imageAlt";
 
 export default function ProductGallery({ images, name, priority }: { images: string[]; name: string; priority?: boolean }) {
   const [active, setActive] = useState<number | null>(null);
@@ -41,7 +42,7 @@ export default function ProductGallery({ images, name, priority }: { images: str
           >
             <Image
               src={src}
-              alt={`${name} – ${i + 1}`}
+              alt={imageAlt(name, i)}
               fill
               priority={priority && i === 0}
               className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -88,7 +89,7 @@ export default function ProductGallery({ images, name, priority }: { images: str
           >
             <Image
               src={images[active]}
-              alt={`${name} – ${active + 1}`}
+              alt={imageAlt(name, active)}
               fill
               className="object-contain"
               sizes="(max-width: 1200px) 100vw, 1200px"

@@ -3,6 +3,7 @@ import Link from "next/link";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
+import { imageAlt } from "@/lib/imageAlt";
 
 const DEFAULT = {
   image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp",
@@ -31,7 +32,7 @@ export default async function ImageTextSection({ moduleId, isAdmin }: { moduleId
     <section className="relative py-14 bg-white">
       <div className={`max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center gap-8 ${imgLeft ? "" : "md:flex-row-reverse"}`}>
         <div className="w-full md:w-1/2 relative aspect-[4/3] overflow-hidden">
-          <Image src={cfg.image} alt={cfg.title} fill className="object-cover" />
+          <Image src={cfg.image} alt={imageAlt(cfg.title)} fill className="object-cover" />
         </div>
         <div className="w-full md:w-1/2">
           <h2 className="text-2xl font-bold text-[#1c1c1c] mb-4">{cfg.title}</h2>

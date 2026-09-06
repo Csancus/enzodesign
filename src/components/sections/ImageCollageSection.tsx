@@ -2,6 +2,7 @@ import Image from "next/image";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
+import { imageAlt } from "@/lib/imageAlt";
 
 const DEFAULT = {
   title: "",
@@ -55,7 +56,7 @@ export default async function ImageCollageSection({
               <div key={i} className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={img.src}
-                  alt={img.alt || `Kép ${i + 1}`}
+                  alt={img.alt || imageAlt(cfg.title, i)}
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-300"
                 />

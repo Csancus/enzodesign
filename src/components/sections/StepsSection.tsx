@@ -2,6 +2,7 @@ import Image from "next/image";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
+import { imageAlt } from "@/lib/imageAlt";
 
 const DEFAULT = {
   title: "Fától a kanapéig",
@@ -41,7 +42,7 @@ export default async function StepsSection({ moduleId, isAdmin }: { moduleId: st
           {steps.map((s, i) => (
             <div key={i} className="">
               <div className="relative aspect-square md:aspect-[286/335] overflow-hidden mb-1.5 md:mb-3">
-                <Image src={s.image} alt={s.title} fill className="object-cover" />
+                <Image src={s.image} alt={imageAlt(s.title)} fill className="object-cover" />
               </div>
               <p className="text-xs sm:text-sm text-[#7d6142] leading-snug">{s.title}</p>
             </div>

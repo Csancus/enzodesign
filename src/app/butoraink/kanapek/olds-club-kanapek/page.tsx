@@ -33,7 +33,7 @@ export default function Page() {
         "/images/olds-club-a1.webp",
         "/images/olds-club-a6.webp",
         "/images/olds-club-a4.webp",
-        "/images/olds-club-a34.jpg",
+        "/images/olds-club-a34.webp",
         "/images/olds-club-a2.webp",
         "/images/olds-club-a3.webp",
         "/images/olds-club-w1.webp",
@@ -42,7 +42,7 @@ export default function Page() {
         "/images/olds-club-w4.webp",
         "/images/olds-club-w5.webp",
         "/images/olds-club-w6.webp",
-        "/images/olds-club-bg.jpg",
+        "/images/olds-club-bg.webp",
         "/images/olds-club-a5.webp",
       ]}
       breadcrumb={[

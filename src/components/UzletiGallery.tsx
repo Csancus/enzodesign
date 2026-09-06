@@ -3,6 +3,7 @@
 import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { DEFAULT_UZLETI_IMAGES } from "@/data/uzletiGalleryImages";
+import { imageAlt } from "@/lib/imageAlt";
 
 export default function UzletiGallery({ images }: { images?: string[] }) {
   const list = images && images.length > 0 ? images : DEFAULT_UZLETI_IMAGES;
@@ -40,7 +41,7 @@ export default function UzletiGallery({ images }: { images?: string[] }) {
           >
             <Image
               src={src}
-              alt={`Üzleti referencia ${i + 1}`}
+              alt={imageAlt("Üzleti kárpitozott bútor referencia", i)}
               fill
               className="object-cover hover:scale-105 transition-transform duration-500"
               sizes="(max-width: 640px) 75vw, (max-width: 1024px) 40vw, 30vw"
