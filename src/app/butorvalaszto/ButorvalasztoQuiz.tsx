@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { useCaptcha } from "@/components/useCaptcha";
+import { track } from "@/lib/track";
 
 type Option = { label: string; value: string; image: string };
 
@@ -140,6 +141,7 @@ export default function ButorvalasztoQuiz() {
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setErrors({});
     if (!validate()) return;
+    track("urlap_kuldes", "Bútorválasztó");
     setSending(true);
     try {
       const res = await fetch("/api/contact", {
@@ -157,6 +159,7 @@ export default function ButorvalasztoQuiz() {
         }
       }
     } catch { /* silent */ }
+    track("urlap_siker", "Bútorválasztó");
     setSending(false);
     setSent(true);
   };
@@ -200,7 +203,7 @@ export default function ButorvalasztoQuiz() {
               </p>
             </div>
             <button
-              onClick={scrollToForm}
+              onClick={() => { track("ajanlatkeres_gomb", "Bútorválasztó „Kérek ajánlatot”"); scrollToForm(); }}
               className="bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-6 py-3 text-sm transition-colors shrink-0"
             >
               Kérek ajánlatot ↓
@@ -218,9 +221,9 @@ export default function ButorvalasztoQuiz() {
           <p>Töltsd ki a lenti kapcsolat formot, küldj egy képet vagy írd meg, mit szeretnél és mi elkészítjük neked 4 héten belül!</p>
           <p className="text-[#7d6142] font-semibold">
             Írj egy emailt az{" "}
-            <a href="mailto:info@enzodesign.hu" className="underline hover:text-[#b8924a]">info@enzodesign.hu</a>
+            <a href="mailto:info@enzodesign.hu" onClick={() => track("email_klikk", "Bútorválasztó")} className="underline hover:text-[#b8924a]">info@enzodesign.hu</a>
             {" "}címre vagy hívd bútortervezőnket a{" "}
-            <a href="tel:+36303778983" className="underline hover:text-[#b8924a]">+36303778983</a>
+            <a href="tel:+36303778983" onClick={() => track("telefon_klikk", "Bútorválasztó")} className="underline hover:text-[#b8924a]">+36303778983</a>
             {" "}számon.
           </p>
         </div>

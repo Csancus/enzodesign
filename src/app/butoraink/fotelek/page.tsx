@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { getAdminStatus } from "@/lib/auth";
 import { getModuleConfig } from "@/lib/moduleStore";
 import FabricsSection from "@/components/sections/FabricsSection";
@@ -8,6 +7,7 @@ import ProductImageCarousel from "@/components/ProductImageCarousel";
 import EditBtn from "@/components/admin/EditBtn";
 import { resolveProductImages } from "@/lib/productImages";
 import type { FieldDef } from "@/types/cms";
+import TrackedLink from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
   title: "Fotelek – Enzo Design",
@@ -169,17 +169,17 @@ export default async function FotelekPage() {
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>{gridTitle}</h2>
           <p className="text-sm text-gray-500 mb-1">{gridSubtitle}</p>
-          <Link href="/kapcsolat-es-rendeles" className="text-sm text-[#b8924a] underline block mb-8">
+          <TrackedLink href="/kapcsolat-es-rendeles" event="cta_gomb" label="Egyedi fotelt is elkészítünk →" className="text-sm text-[#b8924a] underline block mb-8">
             Egyedi fotelt is elkészítünk →
-          </Link>
+          </TrackedLink>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {resolvedCards.map((c) => (
               <div key={c.id} className="relative group/card">
-                <Link href={c.href} className="block">
+                <TrackedLink href={c.href} event="termek_kartya" label={c.name} className="block">
                   <ProductImageCarousel images={c.images} alt={c.name} />
                   <h3 className="text-[#b8924a] text-sm font-semibold group-hover/card:underline">{c.name}</h3>
                   <p className="text-xs text-gray-500 mt-0.5">{c.tagline}</p>
-                </Link>
+                </TrackedLink>
                 {isAdmin && (
                   <EditBtn
                     moduleId={`fotelek-card:${c.id}`}

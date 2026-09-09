@@ -9,6 +9,7 @@ import { getModuleConfig } from "@/lib/moduleStore";
 import { formatPrice } from "@/data/products";
 import { getAdminStatus } from "@/lib/auth";
 import type { FieldDef } from "@/types/cms";
+import TrackedLink from "@/components/TrackedLink";
 
 type Pricing = {
   fotel?: { alap: number; bor?: number };
@@ -249,12 +250,14 @@ export default async function ProductPageTemplate({
               {formatPrice(startingPrice)}-tól
             </p>
           )}
-          <a
+          <TrackedLink
             href="#rendeles"
+            event="ajanlatkeres_gomb"
+            label={hdr.name}
             className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm"
           >
             Megrendelem, vagy ajánlatot kérek
-          </a>
+          </TrackedLink>
         </div>
         {isAdmin && (
           <EditBtn moduleId={`${pageId}:header`} config={{ name: hdr.name, tagline: hdr.tagline, description: hdr.description }} schema={HEADER_SCHEMA} label="✏ Fejléc" />

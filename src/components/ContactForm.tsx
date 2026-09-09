@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useCaptcha } from "./useCaptcha";
+import { track } from "@/lib/track";
 
 type FormData = {
   nev: string;
@@ -71,6 +72,7 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormData) => {
     if (!validate()) return;
+    track("urlap_kuldes", "Kapcsolat űrlap");
     setSending(true);
     setError(false);
     try {
@@ -88,6 +90,7 @@ export default function ContactForm() {
         }
         throw new Error("send failed");
       }
+      track("urlap_siker", "Kapcsolat űrlap");
       setSent(true);
       reset();
     } catch {

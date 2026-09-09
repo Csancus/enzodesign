@@ -135,6 +135,20 @@ export default async function AdatkezelesiPage() {
             </p>
           </section>
 
+          <section>
+            <h2 className="text-xl font-bold text-[#1c1c1c] mb-3">10. Kattintásmérés (statisztika)</h2>
+            <p className="mb-2">
+              A weboldal egyes gombjainak (pl. „Rendelés”, telefonszám, ajánlatkérés) használatát
+              összesített darabszámként mérjük, hogy lássuk, mely funkciókat használják a látogatók.
+            </p>
+            <p>
+              A mérés kizárólag azt rögzíti, hogy egy adott napon, egy adott oldalon, egy adott gombra
+              hányszor kattintottak. Nem tárol IP-címet, böngészőazonosítót vagy egyéb, a látogató
+              azonosítására alkalmas adatot, nem helyez el sütit és nem használ helyi tárolót. Ezért
+              ez a mérés nem minősül személyes adat kezelésének, és hozzájárulást sem igényel.
+            </p>
+          </section>
+
           <p className="text-sm text-gray-400 border-t pt-6">
             Hatályos: 2025. március 27-től
           </p>

@@ -1,8 +1,8 @@
-import Link from "next/link";
 import EditBtn from "@/components/admin/EditBtn";
 import ProductImageCarousel from "@/components/ProductImageCarousel";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
+import TrackedLink from "@/components/TrackedLink";
 
 type Product = {
   name: string;
@@ -126,7 +126,7 @@ export default async function PopularSection({ moduleId, isAdmin }: { moduleId: 
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((p, i) => (
-            <Link key={i} href={p.href} className="group block border border-gray-100 hover:border-[#b8924a] transition-colors">
+            <TrackedLink key={i} href={p.href} event="termek_kartya" label={p.name} className="group block border border-gray-100 hover:border-[#b8924a] transition-colors">
               <ProductImageCarousel images={p.images.length ? p.images : ["/images/logo.webp"]} alt={p.name} />
               <div className="p-4">
                 <p className="text-xs text-gray-400 mb-0.5 leading-snug">{p.tagline}</p>
@@ -140,7 +140,7 @@ export default async function PopularSection({ moduleId, isAdmin }: { moduleId: 
                   Tovább
                 </span>
               </div>
-            </Link>
+            </TrackedLink>
           ))}
         </div>
       </div>

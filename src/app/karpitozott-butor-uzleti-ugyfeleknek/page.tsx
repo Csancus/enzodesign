@@ -7,6 +7,7 @@ import { DEFAULT_UZLETI_IMAGES } from "@/data/uzletiGalleryImages";
 import { getAdminStatus } from "@/lib/auth";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
+import TrackedLink from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
   title: "Kárpitozott bútor üzleti ügyfeleknek – Enzo Design",
@@ -133,12 +134,12 @@ export default async function UzletiButorPage() {
             </p>
           ))}
           <div className="flex flex-wrap gap-4 justify-center mt-4">
-            <a href="tel:+36303778983" className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm">
+            <TrackedLink href="tel:+36303778983" event="telefon_klikk" label="Üzleti oldal" className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm">
               +36 30 377 8983
-            </a>
-            <a href="mailto:info@enzodesign.hu" className="inline-block border-2 border-[#7d6142] text-[#7d6142] hover:bg-[#7d6142] hover:text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm">
+            </TrackedLink>
+            <TrackedLink href="mailto:info@enzodesign.hu" event="email_klikk" label="Üzleti oldal" className="inline-block border-2 border-[#7d6142] text-[#7d6142] hover:bg-[#7d6142] hover:text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm">
               info@enzodesign.hu
-            </a>
+            </TrackedLink>
           </div>
         </div>
         {isAdmin && (

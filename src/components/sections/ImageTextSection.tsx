@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
 import { imageAlt } from "@/lib/imageAlt";
+import TrackedLink from "@/components/TrackedLink";
 
 const DEFAULT = {
   image: "/images/e7ad8b_9c4a2b593b0642ab97ffcdc5d7e37965.webp",
@@ -38,9 +38,9 @@ export default async function ImageTextSection({ moduleId, isAdmin }: { moduleId
           <h2 className="text-2xl font-bold text-[#1c1c1c] mb-4">{cfg.title}</h2>
           <p className="text-sm text-gray-600 leading-relaxed mb-4 whitespace-pre-line">{cfg.body}</p>
           {cfg.linkText && cfg.linkHref && (
-            <Link href={cfg.linkHref} className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white text-sm font-semibold px-6 py-2 transition-colors">
+            <TrackedLink href={cfg.linkHref} event="cta_gomb" label={cfg.linkText} className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white text-sm font-semibold px-6 py-2 transition-colors">
               {cfg.linkText}
-            </Link>
+            </TrackedLink>
           )}
         </div>
       </div>

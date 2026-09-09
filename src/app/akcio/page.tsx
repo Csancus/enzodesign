@@ -9,6 +9,7 @@ import SaleProductsSection, {
   DEFAULT_PRODUCTS,
 } from "@/components/sections/SaleProductsSection";
 import ContactFormSection from "@/components/ContactFormSection";
+import TrackedLink from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
   title: "Akciók – Enzo Design",
@@ -125,12 +126,14 @@ export default async function AkcioPage() {
       {/* Link to full furniture catalogue */}
       <div className="relative bg-white py-8 text-center border-t border-gray-100">
         <p className="text-sm text-gray-500 mb-4">{cta.text}</p>
-        <a
+        <TrackedLink
           href={cta.buttonHref}
+          event="cta_gomb"
+          label={cta.buttonLabel}
           className="inline-block bg-[#1c1c1c] hover:bg-[#7d6142] text-white font-bold uppercase tracking-wider px-10 py-3 transition-colors text-xs"
         >
           {cta.buttonLabel}
-        </a>
+        </TrackedLink>
         {isAdmin && (
           <EditBtn moduleId="akcio:cta" config={cta} schema={CTA_SCHEMA} label="✏ Gomb / szöveg" />
         )}

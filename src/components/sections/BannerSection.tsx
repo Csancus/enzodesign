@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
 import { imageAlt } from "@/lib/imageAlt";
+import TrackedLink from "@/components/TrackedLink";
 
 const DEFAULT = {
   image: "/images/slide1.webp",
@@ -37,9 +37,9 @@ export default async function BannerSection({ moduleId, isAdmin }: { moduleId: s
           {cfg.title && <h2 className="text-xl sm:text-3xl font-bold mb-2">{cfg.title}</h2>}
           {cfg.subtitle && <p className="text-sm mb-4 opacity-90">{cfg.subtitle}</p>}
           {cfg.linkText && cfg.linkHref && (
-            <Link href={cfg.linkHref} className="bg-[#b8924a] hover:bg-[#a07840] text-white text-sm font-semibold px-6 py-2 transition-colors">
+            <TrackedLink href={cfg.linkHref} event="cta_gomb" label={cfg.linkText} className="bg-[#b8924a] hover:bg-[#a07840] text-white text-sm font-semibold px-6 py-2 transition-colors">
               {cfg.linkText}
-            </Link>
+            </TrackedLink>
           )}
         </div>
       )}

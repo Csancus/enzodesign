@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { formatPrice } from "@/data/products";
 import type { SaleProduct } from "@/components/sections/SaleProductsSection";
+import { track } from "@/lib/track";
 
 function daysLeft(isoDate: string): number | null {
   const end = new Date(isoDate);
@@ -33,6 +34,7 @@ export default function SaleCardClient({ product }: { product: SaleProduct }) {
   }, [lightboxIdx, n, closeLightbox]);
 
   const handleRendeles = () => {
+    track("ajanlatkeres_gomb", `Akció: ${product.name}`);
     const msg = `Akciós termék érdeklődés: ${product.name} – ${!isNaN(salePrice) ? formatPrice(salePrice) : ""} Ft (akciós ár)`;
     window.dispatchEvent(new CustomEvent("fill-rendeles", { detail: { leiras: msg } }));
     document.getElementById("rendeles")?.scrollIntoView({ behavior: "smooth" });

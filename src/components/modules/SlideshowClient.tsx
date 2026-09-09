@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import SlideshowEditor from "./SlideshowEditor";
 import { imageAlt } from "@/lib/imageAlt";
+import { track } from "@/lib/track";
 
 type SlideImage = { src: string; alt: string };
 
@@ -104,6 +104,7 @@ export default function SlideshowClient({
           </p>
           <a
             href="#fatol-a-kanapeig"
+            onClick={() => track("hero_gomb", "Slideshow „Tovább”")}
             className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-widest px-8 py-3 transition-colors text-xs"
           >
             Tovább

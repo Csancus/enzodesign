@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
 import { imageAlt } from "@/lib/imageAlt";
+import TrackedLink from "@/components/TrackedLink";
 
 const DEFAULT = {
   image: "/images/slide1.webp",
@@ -61,12 +61,14 @@ export default async function HeroImageSection({
           </p>
         )}
         {cfg.buttonText && cfg.buttonHref && (
-          <Link
+          <TrackedLink
             href={cfg.buttonHref}
+            event="hero_gomb"
+            label={cfg.buttonText}
             className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm"
           >
             {cfg.buttonText}
-          </Link>
+          </TrackedLink>
         )}
       </div>
       {isAdmin && <EditBtn moduleId={moduleId} config={cfg} schema={SCHEMA} />}

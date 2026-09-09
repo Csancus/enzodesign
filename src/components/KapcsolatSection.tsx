@@ -2,6 +2,7 @@ import ContactForm from "./ContactForm";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
+import TrackedLink from "@/components/TrackedLink";
 
 const DEFAULT = {
   formTitle: "Rendelési űrlap",
@@ -53,9 +54,9 @@ export default async function KapcsolatSection({ isAdmin }: { isAdmin: boolean }
               </div>
               <div>
                 <p className="text-sm text-gray-500 uppercase tracking-wide font-medium mb-1">Telefon</p>
-                <a href={`tel:${cfg.telefon.replace(/\s/g, "")}`} className="text-lg font-semibold text-[#1c1c1c] hover:text-[#7d6142] transition-colors">
+                <TrackedLink href={`tel:${cfg.telefon.replace(/\s/g, "")}`} event="telefon_klikk" label="Kapcsolat oldal" className="text-lg font-semibold text-[#1c1c1c] hover:text-[#7d6142] transition-colors">
                   {cfg.telefon}
-                </a>
+                </TrackedLink>
               </div>
             </div>
             <div className="flex gap-4">
@@ -66,9 +67,9 @@ export default async function KapcsolatSection({ isAdmin }: { isAdmin: boolean }
               </div>
               <div>
                 <p className="text-sm text-gray-500 uppercase tracking-wide font-medium mb-1">Email</p>
-                <a href={`mailto:${cfg.email}`} className="text-lg font-semibold text-[#1c1c1c] hover:text-[#7d6142] transition-colors">
+                <TrackedLink href={`mailto:${cfg.email}`} event="email_klikk" label="Kapcsolat oldal" className="text-lg font-semibold text-[#1c1c1c] hover:text-[#7d6142] transition-colors">
                   {cfg.email}
-                </a>
+                </TrackedLink>
               </div>
             </div>
             <div className="flex gap-4">

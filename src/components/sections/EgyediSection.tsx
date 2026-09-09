@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import EditBtn from "@/components/admin/EditBtn";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
 import { imageAlt } from "@/lib/imageAlt";
+import TrackedLink from "@/components/TrackedLink";
 
 const DEFAULT_IMAGES = [
   { src: "/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp",             alt: "Chesterfield kanapé" },
@@ -135,12 +135,14 @@ export default async function EgyediSection({ moduleId, isAdmin }: { moduleId: s
         </div>
 
         <div className="text-center">
-          <Link
+          <TrackedLink
             href={cfg.buttonHref}
+            event="cta_gomb"
+            label={cfg.buttonText}
             className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-10 py-3 transition-colors text-xs"
           >
             {cfg.buttonText}
-          </Link>
+          </TrackedLink>
         </div>
       </div>
       {isAdmin && <EditBtn moduleId={moduleId} config={{ ...cfg, images: allImages }} schema={SCHEMA} />}

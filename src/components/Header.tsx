@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { DynamicPage } from "@/lib/dynamicPages";
+import { track } from "@/lib/track";
 
 const NAV_ITEMS = [
   { label: "Főoldal", href: "/" },
@@ -91,6 +92,7 @@ export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPa
             >
               <Link
                 href={item.href}
+                onClick={() => track("menu_klikk", item.label)}
                 className="px-3 py-4 inline-block text-[#1c1c1c] hover:text-[#b8924a] transition-colors text-sm whitespace-nowrap font-medium"
               >
                 {item.label}
@@ -102,6 +104,7 @@ export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPa
                     <Link
                       key={child.href + child.label}
                       href={child.href}
+                      onClick={() => track("menu_klikk", child.label)}
                       className="block px-4 py-2.5 text-sm text-[#1c1c1c] hover:text-[#b8924a] text-center border-b border-gray-100 last:border-0 transition-colors whitespace-nowrap"
                     >
                       {child.label}
@@ -117,12 +120,14 @@ export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPa
         <div className="flex items-center gap-2 flex-shrink-0">
           <a
             href="tel:+36303778983"
+            onClick={() => track("telefon_klikk", "Fejléc")}
             className="bg-[#b8924a] hover:bg-[#a07840] text-white text-sm font-semibold px-3 py-2 transition-colors"
           >
             +36303778983
           </a>
           <Link
             href="/kapcsolat-es-rendeles"
+            onClick={() => track("rendeles_gomb", "Fejléc")}
             className="hidden md:block bg-[#7d6142] hover:bg-[#6a5138] text-white text-sm font-bold uppercase tracking-wide px-5 py-2 transition-colors"
           >
             Rendelés
@@ -149,7 +154,7 @@ export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPa
                   <Link
                     href={item.href}
                     className="flex-1 py-3 text-sm text-[#1c1c1c] hover:text-[#b8924a] font-medium"
-                    onClick={() => setMobileOpen(false)}
+                    onClick={() => { track("menu_klikk", item.label); setMobileOpen(false); }}
                   >
                     {item.label}
                   </Link>
@@ -172,7 +177,7 @@ export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPa
                         key={child.href + child.label}
                         href={child.href}
                         className="block pl-5 pr-3 py-2.5 text-xs text-gray-600 border-b border-gray-100 last:border-0 hover:text-[#b8924a]"
-                        onClick={() => setMobileOpen(false)}
+                        onClick={() => { track("menu_klikk", child.label); setMobileOpen(false); }}
                       >
                         {child.label}
                       </Link>
@@ -186,7 +191,7 @@ export default function Header({ dynamicPages = [] }: { dynamicPages?: DynamicPa
             <Link
               href="/kapcsolat-es-rendeles"
               className="block bg-[#7d6142] text-white text-center py-3 font-bold uppercase tracking-wider"
-              onClick={() => setMobileOpen(false)}
+              onClick={() => { track("rendeles_gomb", "Mobil menü"); setMobileOpen(false); }}
             >
               Rendelés
             </Link>

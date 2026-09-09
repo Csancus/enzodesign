@@ -8,6 +8,7 @@ import { getModuleConfig } from "@/lib/moduleStore";
 import { getAdminStatus } from "@/lib/auth";
 import { resolveProductImages } from "@/lib/productImages";
 import type { FieldDef } from "@/types/cms";
+import TrackedLink from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
   title: "Bútoraink – Enzo Design",
@@ -192,9 +193,9 @@ export default async function ButorainkPage() {
         <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-3">Kérdése van?</p>
         <h2 className="text-2xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>Kérjen ajánlatot!</h2>
         <p className="text-gray-600 mb-6 max-w-md mx-auto">Szinte bármilyen egyedi kárpitozott bútort el tudunk készíteni. Vegye fel velünk a kapcsolatot!</p>
-        <Link href="/kapcsolat-es-rendeles" className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-10 py-3 transition-colors">
+        <TrackedLink href="/kapcsolat-es-rendeles" event="cta_gomb" label="Kapcsolat és rendelés" className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-10 py-3 transition-colors">
           Kapcsolat és rendelés
-        </Link>
+        </TrackedLink>
       </section>
     </>
   );

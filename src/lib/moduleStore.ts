@@ -36,7 +36,8 @@ const loadAllConfigs = cache(
     const { getSupabaseAdmin } = await import("@/lib/supabase");
     const { data, error } = await getSupabaseAdmin()
       .from("module_configs")
-      .select("id, config") as { data: { id: string; config: Record<string, unknown> }[] | null; error: unknown };
+      .select("id, config")
+      .not("id", "like", "szamok:%") as { data: { id: string; config: Record<string, unknown> }[] | null; error: unknown };
     if (error || !data) return {};
     return Object.fromEntries(data.map((r) => [r.id, r.config]));
   }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
 import PageHero from "@/components/PageHero";
 import VideoSection from "@/components/sections/VideoSection";
@@ -9,6 +8,7 @@ import EditBtn from "@/components/admin/EditBtn";
 import { getAdminStatus } from "@/lib/auth";
 import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
+import TrackedLink from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
   title: "Rólunk – Enzo Design",
@@ -204,9 +204,9 @@ export default async function RolunkPage() {
             <a href={`tel:${cta.phone.replace(/\s/g, "")}`} className="bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-8 py-4 transition-colors text-sm">
               {cta.phone}
             </a>
-            <Link href="/kapcsolat-es-rendeles" className="border-2 border-[#7d6142] text-[#7d6142] hover:bg-[#7d6142] hover:text-white font-bold uppercase tracking-wider px-8 py-4 transition-colors text-sm">
+            <TrackedLink href="/kapcsolat-es-rendeles" event="rendeles_gomb" label="Rólunk oldal" className="border-2 border-[#7d6142] text-[#7d6142] hover:bg-[#7d6142] hover:text-white font-bold uppercase tracking-wider px-8 py-4 transition-colors text-sm">
               Rendelés
-            </Link>
+            </TrackedLink>
           </div>
         </div>
         {isAdmin && (

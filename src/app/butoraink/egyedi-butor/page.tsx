@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { getAdminStatus } from "@/lib/auth";
 import { getModuleConfig } from "@/lib/moduleStore";
 import FabricsSection from "@/components/sections/FabricsSection";
 import EditBtn from "@/components/admin/EditBtn";
 import type { FieldDef } from "@/types/cms";
 import { imageAlt } from "@/lib/imageAlt";
+import TrackedLink from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
   title: "Egyedi Bútor – Enzo Design",
@@ -105,7 +105,7 @@ export default async function EgyediButorPage() {
       <section className="relative py-12 bg-white">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-[#1c1c1c] mb-2" style={{ fontFamily: "var(--font-heading)" }}>{galleryTitle}</h2>
-          <Link href="/kapcsolat-es-rendeles" className="text-sm text-[#b8924a] underline block mb-8">Egyedi bútor rendelése →</Link>
+          <TrackedLink href="/kapcsolat-es-rendeles" event="cta_gomb" label="Egyedi bútor rendelése →" className="text-sm text-[#b8924a] underline block mb-8">Egyedi bútor rendelése →</TrackedLink>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {gallery.map((src, i) => (
               <div key={i} className="relative aspect-square overflow-hidden">
