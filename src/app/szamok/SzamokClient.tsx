@@ -85,6 +85,18 @@ export default function SzamokClient() {
   const { events, eventLabels, days, data, test, testTotal, total, pages, labels } = stats;
   const hasTest = Object.values(testTotal).some((n) => n > 0);
 
+  // Valós (teszt nélküli) leadott űrlapok – a legfontosabb szám, kiemelve.
+  const netDay = (d: string, e: string) => (data[d]?.[e] ?? 0) - (test[d]?.[e] ?? 0);
+  const submitsTotal = (total.urlap_siker ?? 0) - (testTotal.urlap_siker ?? 0);
+  const submitsToday = days[0] ? netDay(days[0], "urlap_siker") : 0;
+  const submits7 = days.slice(0, 7).reduce((s, d) => s + netDay(d, "urlap_siker"), 0);
+  const submits30 = days.slice(0, 30).reduce((s, d) => s + netDay(d, "urlap_siker"), 0);
+  const submitsBySource = Object.entries(labels)
+    .filter(([, v]) => v.urlap_siker)
+    .map(([k, v]) => [k, v.urlap_siker] as const)
+    .sort((a, b) => b[1] - a[1]);
+  const submitDays = days.filter((d) => netDay(d, "urlap_siker") > 0).slice(0, 14);
+
   return (
     <main className="bg-[#f5f0e8]">
       <div className="mx-auto w-full max-w-7xl px-4 py-12">
@@ -119,6 +131,43 @@ export default function SzamokClient() {
             </button>
           </div>
         </div>
+
+        <section className="mt-10 border-2 border-[#b8924a] bg-white p-6 sm:p-8">
+          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-1">Kiemelt</p>
+          <h2 className="text-xl font-bold text-[#1c1c1c]" style={heading}>
+            Valós leadott űrlapok
+          </h2>
+          <p className="mt-1 text-xs text-gray-500">
+            Sikeresen elküldött kapcsolat / bútorválasztó űrlapok, a teszt-kattintások nélkül.
+          </p>
+          <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <Kpi label="Összesen" value={submitsTotal} big />
+            <Kpi label="Ma" value={submitsToday} />
+            <Kpi label="Utolsó 7 nap" value={submits7} />
+            <Kpi label="Utolsó 30 nap" value={submits30} />
+          </div>
+          {submitsBySource.length > 0 && (
+            <div className="mt-5 flex flex-wrap gap-2">
+              {submitsBySource.map(([k, n]) => (
+                <span key={k} className="inline-flex items-center gap-2 bg-[#f5f0e8] border border-[#b8924a]/40 px-3 py-1.5 text-sm">
+                  <span className="text-gray-600">{k}</span>
+                  <strong className="text-[#7d6142] tabular-nums">{n}</strong>
+                </span>
+              ))}
+            </div>
+          )}
+          {submitDays.length > 0 && (
+            <div className="mt-5 overflow-x-auto">
+              <Table
+                head={["Nap", "Leadott űrlap", "Elküldés-kísérlet"]}
+                rows={submitDays.map((d) => [d, netDay(d, "urlap_siker"), netDay(d, "urlap_kuldes")])}
+              />
+            </div>
+          )}
+          {submitsTotal === 0 && (
+            <p className="mt-4 text-sm text-gray-500">Még nem érkezett valós űrlapküldés.</p>
+          )}
+        </section>
 
         <Section title="Összesen">
           <Table
@@ -164,6 +213,17 @@ export default function SzamokClient() {
         </p>
       </div>
     </main>
+  );
+}
+
+function Kpi({ label, value, big }: { label: string; value: number; big?: boolean }) {
+  return (
+    <div className={`p-4 ${big ? "bg-[#7d6142] text-white" : "bg-[#f5f0e8] text-[#1c1c1c]"}`}>
+      <p className={`text-xs uppercase tracking-wide ${big ? "text-white/80" : "text-gray-500"}`}>{label}</p>
+      <p className="mt-1 text-3xl font-bold tabular-nums" style={heading}>
+        {value}
+      </p>
+    </div>
   );
 }
 
