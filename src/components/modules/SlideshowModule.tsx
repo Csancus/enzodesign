@@ -3,13 +3,13 @@ import { getModuleConfig } from "@/lib/moduleStore";
 import SlideshowClient from "./SlideshowClient";
 
 const DEFAULT_IMAGES = [
-  { src: "/images/slide1.webp", alt: "Enzo Design kárpitozott bútorok" },
-  { src: "/images/slide2.webp", alt: "Enzo Design kanapék és fotelek" },
-  { src: "/images/slide3.webp", alt: "Egyedi kárpitozott bútorok" },
-  { src: "/images/slide4.webp", alt: "Enzo Design kollekció" },
-  { src: "/images/slide5.webp", alt: "Kárpitozott bútor gyártó" },
-  { src: "/images/slide6.webp", alt: "Chesterfield kanapék" },
-  { src: "/images/slide7.webp", alt: "Enzo Design bútorok" },
+  { src: "/images/slide1.webp", alt: "Barna bőr Chesterfield kanapé sárga díszpárnákkal, sötétzöld falú nappaliban" },
+  { src: "/images/slide2.webp", alt: "Szürke bársony, mélyen gombolt Chesterfield ülőgarnitúra márványpadlós nappaliban" },
+  { src: "/images/slide3.webp", alt: "Petrolzöld bársony Chesterfield kanapé színes falfestmény előtt, egyedi rendelésre készítve" },
+  { src: "/images/slide4.webp", alt: "Szürke kárpitozott ágy és fotel modern, sötét tónusú hálószobában" },
+  { src: "/images/slide5.webp", alt: "Bézs kárpitozott étkezőszékek fehér asztal körül, világos étkezőben" },
+  { src: "/images/slide6.webp", alt: "Krémszínű moduláris ülőgarnitúra tágas, napfényes nappaliban" },
+  { src: "/images/slide7.webp", alt: "Fehér modern kanapé és fotelek kandallós nappaliban, panorámaablakkal" },
 ];
 
 export default async function SlideshowModule({

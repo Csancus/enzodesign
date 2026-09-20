@@ -114,6 +114,12 @@ A hazai gyártás támogatása nemcsak gazdasági, hanem erkölcsi döntés is. 
           { title: "Tömörfa bútor", href: "/blog/tomorfa-butor" },
           { title: "Bútorbolt Nagykanizsán", href: "/blog/butorbolt-nagykanizsán" },
         ]}
+        cta={{
+          price: "Kanapék 399 810 Ft-tól a gyártótól",
+          text: "Nincs kereskedői árrés: a nagykanizsai üzemből egyenesen hozzád, egyedi méretben, 3+10 év garanciával.",
+          label: "Kanapék és árak",
+          href: "/butoraink/kanapek",
+        }}
         productLinks={[
           { label: "Egyedi bútor rendelés →", href: "/butoraink/egyedi-butor" },
           { label: "Összes kanapé →", href: "/butoraink/kanapek" },

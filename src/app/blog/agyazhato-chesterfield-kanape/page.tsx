@@ -106,6 +106,12 @@ Az ágyazható Chesterfield is teljes mértékben személyre szabható: szövet,
           { title: "Melyik Chesterfield illik hozzád?", href: "/blog/melyik-chesterfield-butor-illik-hozzad" },
           { title: "Miért időtálló a Chesterfield?", href: "/blog/miert-idotallo-valasztas-a-chesterfield-kanape" },
         ]}
+        cta={{
+          price: "399 810 Ft + 190 500 Ft ágyfunkció",
+          text: "Ágyazható Chesterfield kanapé egyedi méretben, alap szövettel; 2 személyes ártól. Bőrrel és sarok kivitelben is.",
+          label: "Chesterfield kanapék és árak",
+          href: "/butoraink/kanapek/chesterfield-kanapek",
+        }}
         productLinks={[
           { label: "Chesterfield kanapék →", href: "/butoraink/kanapek/chesterfield-kanapek" },
           { label: "Összes kanapé →", href: "/butoraink/kanapek" },

@@ -108,6 +108,12 @@ Szürke: modern, letisztult hatás`,
           { title: "Melyik Chesterfield illik hozzád?", href: "/blog/melyik-chesterfield-butor-illik-hozzad" },
           { title: "Bőr fotel", href: "/blog/bor-fotel" },
         ]}
+        cta={{
+          price: "Chesterfield kanapé 399 810 Ft-tól",
+          text: "2 és 3 személyes, sarok és ágyazható kivitelben, szövettel vagy bőrrel. Tömörfa váz, 10 év vázgarancia.",
+          label: "Chesterfield kanapék és árak",
+          href: "/butoraink/kanapek/chesterfield-kanapek",
+        }}
         productLinks={[
           { label: "Chesterfield kanapék →", href: "/butoraink/kanapek/chesterfield-kanapek" },
           { label: "Teljes Chesterfield kollekció →", href: "/chesterfield-kollekcio" },

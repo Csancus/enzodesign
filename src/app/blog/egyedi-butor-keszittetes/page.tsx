@@ -114,6 +114,12 @@ Szinte bármilyen egyedi kárpitozott bútort el tudunk készíteni. Ha egy lát
           { title: "Tömörfa bútor", href: "/blog/tomorfa-butor" },
           { title: "Bútorbolt Nagykanizsán", href: "/blog/butorbolt-nagykanizsán" },
         ]}
+        cta={{
+          price: "Egyedi bútor: árajánlat 2 napon belül",
+          text: "Rajz vagy fotó alapján megtervezzük és a nagykanizsai üzemünkben elkészítjük, 3+10 év garanciával.",
+          label: "Egyedi bútor rendelése",
+          href: "/butoraink/egyedi-butor",
+        }}
         productLinks={[
           { label: "Egyedi bútor rendelés →", href: "/butoraink/egyedi-butor" },
           { label: "Kárpitszövetek megtekintése →", href: "/butoraink/karpitoszovetek" },

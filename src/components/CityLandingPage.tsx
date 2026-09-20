@@ -47,6 +47,37 @@ export type CityLandingPageProps = {
   neighborCities: { name: string; locative: string; href: string }[];
 };
 
+
+/**
+ * Városonként eltérő, tényszerű bekezdés a „Miért érdemes” szekcióba. Szándékosan nincs
+ * benne ügyfélszám vagy referencia-állítás – ilyet csak valós adattal szabad írni.
+ * Őszinteség: a városokban NINCS saját üzlet, minden Nagykanizsán készül.
+ */
+const LOCAL_NOTE: Record<string, string> = {
+  "butorbolt-nagykanizsa":
+    "Az üzem és a 2000 m²-es bemutatóterem az Egry József utca 7-ben található. Nyitvatartási időben bejelentkezés nélkül is be lehet jönni: a kanapékat ki lehet próbálni, a szövet- és bőrmintákat kézbe venni. Nagykanizsán és a környező településeken (Zalakaros, Letenye, Murakeresztúr térsége) a bútort saját autónkkal visszük a helyére.",
+  "butorbolt-zalaegerszeg":
+    "Zalaegerszegen nincs saját üzletünk: a bútorok Nagykanizsán készülnek, és onnan szállítjuk házhoz. A megyeszékhelyről a 74-es főúton körülbelül fél óra az út a bemutatóteremig, ezért zalaegerszegi vásárlóink többsége egyszer eljön kipróbálni a modelleket, a további egyeztetés telefonon és e-mailben történik. Zala megye többi városából (Lenti, Zalaszentgrót, Zalalövő) ugyanígy rendelhető.",
+  "butorbolt-kaposvar":
+    "Kaposváron nincs üzletünk, de Somogy megye a fő szállítási területeink közé tartozik: Nagykanizsát és Kaposvárt a 61-es főút köti össze, a szállítás egy útba esik. Kaposvári vásárlóink jellemzően fotó és méretek alapján kérnek árajánlatot, a szövetmintát postán küldjük, és csak a végleges döntés előtt jönnek el megnézni a kiválasztott modellt.",
+  "butorbolt-keszthely":
+    "Keszthelyen és a Balaton nyugati partján (Hévíz, Gyenesdiás, Vonyarcvashegy) sok nyaralót és apartmant rendeznek be kárpitozott bútorral, ezért itt gyakori kérés a könnyen tisztítható, kopásálló szövet és a kisebb méretű, ágyazható kanapé. Keszthelyen nincs üzletünk; a bútor Nagykanizsán készül, onnan szállítjuk a Balatonhoz.",
+  "butorbolt-siofok":
+    "Siófokon és a Balaton déli partján az apartmanok, panziók és vendéglátóhelyek berendezése a leggyakoribb megrendelés: több egyforma kanapé, fotel vagy étkezőszék, strapabíró, jól tisztítható kárpittal. Üzletünk Siófokon nincs, a bútorok Nagykanizsán készülnek, és az M7-esen szállítjuk házhoz vagy a vendéglátóhelyre.",
+  "butorbolt-tapolca":
+    "Tapolcán és a Balaton-felvidéken jellemzően felújított présházakba, vidéki házakba és vendégházakba kérnek tőlünk egyedi méretű kanapét és franciaágyat, ahol a szabvány bútor nem fér el vagy nem illik a régi belső terekhez. Tapolcán nincs üzletünk; a mintákat postán küldjük, a bútort Nagykanizsáról szállítjuk.",
+  "butorbolt-marcali":
+    "Marcali a Nagykanizsához legközelebbi somogyi város, ezért marcali és környékbeli vásárlóink gyakran személyesen jönnek a bemutatóterembe, a szállítás pedig saját autónkkal történik. Marcaliban nincs üzletünk, a bútorok Nagykanizsán készülnek.",
+  "butorbolt-kormend":
+    "Körmenden és Vas megyében (Szentgotthárd, Vasvár, Szombathely térsége) az egyedi méretű kanapé és a franciaágy a leggyakoribb kérés. Körmendi üzletünk nincs: a bútor Nagykanizsán készül, a szövetmintát postán küldjük, a kész darabot pedig házhoz szállítjuk és a helyére tesszük.",
+  "butorbolt-barcs":
+    "Barcson és a Dráva mentén (Nagyatád, Csurgó térsége) a családi házakba kért nagy sarokkanapé és a teljes ülőgarnitúra a jellemző megrendelés. Barcsi üzletünk nincs; a bútort Nagykanizsán készítjük, és saját szállítással visszük házhoz.",
+  "butorbolt-szigetvar":
+    "Szigetváron és Baranya nyugati részén (Sellye, Sásd, Pécs környéke) kevés az elérhető kárpitosbútor-gyártó, ezért innen főként azok keresnek meg, akiknek egyedi méret vagy nem szabványos forma kell. Szigetvári üzletünk nincs, a bútor Nagykanizsán készül, a szállítás házhoz történik.",
+  "butorbolt-budapest":
+    "Budapesten nincs bemutatótermünk: budapesti vásárlóink fotó, alaprajz és postán küldött szövetminta alapján rendelnek, és a kész bútort Nagykanizsáról szállítjuk a lakásba, a megbeszélt időpontban. Cserébe a gyártói ár ugyanolyan tömörfa vázzal és kárpittal jellemzően alacsonyabb a fővárosi szalonok árainál.",
+};
+
 const PRODUCTS = [
   { label: "Kanapék", href: "/butoraink/kanapek" },
   { label: "Ülőgarnitúrák", href: "/ulogarnitura" },
@@ -101,7 +132,8 @@ export default async function CityLandingPage({
         : `Az Enzo Design Nagykanizsán közel 20 éve gyárt egyedi kárpitozott bútorokat.`) +
       ` 2000 nm-es bemutatótermünkben személyesen megtekintheted és kipróbálhatod a modelleket – majd pontosan olyan méretben, szövetben és kivitelben rendelheted meg, ahogy neked tetszik.` +
       `\n\n` +
-      `A különbség a bolthoz képest: nem készletes darabokat árulunk, hanem minden bútort rendelésre gyártunk tömörfa szerkezettel, prémium szövettel – és 3 év kárpitgaranciával, 10 év vázgaranciával adjuk ki a kezünkből.`,
+      `A különbség a bolthoz képest: nem készletes darabokat árulunk, hanem minden bútort rendelésre gyártunk tömörfa szerkezettel, prémium szövettel – és 3 év kárpitgaranciával, 10 év vázgaranciával adjuk ki a kezünkből.` +
+      (LOCAL_NOTE[slug] ? `\n\n${LOCAL_NOTE[slug]}` : ""),
     bullets: [
       "Kanapé, fotel, franciaágy és szék egyedi méretben",
       "100+ szövet és bőr közül választhatsz",

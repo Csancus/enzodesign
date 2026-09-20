@@ -113,6 +113,12 @@ Bútorainkat az első biztonságos ajtóig szállítjuk az ország bármely pont
           { title: "Modern Chesterfield kanapé", href: "/blog/modern-chesterfield-kanape" },
           { title: "Miért éri meg gyártótól vásárolni?", href: "/blog/miert-eri-meg-kozvetlen-a-butorgyartotol-vasarlni" },
         ]}
+        cta={{
+          price: "Kanapé 399 810 Ft-tól, ülőgarnitúra 1 222 080 Ft-tól",
+          text: "Egyedi méretben, 100+ szövetből, házhozszállítással Zalaegerszegre is. Bemutatóterem 30 km-re, Nagykanizsán.",
+          label: "Ülőgarnitúrák és sarokkanapék",
+          href: "/ulogarnitura",
+        }}
         productLinks={[
           { label: "Kanapék böngészése →", href: "/butoraink/kanapek" },
           { label: "Chesterfield kanapék →", href: "/butoraink/kanapek/chesterfield-kanapek" },

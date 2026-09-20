@@ -108,6 +108,12 @@ Az Enzo Design-nél minden Chesterfield bútor teljesen egyedi szín- és anyagk
           { title: "Bőr fotel", href: "/blog/bor-fotel" },
           { title: "Miért időtálló a Chesterfield?", href: "/blog/miert-idotallo-valasztas-a-chesterfield-kanape" },
         ]}
+        cta={{
+          price: "Chesterfield fotel 324 380 Ft-tól, kanapé 399 810 Ft-tól",
+          text: "Kézzel gombolt, tömörfa vázas Chesterfield bútorok szövettel vagy bőrrel, egyedi méretben.",
+          label: "Chesterfield bútorok és árak",
+          href: "/chesterfield",
+        }}
         productLinks={[
           { label: "Chesterfield kollekció →", href: "/chesterfield-kollekcio" },
           { label: "Chesterfield fotel →", href: "/butoraink/fotelek/chesterfield-fotel" },

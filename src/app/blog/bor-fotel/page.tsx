@@ -125,6 +125,12 @@ Friss foltot azonnal töröld fel száraz kendővel.`,
           { title: "Melyik Chesterfield illik hozzád?", href: "/blog/melyik-chesterfield-butor-illik-hozzad" },
           { title: "Miért időtálló a Chesterfield?", href: "/blog/miert-idotallo-valasztas-a-chesterfield-kanape" },
         ]}
+        cta={{
+          price: "Bőr fotel 421 695 Ft-tól",
+          text: "Chesterfield, Old's Club vagy Design fotel valódi bőrrel, tömörfa vázzal, egyedi méretben. Szövettel 324 380 Ft-tól.",
+          label: "Fotelek és árak",
+          href: "/butoraink/fotelek",
+        }}
         productLinks={[
           { label: "Chesterfield fotel →", href: "/butoraink/fotelek/chesterfield-fotel" },
           { label: "Összes fotel →", href: "/butoraink/fotelek" },

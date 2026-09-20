@@ -125,6 +125,12 @@ Minden Chesterfield bútorunk Nagykanizsán, saját műhelyünkben készül kéz
           { title: "Melyik Chesterfield illik hozzád?", href: "/blog/melyik-chesterfield-butor-illik-hozzad" },
           { title: "Miért időtálló a Chesterfield?", href: "/blog/miert-idotallo-valasztas-a-chesterfield-kanape" },
         ]}
+        cta={{
+          price: "Chesterfield kanapé 399 810 Ft-tól",
+          text: "Modern színekben és szövetekben is: bársony, kopásálló szövet vagy bőr, egyedi méretben a gyártótól.",
+          label: "Chesterfield kanapék és árak",
+          href: "/butoraink/kanapek/chesterfield-kanapek",
+        }}
         productLinks={[
           { label: "Chesterfield kanapék →", href: "/butoraink/kanapek/chesterfield-kanapek" },
           { label: "Teljes Chesterfield kollekció →", href: "/chesterfield-kollekcio" },

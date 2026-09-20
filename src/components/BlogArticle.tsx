@@ -5,6 +5,7 @@ import ContactFormSection from "@/components/ContactFormSection";
 import FaqAccordion from "@/components/sections/FaqAccordion";
 import { getModuleConfig } from "@/lib/moduleStore";
 import { getAdminStatus } from "@/lib/auth";
+import TrackedLink from "@/components/TrackedLink";
 import { slugify } from "@/lib/slugify";
 import type { FieldDef } from "@/types/cms";
 
@@ -35,6 +36,8 @@ type Props = {
   defaults: BlogArticleDefaults;
   related?: { title: string; href: string }[];
   productLinks?: { label: string; href: string }[];
+  /** Ár-tól doboz a bevezető után: a cikkből vásárlásba vezet (GSC: a blogcikkek hoztak megjelenést, de nem rendelést). */
+  cta?: { price: string; text: string; label: string; href: string };
 };
 
 const ARTICLE_SCHEMA: FieldDef[] = [
@@ -139,7 +142,7 @@ function Paragraphs({ text }: { text: string }) {
   );
 }
 
-export default async function BlogArticle({ slug, defaults, related = [], productLinks = [] }: Props) {
+export default async function BlogArticle({ slug, defaults, related = [], productLinks = [], cta }: Props) {
   const isAdmin = await getAdminStatus();
   const cfg = await getModuleConfig(`blog:${slug}:article`);
 
@@ -230,6 +233,23 @@ export default async function BlogArticle({ slug, defaults, related = [], produc
         {/* Body */}
         <div className="text-[0.98rem]">
           {a.intro && <Paragraphs text={a.intro} />}
+          {cta && (
+            <aside className="my-8 border-l-4 border-[#b8924a] bg-[#f5f0e8] p-5 sm:p-6">
+              <p className="text-[#b8924a] text-xs font-semibold uppercase tracking-wider">Közvetlenül a gyártótól</p>
+              <p className="mt-1 text-xl sm:text-2xl font-bold text-[#1c1c1c]" style={{ fontFamily: "var(--font-heading)" }}>
+                {cta.price}
+              </p>
+              <p className="mt-1 text-sm text-gray-600">{cta.text}</p>
+              <TrackedLink
+                href={cta.href}
+                event="cta_gomb"
+                label={`Blog ár-doboz – ${slug}`}
+                className="mt-4 inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white text-sm font-bold uppercase tracking-wider px-6 py-2.5 transition-colors"
+              >
+                {cta.label}
+              </TrackedLink>
+            </aside>
+          )}
           {a.blocks.map((b, i) => (
             <section key={i}>
               {b.heading && b.heading.trim() && (

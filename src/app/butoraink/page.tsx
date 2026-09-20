@@ -182,7 +182,7 @@ export default async function ButorainkPage() {
 
       <section className="py-14 bg-[#f9f9f9]">
         <div className="max-w-5xl mx-auto px-4">
-          <SectionHeader title="További termékeink" href="/butoraink/szek-zsamoly-falvedo" linkLabel="Megnézem" />
+          <SectionHeader title="További termékeink" href="/butoraink/szek-zsamoly-falvedo" linkLabel="Szék, zsámoly, falvédő megtekintése" />
           <ProductGrid items={extras} isAdmin={isAdmin} prefix="butoraink-extra" />
         </div>
       </section>

@@ -140,6 +140,12 @@ Minden Enzo Design puffra 3 év garancia vonatkozik, a váz esetén 10 éves sza
           { title: "Modern Chesterfield kanapé", href: "/blog/modern-chesterfield-kanape" },
           { title: "Bőr fotel – időtálló kényelem", href: "/blog/bor-fotel" },
         ]}
+        cta={{
+          price: "Puff és zsámoly egyedi árban",
+          text: "A garnitúrával azonos szövetből vagy bőrből, a kanapéhoz méretezve. Árajánlat 2 napon belül.",
+          label: "Chesterfield bútorok és árak",
+          href: "/chesterfield",
+        }}
         productLinks={[
           { label: "Zsámolyok és puffok →", href: "/butoraink/szek-zsamoly-falvedo" },
           { label: "Fotelek →", href: "/butoraink/fotelek" },

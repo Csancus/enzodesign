@@ -6,16 +6,16 @@ import { imageAlt } from "@/lib/imageAlt";
 import TrackedLink from "@/components/TrackedLink";
 
 const DEFAULT_IMAGES = [
-  { src: "/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp",             alt: "Chesterfield kanapé" },
-  { src: "/images/e7ad8b_aca61fd0c27746da9f91a44377825085.webp",             alt: "U alakú kanapé" },
-  { src: "/images/e7ad8b_a6ef192520f14d18bb7296848c319c17.webp",             alt: "Modern chesterfield kanapé" },
-  { src: "/images/9a0b1d_e2873d90b1d04241a6382d7da598e821.webp",             alt: "Egyedi bútor" },
-  { src: "/images/e7ad8b_1a5a2fd2adb04b7cbf6faa50280714d4.webp",             alt: "Egyedi bőr fotel" },
-  { src: "/images/e7ad8b_a6f2120917464fd084a819fbd6828556.webp",             alt: "Modern kanapé" },
-  { src: "/images/e7ad8b_af00972c370c4bc7800fc98bfd927214.webp",             alt: "Modern kanapé" },
-  { src: "/images/e7ad8b_bc066bd9f28f4fbab4b31b619d02e1ff.webp",             alt: "Kék chesterfield kanapé" },
-  { src: "/images/e7ad8b_68c0304ad1514869b9827831425d131b.webp",             alt: "Chesterfield falvédő" },
-  { src: "/images/e7ad8b_ebf6019015ea4512933aacab43daaf4a.webp",             alt: "Chesterfield zsámoly" },
+  { src: "/images/e7ad8b_1c16aed31acb478da7f5630873a9c4d2.webp",             alt: "Bézs bársony gombolt Chesterfield kanapé fekete-fehér New York fotótapéta előtt" },
+  { src: "/images/e7ad8b_aca61fd0c27746da9f91a44377825085.webp",             alt: "Világosszürke U alakú kanapé LED-világítással, egyedi méretben készítve" },
+  { src: "/images/e7ad8b_a6ef192520f14d18bb7296848c319c17.webp",             alt: "Barna bőr modern Chesterfield kanapé hengerpárnákkal, egyenes karfával" },
+  { src: "/images/9a0b1d_e2873d90b1d04241a6382d7da598e821.webp",             alt: "Petrolzöld bársony Chesterfield kanapé színes falfestmény előtt, egyedi kivitel" },
+  { src: "/images/e7ad8b_1a5a2fd2adb04b7cbf6faa50280714d4.webp",             alt: "Fekete bőr egyedi kanapé íves háttámlával és fa lábakkal" },
+  { src: "/images/e7ad8b_a6f2120917464fd084a819fbd6828556.webp",             alt: "Fehér L alakú sarokkanapé modern loft nappaliban" },
+  { src: "/images/e7ad8b_af00972c370c4bc7800fc98bfd927214.webp",             alt: "Sötétzöld bársony Chesterfield kanapé és zsámoly tetőtéri nappaliban" },
+  { src: "/images/e7ad8b_bc066bd9f28f4fbab4b31b619d02e1ff.webp",             alt: "Sötétkék Chesterfield kanapé nyitott konyhás nappaliban, geometrikus szőnyegen" },
+  { src: "/images/e7ad8b_68c0304ad1514869b9827831425d131b.webp",             alt: "Gombolt kárpitozott falvédő panel előszobában, tükörrel" },
+  { src: "/images/e7ad8b_ebf6019015ea4512933aacab43daaf4a.webp",             alt: "Barna bőr Chesterfield zsámoly gombolt ülőfelülettel" },
 ];
 
 // Explicit grid placement for 11 images — 5 col × 3 row mosaic
@@ -36,7 +36,7 @@ const GRID_LAYOUT = [
 const DEFAULT = {
   title: "Megrendelésre készített bútorok",
   desc: "Egyedi megrendelésre is vállalunk bármilyen bútorkészítést",
-  buttonText: "Tovább",
+  buttonText: "Egyedi bútor rendelése",
   buttonHref: "/butoraink/egyedi-butor",
   images: DEFAULT_IMAGES,
 };

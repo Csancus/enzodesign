@@ -97,6 +97,12 @@ export default function Page() {
           { title: "Egyedi bútor készíttetés", href: "/blog/egyedi-butor-keszittetes" },
           { title: "Modern Chesterfield kanapé", href: "/blog/modern-chesterfield-kanape" },
         ]}
+        cta={{
+          price: "Tömörfa vázas kanapék 399 810 Ft-tól",
+          text: "Minden kanapénk és fotelünk tömörfa vázra épül, 10 év vázgaranciával. Egyedi méretben, a gyártótól.",
+          label: "Kanapék és árak",
+          href: "/butoraink/kanapek",
+        }}
         productLinks={[
           { label: "Egyedi bútor rendelés →", href: "/butoraink/egyedi-butor" },
           { label: "Bútorgyártás folyamata →", href: "/butorgyartas" },
