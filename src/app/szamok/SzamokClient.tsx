@@ -5,6 +5,7 @@ import { useState } from "react";
 type Stats = {
   events: string[];
   eventLabels: Record<string, string>;
+  eventDescriptions?: Record<string, string>;
   days: string[];
   data: Record<string, Record<string, number>>;
   test: Record<string, Record<string, number>>;
@@ -82,7 +83,7 @@ export default function SzamokClient() {
     );
   }
 
-  const { events, eventLabels, days, data, test, testTotal, total, pages, labels } = stats;
+  const { events, eventLabels, eventDescriptions = {}, days, data, test, testTotal, total, pages, labels } = stats;
   const hasTest = Object.values(testTotal).some((n) => n > 0);
 
   // Valós (teszt nélküli) leadott űrlapok – a legfontosabb szám, kiemelve.
@@ -159,7 +160,7 @@ export default function SzamokClient() {
           {submitDays.length > 0 && (
             <div className="mt-5 overflow-x-auto">
               <Table
-                head={["Nap", "Leadott űrlap", "Elküldés-kísérlet"]}
+                head={["Nap", "Sikeresen elküldve", "Küldés gomb megnyomva"]}
                 rows={submitDays.map((d) => [d, netDay(d, "urlap_siker"), netDay(d, "urlap_kuldes")])}
               />
             </div>
@@ -173,7 +174,14 @@ export default function SzamokClient() {
           <Table
             head={["Esemény", "Összes", ...(hasTest ? ["ebből teszt", "Valós"] : [])]}
             rows={events.map((e) => [
-              eventLabels[e] ?? e,
+              <span key={e} className="block whitespace-normal">
+                {eventLabels[e] ?? e}
+                {eventDescriptions[e] && (
+                  <span className="block max-w-3xl text-xs font-normal leading-snug text-gray-500">
+                    {eventDescriptions[e]}
+                  </span>
+                )}
+              </span>,
               total[e] ?? 0,
               ...(hasTest ? [testTotal[e] ?? 0, (total[e] ?? 0) - (testTotal[e] ?? 0)] : []),
             ])}
@@ -242,7 +250,7 @@ function Empty() {
   return <p className="px-4 py-6 text-sm text-gray-500">Még nincs mért adat.</p>;
 }
 
-function Table({ head, rows }: { head: string[]; rows: (string | number)[][] }) {
+function Table({ head, rows }: { head: string[]; rows: React.ReactNode[][] }) {
   return (
     <table className="w-full min-w-[640px] text-sm tabular-nums">
       <thead>
@@ -260,13 +268,13 @@ function Table({ head, rows }: { head: string[]; rows: (string | number)[][] }) 
         </tr>
       </thead>
       <tbody>
-        {rows.map((row) => (
-          <tr key={String(row[0])} className="hover:bg-[#f5f0e8]/70">
+        {rows.map((row, ri) => (
+          <tr key={ri} className="hover:bg-[#f5f0e8]/70">
             {row.map((cell, i) => (
               <td
                 key={i}
-                className={`whitespace-nowrap border-b border-gray-100 px-3 py-2 ${
-                  i === 0 ? "text-left font-medium text-[#1c1c1c]" : "text-right"
+                className={`border-b border-gray-100 px-3 py-2 align-top ${
+                  i === 0 ? "text-left font-medium text-[#1c1c1c]" : "whitespace-nowrap text-right"
                 } ${cell === 0 ? "text-gray-300" : ""}`}
               >
                 {cell}

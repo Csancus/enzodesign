@@ -114,6 +114,7 @@ export default function ButorvalasztoQuiz() {
   const [website, setWebsite] = useState(""); // honeypot
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [sendError, setSendError] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const { challenge, answer, setAnswer, captchaError, setCaptchaError, refresh, validate, payload } = useCaptcha();
 
@@ -138,11 +139,18 @@ export default function ButorvalasztoQuiz() {
     if (!telefon.trim()) errs.telefon = "Kötelező mező";
     if (!email.trim()) errs.email = "Kötelező mező";
     if (!adatkezeles) errs.adatkezeles = "Az adatkezelési szabályzat elfogadása kötelező";
-    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      track("urlap_hiba", "Kötelező mező hiányzik");
+      return;
+    }
     setErrors({});
-    if (!validate()) return;
-    track("urlap_kuldes", "Bútorválasztó");
+    if (!validate()) {
+      track("urlap_hiba", challenge ? "Hibás összeadás" : "Ellenőrzés még töltődik");
+      return;
+    }
     setSending(true);
+    setSendError(false);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -152,16 +160,23 @@ export default function ButorvalasztoQuiz() {
       if (!res.ok) {
         const body = await res.json().catch(() => null);
         if (body?.error === "captcha") {
+          track("urlap_hiba", "Lejárt ellenőrzés");
           setCaptchaError("Az ellenőrzés lejárt, kérjük add össze az új számokat.");
           refresh();
           setSending(false);
           return;
         }
+        throw new Error("send failed");
       }
-    } catch { /* silent */ }
-    track("urlap_siker", "Bútorválasztó");
-    setSending(false);
-    setSent(true);
+      track("urlap_siker", "Bútorválasztó");
+      setSent(true);
+    } catch {
+      // Korábban itt is „Köszönjük!” jelent meg, pedig az e-mail nem ment ki.
+      track("urlap_hiba", "Szerverhiba");
+      setSendError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   const scrollToForm = () => {
@@ -364,13 +379,19 @@ export default function ButorvalasztoQuiz() {
                 {captchaError && <p className="text-red-500 text-xs mt-1">{captchaError}</p>}
               </div>
 
-              <button
-                type="submit"
-                disabled={sending}
-                className="bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-10 py-3 transition-colors disabled:opacity-60"
-              >
-                {sending ? "Küldés..." : "Küldés"}
-              </button>
+              <div className="flex flex-col sm:flex-row items-start gap-3">
+                <button
+                  type="submit"
+                  disabled={sending}
+                  onClick={() => track("urlap_kuldes", "Bútorválasztó")}
+                  className="bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-10 py-3 transition-colors disabled:opacity-60"
+                >
+                  {sending ? "Küldés..." : "Küldés"}
+                </button>
+                {sendError && (
+                  <p className="text-red-600 text-sm self-center">Hiba történt, kérjük hívjon minket: +36 30 377 8983</p>
+                )}
+              </div>
             </form>
           )}
         </div>

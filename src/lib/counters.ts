@@ -36,6 +36,7 @@ export const EVENTS = [
   "termek_kartya",
   "menu_klikk",
   "urlap_kuldes",
+  "urlap_hiba",
   "urlap_siker",
   "social_klikk",
 ] as const;
@@ -52,9 +53,26 @@ export const EVENT_LABELS: Record<EventName, string> = {
   cta_gomb: "Egyéb CTA gomb",
   termek_kartya: "Termékkártya",
   menu_klikk: "Menüpont",
-  urlap_kuldes: "Űrlap elküldve",
-  urlap_siker: "Sikeres űrlapküldés",
+  urlap_kuldes: "Űrlap: Küldés gomb megnyomva",
+  urlap_hiba: "Űrlap: hiba a küldésnél",
+  urlap_siker: "Űrlap: sikeresen elküldve",
   social_klikk: "Social ikon",
+};
+
+/** Mit jelent pontosan az esemény – a /szamok oldalon az esemény neve alatt jelenik meg. */
+export const EVENT_DESCRIPTIONS: Record<EventName, string> = {
+  rendeles_gomb: "A termékoldalak „Rendelés” gombja, ami az űrlapot előtölti a termék nevével.",
+  ajanlatkeres_gomb: "A Bútorválasztó kvíz „Kérek ajánlatot” gombja, ami az űrlaphoz görget.",
+  telefon_klikk: "Kattintás a telefonszámra (tel: link) – fejléc, lábléc, Kapcsolat oldal, Üzleti oldal, Bútorválasztó. Mobilon ez indítja a hívást.",
+  email_klikk: "Kattintás az e-mail címre (mailto: link) – lábléc, Kapcsolat oldal, Bútorválasztó.",
+  hero_gomb: "A főoldali slideshow „Tovább” gombja.",
+  cta_gomb: "Minden egyéb kiemelt gomb/link: a főoldali kép+szöveg és banner szekciók „Tovább” gombjai, az akciós oldal gombja, a lábléc gombja, a bútorlisták „Egyedi …-t is elkészítünk →” és „Egyedi bútor rendelése →” linkjei, a Bútoraink „Kapcsolat és rendelés” gombja. A pontos szöveg a „Mire kattintottak” táblában látszik.",
+  termek_kartya: "Kattintás egy termékkártyára a listákon és az összegző oldalon (címke = terméknév).",
+  menu_klikk: "Kattintás a fejléc menüpontjaira (címke = menüpont neve).",
+  urlap_kuldes: "A látogató megnyomta a Küldés gombot a Kapcsolat űrlapon vagy a Bútorválasztón – még ellenőrzés előtt. Ez a kísérletek száma.",
+  urlap_hiba: "A Küldés után hiba lett: kötelező mező hiányzik, rossz összeadás, lejárt ellenőrzés vagy szerverhiba (címke = ok). Küldés gomb − hiba ≈ sikeres.",
+  urlap_siker: "A szerver visszaigazolta, hogy az e-mail kiment – ez a valós leadott űrlap. Ha ez kisebb, mint a Küldés gomb száma, a különbség elakadt próbálkozás.",
+  social_klikk: "Kattintás a Facebook/Instagram ikonra.",
 };
 
 export const META_KEYS = [PAGES_KEY, LABELS_KEY, TEST_KEY];

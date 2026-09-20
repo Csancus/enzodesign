@@ -9,6 +9,7 @@ import { timingSafeEqual } from "node:crypto";
 
 import {
   EVENTS,
+  EVENT_DESCRIPTIONS,
   EVENT_LABELS,
   LABELS_KEY,
   META_KEYS,
@@ -106,6 +107,7 @@ export async function GET(request: Request) {
       {
         events: EVENTS,
         eventLabels: EVENT_LABELS,
+        eventDescriptions: EVENT_DESCRIPTIONS,
         days,
         data,
         test: testDays,

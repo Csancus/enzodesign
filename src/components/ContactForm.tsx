@@ -70,9 +70,14 @@ export default function ContactForm() {
     return () => window.removeEventListener("fill-rendeles", handler);
   }, [setValue]);
 
+  // Hiányzó kötelező mező: a react-hook-form nem hívja az onSubmit-ot, csak ezt.
+  const onInvalid = () => track("urlap_hiba", "Kötelező mező hiányzik");
+
   const onSubmit = async (data: FormData) => {
-    if (!validate()) return;
-    track("urlap_kuldes", "Kapcsolat űrlap");
+    if (!validate()) {
+      track("urlap_hiba", challenge ? "Hibás összeadás" : "Ellenőrzés még töltődik");
+      return;
+    }
     setSending(true);
     setError(false);
     try {
@@ -84,6 +89,7 @@ export default function ContactForm() {
       if (!res.ok) {
         const body = await res.json().catch(() => null);
         if (body?.error === "captcha") {
+          track("urlap_hiba", "Lejárt ellenőrzés");
           setCaptchaError("Az ellenőrzés lejárt, kérjük add össze az új számokat.");
           refresh();
           return;
@@ -94,6 +100,7 @@ export default function ContactForm() {
       setSent(true);
       reset();
     } catch {
+      track("urlap_hiba", "Szerverhiba");
       setError(true);
     } finally {
       setSending(false);
@@ -112,7 +119,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+    <form onSubmit={handleSubmit(onSubmit, onInvalid)} className="space-y-4" noValidate>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Név *</label>
@@ -244,6 +251,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={sending}
+          onClick={() => track("urlap_kuldes", "Kapcsolat űrlap")}
           className="w-full md:w-auto bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-10 py-3 transition-colors disabled:opacity-60"
         >
           {sending ? "Küldés..." : "Küldés"}
