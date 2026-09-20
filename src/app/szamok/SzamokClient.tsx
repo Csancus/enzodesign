@@ -86,17 +86,21 @@ export default function SzamokClient() {
   const { events, eventLabels, eventDescriptions = {}, days, data, test, testTotal, total, pages, labels } = stats;
   const hasTest = Object.values(testTotal).some((n) => n > 0);
 
-  // Valós (teszt nélküli) leadott űrlapok – a legfontosabb szám, kiemelve.
+  // Valós (teszt nélküli) számok egy eseményre – a kiemelt dobozokhoz.
   const netDay = (d: string, e: string) => (data[d]?.[e] ?? 0) - (test[d]?.[e] ?? 0);
-  const submitsTotal = (total.urlap_siker ?? 0) - (testTotal.urlap_siker ?? 0);
-  const submitsToday = days[0] ? netDay(days[0], "urlap_siker") : 0;
-  const submits7 = days.slice(0, 7).reduce((s, d) => s + netDay(d, "urlap_siker"), 0);
-  const submits30 = days.slice(0, 30).reduce((s, d) => s + netDay(d, "urlap_siker"), 0);
-  const submitsBySource = Object.entries(labels)
-    .filter(([, v]) => v.urlap_siker)
-    .map(([k, v]) => [k, v.urlap_siker] as const)
-    .sort((a, b) => b[1] - a[1]);
-  const submitDays = days.filter((d) => netDay(d, "urlap_siker") > 0).slice(0, 14);
+  const highlight = (e: string) => ({
+    total: (total[e] ?? 0) - (testTotal[e] ?? 0),
+    today: days[0] ? netDay(days[0], e) : 0,
+    last7: days.slice(0, 7).reduce((s, d) => s + netDay(d, e), 0),
+    last30: days.slice(0, 30).reduce((s, d) => s + netDay(d, e), 0),
+    bySource: Object.entries(labels)
+      .filter(([, v]) => v[e])
+      .map(([k, v]) => [k, v[e]] as const)
+      .sort((a, b) => b[1] - a[1]),
+    days: days.filter((d) => netDay(d, e) > 0).slice(0, 14),
+  });
+  const submits = highlight("urlap_siker");
+  const calls = highlight("telefon_klikk");
 
   return (
     <main className="bg-[#f5f0e8]">
@@ -133,42 +137,24 @@ export default function SzamokClient() {
           </div>
         </div>
 
-        <section className="mt-10 border-2 border-[#b8924a] bg-white p-6 sm:p-8">
-          <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-1">Kiemelt</p>
-          <h2 className="text-xl font-bold text-[#1c1c1c]" style={heading}>
-            Valós leadott űrlapok
-          </h2>
-          <p className="mt-1 text-xs text-gray-500">
-            Sikeresen elküldött kapcsolat / bútorválasztó űrlapok, a teszt-kattintások nélkül.
-          </p>
-          <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <Kpi label="Összesen" value={submitsTotal} big />
-            <Kpi label="Ma" value={submitsToday} />
-            <Kpi label="Utolsó 7 nap" value={submits7} />
-            <Kpi label="Utolsó 30 nap" value={submits30} />
-          </div>
-          {submitsBySource.length > 0 && (
-            <div className="mt-5 flex flex-wrap gap-2">
-              {submitsBySource.map(([k, n]) => (
-                <span key={k} className="inline-flex items-center gap-2 bg-[#f5f0e8] border border-[#b8924a]/40 px-3 py-1.5 text-sm">
-                  <span className="text-gray-600">{k}</span>
-                  <strong className="text-[#7d6142] tabular-nums">{n}</strong>
-                </span>
-              ))}
-            </div>
-          )}
-          {submitDays.length > 0 && (
-            <div className="mt-5 overflow-x-auto">
-              <Table
-                head={["Nap", "Sikeresen elküldve", "Küldés gomb megnyomva"]}
-                rows={submitDays.map((d) => [d, netDay(d, "urlap_siker"), netDay(d, "urlap_kuldes")])}
-              />
-            </div>
-          )}
-          {submitsTotal === 0 && (
-            <p className="mt-4 text-sm text-gray-500">Még nem érkezett valós űrlapküldés.</p>
-          )}
-        </section>
+        <div className="mt-10 grid gap-6 xl:grid-cols-2">
+          <Highlight
+            title="Valós leadott űrlapok"
+            note="Sikeresen elküldött kapcsolat / bútorválasztó űrlapok, a teszt-kattintások nélkül."
+            empty="Még nem érkezett valós űrlapküldés."
+            h={submits}
+            dayHead={["Nap", "Sikeresen elküldve", "Küldés gomb megnyomva"]}
+            dayRow={(d) => [d, netDay(d, "urlap_siker"), netDay(d, "urlap_kuldes")]}
+          />
+          <Highlight
+            title="Telefonszám-kattintások"
+            note="Kattintás a telefonszámra bárhol az oldalon: fejléc, lábléc, mobil sáv, Kapcsolat, Üzleti, Bútorválasztó. Mobilon ez indítja a hívást."
+            empty="Még nem kattintott senki a telefonszámra."
+            h={calls}
+            dayHead={["Nap", "Telefonszám-kattintás"]}
+            dayRow={(d) => [d, netDay(d, "telefon_klikk")]}
+          />
+        </div>
 
         <Section title="Összesen">
           <Table
@@ -260,6 +246,63 @@ export default function SzamokClient() {
   );
 }
 
+type HighlightData = {
+  total: number;
+  today: number;
+  last7: number;
+  last30: number;
+  bySource: (readonly [string, number])[];
+  days: string[];
+};
+
+function Highlight({
+  title,
+  note,
+  empty,
+  h,
+  dayHead,
+  dayRow,
+}: {
+  title: string;
+  note: string;
+  empty: string;
+  h: HighlightData;
+  dayHead: string[];
+  dayRow: (d: string) => (string | number)[];
+}) {
+  return (
+    <section className="border-2 border-[#b8924a] bg-white p-6 sm:p-8">
+      <p className="text-[#b8924a] text-sm font-semibold uppercase tracking-wider mb-1">Kiemelt</p>
+      <h2 className="text-xl font-bold text-[#1c1c1c]" style={heading}>
+        {title}
+      </h2>
+      <p className="mt-1 text-xs text-gray-500">{note}</p>
+      <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <Kpi label="Összesen" value={h.total} big />
+        <Kpi label="Ma" value={h.today} />
+        <Kpi label="Utolsó 7 nap" value={h.last7} />
+        <Kpi label="Utolsó 30 nap" value={h.last30} />
+      </div>
+      {h.bySource.length > 0 && (
+        <div className="mt-5 flex flex-wrap gap-2">
+          {h.bySource.map(([k, n]) => (
+            <span key={k} className="inline-flex items-center gap-2 bg-[#f5f0e8] border border-[#b8924a]/40 px-3 py-1.5 text-sm">
+              <span className="text-gray-600">{k}</span>
+              <strong className="text-[#7d6142] tabular-nums">{n}</strong>
+            </span>
+          ))}
+        </div>
+      )}
+      {h.days.length > 0 && (
+        <div className="mt-5 overflow-x-auto">
+          <Table head={dayHead} rows={h.days.map(dayRow)} compact />
+        </div>
+      )}
+      {h.total === 0 && <p className="mt-4 text-sm text-gray-500">{empty}</p>}
+    </section>
+  );
+}
+
 function Kpi({ label, value, big }: { label: string; value: number; big?: boolean }) {
   return (
     <div className={`p-4 ${big ? "bg-[#7d6142] text-white" : "bg-[#f5f0e8] text-[#1c1c1c]"}`}>
@@ -286,9 +329,9 @@ function Empty() {
   return <p className="px-4 py-6 text-sm text-gray-500">Még nincs mért adat.</p>;
 }
 
-function Table({ head, rows }: { head: string[]; rows: React.ReactNode[][] }) {
+function Table({ head, rows, compact }: { head: string[]; rows: React.ReactNode[][]; compact?: boolean }) {
   return (
-    <table className="w-full min-w-[640px] text-sm tabular-nums">
+    <table className={`w-full text-sm tabular-nums ${compact ? "" : "min-w-[640px]"}`}>
       <thead>
         <tr>
           {head.map((h, i) => (

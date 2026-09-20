@@ -9,7 +9,7 @@ const HIDDEN_PATHS = ["/szamok", "/admin", "/kapcsolat-es-rendeles"];
 const SHOW_AFTER_PX = 400;
 
 /**
- * Mobil ragadós sáv: Hívás + Ajánlatkérés. Csak lg alatt, csak görgetés után,
+ * Mobil ragadós sáv: telefonszám (hívás) + Ajánlatkérés. Csak lg alatt, csak görgetés után,
  * és eltűnik, amíg az űrlap (#rendeles, a Kapcsolat-szekció) vagy a lábléc látszik,
  * hogy ne takarja a Küldés gombot. Mindkét gomb mérve a /szamok oldalon.
  */
@@ -61,12 +61,12 @@ export default function MobileCtaBar() {
         <a
           href="tel:+36303778983"
           onClick={() => track("telefon_klikk", "Mobil sáv")}
-          className="flex items-center justify-center gap-2 bg-[#b8924a] text-white font-bold text-sm uppercase tracking-wider py-3.5 active:bg-[#a07840]"
+          className="flex items-center justify-center gap-2 bg-[#b8924a] text-white font-bold text-sm tracking-wide py-3.5 active:bg-[#a07840] whitespace-nowrap"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z" />
           </svg>
-          Hívás
+          <span className="tabular-nums">+36 30 377 8983</span>
         </a>
         <Link
           href="/kapcsolat-es-rendeles"
