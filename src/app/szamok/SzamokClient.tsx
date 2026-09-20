@@ -206,7 +206,43 @@ export default function SzamokClient() {
           )}
         </Section>
 
-        <Section title="Mire kattintottak">
+        <section className="mt-10">
+          <h2 className="text-xl font-bold text-[#1c1c1c]" style={heading}>
+            Eseményenként részletesen
+          </h2>
+          <p className="mt-1 text-xs text-gray-500">
+            Melyik menüpontra, termékre, gombra hányan kattintottak – összesítve a mérés kezdete óta
+            (napi bontás címkénként nincs tárolva).
+          </p>
+          <div className="mt-3 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {events.map((e) => {
+              const items = Object.entries(labels)
+                .filter(([, v]) => v[e])
+                .map(([k, v]) => [k, v[e]] as const)
+                .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "hu"));
+              if (items.length === 0) return null;
+              const all = items.reduce((s, [, n]) => s + n, 0);
+              return (
+                <div key={e} className="bg-white border border-gray-200">
+                  <div className="flex items-baseline justify-between gap-3 border-b-2 border-[#b8924a] px-4 py-2.5">
+                    <h3 className="text-sm font-bold text-[#1c1c1c]">{eventLabels[e] ?? e}</h3>
+                    <span className="text-xs text-gray-500 tabular-nums">{all} kattintás</span>
+                  </div>
+                  <ul className="divide-y divide-gray-100 text-sm">
+                    {items.map(([k, n]) => (
+                      <li key={k} className="flex items-center justify-between gap-3 px-4 py-1.5">
+                        <span className="text-[#1c1c1c]">{k}</span>
+                        <span className="tabular-nums font-semibold text-[#7d6142]">{n}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <Section title="Mire kattintottak (mátrix)">
           <Breakdown rows={labels} events={events} eventLabels={eventLabels} first="Gomb / címke" />
         </Section>
 
@@ -273,8 +309,8 @@ function Table({ head, rows }: { head: string[]; rows: React.ReactNode[][] }) {
             {row.map((cell, i) => (
               <td
                 key={i}
-                className={`border-b border-gray-100 px-3 py-2 align-top ${
-                  i === 0 ? "text-left font-medium text-[#1c1c1c]" : "whitespace-nowrap text-right"
+                className={`whitespace-nowrap border-b border-gray-100 px-3 py-2 align-top ${
+                  i === 0 ? "text-left font-medium text-[#1c1c1c]" : "text-right"
                 } ${cell === 0 ? "text-gray-300" : ""}`}
               >
                 {cell}
