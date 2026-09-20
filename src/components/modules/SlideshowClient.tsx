@@ -84,8 +84,10 @@ export default function SlideshowClient({
               src={img.src}
               alt={imageAlt(img.alt, i)}
               fill
+              sizes="100vw"
               className="object-cover object-center"
               priority={i === 0}
+              fetchPriority={i === 0 ? "high" : undefined}
             />
           </div>
         ))}

@@ -22,7 +22,11 @@ const NAV = [
     heading: "Kanapék",
     links: [
       { label: "Összes kanapé", href: "/butoraink/kanapek" },
-      { label: "Ülőgarnitúrák, sarokkanapék", href: "/ulogarnitura" },
+      { label: "Ülőgarnitúrák", href: "/ulogarnitura" },
+      { label: "Sarokkanapék", href: "/sarokkanape" },
+      { label: "Ágyazható kanapék", href: "/agyazhato-kanape" },
+      { label: "Bőrkanapék", href: "/borkanape" },
+      { label: "Kanapé árak", href: "/kanape-arak" },
       { label: "Chesterfield kanapék", href: "/butoraink/kanapek/chesterfield-kanapek" },
       { label: "Old's Club kanapék", href: "/butoraink/kanapek/olds-club-kanapek" },
       { label: "Ivone kanapék", href: "/butoraink/kanapek/ivone-kanapek" },

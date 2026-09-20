@@ -53,8 +53,8 @@ const TYPES = [
   {
     title: "Ágyazható kanapé",
     text: "Bármelyik 2 vagy 3 személyes kanapénkhoz és sarokkanapéhoz kérhető ágyfunkció. Vendégágynak, kis lakásba, nyaralóba.",
-    price: `+${ft(AGY_FELAR)}`,
-    note: "felár a választott kanapé árához",
+    price: `+${ft(AGY_FELAR)}-tól`,
+    note: "felár a választott kanapé árához (Old's Club: 210 000 Ft)",
   },
   {
     title: "U alakú és egyedi garnitúra",
@@ -75,7 +75,7 @@ const FAQ = [
   },
   {
     q: "Lehet ágyazható az ülőgarnitúra?",
-    a: "Bármelyik kanapénkhoz és sarokkanapéhoz kérhető ágyfunkció 190 500 Ft felárral. Az ágyazható kanapé kihúzva alkalmi vendégágyként használható, a kárpit és a váz ugyanaz, mint a fix változatnál.",
+    a: "Bármelyik kanapénkhoz és sarokkanapéhoz kérhető ágyfunkció 190 500 Ft-tól (Old's Club: 210 000 Ft) felárral. Az ágyazható kanapé kihúzva alkalmi vendégágyként használható, a kárpit és a váz ugyanaz, mint a fix változatnál.",
   },
   {
     q: "Milyen szövetből és bőrből választhatok?",
@@ -240,6 +240,7 @@ export default function UlogarnituraPage() {
           <p className="text-gray-500 text-center max-w-2xl mx-auto mb-10">
             Minden kollekcióból összeállítható teljes ülőgarnitúra: fotel, 2 és 3 személyes kanapé, sarokkanapé. Az árak alap szövettel, tájékoztató jellegűek.
           </p>
+          <p className="md:hidden text-xs text-gray-400 mb-2">Húzd oldalra a táblázatot →</p>
           <div className="overflow-x-auto bg-white border border-gray-200">
             <table className="w-full min-w-[720px] text-sm">
               <thead>
@@ -295,10 +296,14 @@ export default function UlogarnituraPage() {
             </table>
           </div>
           <p className="text-xs text-gray-500 mt-3">
-            Ágyfunkció bármelyik kanapéhoz +{ft(AGY_FELAR)}. Valódi bőr kivitel és egyedi méret esetén az ár eltér; a pontos árajánlatot 2 napon belül küldjük.
+            Ágyfunkció bármelyik kanapéhoz +{ft(AGY_FELAR)}-tól (Old&apos;s Club: 210 000 Ft). Valódi bőr kivitel és egyedi méret esetén az ár eltér; a pontos árajánlatot 2 napon belül küldjük.
           </p>
-          <p className="text-center mt-6">
-            <Link href="/butoraink/karpitoszovetek" className="text-sm text-[#b8924a] underline">Szövetek, bőrök és színek megtekintése →</Link>
+          <p className="text-center mt-6 flex flex-wrap justify-center gap-x-5 gap-y-1 text-sm">
+            <Link href="/butoraink/karpitoszovetek" className="text-[#b8924a] underline">Szövetek, bőrök és színek →</Link>
+            <Link href="/sarokkanape" className="text-[#b8924a] underline">Sarokkanapé egyedi méretben →</Link>
+            <Link href="/agyazhato-kanape" className="text-[#b8924a] underline">Ágyazható kanapé →</Link>
+            <Link href="/borkanape" className="text-[#b8924a] underline">Bőrkanapé →</Link>
+            <Link href="/kanape-arak" className="text-[#b8924a] underline">Kanapé árak →</Link>
           </p>
         </div>
       </section>

@@ -215,8 +215,17 @@ export default async function KanapekPage() {
           <div className="text-sm text-gray-500 mb-1 space-y-1">
             {gridSubtitle.split("\n").filter(Boolean).map((line, i) => <p key={i}>{line}</p>)}
           </div>
-          <TrackedLink href="/ulogarnitura" event="cta_gomb" label="Teljes ülőgarnitúra, sarokkanapé →" className="text-sm text-[#b8924a] underline block mb-2">
-            Teljes ülőgarnitúrát vagy sarokkanapét keresel? →
+          <TrackedLink href="/ulogarnitura" event="cta_gomb" label="Teljes ülőgarnitúra →" className="text-sm text-[#b8924a] underline block mb-2">
+            Teljes ülőgarnitúrát keresel? →
+          </TrackedLink>
+          <TrackedLink href="/sarokkanape" event="cta_gomb" label="Sarokkanapé egyedi méretben →" className="text-sm text-[#b8924a] underline block mb-2">
+            Sarokkanapé egyedi méretben, jobbos vagy balos →
+          </TrackedLink>
+          <TrackedLink href="/agyazhato-kanape" event="cta_gomb" label="Ágyazható kanapé →" className="text-sm text-[#b8924a] underline block mb-2">
+            Ágyazható kanapé kihúzható ágymechanizmussal →
+          </TrackedLink>
+          <TrackedLink href="/kanape-arak" event="cta_gomb" label="Kanapé árak →" className="text-sm text-[#b8924a] underline block mb-2">
+            Minden kanapé ára egy táblázatban →
           </TrackedLink>
           <TrackedLink href="/kapcsolat-es-rendeles" event="cta_gomb" label="Egyedi kanapét is elkészítünk →" className="text-sm text-[#b8924a] underline block mb-8">
             Egyedi kanapét is elkészítünk →

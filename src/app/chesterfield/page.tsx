@@ -267,10 +267,10 @@ export default async function ChesterfieldPage() {
               </Link>
             ))}
           </div>
-          <p className="text-center mt-8">
-            <Link href="/chesterfield-kollekcio" className="text-sm text-[#b8924a] underline">
-              A teljes Chesterfield kollekció képekben →
-            </Link>
+          <p className="text-center mt-8 flex flex-wrap justify-center gap-x-5 gap-y-1 text-sm">
+            <Link href="/chesterfield-kollekcio" className="text-[#b8924a] underline">A teljes Chesterfield kollekció képekben →</Link>
+            <Link href="/borkanape" className="text-[#b8924a] underline">Chesterfield bőrkanapé árak →</Link>
+            <Link href="/agyazhato-kanape" className="text-[#b8924a] underline">Ágyazható Chesterfield →</Link>
           </p>
         </div>
       </section>
