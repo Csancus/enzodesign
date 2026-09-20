@@ -15,9 +15,13 @@ const DEFAULT_IMAGES = [
 export default async function SlideshowModule({
   moduleId = "home:slideshow",
   heading = "Egyedi kárpitozott bútorok",
+  headingTag,
+  ctaHref,
 }: {
   moduleId?: string;
   heading?: string;
+  headingTag?: "h1" | "h2";
+  ctaHref?: string;
 }) {
   const config = await getModuleConfig(moduleId);
   const rawImages = Array.isArray((config as { images?: unknown }).images) &&
@@ -31,5 +35,5 @@ export default async function SlideshowModule({
 
   const isAdmin = await getAdminStatus();
 
-  return <SlideshowClient images={images} moduleId={moduleId} isAdmin={isAdmin} heading={heading} />;
+  return <SlideshowClient images={images} moduleId={moduleId} isAdmin={isAdmin} heading={heading} headingTag={headingTag} ctaHref={ctaHref} />;
 }

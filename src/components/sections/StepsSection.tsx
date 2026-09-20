@@ -22,7 +22,8 @@ const SCHEMA: FieldDef[] = [
   ]},
 ];
 
-export default async function StepsSection({ moduleId, isAdmin }: { moduleId: string; isAdmin: boolean }) {
+export default async function StepsSection({ moduleId, isAdmin, headingTag = "h2" }: { moduleId: string; isAdmin: boolean; headingTag?: "h2" | "h3" }) {
+  const HeadingTag = headingTag;
   const stored = await getModuleConfig(moduleId);
   const cfg = { ...DEFAULT, ...(stored as typeof DEFAULT) };
   const steps = cfg.steps?.length ? cfg.steps : DEFAULT.steps;
@@ -30,12 +31,12 @@ export default async function StepsSection({ moduleId, isAdmin }: { moduleId: st
   return (
     <section id="fatol-a-kanapeig" className="relative py-14 bg-white">
       <div className="max-w-5xl mx-auto px-4">
-        <h2
+        <HeadingTag
           className="text-3xl md:text-4xl font-bold text-[#1c1c1c] mb-1"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {cfg.title}
-        </h2>
+        </HeadingTag>
         <div className="w-16 h-0.5 bg-[#b8924a] mb-8" />
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 md:gap-6">

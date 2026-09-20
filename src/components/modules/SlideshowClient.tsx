@@ -14,11 +14,15 @@ export default function SlideshowClient({
   moduleId,
   isAdmin,
   heading = "Egyedi kárpitozott bútorok gyártótól",
+  headingTag = "h1",
+  ctaHref = "#fatol-a-kanapeig",
 }: {
   images: SlideImage[];
   moduleId: string;
   isAdmin: boolean;
   heading?: string;
+  headingTag?: "h1" | "h2";
+  ctaHref?: string;
 }) {
   const [current, setCurrent] = useState(0);
   const [animated, setAnimated] = useState(true);
@@ -58,6 +62,7 @@ export default function SlideshowClient({
 
   const dotIndex = current >= n ? 0 : current;
 
+  const HeadingTag = headingTag;
   return (
     <section className="relative w-full overflow-hidden" style={{ height: HEIGHT }}>
       {/* Sliding strip */}
@@ -93,17 +98,17 @@ export default function SlideshowClient({
             <Image src="/images/logo.webp" alt="Enzo Design" width={52} height={40} className="object-contain" />
           </div>
           <div className="w-8 h-px bg-[#b8924a] mx-auto mb-4" />
-          <h1
+          <HeadingTag
             className="text-[#1c1c1c] text-base leading-snug mb-1 font-semibold"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             {heading}
-          </h1>
+          </HeadingTag>
           <p className="text-[#7d6142] text-xs tracking-widest uppercase mb-6">
             közvetlenül a gyártótól
           </p>
           <a
-            href="#fatol-a-kanapeig"
+            href={ctaHref}
             onClick={() => track("hero_gomb", "Slideshow „Tovább”")}
             className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-widest px-8 py-3 transition-colors text-xs"
           >

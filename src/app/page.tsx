@@ -35,10 +35,10 @@ export default async function HomePage() {
             sectionIndex={i}
             totalSections={sections.length}
           >
-            <SectionRenderer type={section.type} id={section.id} isAdmin={isAdmin} />
+            <SectionRenderer type={section.type} id={section.id} isAdmin={isAdmin} pageId="home" />
           </SectionAdminOverlay>
         ) : (
-          <SectionRenderer key={section.id} type={section.type} id={section.id} isAdmin={false} />
+          <SectionRenderer key={section.id} type={section.type} id={section.id} isAdmin={false} pageId="home" />
         )
       )}
     </>

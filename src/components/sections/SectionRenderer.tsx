@@ -24,16 +24,20 @@ export default function SectionRenderer({
   type,
   id,
   isAdmin,
+  pageId,
 }: {
   type: string;
   id: string;
   isAdmin: boolean;
+  /** "home" esetén a főoldali heading-struktúra: H1 = Rólunk (zöld sáv), slideshow H2, Fától a kanapéig H3. */
+  pageId?: string;
 }) {
+  const home = pageId === "home";
   switch (type) {
     case "slideshow":
       return (
         <Suspense fallback={<div style={{ height: "clamp(320px,48vw,560px)" }} className="bg-gray-100" />}>
-          <SlideshowModule moduleId={id} />
+          <SlideshowModule moduleId={id} headingTag={home ? "h2" : "h1"} ctaHref={home ? "#legnepszerubb-butoraink" : undefined} />
         </Suspense>
       );
     case "hero-light":
@@ -43,9 +47,9 @@ export default function SectionRenderer({
     case "hero-image":
       return <HeroImageSection moduleId={id} isAdmin={isAdmin} />;
     case "rolunk":
-      return <RolunkSection moduleId={id} isAdmin={isAdmin} />;
+      return <RolunkSection moduleId={id} isAdmin={isAdmin} headingTag={home ? "h1" : "h2"} />;
     case "steps":
-      return <StepsSection moduleId={id} isAdmin={isAdmin} />;
+      return <StepsSection moduleId={id} isAdmin={isAdmin} headingTag={home ? "h3" : "h2"} />;
     case "popular":
       return <PopularSection moduleId={id} isAdmin={isAdmin} />;
     case "egyedi":

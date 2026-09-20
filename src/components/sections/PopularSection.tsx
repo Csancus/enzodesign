@@ -114,7 +114,7 @@ export default async function PopularSection({ moduleId, isAdmin }: { moduleId: 
   }));
 
   return (
-    <section className="relative py-14 bg-white">
+    <section id="legnepszerubb-butoraink" className="relative py-14 bg-white scroll-mt-20">
       <div className="max-w-5xl mx-auto px-4">
         <h2
           className="text-3xl md:text-4xl font-bold text-[#7d6142] text-center mb-2"

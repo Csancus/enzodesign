@@ -18,14 +18,15 @@ const SCHEMA: FieldDef[] = [
   { key: "image", label: "Kerek kép", type: "image" },
 ];
 
-export default async function RolunkSection({ moduleId, isAdmin }: { moduleId: string; isAdmin: boolean }) {
+export default async function RolunkSection({ moduleId, isAdmin, headingTag = "h2" }: { moduleId: string; isAdmin: boolean; headingTag?: "h1" | "h2" }) {
+  const HeadingTag = headingTag;
   const stored = await getModuleConfig(moduleId);
   const cfg = { ...DEFAULT, ...(stored as typeof DEFAULT) };
 
   return (
     <section className="relative py-14 text-white text-center" style={{ backgroundColor: "#7a7a3a" }}>
       <div className="max-w-xl mx-auto px-4">
-        <h2 className="text-2xl font-bold mb-4">{cfg.title}</h2>
+        <HeadingTag className="text-2xl font-bold mb-4">{cfg.title}</HeadingTag>
         <p className="text-sm leading-relaxed mb-3 opacity-90">{cfg.desc1}</p>
         <p className="text-sm leading-relaxed mb-5 opacity-90">{cfg.desc2}</p>
         {cfg.image && (
