@@ -11,12 +11,12 @@ import type { FieldDef } from "@/types/cms";
 import TrackedLink from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
-  title: "Rólunk – Enzo Design",
+  title: "Rólunk",
   description: "Bútorbolt Nagykanizsán – közel 20 éve gyártunk egyedi bútorodat: kanapé, fotel, franciaágy. Online rendelés is lehetséges, 2000 nm-es bemutatóterem.",
 
   alternates: { canonical: "https://www.enzodesign.hu/rolunk" },
   openGraph: {
-    title: "Rólunk – Enzo Design",
+    title: "Rólunk",
     description: "Bútorbolt Nagykanizsán – közel 20 éve gyártunk egyedi bútorodat: kanapé, fotel, franciaágy. Online rendelés is lehetséges, 2000 nm-es bemutatóterem.",
     url: "https://www.enzodesign.hu/rolunk",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],

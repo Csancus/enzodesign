@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import CityLandingPage from "@/components/CityLandingPage";
 
 export const metadata: Metadata = {
-  title: "Bútorbolt Nagykanizsa – Egyedi kárpit bútor | Enzo Design",
-  description: "Bútorbolt Nagykanizsa: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 0 km-re – 3+10 év garancia, online rendelés.",
+  title: "Bútorbolt Nagykanizsa – kanapé, fotel, ülőgarnitúra a gyártótól",
+  description: "2000 m² bemutatóterem Nagykanizsán, Egry József utca 7. Egyedi kárpitozott kanapé, fotel, ülőgarnitúra közvetlenül a gyártótól: 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül.",
   alternates: { canonical: "https://www.enzodesign.hu/butorbolt-nagykanizsa" },
   openGraph: {
-    title: "Bútorbolt Nagykanizsa – Egyedi kárpit bútor | Enzo Design",
-    description: "Bútorbolt Nagykanizsa: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 0 km-re – 3+10 év garancia, online rendelés.",
+    title: "Bútorbolt Nagykanizsa – kanapé, fotel, ülőgarnitúra a gyártótól",
+    description: "2000 m² bemutatóterem Nagykanizsán, Egry József utca 7. Egyedi kárpitozott kanapé, fotel, ülőgarnitúra közvetlenül a gyártótól: 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül.",
     url: "https://www.enzodesign.hu/butorbolt-nagykanizsa",
     images: [{ url: "/images/9a0b1d_ca9a35eec98d4fa19adbea3a8060cec6.webp", width: 1920, height: 800 }],
   },

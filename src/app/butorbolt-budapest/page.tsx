@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import CityLandingPage from "@/components/CityLandingPage";
 
 export const metadata: Metadata = {
-  title: "Bútorbolt Budapest – Egyedi kárpit bútor | Enzo Design",
-  description: "Bútorbolt Budapest: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 220 km-re – 3+10 év garancia, online rendelés.",
+  title: "Bútorbolt Budapest – kanapé, fotel, ülőgarnitúra gyártótól",
+  description: "Kanapé, fotel, ülőgarnitúra egyedi méretben Budapesten és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 220 km-re.",
   alternates: { canonical: "https://www.enzodesign.hu/butorbolt-budapest" },
   openGraph: {
-    title: "Bútorbolt Budapest – Egyedi kárpit bútor | Enzo Design",
-    description: "Bútorbolt Budapest: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 220 km-re – 3+10 év garancia, online rendelés.",
+    title: "Bútorbolt Budapest – kanapé, fotel, ülőgarnitúra gyártótól",
+    description: "Kanapé, fotel, ülőgarnitúra egyedi méretben Budapesten és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 220 km-re.",
     url: "https://www.enzodesign.hu/butorbolt-budapest",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
@@ -17,7 +17,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Kárpitozott bútor gyártás és szállítás – Budapest",
-  "description": "Bútorbolt Budapest: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 220 km-re – 3+10 év garancia, online rendelés.",
+  "description": "Kanapé, fotel, ülőgarnitúra egyedi méretben Budapesten és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 220 km-re.",
   "url": "https://www.enzodesign.hu/butorbolt-budapest",
   "provider": {
     "@type": "LocalBusiness",

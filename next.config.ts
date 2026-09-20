@@ -9,6 +9,8 @@ type Redirect = { source: string; destination: string; permanent: boolean };
 const rawRedirects: Redirect[] = [
   // Régi városoldal URL-ek (ragozott)
   { source: "/home", destination: "/", permanent: true },
+  // Kannibalizáció: a blogcikk és a városoldal ugyanarra a kulcsszóra versenyzett (GSC 2026-09)
+  { source: "/blog/butorbolt-nagykanizsan", destination: "/butorbolt-nagykanizsa", permanent: true },
   { source: "/butorbolt-zalaegerszegen", destination: "/butorbolt-zalaegerszeg", permanent: true },
   { source: "/butorbolt-kaposvaron",     destination: "/butorbolt-kaposvar",     permanent: true },
   { source: "/butorbolt-keszthelyen",    destination: "/butorbolt-keszthely",    permanent: true },

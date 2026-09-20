@@ -10,13 +10,13 @@ import type { FieldDef } from "@/types/cms";
 import TrackedLink from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
-  title: "Kanapék – Enzo Design",
-  description: "Kárpitozott kanapék egyedi méretben – bútorbolt Nagykanizsán, online rendelés. Old's Club, Ivone, Chesterfield, New York, Joker, Cannes kollekciók gyártótól.",
+  title: "Kanapék és ülőgarnitúrák egyedi méretben – gyártótól",
+  description: "Kanapé, sarokkanapé, ágyazható kanapé és teljes ülőgarnitúra egyedi méretben, közvetlenül a nagykanizsai gyártótól. Old's Club, Ivone, Chesterfield, New York, Joker, Cannes kollekciók, 399 810 Ft-tól.",
 
   alternates: { canonical: "https://www.enzodesign.hu/butoraink/kanapek" },
   openGraph: {
-    title: "Kanapék – Enzo Design",
-    description: "Kárpitozott kanapék egyedi méretben – bútorbolt Nagykanizsán, online rendelés. Old's Club, Ivone, Chesterfield, New York, Joker, Cannes kollekciók gyártótól.",
+    title: "Kanapék és ülőgarnitúrák egyedi méretben – gyártótól | Enzo Design",
+    description: "Kanapé, sarokkanapé, ágyazható kanapé és teljes ülőgarnitúra egyedi méretben, közvetlenül a nagykanizsai gyártótól.",
     url: "https://www.enzodesign.hu/butoraink/kanapek",
     images: [{ url: "/images/olds-club-w1.webp", width: 1920, height: 800 }],
   },
@@ -140,7 +140,7 @@ export default async function KanapekPage() {
   const featuresItems = featuresBodyLines.slice(1);
 
   const gridTitle = (gridCfg?.title as string) || "Kanapék";
-  const gridSubtitle = (gridCfg?.subtitle as string) || "Válassz az alábbi bútorok közül, vagy küldd el egyedi kérésed.\n\nA bútorok alatt láthatod az anyagmintákat és minőségeket.\n\nKettes, hármas, sarok vagy ágyazható kanapék közül választhatsz.";
+  const gridSubtitle = (gridCfg?.subtitle as string) || "Válassz az alábbi bútorok közül, vagy küldd el egyedi kérésed.\n\nA bútorok alatt láthatod az anyagmintákat és minőségeket.\n\nKettes, hármas, sarok vagy ágyazható kanapék közül választhatsz, és teljes ülőgarnitúrát (3-2-1 szett) is összeállítunk.";
 
   const resolvedCards = await Promise.all(
     CARDS.map(async (c, i) => {
@@ -215,6 +215,9 @@ export default async function KanapekPage() {
           <div className="text-sm text-gray-500 mb-1 space-y-1">
             {gridSubtitle.split("\n").filter(Boolean).map((line, i) => <p key={i}>{line}</p>)}
           </div>
+          <TrackedLink href="/ulogarnitura" event="cta_gomb" label="Teljes ülőgarnitúra, sarokkanapé →" className="text-sm text-[#b8924a] underline block mb-2">
+            Teljes ülőgarnitúrát vagy sarokkanapét keresel? →
+          </TrackedLink>
           <TrackedLink href="/kapcsolat-es-rendeles" event="cta_gomb" label="Egyedi kanapét is elkészítünk →" className="text-sm text-[#b8924a] underline block mb-8">
             Egyedi kanapét is elkészítünk →
           </TrackedLink>

@@ -15,6 +15,7 @@ const NAV_ITEMS = [
     children: [
       { label: "Bútorválasztó", href: "/butorvalaszto" },
       { label: "Kanapék", href: "/butoraink/kanapek" },
+      { label: "Ülőgarnitúrák", href: "/ulogarnitura" },
       { label: "Fotelek", href: "/butoraink/fotelek" },
       { label: "Franciaágyak", href: "/butoraink/franciaagyak" },
       { label: "Szék, zsámoly, falvédő", href: "/butoraink/szek-zsamoly-falvedo" },

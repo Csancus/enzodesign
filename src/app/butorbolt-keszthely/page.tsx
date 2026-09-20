@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import CityLandingPage from "@/components/CityLandingPage";
 
 export const metadata: Metadata = {
-  title: "Bútorbolt Keszthely – Egyedi kárpit bútor | Enzo Design",
-  description: "Bútorbolt Keszthely: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 45 km-re – 3+10 év garancia, online rendelés.",
+  title: "Bútorbolt Keszthely – kanapé, fotel, ülőgarnitúra gyártótól",
+  description: "Kanapé, fotel, ülőgarnitúra egyedi méretben Keszthelyen és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 45 km-re.",
   alternates: { canonical: "https://www.enzodesign.hu/butorbolt-keszthely" },
   openGraph: {
-    title: "Bútorbolt Keszthely – Egyedi kárpit bútor | Enzo Design",
-    description: "Bútorbolt Keszthely: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 45 km-re – 3+10 év garancia, online rendelés.",
+    title: "Bútorbolt Keszthely – kanapé, fotel, ülőgarnitúra gyártótól",
+    description: "Kanapé, fotel, ülőgarnitúra egyedi méretben Keszthelyen és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 45 km-re.",
     url: "https://www.enzodesign.hu/butorbolt-keszthely",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
@@ -17,7 +17,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Kárpitozott bútor gyártás és szállítás – Keszthely",
-  "description": "Bútorbolt Keszthely: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 45 km-re – 3+10 év garancia, online rendelés.",
+  "description": "Kanapé, fotel, ülőgarnitúra egyedi méretben Keszthelyen és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 45 km-re.",
   "url": "https://www.enzodesign.hu/butorbolt-keszthely",
   "provider": {
     "@type": "LocalBusiness",
@@ -77,11 +77,11 @@ export default function Page() {
         city="Keszthely"
         locative="Keszthelyen"
         ablative="Keszthelytől"
-        dative="Keszthelyinek"
+        dative="Keszthelynek"
         distanceKm={45}
         driveMin={40}
         slug="butorbolt-keszthely"
-        description="Bútorbolt Keszthely: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 45 km-re – 3+10 év garancia, online rendelés."
+        description="Kanapé, fotel, ülőgarnitúra egyedi méretben Keszthelyen és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 45 km-re."
         neighborCities={[{"name":"Zalaegerszeg","locative":"Zalaegerszegen","href":"/butorbolt-zalaegerszeg"},{"name":"Kaposvár","locative":"Kaposváron","href":"/butorbolt-kaposvar"},{"name":"Siófok","locative":"Siófokon","href":"/butorbolt-siofok"},{"name":"Tapolca","locative":"Tapolcán","href":"/butorbolt-tapolca"},{"name":"Marcali","locative":"Marcaliban","href":"/butorbolt-marcali"}]}
       />
     </>

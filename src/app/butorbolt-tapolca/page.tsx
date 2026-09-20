@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import CityLandingPage from "@/components/CityLandingPage";
 
 export const metadata: Metadata = {
-  title: "Bútorbolt Tapolca – Egyedi kárpit bútor | Enzo Design",
-  description: "Bútorbolt Tapolca: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 58 km-re – 3+10 év garancia, online rendelés.",
+  title: "Bútorbolt Tapolca – kanapé, fotel, ülőgarnitúra gyártótól",
+  description: "Kanapé, fotel, ülőgarnitúra egyedi méretben Tapolcán és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 58 km-re.",
   alternates: { canonical: "https://www.enzodesign.hu/butorbolt-tapolca" },
   openGraph: {
-    title: "Bútorbolt Tapolca – Egyedi kárpit bútor | Enzo Design",
-    description: "Bútorbolt Tapolca: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 58 km-re – 3+10 év garancia, online rendelés.",
+    title: "Bútorbolt Tapolca – kanapé, fotel, ülőgarnitúra gyártótól",
+    description: "Kanapé, fotel, ülőgarnitúra egyedi méretben Tapolcán és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 58 km-re.",
     url: "https://www.enzodesign.hu/butorbolt-tapolca",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
@@ -17,7 +17,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Kárpitozott bútor gyártás és szállítás – Tapolca",
-  "description": "Bútorbolt Tapolca: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 58 km-re – 3+10 év garancia, online rendelés.",
+  "description": "Kanapé, fotel, ülőgarnitúra egyedi méretben Tapolcán és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 58 km-re.",
   "url": "https://www.enzodesign.hu/butorbolt-tapolca",
   "provider": {
     "@type": "LocalBusiness",
@@ -81,7 +81,7 @@ export default function Page() {
         distanceKm={58}
         driveMin={50}
         slug="butorbolt-tapolca"
-        description="Bútorbolt Tapolca: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 58 km-re – 3+10 év garancia, online rendelés."
+        description="Kanapé, fotel, ülőgarnitúra egyedi méretben Tapolcán és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 58 km-re."
         neighborCities={[{"name":"Zalaegerszeg","locative":"Zalaegerszegen","href":"/butorbolt-zalaegerszeg"},{"name":"Kaposvár","locative":"Kaposváron","href":"/butorbolt-kaposvar"},{"name":"Keszthely","locative":"Keszthelyen","href":"/butorbolt-keszthely"},{"name":"Siófok","locative":"Siófokon","href":"/butorbolt-siofok"},{"name":"Marcali","locative":"Marcaliban","href":"/butorbolt-marcali"}]}
       />
     </>

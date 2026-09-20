@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Az Old's Club fotel karakteres eleganciájával és tömörfa szerkezetével évtizedekre szól. Prémium szövetek, egyedi méret, 3 év garancia – közvetlen gyártótól.",
   alternates: { canonical: "https://www.enzodesign.hu/butoraink/fotelek/olds-club-fotel" },
   openGraph: {
-    title: "Old's Club Fotel – karakteres kárpitozott fotel | Enzo Design",
+    title: "Old's Club Fotel – karakteres kárpitozott fotel",
     description: "Karakteres elegancia, tömörfa szerkezet. Prémium szövetek, egyedi méret, 3 év garancia.",
     url: "https://www.enzodesign.hu/butoraink/fotelek/olds-club-fotel",
     images: [{ url: "/images/fotelek-w1.webp", width: 1920, height: 800 }],

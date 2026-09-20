@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import CityLandingPage from "@/components/CityLandingPage";
 
 export const metadata: Metadata = {
-  title: "Bútorbolt Körmend – Egyedi kárpit bútor | Enzo Design",
-  description: "Bútorbolt Körmend: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 62 km-re – 3+10 év garancia, online rendelés.",
+  title: "Bútorbolt Körmend – kanapé, fotel, ülőgarnitúra gyártótól",
+  description: "Kanapé, fotel, ülőgarnitúra egyedi méretben Körmenden és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 62 km-re.",
   alternates: { canonical: "https://www.enzodesign.hu/butorbolt-kormend" },
   openGraph: {
-    title: "Bútorbolt Körmend – Egyedi kárpit bútor | Enzo Design",
-    description: "Bútorbolt Körmend: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 62 km-re – 3+10 év garancia, online rendelés.",
+    title: "Bútorbolt Körmend – kanapé, fotel, ülőgarnitúra gyártótól",
+    description: "Kanapé, fotel, ülőgarnitúra egyedi méretben Körmenden és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 62 km-re.",
     url: "https://www.enzodesign.hu/butorbolt-kormend",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
   },
@@ -17,7 +17,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Kárpitozott bútor gyártás és szállítás – Körmend",
-  "description": "Bútorbolt Körmend: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 62 km-re – 3+10 év garancia, online rendelés.",
+  "description": "Kanapé, fotel, ülőgarnitúra egyedi méretben Körmenden és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 62 km-re.",
   "url": "https://www.enzodesign.hu/butorbolt-kormend",
   "provider": {
     "@type": "LocalBusiness",
@@ -81,7 +81,7 @@ export default function Page() {
         distanceKm={62}
         driveMin={55}
         slug="butorbolt-kormend"
-        description="Bútorbolt Körmend: egyedi bútor, kárpit kanapé, fotel az Enzo Designtól. Nagykanizsán, 62 km-re – 3+10 év garancia, online rendelés."
+        description="Kanapé, fotel, ülőgarnitúra egyedi méretben Körmenden és környékén, házhozszállítással a gyártótól. 100+ szövet, 3+10 év garancia, árajánlat 2 napon belül. Bemutatóterem Nagykanizsán, 62 km-re."
         neighborCities={[{"name":"Zalaegerszeg","locative":"Zalaegerszegen","href":"/butorbolt-zalaegerszeg"},{"name":"Kaposvár","locative":"Kaposváron","href":"/butorbolt-kaposvar"},{"name":"Keszthely","locative":"Keszthelyen","href":"/butorbolt-keszthely"},{"name":"Siófok","locative":"Siófokon","href":"/butorbolt-siofok"},{"name":"Tapolca","locative":"Tapolcán","href":"/butorbolt-tapolca"}]}
       />
     </>

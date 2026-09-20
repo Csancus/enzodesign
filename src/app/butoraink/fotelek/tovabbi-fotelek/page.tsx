@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Karfás és egyedi kárpitozott fotelek gyűjteménye. Tömörfa szerkezet, nagy kopásállóságú szövetek – egyedi méretben, közvetlen gyártótól, Nagykanizsáról.",
   alternates: { canonical: "https://www.enzodesign.hu/butoraink/fotelek/tovabbi-fotelek" },
   openGraph: {
-    title: "További Kárpitozott Fotelek – karfás modellek | Enzo Design",
+    title: "További Kárpitozott Fotelek – karfás modellek",
     description: "Karfás fotelek gyűjteménye. Tömörfa szerkezet, nagy kopásállóságú szövetek, egyedi méretben.",
     url: "https://www.enzodesign.hu/butoraink/fotelek/tovabbi-fotelek",
     images: [{ url: "/images/fotelek-w2.webp", width: 1920, height: 800 }],

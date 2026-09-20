@@ -3,13 +3,13 @@ import Link from "next/link";
 import PageBuilderPage from "@/components/PageBuilderPage";
 
 export const metadata: Metadata = {
-  title: "Chesterfield stílus és formajegyek – Enzo Design",
+  title: "Chesterfield stílus és formajegyek",
   description: "A Chesterfield kanapék jellegzetes stílusjegyei: mély gombolás, párnázott karfák, egyenes háttámla. Ismerje meg a klasszikus forma titkát.",
 
   alternates: { canonical: "https://www.enzodesign.hu/chesterfield/chesterfield-stilus-es-formajegyek" },
   openGraph: {
     type: "article",
-    title: "Chesterfield stílus és formajegyek – Enzo Design",
+    title: "Chesterfield stílus és formajegyek",
     description: "A Chesterfield kanapék jellegzetes stílusjegyei: mély gombolás, párnázott karfák, egyenes háttámla. Ismerje meg a klasszikus forma titkát.",
     url: "https://www.enzodesign.hu/chesterfield/chesterfield-stilus-es-formajegyek",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],

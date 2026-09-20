@@ -6,12 +6,12 @@ import { getModuleConfig } from "@/lib/moduleStore";
 import type { BlogPostMeta } from "@/app/api/admin/blog-posts/route";
 
 export const metadata: Metadata = {
-  title: "Blog – Enzo Design",
+  title: "Blog",
   description: "Kárpitozott bútorokról, Chesterfieldről, egyedi rendelésről és enteriőr trendekről – az Enzo Design blog.",
 
   alternates: { canonical: "https://www.enzodesign.hu/blog" },
   openGraph: {
-    title: "Blog – Enzo Design",
+    title: "Blog",
     description: "Kárpitozott bútorokról, Chesterfieldről, egyedi rendelésről és enteriőr trendekről – az Enzo Design blog.",
     url: "https://www.enzodesign.hu/blog",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
@@ -26,14 +26,6 @@ const POSTS = [
     category: "chesterfield",
     readTime: "3 perc",
     image: "/images/szek-w5.webp",
-  },
-  {
-    slug: "butorbolt-nagykanizsan",
-    title: "Bútorbolt Nagykanizsán: Prémium választék, személyesen és kiszállítással is elérhető",
-    excerpt: "Megbízható bútorboltot keresel Nagykanizsán? Mutatjuk, hol találod meg álmaid bútorait! Egyedi bútorok készítése Nagykanizsán – személyes egyeztetéssel, kiszállítással és garanciával.",
-    category: "",
-    readTime: "2 perc",
-    image: "/images/slide5.webp",
   },
   {
     slug: "kanape-zalaegerszegen",

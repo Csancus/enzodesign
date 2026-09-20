@@ -4,12 +4,12 @@ import KapcsolatSection from "@/components/KapcsolatSection";
 import { getAdminStatus } from "@/lib/auth";
 
 export const metadata: Metadata = {
-  title: "Kapcsolat és Rendelés – Enzo Design",
+  title: "Kapcsolat és Rendelés",
   description: "Egyedi bútor online rendelés – bútorbolt Nagykanizsán. Töltsd ki az űrlapot, 24 órán belül visszahívunk. 8800 Nagykanizsa, Egry József utca 7.",
 
   alternates: { canonical: "https://www.enzodesign.hu/kapcsolat-es-rendeles" },
   openGraph: {
-    title: "Kapcsolat és Rendelés – Enzo Design",
+    title: "Kapcsolat és Rendelés",
     description: "Egyedi bútor online rendelés – bútorbolt Nagykanizsán. Töltsd ki az űrlapot, 24 órán belül visszahívunk. 8800 Nagykanizsa, Egry József utca 7.",
     url: "https://www.enzodesign.hu/kapcsolat-es-rendeles",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],

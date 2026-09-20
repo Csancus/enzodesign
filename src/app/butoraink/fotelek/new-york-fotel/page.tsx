@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "A New York fotel a klasszikus és modern stílus ötvözete. Tömörfa váz, prémium szövetek, egyedi méretben – közvetlen gyártótól, Nagykanizsáról.",
   alternates: { canonical: "https://www.enzodesign.hu/butoraink/fotelek/new-york-fotel" },
   openGraph: {
-    title: "New York Fotel – klasszikus-modern kárpit | Enzo Design",
+    title: "New York Fotel – klasszikus-modern kárpit",
     description: "Klasszikus-modern stílus, tömörfa váz. Prémium szövetek, egyedi méretben.",
     url: "https://www.enzodesign.hu/butoraink/fotelek/new-york-fotel",
     images: [{ url: "/images/new-york-w5.webp", width: 1920, height: 800 }],

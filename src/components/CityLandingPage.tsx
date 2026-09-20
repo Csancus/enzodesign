@@ -49,6 +49,7 @@ export type CityLandingPageProps = {
 
 const PRODUCTS = [
   { label: "Kanapék", href: "/butoraink/kanapek" },
+  { label: "Ülőgarnitúrák", href: "/ulogarnitura" },
   { label: "Fotelek", href: "/butoraink/fotelek" },
   { label: "Franciaágyak", href: "/butoraink/franciaagyak" },
   { label: "Egyedi bútor", href: "/butoraink/egyedi-butor" },
@@ -131,7 +132,7 @@ export default async function CityLandingPage({
     <>
       {/* Slider — same as homepage, with city-specific H1 in the white card */}
       <Suspense fallback={<div style={{ height: "clamp(320px,48vw,560px)" }} className="bg-gray-100" />}>
-        <SlideshowModule moduleId="home:slideshow" heading={`Bútorbolt ${city} – Kárpitozott bútor`} />
+        <SlideshowModule moduleId="home:slideshow" heading={`Bútorbolt ${city} – kanapé, fotel, ülőgarnitúra egyedi méretben`} />
       </Suspense>
 
       {/* Stats bar */}

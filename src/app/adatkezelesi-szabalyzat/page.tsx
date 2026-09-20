@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "Adatkezelési Szabályzat – Enzo Design",
+  title: "Adatkezelési Szabályzat",
   description: "Enzo Design adatkezelési tájékoztató – GDPR-kompatibilis adatkezelési szabályzat.",
 
   alternates: { canonical: "https://www.enzodesign.hu/adatkezelesi-szabalyzat" },
   openGraph: {
-    title: "Adatkezelési Szabályzat – Enzo Design",
+    title: "Adatkezelési Szabályzat",
     description: "Enzo Design adatkezelési tájékoztató – GDPR-kompatibilis adatkezelési szabályzat.",
     url: "https://www.enzodesign.hu/adatkezelesi-szabalyzat",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],

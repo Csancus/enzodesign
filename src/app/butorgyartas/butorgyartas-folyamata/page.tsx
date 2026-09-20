@@ -5,12 +5,12 @@ import ContactFormSection from "@/components/ContactFormSection";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "A bútorgyártás menete – Enzo Design",
+  title: "A bútorgyártás menete",
   description: "A tervezéstől a kiszállításig – az Enzo Design bútorgyártási folyamata: 6 lépéses minőségellenőrzött gyártás, 10 év vázgaranciával.",
   alternates: { canonical: "https://www.enzodesign.hu/butorgyartas/butorgyartas-folyamata" },
   openGraph: {
     type: "article",
-    title: "A bútorgyártás menete – Enzo Design",
+    title: "A bútorgyártás menete",
     description: "A tervezéstől a kiszállításig – az Enzo Design bútorgyártási folyamata: 6 lépéses minőségellenőrzött gyártás, 10 év vázgaranciával.",
     url: "https://www.enzodesign.hu/butorgyartas/butorgyartas-folyamata",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],

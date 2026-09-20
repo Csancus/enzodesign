@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import BlogArticle from "@/components/BlogArticle";
 
 export const metadata: Metadata = {
-  title: "Bőr fotel – prémium kárpitozott fotel | Enzo Design",
+  title: "Bőr fotel – prémium kárpitozott fotel",
   description: "Miért érdemes valódi bőr fotelt választani? Típusok, enteriőr tippek, karbantartás és árak 421 695 Ft-tól. Személyre szabható, kézzel készített, 3+10 év garancia.",
 
   alternates: { canonical: "https://www.enzodesign.hu/blog/bor-fotel" },
   openGraph: {
-    title: "Bőr fotel – prémium kárpitozott fotel | Enzo Design",
+    title: "Bőr fotel – prémium kárpitozott fotel",
     description: "Miért érdemes valódi bőr fotelt választani? Típusok, enteriőr tippek, karbantartás és árak 421 695 Ft-tól. Személyre szabható, kézzel készített, 3+10 év garancia.",
     url: "https://www.enzodesign.hu/blog/bor-fotel",
     images: [{ url: "/images/blog-bor-fotel-cover.webp", width: 1920, height: 800 }],

@@ -4,13 +4,13 @@ import ContactFormSection from "@/components/ContactFormSection";
 import PageBuilderPage from "@/components/PageBuilderPage";
 
 export const metadata: Metadata = {
-  title: "A Chesterfield a modern enteriőrben – Enzo Design",
+  title: "A Chesterfield a modern enteriőrben",
   description: "Hogyan illik a klasszikus Chesterfield kanapé a modern otthonba? Minimalista, skandináv, loft és vintage stílusú terekhez egyaránt tökéletes.",
 
   alternates: { canonical: "https://www.enzodesign.hu/chesterfield/chesterfield-a-modern-enteriorben" },
   openGraph: {
     type: "article",
-    title: "A Chesterfield a modern enteriőrben – Enzo Design",
+    title: "A Chesterfield a modern enteriőrben",
     description: "Hogyan illik a klasszikus Chesterfield kanapé a modern otthonba? Minimalista, skandináv, loft és vintage stílusú terekhez egyaránt tökéletes.",
     url: "https://www.enzodesign.hu/chesterfield/chesterfield-a-modern-enteriorben",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],

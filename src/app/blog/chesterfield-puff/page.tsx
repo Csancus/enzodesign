@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BlogArticle from "@/components/BlogArticle";
 
 export const metadata: Metadata = {
-  title: "Chesterfield puff – elegáns zsámoly a nappaliba | Enzo Design",
+  title: "Chesterfield puff – elegáns zsámoly a nappaliba",
   description: "A Chesterfield puff egyszerre lábzsámoly, extra ülőhely és dekorációs elem. Egyedi méretben, bőrben vagy szövetben, tömörfa szerkezettel – közvetlenül a gyártótól.",
   alternates: { canonical: "https://www.enzodesign.hu/blog/chesterfield-puff" },
   openGraph: {

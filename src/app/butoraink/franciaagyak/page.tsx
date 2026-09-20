@@ -10,12 +10,12 @@ import type { FieldDef } from "@/types/cms";
 import TrackedLink from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
-  title: "Franciaágyak – Enzo Design",
+  title: "Franciaágyak",
   description: "Kárpitozott franciaágyak – egyedi bútor online rendelés bútorbolt Nagykanizsán. Bilbao, Madrid és egyéni modellek tömörfa szerkezettel, 351.160 Ft-tól.",
 
   alternates: { canonical: "https://www.enzodesign.hu/butoraink/franciaagyak" },
   openGraph: {
-    title: "Franciaágyak – Enzo Design",
+    title: "Franciaágyak",
     description: "Kárpitozott franciaágyak – egyedi bútor online rendelés bútorbolt Nagykanizsán. Bilbao, Madrid és egyéni modellek tömörfa szerkezettel, 351.160 Ft-tól.",
     url: "https://www.enzodesign.hu/butoraink/franciaagyak",
     images: [{ url: "/images/franciaaggy-w3.webp", width: 1920, height: 800 }],

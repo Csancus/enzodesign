@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "A Cannes sarokkanapé modern sarokbútor állítható fejtámlával. Tömörfa váz, prémium kárpit, egyedi méretben – közvetlen gyártótól, Nagykanizsáról.",
   alternates: { canonical: "https://www.enzodesign.hu/butoraink/kanapek/cannes-kanapek" },
   openGraph: {
-    title: "Cannes Sarokkanapé – modern, dönthető fejtámlával | Enzo Design",
+    title: "Cannes Sarokkanapé – modern, dönthető fejtámlával",
     description: "Modern sarokkanapé állítható fejtámlával. Tömörfa váz, prémium kárpit, egyedi méretben.",
     url: "https://www.enzodesign.hu/butoraink/kanapek/cannes-kanapek",
     images: [{ url: "/images/cannes-w1.webp", width: 1920, height: 800 }],

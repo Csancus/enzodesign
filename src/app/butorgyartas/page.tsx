@@ -9,12 +9,12 @@ import { getModuleConfig } from "@/lib/moduleStore";
 import type { FieldDef } from "@/types/cms";
 
 export const metadata: Metadata = {
-  title: "Bútorgyártás – Enzo Design",
+  title: "Bútorgyártás",
   description: "A bútorgyártás komplex, precíz folyamat. Megismerheti az Enzo Design gyártástechnológiáját.",
 
   alternates: { canonical: "https://www.enzodesign.hu/butorgyartas" },
   openGraph: {
-    title: "Bútorgyártás – Enzo Design",
+    title: "Bútorgyártás",
     description: "A bútorgyártás komplex, precíz folyamat. Megismerheti az Enzo Design gyártástechnológiáját.",
     url: "https://www.enzodesign.hu/butorgyartas",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],

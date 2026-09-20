@@ -6,12 +6,12 @@ import FabricsSection from "@/components/sections/FabricsSection";
 import { getAdminStatus } from "@/lib/auth";
 
 export const metadata: Metadata = {
-  title: "Kárpitszövetek – Enzo Design",
+  title: "Kárpitszövetek",
   description: "Több mint 100 kárpitszövet – bársony, bőr, sennilé. AI, AT, MA, AG szövetcsaládok. Prémium minőség, hosszú élettartam.",
 
   alternates: { canonical: "https://www.enzodesign.hu/butoraink/karpitoszovetek" },
   openGraph: {
-    title: "Kárpitszövetek – Enzo Design",
+    title: "Kárpitszövetek",
     description: "Több mint 100 kárpitszövet – bársony, bőr, sennilé. AI, AT, MA, AG szövetcsaládok. Prémium minőség, hosszú élettartam.",
     url: "https://www.enzodesign.hu/butoraink/karpitoszovetek",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],

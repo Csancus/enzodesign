@@ -11,12 +11,12 @@ import type { FieldDef } from "@/types/cms";
 import TrackedLink from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
-  title: "Bútoraink – Enzo Design",
+  title: "Bútoraink",
   description: "Bútorbolt Nagykanizsán – egyedi bútor online rendelés: kanapék, fotelek, franciaágyak 2000 nm-es bemutatóteremből. Tömörfa, prémium szövetek, 3+10 év garancia.",
 
   alternates: { canonical: "https://www.enzodesign.hu/butoraink" },
   openGraph: {
-    title: "Bútoraink – Enzo Design",
+    title: "Bútoraink",
     description: "Bútorbolt Nagykanizsán – egyedi bútor online rendelés: kanapék, fotelek, franciaágyak 2000 nm-es bemutatóteremből. Tömörfa, prémium szövetek, 3+10 év garancia.",
     url: "https://www.enzodesign.hu/butoraink",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],

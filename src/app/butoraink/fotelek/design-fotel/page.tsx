@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Modern design fotel 82 820 Ft-tól, tömörfa szerkezettel és prémium kárpittal. Egyedi méret és szövetválasztás – közvetlen gyártótól, Nagykanizsáról.",
   alternates: { canonical: "https://www.enzodesign.hu/butoraink/fotelek/design-fotel" },
   openGraph: {
-    title: "Design Fotel – modern kárpitozott ülőbútor | Enzo Design",
+    title: "Design Fotel – modern kárpitozott ülőbútor",
     description: "Modern design fotel 82 820 Ft-tól. Tömörfa váz, egyedi méret és szövetválasztás.",
     url: "https://www.enzodesign.hu/butoraink/fotelek/design-fotel",
     images: [{ url: "/images/design-w1.webp", width: 1920, height: 800 }],

@@ -5,12 +5,12 @@ import ContactFormSection from "@/components/ContactFormSection";
 import { getAdminStatus } from "@/lib/auth";
 
 export const metadata: Metadata = {
-  title: "Vásárlói visszajelzések – Enzo Design",
+  title: "Vásárlói visszajelzések",
   description: "Olvasson valódi vásárlói véleményeket az Enzo Design bútorainkról. Google értékelések, elégedett ügyfelek.",
 
   alternates: { canonical: "https://www.enzodesign.hu/vasarloi-visszajelzesek" },
   openGraph: {
-    title: "Vásárlói visszajelzések – Enzo Design",
+    title: "Vásárlói visszajelzések",
     description: "Olvasson valódi vásárlói véleményeket az Enzo Design bútorainkról. Google értékelések, elégedett ügyfelek.",
     url: "https://www.enzodesign.hu/vasarloi-visszajelzesek",
     images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],

@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import BlogArticle from "@/components/BlogArticle";
 
 export const metadata: Metadata = {
-  title: "Egyedi bútor készíttetés – személyre szabva | Enzo Design",
+  title: "Egyedi bútor készíttetés – személyre szabva",
   description: "Útmutató egyedi bútor rendeléséhez: ötlettől a kész bútorzig. Méret, szín és anyag szabadon választható. Árajánlat 2 napon belül, gyártás 4–6 hét. Enzo Design.",
 
   alternates: { canonical: "https://www.enzodesign.hu/blog/egyedi-butor-keszittetes" },
   openGraph: {
-    title: "Egyedi bútor készíttetés – személyre szabva | Enzo Design",
+    title: "Egyedi bútor készíttetés – személyre szabva",
     description: "Útmutató egyedi bútor rendeléséhez: ötlettől a kész bútorzig. Méret, szín és anyag szabadon választható. Árajánlat 2 napon belül, gyártás 4–6 hét. Enzo Design.",
     url: "https://www.enzodesign.hu/blog/egyedi-butor-keszittetes",
     images: [{ url: "/images/9a0b1d_105ca1ce5db54feab5001b7ec13a9499.webp", width: 1920, height: 800 }],
