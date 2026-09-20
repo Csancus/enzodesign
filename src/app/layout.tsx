@@ -3,6 +3,7 @@ import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MobileCtaBar from "@/components/MobileCtaBar";
 import TopNoticeBar from "@/components/TopNoticeBar";
 import AdminFab from "@/components/admin/AdminFab";
 import { AdminProvider } from "@/context/AdminContext";
@@ -150,6 +151,7 @@ export default async function RootLayout({
           </div>
           <main className="flex-1">{children}</main>
           <Footer />
+          <MobileCtaBar />
           <AdminFab />
         </AdminProvider>
       </body>

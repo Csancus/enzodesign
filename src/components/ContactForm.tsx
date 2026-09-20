@@ -119,7 +119,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit, onInvalid)} className="space-y-4" noValidate>
+    <form onSubmit={handleSubmit(onSubmit, onInvalid)} className="space-y-4" noValidate data-contact-form>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Név *</label>
