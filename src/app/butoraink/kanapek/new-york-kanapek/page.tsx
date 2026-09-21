@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
+import { PRODUCT_PRICING } from "@/lib/productPricing";
 
 export const metadata: Metadata = {
   title: "New York Kanapé – klasszikus-modern bútor",
@@ -38,13 +39,7 @@ export default function Page() {
         "/images/new-york-w5.webp",
         "/images/new-york-w6.webp",
       ]}
-      pricing={{
-        fotel: { alap: 324380, bor: 421695 },
-        ketSzemelyes: { alap: 399810, bor: 619750 },
-        haromSzemelyes: { alap: 497890, bor: 847255 },
-        sarok: { alap: 735515, bor: 1156170 },
-        agyFunkcio: 190500,
-      }}
+      pricing={PRODUCT_PRICING["new-york-kanapek"]}
       features={["50.000 martindale szövet", "Tömörfa szerkezet", "Klasszikus-modern stílus", "3 év garancia", "10 év vázgarancia"]}
       breadcrumb={[
         { label: "Főoldal", href: "/" },

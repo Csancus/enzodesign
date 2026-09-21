@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
+import { PRODUCT_PRICING } from "@/lib/productPricing";
 
 export const metadata: Metadata = {
   title: "Cannes Sarokkanapé – modern, dönthető fejtámlával",
@@ -32,10 +33,7 @@ export default function Page() {
         "/images/cannes-w2.webp",
         "/images/cannes-w3.webp",
       ]}
-      pricing={{
-        sarok: { alap: 367340, bor: 787740 },
-        agyFunkcio: 190500,
-      }}
+      pricing={PRODUCT_PRICING["cannes-kanapek"]}
       features={["50.000 martindale szövet", "Állítható fejtámlák", "Tágas ülőfelület", "Sarokkanapé formátum", "3 év garancia", "10 év vázgarancia"]}
       breadcrumb={[
         { label: "Főoldal", href: "/" },

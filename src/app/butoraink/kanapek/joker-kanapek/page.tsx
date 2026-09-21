@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
+import { PRODUCT_PRICING } from "@/lib/productPricing";
 
 export const metadata: Metadata = {
   title: "Joker Kanapé – elegáns forma, prémium kárpit",
@@ -32,13 +33,7 @@ export default function Page() {
         "/images/joker-w3.webp",
         "/images/joker-w4.webp",
       ]}
-      pricing={{
-        fotel: { alap: 324380, bor: 421695 },
-        ketSzemelyes: { alap: 399810, bor: 619750 },
-        haromSzemelyes: { alap: 497890, bor: 847255 },
-        sarok: { alap: 735515, bor: 1156170 },
-        agyFunkcio: 190500,
-      }}
+      pricing={PRODUCT_PRICING["joker-kanapek"]}
       features={["50.000 martindale szövet", "Prémium bársony opció", "Gombolt háttámla", "3 év garancia", "10 év vázgarancia"]}
       breadcrumb={[
         { label: "Főoldal", href: "/" },

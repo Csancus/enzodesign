@@ -2,73 +2,112 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
+import QualitySection from "@/components/QualitySection";
 import QuoteSlider from "@/components/QuoteSlider";
 import TrackedLink from "@/components/TrackedLink";
+import StepsSection from "@/components/sections/StepsSection";
+import { ft, getPricingMap } from "@/lib/productPricing";
+import { resolveProductImages } from "@/lib/productImages";
 
 const BASE = "https://www.enzodesign.hu";
 const URL = `${BASE}/borkanape`;
 
-export const metadata: Metadata = {
-  title: "Bőrkanapé valódi bőrből, egyedi méretben – gyártótól, 619 750 Ft-tól",
-  description:
-    "Bőrkanapé valódi, olasz bőrből, tömörfa vázzal, egyedi méretben. Chesterfield bőrkanapé 619 750 Ft-tól, bőr fotel 421 695 Ft-tól, bőr sarokkanapé 787 740 Ft-tól. Közvetlenül a nagykanizsai gyártótól, 3+10 év garancia, országos szállítás.",
-  alternates: { canonical: URL },
-  openGraph: {
-    title: "Bőrkanapé valódi bőrből, egyedi méretben – gyártótól | Enzo Design",
-    description: "Valódi bőr, tömörfa váz, kézi kárpitozás. Chesterfield, Old's Club, Design és további kollekciók bőrből, egyedi méretben.",
-    url: URL,
-    images: [{ url: "/images/slide1.webp", width: 1920, height: 800 }],
-  },
-};
-
-const ft = (n: number) => `${n.toLocaleString("hu-HU").replace(/ /g, " ")} Ft`;
-
-/** Valódi bőr árak a termékoldalakról (Old's Club: a CMS-ben tárolt ár) – ha ott változik, itt is frissítendő. */
-const MODELS = [
-  { name: "Chesterfield", style: "Kézzel gombolt, a bőrkanapé klasszikusa", fotel: 421695, ketto: 619750, harom: 847255, sarok: 1156170, href: "/butoraink/kanapek/chesterfield-kanapek", image: "/images/slide1.webp", alt: "Barna bőr Chesterfield kanapé sárga díszpárnákkal" },
-  { name: "New York", style: "Elegáns, időtlen vonalak bőrben", fotel: 421695, ketto: 619750, harom: 847255, sarok: 1156170, href: "/butoraink/kanapek/new-york-kanapek", image: "/images/new-york-a1.webp", alt: "New York bőrkanapé" },
-  { name: "Joker", style: "Magas háttámla, gáláns megjelenés", fotel: 421695, ketto: 619750, harom: 847255, sarok: 1156170, href: "/butoraink/kanapek/joker-kanapek", image: "/images/joker-a1.webp", alt: "Joker bőrkanapé" },
-  { name: "Old's Club", style: "Karakteres, kerek formák, klubhangulat", fotel: 468545, ketto: 667510, harom: 919170, sarok: 1262412, href: "/butoraink/kanapek/olds-club-kanapek", image: "/images/popular-olds-club.webp", alt: "Barna bőr Old's Club kétszemélyes kanapé" },
-  { name: "Ivone", style: "Puha, modern vonalak", fotel: 468545, ketto: 677510, harom: 919170, sarok: 1262412, href: "/butoraink/kanapek/ivone-kanapek", image: "/images/ivone-a1.webp", alt: "Ivone bőrkanapé" },
-  { name: "Design", style: "Letisztult, kortárs bőrkanapé", fotel: 468545, ketto: 677510, harom: 919170, sarok: 1262412, href: "/butoraink/kanapek/design-kanapek", image: "/images/e7ad8b_a6ef192520f14d18bb7296848c319c17.webp", alt: "Barna bőr modern kanapé hengerpárnákkal" },
-  { name: "Cannes sarok", style: "Modern sarokkanapé állítható fejtámlákkal", fotel: 0, ketto: 0, harom: 0, sarok: 787740, href: "/butoraink/kanapek/cannes-kanapek", image: "/images/cannes-a1.webp", alt: "Cannes bőr sarokkanapé" },
+/** Bőr árak és képek a termékoldalról öröklődnek (CMS-felülírással). Árat ide ne írj. */
+const DEFS = [
+  { pageId: "chesterfield-kanapek", name: "Chesterfield", style: "Kézzel gombolt, a bőrkanapé klasszikusa", href: "/butoraink/kanapek/chesterfield-kanapek", image: "/images/slide1.webp", alt: "Barna bőr Chesterfield kanapé sárga díszpárnákkal" },
+  { pageId: "new-york-kanapek", name: "New York", style: "Elegáns, időtlen vonalak bőrben", href: "/butoraink/kanapek/new-york-kanapek", image: "/images/new-york-a1.webp", alt: "New York bőrkanapé" },
+  { pageId: "joker-kanapek", name: "Joker", style: "Magas háttámla, gáláns megjelenés", href: "/butoraink/kanapek/joker-kanapek", image: "/images/joker-a3.webp", alt: "Barna bőr Joker kanapé hengerpárnákkal" },
+  { pageId: "olds-club-kanapek", name: "Old's Club", style: "Karakteres, kerek formák, klubhangulat", href: "/butoraink/kanapek/olds-club-kanapek", image: "/images/popular-olds-club.webp", alt: "Barna bőr Old's Club kétszemélyes kanapé" },
+  { pageId: "ivone-kanapek", name: "Ivone", style: "Puha, modern vonalak", href: "/butoraink/kanapek/ivone-kanapek", image: "/images/ivone-a1.webp", alt: "Ivone bőrkanapé" },
+  { pageId: "design-kanapek", name: "Design", style: "Letisztult, kortárs bőrkanapé", href: "/butoraink/kanapek/design-kanapek", image: "/images/e7ad8b_a6ef192520f14d18bb7296848c319c17.webp", alt: "Barna bőr modern kanapé hengerpárnákkal" },
+  { pageId: "cannes-kanapek", name: "Cannes sarok", style: "Modern sarokkanapé állítható fejtámlákkal", href: "/butoraink/kanapek/cannes-kanapek", image: "/images/cannes-a1.webp", alt: "Cannes bőr sarokkanapé" },
 ];
 
-const FAQ = [
-  {
-    q: "Mennyibe kerül egy valódi bőrkanapé?",
-    a: "A 2 személyes bőrkanapé 619 750 Ft-tól (Chesterfield, New York, Joker), a 3 személyes 847 255 Ft-tól, a bőr sarokkanapé 787 740 Ft-tól (Cannes) indul. A bőr fotel 421 695 Ft-tól készül. Az árak tájékoztató jellegűek, az alapkonfigurációra vonatkoznak; egyedi méretnél és bőrválasztásnál változnak, a pontos árajánlatot 2 napon belül küldjük.",
-  },
-  {
-    q: "Valódi bőr vagy műbőr?",
-    a: "Valódi bőr, ezen belül olasz bőrt is kínálunk. Műbőrt nem ajánlunk kanapéra, mert 3–5 év alatt repedezik és hámlik; a valódi bőr évtizedekig szép marad, és patinásodik. A bőrmintákat a nagykanizsai bemutatóteremben megnézheted, vagy postán elküldjük.",
-  },
-  {
-    q: "Miért drágább a bőrkanapé a szövetnél?",
-    a: "A bőr alapanyag ára többszöröse a szövetnek, és a szabása több munka: a bőr természetes hibáit ki kell kerülni, a gombolt Chesterfield-háttámlát pedig kézzel kell kialakítani. A váz és a rugózás ugyanaz, mint a szövetes változatnál, ezért az árkülönbség kizárólag a kárpitból adódik.",
-  },
-  {
-    q: "Hogyan kell ápolni a bőrkanapét?",
-    a: "Havonta egyszer száraz vagy enyhén nedves puha ronggyal letörölni, évente egyszer-kétszer bőrápolóval kezelni. Ne tedd radiátor vagy erős napsütés közelébe, mert kiszárad. Foltot azonnal itasd fel, ne dörzsöld. Ennyi kell ahhoz, hogy 15–20 évig szép maradjon.",
-  },
-  {
-    q: "Kisállat és gyerek mellé jó a bőrkanapé?",
-    a: "A bőr könnyen tisztítható, nem szívja be a szagokat, ezért gyerek mellé jó. Kutya- és macskakarom viszont nyomot hagy rajta; ilyenkor a sűrű szövésű, 50 000 martindale kopásállóságú szövetet ajánljuk inkább, vagy a bőrt a nappali kevésbé használt részére.",
-  },
-  {
-    q: "Készül egyedi méretben és színben?",
-    a: "Igen. A hossz, az ülésmélység és a karfa a helyiséghez igazítható, a bőr színe többféle barna, fekete, bézs és színes árnyalat közül választható. Gyártási idő 4–6 hét, garancia 3 év a kárpitra és 10 év a tömörfa vázra.",
-  },
-];
+async function loadModels() {
+  const prices = await getPricingMap(DEFS.map((d) => d.pageId));
+  return Promise.all(
+    DEFS.map(async (d) => {
+      const p = prices[d.pageId];
+      const imgs = await resolveProductImages(d.href, [d.image]);
+      return {
+        ...d,
+        fotel: p.fotel?.bor ?? 0,
+        ketto: p.ketSzemelyes?.bor ?? 0,
+        harom: p.haromSzemelyes?.bor ?? 0,
+        sarok: p.sarok?.bor ?? 0,
+        agy: p.agyFunkcio ?? 0,
+        image: imgs[0] ?? d.image,
+      };
+    }),
+  );
+}
+type Model = Awaited<ReturnType<typeof loadModels>>[number];
+const min = (xs: number[]) => Math.min(...xs.filter((n) => n > 0));
 
-export default function BorkanapePage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const models = await loadModels();
+  const kettoFrom = ft(min(models.map((m) => m.ketto)));
+  const fotelFrom = ft(min(models.map((m) => m.fotel)));
+  const sarokFrom = ft(min(models.map((m) => m.sarok)));
+  return {
+    title: `Bőrkanapé valódi bőrből, egyedi méretben – gyártótól, ${kettoFrom}-tól`,
+    description: `Bőrkanapé valódi, olasz bőrből, tömörfa vázzal, egyedi méretben. 2 személyes bőrkanapé ${kettoFrom}-tól, bőr fotel ${fotelFrom}-tól, bőr sarokkanapé ${sarokFrom}-tól. Közvetlenül a nagykanizsai gyártótól, 3+10 év garancia, országos szállítás.`,
+    alternates: { canonical: URL },
+    openGraph: {
+      title: "Bőrkanapé valódi bőrből, egyedi méretben – gyártótól | Enzo Design",
+      description: "Valódi bőr, tömörfa váz, kézi kárpitozás. Chesterfield, Old's Club, Design és további kollekciók bőrből, egyedi méretben.",
+      url: URL,
+      images: [{ url: "/images/slide1.webp", width: 1920, height: 800 }],
+    },
+  };
+}
+
+function buildFaq(models: Model[]) {
+  const kettoFrom = ft(min(models.map((m) => m.ketto)));
+  const haromFrom = ft(min(models.map((m) => m.harom)));
+  const sarokFrom = ft(min(models.map((m) => m.sarok)));
+  const fotelFrom = ft(min(models.map((m) => m.fotel)));
+  return [
+    {
+      q: "Mennyibe kerül egy valódi bőrkanapé?",
+      a: `A 2 személyes bőrkanapé ${kettoFrom}-tól, a 3 személyes ${haromFrom}-tól, a bőr sarokkanapé ${sarokFrom}-tól indul. A bőr fotel ${fotelFrom}-tól készül. Az árak tájékoztató jellegűek, az alapkonfigurációra vonatkoznak; egyedi méretnél és bőrválasztásnál változnak, a pontos árajánlatot 2 napon belül küldjük.`,
+    },
+    {
+      q: "Valódi bőr vagy műbőr?",
+      a: "Valódi bőr, ezen belül olasz bőrt is kínálunk. Műbőrt nem ajánlunk kanapéra, mert néhány év alatt repedezik és hámlik; a valódi bőr évtizedekig szép marad, és patinásodik. A bőrmintákat a nagykanizsai bemutatóteremben megnézheted, vagy postán elküldjük.",
+    },
+    {
+      q: "Miért drágább a bőrkanapé a szövetnél?",
+      a: "A bőr alapanyag ára többszöröse a szövetnek, és a szabása több munka: a bőr természetes hibáit ki kell kerülni, a gombolt Chesterfield-háttámlát pedig kézzel kell kialakítani. A váz és a rugózás ugyanaz, mint a szövetes változatnál, ezért az árkülönbség kizárólag a kárpitból adódik.",
+    },
+    {
+      q: "Hogyan kell ápolni a bőrkanapét?",
+      a: "Havonta egyszer száraz vagy enyhén nedves puha ronggyal letörölni, évente egyszer-kétszer bőrápolóval kezelni. Ne tedd radiátor vagy erős napsütés közelébe, mert kiszárad. Foltot azonnal itasd fel, ne dörzsöld. Ennyi kell ahhoz, hogy 15–20 évig szép maradjon.",
+    },
+    {
+      q: "Kisállat és gyerek mellé jó a bőrkanapé?",
+      a: "A bőr könnyen tisztítható, nem szívja be a szagokat, ezért gyerek mellé jó. Kutya- és macskakarom viszont nyomot hagy rajta; ilyenkor a sűrű szövésű, 50 000 martindale kopásállóságú szövetet ajánljuk inkább, vagy a bőrt a nappali kevésbé használt részére.",
+    },
+    {
+      q: "Készül egyedi méretben és színben?",
+      a: "Igen. A hossz, az ülésmélység és a karfa a helyiséghez igazítható, a bőr színe többféle barna, fekete, bézs és színes árnyalat közül választható. Gyártási idő 4–6 hét, garancia 3 év a kárpitra és 10 év a tömörfa vázra.",
+    },
+  ];
+}
+
+export default async function BorkanapePage() {
+  const models = await loadModels();
+  const kettoFrom = ft(min(models.map((m) => m.ketto)));
+  const agyFrom = ft(min(models.map((m) => m.agy)));
+  const FAQ = buildFaq(models);
+
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Bőrkanapék egyedi méretben – Enzo Design",
     url: URL,
-    numberOfItems: MODELS.length,
-    itemListElement: MODELS.map((m, i) => ({
+    numberOfItems: models.length,
+    itemListElement: models.map((m, i) => ({
       "@type": "ListItem",
       position: i + 1,
       item: {
@@ -78,7 +117,7 @@ export default function BorkanapePage() {
         url: `${BASE}${m.href}`,
         brand: { "@type": "Brand", name: "Enzo Design" },
         material: "Valódi bőr",
-        offers: { "@type": "AggregateOffer", lowPrice: m.fotel || m.sarok, highPrice: m.sarok, priceCurrency: "HUF", offerCount: m.fotel ? 4 : 1, availability: "https://schema.org/MadeToOrder", url: `${BASE}${m.href}` },
+        offers: { "@type": "AggregateOffer", lowPrice: m.fotel || m.sarok, highPrice: m.sarok || m.fotel, priceCurrency: "HUF", offerCount: m.fotel ? 4 : 1, availability: "https://schema.org/MadeToOrder", url: `${BASE}${m.href}` },
       },
     })),
   };
@@ -92,6 +131,12 @@ export default function BorkanapePage() {
       { "@type": "ListItem", position: 3, name: "Bőrkanapé", item: URL },
     ],
   };
+
+  const cell = (n: number, strong = false) => (
+    <td className={`px-4 py-3 text-right tabular-nums ${strong ? "font-semibold text-[#7d6142]" : ""}`}>
+      {n ? `${ft(n)}-tól` : <span className="text-gray-300">–</span>}
+    </td>
+  );
 
   return (
     <>
@@ -110,7 +155,7 @@ export default function BorkanapePage() {
             Bőrkanapé valódi bőrből, egyedi méretben
           </h1>
           <p className="text-gray-600 text-lg leading-relaxed">
-            Kézzel kárpitozott bőrkanapé és bőr fotel tömörfa vázon, olasz valódi bőrből. Chesterfield, Old&apos;s Club, Design és további kollekciók, a nappalidhoz méretezve, közvetlenül a nagykanizsai gyártótól. 2 személyes bőrkanapé 619 750 Ft-tól.
+            Kézzel kárpitozott bőrkanapé és bőr fotel tömörfa vázon, olasz valódi bőrből. Chesterfield, Old&apos;s Club, Design és további kollekciók, a nappalidhoz méretezve, közvetlenül a nagykanizsai gyártótól. 2 személyes bőrkanapé {kettoFrom}-tól.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
             <TrackedLink href="/kapcsolat-es-rendeles" event="ajanlatkeres_gomb" label="Bőrkanapé oldal – Kérek árajánlatot" className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm">
@@ -127,7 +172,7 @@ export default function BorkanapePage() {
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="relative aspect-[4/3]">
-            <Image src="/images/chesterfield-enzo.webp" alt="Bőr Chesterfield kanapé az Enzo Design nagykanizsai üzemében" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+            <Image src="/images/chesterfield-w3.webp" alt="Konyakbarna bőr Chesterfield kanapé fekete-fehér New York fotótapéta előtt" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
           </div>
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
@@ -179,7 +224,7 @@ export default function BorkanapePage() {
                 </tr>
               </thead>
               <tbody>
-                {MODELS.map((m) => (
+                {models.map((m) => (
                   <tr key={m.name} className="border-b border-gray-100 hover:bg-[#f5f0e8]/60">
                     <td className="px-4 py-3">
                       <Link href={m.href} className="flex items-center gap-3 group">
@@ -192,17 +237,14 @@ export default function BorkanapePage() {
                         </span>
                       </Link>
                     </td>
-                    <td className="px-4 py-3 text-right tabular-nums">{m.fotel ? `${ft(m.fotel)}-tól` : <span className="text-gray-300">–</span>}</td>
-                    <td className="px-4 py-3 text-right tabular-nums">{m.ketto ? `${ft(m.ketto)}-tól` : <span className="text-gray-300">–</span>}</td>
-                    <td className="px-4 py-3 text-right tabular-nums">{m.harom ? `${ft(m.harom)}-tól` : <span className="text-gray-300">–</span>}</td>
-                    <td className="px-4 py-3 text-right tabular-nums font-semibold text-[#7d6142]">{ft(m.sarok)}-tól</td>
+                    {cell(m.fotel)}{cell(m.ketto)}{cell(m.harom)}{cell(m.sarok, true)}
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p className="text-xs text-gray-500 mt-3">
-            Ágyfunkció bőrkanapéhoz is kérhető, 190 500 Ft-tól. Szövettel ugyanezek a modellek olcsóbbak, lásd a <Link href="/kanape-arak" className="underline">kanapé árak</Link> összefoglalót.
+            Ágyfunkció bőrkanapéhoz is kérhető, {agyFrom}-tól. Szövettel ugyanezek a modellek olcsóbbak, lásd a <Link href="/kanape-arak" className="underline">kanapé árak</Link> összefoglalót.
           </p>
         </div>
       </section>
@@ -235,15 +277,18 @@ export default function BorkanapePage() {
         </div>
       </section>
 
+      <StepsSection moduleId="home:steps" isAdmin={false} />
+      <QualitySection />
+
       {/* GYIK */}
-      <section className="py-16 bg-[#f5f0ea]">
+      <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1c1c1c] mb-8 text-center" style={{ fontFamily: "var(--font-heading)" }}>
             Gyakori kérdések a bőrkanapéról
           </h2>
           <div className="space-y-4">
             {FAQ.map((f) => (
-              <details key={f.q} className="group bg-white border border-gray-200 p-5">
+              <details key={f.q} className="group bg-[#f5f0ea] border border-gray-200 p-5">
                 <summary className="cursor-pointer font-semibold text-[#1c1c1c] list-none flex justify-between gap-4">
                   {f.q}
                   <span className="text-[#b8924a] group-open:rotate-45 transition-transform">+</span>

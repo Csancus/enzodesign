@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
+import { PRODUCT_PRICING } from "@/lib/productPricing";
 
 export const metadata: Metadata = {
   title: "Old's Club Kanapé – karakteres elegancia",
@@ -21,13 +22,7 @@ export default function Page() {
       tagline="Karakteres elegancia"
       description="Az Old's Club kanapé letisztult formáival és maximális funkcionalitásával az elegancia és a kényelem tökéletes szintézise. Széles ülőfelület, puha háttámla – ideális pihenéshez és vendégfogadáshoz. A sarokváltozat opcionális ágyneműtartóval is rendelhető."
       image="/images/olds-club-w1.webp"
-      pricing={{
-        fotel: { alap: 360420, bor: 468545 },
-        ketSzemelyes: { alap: 444240, bor: 667510 },
-        haromSzemelyes: { alap: 553210, bor: 919170 },
-        sarok: { alap: 817240, bor: 1262412 },
-        agyFunkcio: 190500,
-      }}
+      pricing={PRODUCT_PRICING["olds-club-kanapek"]}
       features={["50.000 martindale szövet", "Tömörfa szerkezet", "Prémium szivacs és rugó", "3 év garancia", "10 év vázgarancia", "Ágyneműtartó opció"]}
       gallery={[
         "/images/olds-club-a1.webp",

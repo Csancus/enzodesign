@@ -1,75 +1,109 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
+import QualitySection from "@/components/QualitySection";
 import QuoteSlider from "@/components/QuoteSlider";
 import TrackedLink from "@/components/TrackedLink";
+import StepsSection from "@/components/sections/StepsSection";
+import { ft, getPricingMap, type Pricing } from "@/lib/productPricing";
 
 const BASE = "https://www.enzodesign.hu";
 const URL = `${BASE}/kanape-arak`;
 
-export const metadata: Metadata = {
-  title: "Kanapé árak 2026 – mennyibe kerül egy egyedi kanapé a gyártótól?",
-  description:
-    "Egyedi kanapé árak kollekciónként: 2 személyes kanapé 399 810 Ft-tól, 3 személyes 497 890 Ft-tól, sarokkanapé 367 340 Ft-tól, fotel 324 380 Ft-tól, bőrrel 619 750 Ft-tól. Mi befolyásolja az árat, hogyan kérj árajánlatot. Nagykanizsai gyártó, 3+10 év garancia.",
-  alternates: { canonical: URL },
-  openGraph: {
-    title: "Kanapé árak – mennyibe kerül egy egyedi kanapé a gyártótól? | Enzo Design",
-    description: "Teljes ártáblázat kollekciónként, szövettel és bőrrel, és ami az árat befolyásolja.",
-    url: URL,
-    images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
-  },
-};
-
-const ft = (n: number) => `${n.toLocaleString("hu-HU").replace(/ /g, " ")} Ft`;
-
-/** Árak a termékoldalakról (Old's Club: a CMS-ben tárolt ár) – ha ott változik, itt is frissítendő. */
-type Row = { name: string; href: string; fotel: [number, number]; ketto: [number, number]; harom: [number, number]; sarok: [number, number]; agy: number };
-const ROWS: Row[] = [
-  { name: "Chesterfield", href: "/butoraink/kanapek/chesterfield-kanapek", fotel: [324380, 421695], ketto: [399810, 619750], harom: [497890, 847255], sarok: [735515, 1156170], agy: 190500 },
-  { name: "New York", href: "/butoraink/kanapek/new-york-kanapek", fotel: [324380, 421695], ketto: [399810, 619750], harom: [497890, 847255], sarok: [735515, 1156170], agy: 190500 },
-  { name: "Joker", href: "/butoraink/kanapek/joker-kanapek", fotel: [324380, 421695], ketto: [399810, 619750], harom: [497890, 847255], sarok: [735515, 1156170], agy: 190500 },
-  { name: "Old's Club", href: "/butoraink/kanapek/olds-club-kanapek", fotel: [360420, 468545], ketto: [444240, 667510], harom: [553210, 919170], sarok: [817240, 1262412], agy: 210000 },
-  { name: "Ivone", href: "/butoraink/kanapek/ivone-kanapek", fotel: [360420, 468545], ketto: [444240, 677510], harom: [553210, 919170], sarok: [817240, 1262412], agy: 190500 },
-  { name: "Design", href: "/butoraink/kanapek/design-kanapek", fotel: [360420, 468545], ketto: [444240, 677510], harom: [553210, 919170], sarok: [817240, 1262412], agy: 190500 },
+/** Az árak a termékoldalakról öröklődnek (CMS-felülírással). Árat ide ne írj. */
+const DEFS = [
+  { pageId: "chesterfield-kanapek", name: "Chesterfield", href: "/butoraink/kanapek/chesterfield-kanapek" },
+  { pageId: "new-york-kanapek", name: "New York", href: "/butoraink/kanapek/new-york-kanapek" },
+  { pageId: "joker-kanapek", name: "Joker", href: "/butoraink/kanapek/joker-kanapek" },
+  { pageId: "olds-club-kanapek", name: "Old's Club", href: "/butoraink/kanapek/olds-club-kanapek" },
+  { pageId: "ivone-kanapek", name: "Ivone", href: "/butoraink/kanapek/ivone-kanapek" },
+  { pageId: "design-kanapek", name: "Design", href: "/butoraink/kanapek/design-kanapek" },
+  { pageId: "cannes-kanapek", name: "Cannes", href: "/butoraink/kanapek/cannes-kanapek", note: "csak sarokkanapé" },
 ];
-const CANNES = { name: "Cannes sarokkanapé", href: "/butoraink/kanapek/cannes-kanapek", sarok: [367340, 787740] as [number, number], agy: 190500 };
+const EXTRA_IDS = ["tovabbi-fotelek"];
 
-const FACTORS = [
-  { t: "Méret", d: "A 2 személyes és a 3 személyes kanapé között kb. 100 000 Ft a különbség, a sarokkanapé a 3 személyes ára felett indul. Egyedi hossz vagy mélyebb ülés a felhasznált váz- és kárpitmennyiség arányában drágít, nem külön „egyedi felárral”." },
-  { t: "Szövet vagy bőr", d: "A legnagyobb tétel. Az alap ár 50 000 martindale kopásállóságú szövettel értendő; a valódi bőr ugyanarra a vázra a 2 személyesnél kb. 220 000 Ft-tal, a sarokkanapénál kb. 420 000 Ft-tal több. Bársony és prémium szövetcsalád a kettő között van." },
-  { t: "Ágyfunkció", d: "Kihúzható ágymechanizmus bármelyik kanapéhoz: 190 500 Ft (Old's Club: 210 000 Ft). Kb. 140×190 cm fekvőfelület." },
-  { t: "Forma és részletek", d: "Gombolt háttámla (Chesterfield), állítható fejtámla (Cannes), U alak, ottomán vég, díszszegés, választott láb – ezek a kollekciótól függően benne vannak az alapárban vagy tételes felárak, amit az árajánlatban látni fogsz." },
-  { t: "Szállítás", d: "Az egész országba az első zárt ajtóig szállítunk. A szállítási díj a távolságtól függ, és az árajánlatban külön soron szerepel, hogy ne legyen meglepetés." },
-];
+type Row = (typeof DEFS)[number] & { p: Pricing };
+const min = (xs: (number | undefined)[]) => Math.min(...xs.filter((n): n is number => !!n && n > 0));
 
-const FAQ = [
-  {
-    q: "Mennyibe kerül egy egyedi kanapé 2026-ban a gyártótól?",
-    a: "Nálunk a 2 személyes kanapé 399 810 Ft-tól, a 3 személyes 497 890 Ft-tól, a sarokkanapé 367 340 Ft-tól (Cannes) illetve 735 515 Ft-tól (kollekciós), a fotel 324 380 Ft-tól indul alap szövettel. Valódi bőrrel a 2 személyes 619 750 Ft-tól. Ezek tájékoztató, alapkonfigurációs árak; a pontos árat a méret és a kárpit ismeretében 2 napon belül adjuk.",
-  },
-  {
-    q: "Miért olcsóbb a gyártótól, mint a bútoráruházban?",
-    a: "Mert nincs közben kereskedő, viszonteladói árrés és bemutatóterem-bérlet nagyvárosi plázában. A bútor a nagykanizsai üzemünkből egyenesen hozzád megy. Ugyanezért tudunk egyedi méretet adni: nem raktárkészletet árulunk, hanem rendelésre gyártunk.",
-  },
-  {
-    q: "Az árak áfával értendők?",
-    a: "Igen, a feltüntetett árak bruttó, áfát tartalmazó fogyasztói árak. Céges rendelésnél az árajánlaton a nettó és a bruttó ár is szerepel.",
-  },
-  {
-    q: "Hogyan kapok pontos árajánlatot?",
-    a: "Küldj egy fotót vagy leírást a helyiségről és a kívánt méretről a kapcsolati űrlapon vagy az info@enzodesign.hu címre, válaszd ki a kollekciót és a szövetet, és 2 napon belül tételes árajánlatot küldünk. Ha szükséges, szövetmintát postázunk.",
-  },
-  {
-    q: "Kell előleget fizetni?",
-    a: "Igen. A megrendelés után előlegbekérő szerződést küldünk, az előleg átutalással fizethető, a fennmaradó összeg átadáskor esedékes. A gyártási idő 4–6 hét.",
-  },
-  {
-    q: "Mi van, ha később megváltoztatnám a méretet vagy a szövetet?",
-    a: "A gyártás megkezdéséig módosítható, ekkor új árajánlatot adunk. Gyártás közben a váz már készül, ezért a méret nem, a szövet bizonyos fázisig még változtatható; erről kollégánk a megrendeléskor tájékoztat.",
-  },
-];
+async function load() {
+  const prices = await getPricingMap([...DEFS.map((d) => d.pageId), ...EXTRA_IDS]);
+  const rows: Row[] = DEFS.map((d) => ({ ...d, p: prices[d.pageId] }));
+  const summary = {
+    fotel: min(rows.map((r) => r.p.fotel?.alap)),
+    ketto: min(rows.map((r) => r.p.ketSzemelyes?.alap)),
+    harom: min(rows.map((r) => r.p.haromSzemelyes?.alap)),
+    sarok: min(rows.map((r) => r.p.sarok?.alap)),
+    sarokKollekcio: min(rows.filter((r) => r.pageId !== "cannes-kanapek").map((r) => r.p.sarok?.alap)),
+    kettoBor: min(rows.map((r) => r.p.ketSzemelyes?.bor)),
+    agy: min(rows.map((r) => r.p.agyFunkcio)),
+    agyMax: Math.max(...rows.map((r) => r.p.agyFunkcio ?? 0)),
+    szek: prices["tovabbi-fotelek"]?.fotel?.alap,
+  };
+  return { rows, summary };
+}
+type Summary = Awaited<ReturnType<typeof load>>["summary"];
 
-export default function KanapeArakPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const { summary: s } = await load();
+  return {
+    title: "Kanapé árak 2026 – mennyibe kerül egy egyedi kanapé a gyártótól?",
+    description: `Egyedi kanapé árak kollekciónként: 2 személyes kanapé ${ft(s.ketto)}-tól, 3 személyes ${ft(s.harom)}-tól, sarokkanapé ${ft(s.sarok)}-tól, fotel ${ft(s.fotel)}-tól, bőrrel ${ft(s.kettoBor)}-tól. Mi befolyásolja az árat, hogyan kérj árajánlatot. Nagykanizsai gyártó, 3+10 év garancia.`,
+    alternates: { canonical: URL },
+    openGraph: {
+      title: "Kanapé árak – mennyibe kerül egy egyedi kanapé a gyártótól? | Enzo Design",
+      description: "Teljes ártáblázat kollekciónként, szövettel és bőrrel, és ami az árat befolyásolja.",
+      url: URL,
+      images: [{ url: "/images/chesterfield-w1.webp", width: 1920, height: 800 }],
+    },
+  };
+}
+
+function buildFaq(s: Summary) {
+  return [
+    {
+      q: "Mennyibe kerül egy egyedi kanapé 2026-ban a gyártótól?",
+      a: `Nálunk a 2 személyes kanapé ${ft(s.ketto)}-tól, a 3 személyes ${ft(s.harom)}-tól, a sarokkanapé ${ft(s.sarok)}-tól (Cannes) illetve ${ft(s.sarokKollekcio)}-tól (kollekciós), a fotel ${ft(s.fotel)}-tól indul alap szövettel. Valódi bőrrel a 2 személyes ${ft(s.kettoBor)}-tól. Ezek tájékoztató, alapkonfigurációs árak; a pontos árat a méret és a kárpit ismeretében 2 napon belül adjuk.`,
+    },
+    {
+      q: "Miért olcsóbb a gyártótól, mint a bútoráruházban?",
+      a: "Mert nincs közben kereskedő, viszonteladói árrés és bemutatóterem-bérlet nagyvárosi plázában. A bútor a nagykanizsai üzemünkből egyenesen hozzád megy. Ugyanezért tudunk egyedi méretet adni: nem raktárkészletet árulunk, hanem rendelésre gyártunk.",
+    },
+    {
+      q: "Az árak áfával értendők?",
+      a: "Igen, a feltüntetett árak bruttó, áfát tartalmazó fogyasztói árak. Céges rendelésnél az árajánlaton a nettó és a bruttó ár is szerepel.",
+    },
+    {
+      q: "Hogyan kapok pontos árajánlatot?",
+      a: "Küldj egy fotót vagy leírást a helyiségről és a kívánt méretről a kapcsolati űrlapon vagy az info@enzodesign.hu címre, válaszd ki a kollekciót és a szövetet, és 2 napon belül tételes árajánlatot küldünk. Ha szükséges, szövetmintát postázunk.",
+    },
+    {
+      q: "Kell előleget fizetni?",
+      a: "Igen. A megrendelés után előlegbekérő szerződést küldünk, az előleg átutalással fizethető, a fennmaradó összeg átadáskor esedékes. A gyártási idő 4–6 hét.",
+    },
+    {
+      q: "Mi van, ha később megváltoztatnám a méretet vagy a szövetet?",
+      a: "A gyártás megkezdéséig módosítható, ekkor új árajánlatot adunk. Gyártás közben a váz már készül, ezért a méret nem, a szövet bizonyos fázisig még változtatható; erről kollégánk a megrendeléskor tájékoztat.",
+    },
+  ];
+}
+
+export default async function KanapeArakPage() {
+  const { rows, summary: s } = await load();
+  const FAQ = buildFaq(s);
+  const chester = rows.find((r) => r.pageId === "chesterfield-kanapek")!.p;
+  const cannes = rows.find((r) => r.pageId === "cannes-kanapek")!.p;
+  const borDiffKetto = (chester.ketSzemelyes?.bor ?? 0) - (chester.ketSzemelyes?.alap ?? 0);
+  const borDiffSarok = (chester.sarok?.bor ?? 0) - (chester.sarok?.alap ?? 0);
+  const round10k = (n: number) => Math.round(n / 10000) * 10000;
+
+  const FACTORS = [
+    { t: "Méret", d: `A 2 személyes és a 3 személyes kanapé között kb. ${ft(round10k((chester.haromSzemelyes?.alap ?? 0) - (chester.ketSzemelyes?.alap ?? 0)))} a különbség, a sarokkanapé a 3 személyes ára felett indul. Egyedi hossz vagy mélyebb ülés a felhasznált váz- és kárpitmennyiség arányában drágít, nem külön „egyedi felárral”.` },
+    { t: "Szövet vagy bőr", d: `A legnagyobb tétel. Az alap ár 50 000 martindale kopásállóságú szövettel értendő; a valódi bőr ugyanarra a vázra a 2 személyesnél kb. ${ft(round10k(borDiffKetto))}-tal, a sarokkanapénál kb. ${ft(round10k(borDiffSarok))}-tal több. Bársony és prémium szövetcsalád a kettő között van.` },
+    { t: "Ágyfunkció", d: `Kihúzható ágymechanizmus bármelyik kanapéhoz: ${ft(s.agy)}${s.agyMax > s.agy ? `–${ft(s.agyMax)}` : ""} kollekciótól függően. Kb. 140×190 cm fekvőfelület.` },
+    { t: "Forma és részletek", d: "Gombolt háttámla (Chesterfield), állítható fejtámla (Cannes), U alak, ottomán vég, díszszegés, választott láb – ezek a kollekciótól függően benne vannak az alapárban vagy tételes felárak, amit az árajánlatban látni fogsz." },
+    { t: "Szállítás", d: "Az egész országba az első zárt ajtóig szállítunk. A szállítási díj a távolságtól függ, és az árajánlatban külön soron szerepel, hogy ne legyen meglepetés." },
+  ];
+
   const faqJsonLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -85,9 +119,10 @@ export default function KanapeArakPage() {
     "@type": "ItemList",
     name: "Kanapé árak kollekciónként – Enzo Design",
     url: URL,
-    numberOfItems: ROWS.length + 1,
-    itemListElement: [
-      ...ROWS.map((r, i) => ({
+    numberOfItems: rows.length,
+    itemListElement: rows.map((r, i) => {
+      const all = [r.p.fotel, r.p.ketSzemelyes, r.p.haromSzemelyes, r.p.sarok].filter(Boolean) as { alap: number; bor?: number }[];
+      return {
         "@type": "ListItem",
         position: i + 1,
         item: {
@@ -95,29 +130,21 @@ export default function KanapeArakPage() {
           name: `${r.name} kanapé`,
           url: `${BASE}${r.href}`,
           brand: { "@type": "Brand", name: "Enzo Design" },
-          offers: { "@type": "AggregateOffer", lowPrice: r.fotel[0], highPrice: r.sarok[1], priceCurrency: "HUF", offerCount: 8, availability: "https://schema.org/MadeToOrder", url: `${BASE}${r.href}` },
+          offers: { "@type": "AggregateOffer", lowPrice: min(all.map((x) => x.alap)), highPrice: Math.max(...all.map((x) => x.bor ?? x.alap)), priceCurrency: "HUF", offerCount: all.length * 2, availability: "https://schema.org/MadeToOrder", url: `${BASE}${r.href}` },
         },
-      })),
-      {
-        "@type": "ListItem",
-        position: ROWS.length + 1,
-        item: {
-          "@type": "Product",
-          name: CANNES.name,
-          url: `${BASE}${CANNES.href}`,
-          brand: { "@type": "Brand", name: "Enzo Design" },
-          offers: { "@type": "AggregateOffer", lowPrice: CANNES.sarok[0], highPrice: CANNES.sarok[1], priceCurrency: "HUF", offerCount: 2, availability: "https://schema.org/MadeToOrder", url: `${BASE}${CANNES.href}` },
-        },
-      },
-    ],
+      };
+    }),
   };
 
-  const cell = (p: [number, number]) => (
-    <td className="px-3 py-3 text-right tabular-nums whitespace-nowrap">
-      <span className="block">{ft(p[0])}</span>
-      <span className="block text-xs text-gray-500">bőr: {ft(p[1])}</span>
-    </td>
-  );
+  const cell = (e?: { alap: number; bor?: number }) =>
+    e ? (
+      <td className="px-3 py-3 text-right tabular-nums whitespace-nowrap">
+        <span className="block">{ft(e.alap)}</span>
+        {e.bor ? <span className="block text-xs text-gray-500">bőr: {ft(e.bor)}</span> : null}
+      </td>
+    ) : (
+      <td className="px-3 py-3 text-right text-gray-300">–</td>
+    );
 
   return (
     <>
@@ -152,14 +179,14 @@ export default function KanapeArakPage() {
       <section className="py-14 bg-white">
         <div className="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { l: "Fotel", v: "324 380 Ft-tól", h: "/butoraink/fotelek" },
-            { l: "2 személyes kanapé", v: "399 810 Ft-tól", h: "/butoraink/kanapek" },
-            { l: "3 személyes kanapé", v: "497 890 Ft-tól", h: "/butoraink/kanapek" },
-            { l: "Sarokkanapé", v: "367 340 Ft-tól", h: "/sarokkanape" },
+            { l: "Fotel", v: s.fotel, h: "/butoraink/fotelek" },
+            { l: "2 személyes kanapé", v: s.ketto, h: "/butoraink/kanapek" },
+            { l: "3 személyes kanapé", v: s.harom, h: "/butoraink/kanapek" },
+            { l: "Sarokkanapé", v: s.sarok, h: "/sarokkanape" },
           ].map((k) => (
             <Link key={k.l} href={k.h} className="bg-[#f5f0ea] border border-gray-200 p-5 hover:border-[#7d6142] transition-colors">
               <p className="text-xs uppercase tracking-wide text-gray-500">{k.l}</p>
-              <p className="mt-1 text-lg sm:text-xl font-bold text-[#7d6142] tabular-nums" style={{ fontFamily: "var(--font-heading)" }}>{k.v}</p>
+              <p className="mt-1 text-lg sm:text-xl font-bold text-[#7d6142] tabular-nums" style={{ fontFamily: "var(--font-heading)" }}>{ft(k.v)}-tól</p>
               <p className="text-xs text-gray-400 mt-1">alap szövettel</p>
             </Link>
           ))}
@@ -189,26 +216,22 @@ export default function KanapeArakPage() {
                 </tr>
               </thead>
               <tbody>
-                {ROWS.map((r) => (
-                  <tr key={r.name} className="border-b border-gray-100 hover:bg-[#f5f0e8]/60 align-top">
-                    <td className="px-3 py-3"><Link href={r.href} className="font-semibold text-[#1c1c1c] hover:text-[#7d6142]">{r.name}</Link></td>
-                    {cell(r.fotel)}{cell(r.ketto)}{cell(r.harom)}{cell(r.sarok)}
-                    <td className="px-3 py-3 text-right tabular-nums whitespace-nowrap">{ft(r.agy)}</td>
+                {rows.map((r) => (
+                  <tr key={r.pageId} className="border-b border-gray-100 hover:bg-[#f5f0e8]/60 align-top">
+                    <td className="px-3 py-3">
+                      <Link href={r.href} className="font-semibold text-[#1c1c1c] hover:text-[#7d6142]">{r.name}</Link>
+                      {"note" in r && r.note ? <span className="block text-xs text-gray-500">{r.note}</span> : null}
+                    </td>
+                    {cell(r.p.fotel)}{cell(r.p.ketSzemelyes)}{cell(r.p.haromSzemelyes)}{cell(r.p.sarok)}
+                    <td className="px-3 py-3 text-right tabular-nums whitespace-nowrap">{r.p.agyFunkcio ? ft(r.p.agyFunkcio) : "–"}</td>
                   </tr>
                 ))}
-                <tr className="border-b border-gray-100 hover:bg-[#f5f0e8]/60 align-top">
-                  <td className="px-3 py-3"><Link href={CANNES.href} className="font-semibold text-[#1c1c1c] hover:text-[#7d6142]">Cannes</Link><span className="block text-xs text-gray-500">csak sarokkanapé</span></td>
-                  <td className="px-3 py-3 text-right text-gray-300">–</td>
-                  <td className="px-3 py-3 text-right text-gray-300">–</td>
-                  <td className="px-3 py-3 text-right text-gray-300">–</td>
-                  {cell(CANNES.sarok)}
-                  <td className="px-3 py-3 text-right tabular-nums whitespace-nowrap">{ft(CANNES.agy)}</td>
-                </tr>
               </tbody>
             </table>
           </div>
           <p className="text-xs text-gray-500 mt-3">
-            Az árak tájékoztató jellegűek és az alapkonfigurációra vonatkoznak. Egyéni méret és anyagválasztás esetén az ár változhat. Gyártási idő: 4–6 hét. Garancia: 3 év (váz: 10 év). Székek 76 200 Ft-tól, kisfotelek 82 820 Ft-tól a <Link href="/butoraink/fotelek/tovabbi-fotelek" className="underline">további fotelek</Link> oldalon.
+            Az árak tájékoztató jellegűek és az alapkonfigurációra vonatkoznak. Egyéni méret és anyagválasztás esetén az ár változhat. Gyártási idő: 4–6 hét. Garancia: 3 év (váz: 10 év).
+            {s.szek ? <> Székek és kisfotelek {ft(s.szek)}-tól a <Link href="/butoraink/fotelek/tovabbi-fotelek" className="underline">további fotelek</Link> oldalon.</> : null}
           </p>
         </div>
       </section>
@@ -246,19 +269,22 @@ export default function KanapeArakPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { t: "Kis nappali", d: "2 személyes Chesterfield kanapé ágyfunkcióval, alap szövettel", v: ft(399810 + 190500), h: "/agyazhato-kanape" },
-              { t: "Családi nappali", d: "Cannes sarokkanapé állítható fejtámlákkal, alap szövettel", v: ft(367340), h: "/sarokkanape" },
-              { t: "Reprezentatív szalon", d: "Chesterfield 3-2-1 ülőgarnitúra valódi bőrrel", v: ft(847255 + 619750 + 421695), h: "/ulogarnitura" },
+              { t: "Kis nappali", d: "2 személyes Chesterfield kanapé ágyfunkcióval, alap szövettel", v: (chester.ketSzemelyes?.alap ?? 0) + (chester.agyFunkcio ?? 0), h: "/agyazhato-kanape" },
+              { t: "Családi nappali", d: "Cannes sarokkanapé állítható fejtámlákkal, alap szövettel", v: cannes.sarok?.alap ?? 0, h: "/sarokkanape" },
+              { t: "Reprezentatív szalon", d: "Chesterfield 3-2-1 ülőgarnitúra valódi bőrrel", v: (chester.haromSzemelyes?.bor ?? 0) + (chester.ketSzemelyes?.bor ?? 0) + (chester.fotel?.bor ?? 0), h: "/ulogarnitura" },
             ].map((e) => (
               <Link key={e.t} href={e.h} className="bg-white border border-gray-200 p-6 hover:border-[#7d6142] transition-colors block">
                 <p className="text-xs uppercase tracking-wide text-gray-500">{e.t}</p>
                 <p className="mt-2 text-gray-700 text-sm">{e.d}</p>
-                <p className="mt-3 text-xl font-bold text-[#7d6142] tabular-nums" style={{ fontFamily: "var(--font-heading)" }}>{e.v}-tól</p>
+                <p className="mt-3 text-xl font-bold text-[#7d6142] tabular-nums" style={{ fontFamily: "var(--font-heading)" }}>{ft(e.v)}-tól</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
+
+      <StepsSection moduleId="home:steps" isAdmin={false} />
+      <QualitySection />
 
       {/* GYIK */}
       <section className="py-16 bg-white">

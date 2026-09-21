@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactFormSection from "./ContactFormSection";
 import PriceTable, { type FlexPriceRow } from "./PriceTable";
+import { pricingToRows, type Pricing } from "@/lib/productPricing";
 import FabricsSection from "./sections/FabricsSection";
 import ProductGallery from "./ProductGallery";
 import EditBtn from "@/components/admin/EditBtn";
@@ -10,14 +11,6 @@ import { formatPrice } from "@/data/products";
 import { getAdminStatus } from "@/lib/auth";
 import type { FieldDef } from "@/types/cms";
 import TrackedLink from "@/components/TrackedLink";
-
-type Pricing = {
-  fotel?: { alap: number; bor?: number };
-  ketSzemelyes?: { alap: number; bor?: number };
-  haromSzemelyes?: { alap: number; bor?: number };
-  sarok?: { alap: number; bor?: number };
-  agyFunkcio?: number;
-};
 
 type Props = {
   pageId: string;
@@ -39,20 +32,6 @@ function getStartingPrice(rows: FlexPriceRow[]): number | null {
   return prices.length ? Math.min(...prices) : null;
 }
 
-function pricingToRows(pricing: Pricing): FlexPriceRow[] {
-  const rows: FlexPriceRow[] = [];
-  if (pricing.fotel)
-    rows.push({ label: "Fotel", alap: String(pricing.fotel.alap), bor: pricing.fotel.bor ? String(pricing.fotel.bor) : "" });
-  if (pricing.ketSzemelyes)
-    rows.push({ label: "2 személyes kanapé", alap: String(pricing.ketSzemelyes.alap), bor: pricing.ketSzemelyes.bor ? String(pricing.ketSzemelyes.bor) : "" });
-  if (pricing.haromSzemelyes)
-    rows.push({ label: "3 személyes kanapé", alap: String(pricing.haromSzemelyes.alap), bor: pricing.haromSzemelyes.bor ? String(pricing.haromSzemelyes.bor) : "" });
-  if (pricing.sarok)
-    rows.push({ label: "Sarokkanapé", alap: String(pricing.sarok.alap), bor: pricing.sarok.bor ? String(pricing.sarok.bor) : "" });
-  if (pricing.agyFunkcio)
-    rows.push({ label: "+ Ágyfunkció", alap: String(pricing.agyFunkcio), bor: "" });
-  return rows;
-}
 
 const DEFAULT_FOOTER =
   "Az árak tájékoztató jellegűek és az alapkonfigurációra vonatkoznak. Egyéni méret és anyagválasztás esetén az ár változhat. Gyártási idő: 4–6 hét. Garancia: 3 év (váz: 10 év).";

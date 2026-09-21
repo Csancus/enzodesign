@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
+import { PRODUCT_PRICING } from "@/lib/productPricing";
 
 export const metadata: Metadata = {
   title: "Design Kanapé – modern vonalak, prémium kárpit",
@@ -48,13 +49,7 @@ export default function Page() {
         "/images/design-w6.webp",
         "/images/design-w7.webp",
       ]}
-      pricing={{
-        fotel: { alap: 360420, bor: 468545 },
-        ketSzemelyes: { alap: 444240, bor: 677510 },
-        haromSzemelyes: { alap: 553210, bor: 919170 },
-        sarok: { alap: 817240, bor: 1262412 },
-        agyFunkcio: 190500,
-      }}
+      pricing={PRODUCT_PRICING["design-kanapek"]}
       features={["50.000 martindale szövet", "Tömörfa szerkezet", "Modern dizájn", "3 év garancia", "10 év vázgarancia"]}
       breadcrumb={[
         { label: "Főoldal", href: "/" },

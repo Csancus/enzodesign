@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProductPageTemplate from "@/components/ProductPageTemplate";
+import { PRODUCT_PRICING } from "@/lib/productPricing";
 export const metadata: Metadata = {
   title: "Old's Club Fotel – karakteres kárpitozott fotel",
   description: "Az Old's Club fotel karakteres eleganciájával és tömörfa szerkezetével évtizedekre szól. Prémium szövetek, egyedi méret, 3 év garancia – közvetlen gyártótól.",
@@ -20,7 +21,7 @@ export default function Page() {
       description="Az Old's Club fotel letisztult formái és maximális funkcionalitása az elegancia és kényelem tökéletes szintézise."
       image="/images/olds-club-a5.webp"
       gallery={["/images/olds-club-a5.webp", "/images/olds-club-a1.webp", "/images/olds-club-a6.webp", "/images/olds-club-a4.webp", "/images/olds-club-a34.webp", "/images/olds-club-a2.webp", "/images/olds-club-a3.webp", "/images/fotelek-w1.webp", "/images/olds-club-w5.webp", "/images/fotelek-w13.webp", "/images/fotelek-w17.webp"]}
-      pricing={{ fotel: { alap: 360420, bor: 468545 } }}
+      pricing={PRODUCT_PRICING["olds-club-fotel"]}
       features={["50.000 martindale szövet", "Tömörfa szerkezet", "3 év garancia", "10 év vázgarancia"]}
       breadcrumb={[{ label: "Főoldal", href: "/" }, { label: "Bútoraink", href: "/butoraink" }, { label: "Fotelek", href: "/butoraink/fotelek" }, { label: "Old's Club Fotel", href: "/butoraink/fotelek/olds-club-fotel" }]}
     />

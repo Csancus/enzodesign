@@ -2,88 +2,117 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactFormSection from "@/components/ContactFormSection";
+import QualitySection from "@/components/QualitySection";
 import QuoteSlider from "@/components/QuoteSlider";
 import TrackedLink from "@/components/TrackedLink";
+import StepsSection from "@/components/sections/StepsSection";
+import { ft, getPricingMap } from "@/lib/productPricing";
+import { resolveProductImages } from "@/lib/productImages";
 
 const BASE = "https://www.enzodesign.hu";
 const URL = `${BASE}/agyazhato-kanape`;
+const HERO_IMG = "/images/design-a7.webp";
 
-export const metadata: Metadata = {
-  title: "Ágyazható kanapé egyedi méretben – gyártótól, 590 310 Ft-tól",
-  description:
-    "Ágyazható kanapé kihúzható ágymechanizmussal, kb. 140×190 cm fekvőfelülettel, 2 és 3 személyes vagy sarok kivitelben. 590 310 Ft-tól alap szövettel, közvetlenül a nagykanizsai gyártótól. Tömörfa váz, 100+ szövet, bőr, 3+10 év garancia.",
-  alternates: { canonical: URL },
-  openGraph: {
-    title: "Ágyazható kanapé egyedi méretben – gyártótól | Enzo Design",
-    description: "Kihúzható ágymechanizmus bármelyik kollekciónkhoz, kb. 140×190 cm fekvőfelület. Egyedi méretben, a gyártótól.",
-    url: URL,
-    images: [{ url: "/images/chesterfield-a5.webp", width: 1920, height: 800 }],
-  },
-};
-
-const ft = (n: number) => `${n.toLocaleString("hu-HU").replace(/ /g, " ")} Ft`;
-
-/** Kanapé alap (szövet) ár + ágyfunkció felár a termékoldalakról – ha ott változik, itt is frissítendő. */
-const MODELS = [
-  { name: "Chesterfield", ketto: 399810, harom: 497890, sarok: 735515, agy: 190500, href: "/butoraink/kanapek/chesterfield-kanapek", image: "/images/chesterfield-a5.webp", alt: "Ágyazható Chesterfield kanapé" },
-  { name: "New York", ketto: 399810, harom: 497890, sarok: 735515, agy: 190500, href: "/butoraink/kanapek/new-york-kanapek", image: "/images/new-york-a1.webp", alt: "New York kanapé ágyfunkcióval" },
-  { name: "Joker", ketto: 399810, harom: 497890, sarok: 735515, agy: 190500, href: "/butoraink/kanapek/joker-kanapek", image: "/images/joker-a1.webp", alt: "Joker kanapé ágyfunkcióval" },
-  { name: "Old's Club", ketto: 444240, harom: 553210, sarok: 817240, agy: 210000, href: "/butoraink/kanapek/olds-club-kanapek", image: "/images/olds-club-a1.webp", alt: "Old's Club kanapé ágyfunkcióval" },
-  { name: "Ivone", ketto: 444240, harom: 553210, sarok: 817240, agy: 190500, href: "/butoraink/kanapek/ivone-kanapek", image: "/images/ivone-a1.webp", alt: "Ivone kanapé ágyfunkcióval" },
-  { name: "Design", ketto: 444240, harom: 553210, sarok: 817240, agy: 190500, href: "/butoraink/kanapek/design-kanapek", image: "/images/design-a1.webp", alt: "Design kanapé ágyfunkcióval" },
-  { name: "Cannes sarok", ketto: 0, harom: 0, sarok: 367340, agy: 190500, href: "/butoraink/kanapek/cannes-kanapek", image: "/images/cannes-a1.webp", alt: "Cannes ágyazható sarokkanapé" },
+/** Ár és kép a termékoldalról öröklődik (CMS-felülírással). Árat ide ne írj. */
+const DEFS = [
+  { pageId: "chesterfield-kanapek", name: "Chesterfield", href: "/butoraink/kanapek/chesterfield-kanapek", image: "/images/chesterfield-w2.webp", alt: "Ágyazható Chesterfield kanapé" },
+  { pageId: "new-york-kanapek", name: "New York", href: "/butoraink/kanapek/new-york-kanapek", image: "/images/new-york-a1.webp", alt: "New York kanapé ágyfunkcióval" },
+  { pageId: "joker-kanapek", name: "Joker", href: "/butoraink/kanapek/joker-kanapek", image: "/images/joker-a1.webp", alt: "Joker kanapé ágyfunkcióval" },
+  { pageId: "olds-club-kanapek", name: "Old's Club", href: "/butoraink/kanapek/olds-club-kanapek", image: "/images/olds-club-a1.webp", alt: "Old's Club kanapé ágyfunkcióval" },
+  { pageId: "ivone-kanapek", name: "Ivone", href: "/butoraink/kanapek/ivone-kanapek", image: "/images/ivone-a1.webp", alt: "Ivone kanapé ágyfunkcióval" },
+  { pageId: "design-kanapek", name: "Design", href: "/butoraink/kanapek/design-kanapek", image: "/images/design-a7.webp", alt: "Design ágyazható sarokkanapé kihúzott ággyal" },
+  { pageId: "cannes-kanapek", name: "Cannes sarok", href: "/butoraink/kanapek/cannes-kanapek", image: "/images/cannes-a1.webp", alt: "Cannes ágyazható sarokkanapé" },
 ];
 
-const FAQ = [
-  {
-    q: "Mennyibe kerül egy ágyazható kanapé?",
-    a: "A kanapé árához jön az ágyfunkció felára: 190 500 Ft-tól (az Old's Club kollekciónál 210 000 Ft). Így a 2 személyes ágyazható Chesterfield, New York vagy Joker kanapé 590 310 Ft-tól, az ágyazható Cannes sarokkanapé 557 840 Ft-tól indul alap szövettel. Az árak tájékoztató jellegűek; egyedi méretnél, bőrnél és szövetválasztásnál változnak, a pontos árajánlatot 2 napon belül küldjük.",
-  },
-  {
-    q: "Mekkora a fekvőfelület?",
-    a: "A kihúzott ágymechanizmus körülbelül 140×190 cm-es, két személyes fekvőfelületet ad. Egyedi méretű kanapénál a fekvőfelület is ehhez igazodik; ha rendszeres alvásra kell, a méretezésnél ezt előre jelezd, hogy a váz és a mechanizmus ehhez készüljön.",
-  },
-  {
-    q: "Mindennapi alvásra alkalmas?",
-    a: "Az ágyazható kanapé elsősorban vendégágy és alkalmi alvóhely, ezt őszintén mondjuk. Ha valaki minden éjjel rajta alszik, kérj hozzá keményebb ülés-habot és a méretezésnél teljes értékű fekvőfelületet; ilyen kérésre is készítünk, csak előre kell tudnunk.",
-  },
-  {
-    q: "Melyik kollekcióhoz kérhető ágyfunkció?",
-    a: "Mindegyikhez: Chesterfield, New York, Joker, Old's Club, Ivone és Design kollekció 2 és 3 személyes kanapéihoz és sarokkanapéihoz, valamint a Cannes sarokkanapéhoz. A mechanizmus a kárpit alatt van, kihajtva sem látszik a bútor stílusán.",
-  },
-  {
-    q: "Látszik a mechanizmus, romlik tőle a kényelem?",
-    a: "Nem. Ülőkanapéként ugyanolyan, mint a fix változat: a mechanizmus az ülőrész alatt, a tömörfa vázban van elrejtve. Az ülésmagasság és a háttámla nem változik, a kihúzás egy mozdulattal, szerszám nélkül megy.",
-  },
-  {
-    q: "Mennyi a gyártási idő és hogyan szállítjátok?",
-    a: "4–6 hét a méret és a szövet véglegesítésétől. Az egész országba házhoz szállítjuk, az első zárt ajtóig. Garancia: 3 év a kárpitra, 10 év a vázra.",
-  },
-];
+async function loadModels() {
+  const prices = await getPricingMap(DEFS.map((d) => d.pageId));
+  return Promise.all(
+    DEFS.map(async (d) => {
+      const p = prices[d.pageId];
+      const imgs = await resolveProductImages(d.href, [d.image]);
+      return { ...d, ketto: p.ketSzemelyes?.alap ?? 0, harom: p.haromSzemelyes?.alap ?? 0, sarok: p.sarok?.alap ?? 0, agy: p.agyFunkcio ?? 0, image: imgs[0] ?? d.image };
+    }),
+  );
+}
+type Model = Awaited<ReturnType<typeof loadModels>>[number];
+const min = (xs: number[]) => Math.min(...xs.filter((n) => n > 0));
 
-export default function AgyazhatoKanapePage() {
+/** Legolcsóbb ágyazható konfiguráció: kanapé (2 személyes vagy sarok) + felár. */
+const cheapest = (models: Model[]) => min(models.map((m) => ((m.ketto || m.sarok) + m.agy)));
+
+export async function generateMetadata(): Promise<Metadata> {
+  const models = await loadModels();
+  const from = ft(cheapest(models));
+  return {
+    title: `Ágyazható kanapé egyedi méretben – gyártótól, ${from}-tól`,
+    description: `Ágyazható kanapé kihúzható ágymechanizmussal, kb. 140×190 cm fekvőfelülettel, 2 és 3 személyes vagy sarok kivitelben. ${from}-tól alap szövettel, közvetlenül a nagykanizsai gyártótól. Tömörfa váz, 100+ szövet, bőr, 3+10 év garancia.`,
+    alternates: { canonical: URL },
+    openGraph: {
+      title: "Ágyazható kanapé egyedi méretben – gyártótól | Enzo Design",
+      description: "Kihúzható ágymechanizmus bármelyik kollekciónkhoz, kb. 140×190 cm fekvőfelület. Egyedi méretben, a gyártótól.",
+      url: URL,
+      images: [{ url: HERO_IMG, width: 1920, height: 800 }],
+    },
+  };
+}
+
+function buildFaq(models: Model[]) {
+  const chester = models.find((m) => m.pageId === "chesterfield-kanapek");
+  const cannes = models.find((m) => m.pageId === "cannes-kanapek");
+  const olds = models.find((m) => m.pageId === "olds-club-kanapek");
+  const agyFrom = min(models.map((m) => m.agy));
+  const oldsNote = olds?.agy && olds.agy !== agyFrom ? ` (az Old's Club kollekciónál ${ft(olds.agy)})` : "";
+  return [
+    {
+      q: "Mennyibe kerül egy ágyazható kanapé?",
+      a: `A kanapé árához jön az ágyfunkció felára: ${ft(agyFrom)}-tól${oldsNote}. Így a 2 személyes ágyazható Chesterfield, New York vagy Joker kanapé ${ft((chester?.ketto ?? 0) + (chester?.agy ?? 0))}-tól, az ágyazható Cannes sarokkanapé ${ft((cannes?.sarok ?? 0) + (cannes?.agy ?? 0))}-tól indul alap szövettel. Az árak tájékoztató jellegűek; egyedi méretnél, bőrnél és szövetválasztásnál változnak, a pontos árajánlatot 2 napon belül küldjük.`,
+    },
+    {
+      q: "Mekkora a fekvőfelület?",
+      a: "A kihúzott ágymechanizmus körülbelül 140×190 cm-es, két személyes fekvőfelületet ad. Egyedi méretű kanapénál a fekvőfelület is ehhez igazodik; ha rendszeres alvásra kell, a méretezésnél ezt előre jelezd, hogy a váz és a mechanizmus ehhez készüljön.",
+    },
+    {
+      q: "Mindennapi alvásra alkalmas?",
+      a: "Az ágyazható kanapé elsősorban vendégágy és alkalmi alvóhely, ezt őszintén mondjuk. Ha valaki minden éjjel rajta alszik, kérj hozzá keményebb ülés-habot és a méretezésnél teljes értékű fekvőfelületet; ilyen kérésre is készítünk, csak előre kell tudnunk.",
+    },
+    {
+      q: "Melyik kollekcióhoz kérhető ágyfunkció?",
+      a: "Mindegyikhez: Chesterfield, New York, Joker, Old's Club, Ivone és Design kollekció 2 és 3 személyes kanapéihoz és sarokkanapéihoz, valamint a Cannes sarokkanapéhoz. A mechanizmus a kárpit alatt van, kihajtva sem látszik a bútor stílusán.",
+    },
+    {
+      q: "Látszik a mechanizmus, romlik tőle a kényelem?",
+      a: "Nem. Ülőkanapéként ugyanolyan, mint a fix változat: a mechanizmus az ülőrész alatt, a tömörfa vázban van elrejtve. Az ülésmagasság és a háttámla nem változik, a kihúzás egy mozdulattal, szerszám nélkül megy.",
+    },
+    {
+      q: "Mennyi a gyártási idő és hogyan szállítjátok?",
+      a: "4–6 hét a méret és a szövet véglegesítésétől. Az egész országba házhoz szállítjuk, az első zárt ajtóig. Garancia: 3 év a kárpitra, 10 év a vázra.",
+    },
+  ];
+}
+
+export default async function AgyazhatoKanapePage() {
+  const models = await loadModels();
+  const from = ft(cheapest(models));
+  const FAQ = buildFaq(models);
+
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Ágyazható kanapék egyedi méretben – Enzo Design",
     url: URL,
-    numberOfItems: MODELS.length,
-    itemListElement: MODELS.map((m, i) => {
-      const low = (m.ketto || m.sarok) + m.agy;
-      const high = m.sarok + m.agy;
-      return {
-        "@type": "ListItem",
-        position: i + 1,
-        item: {
-          "@type": "Product",
-          name: `Ágyazható ${m.name} kanapé`,
-          image: `${BASE}${m.image}`,
-          url: `${BASE}${m.href}`,
-          brand: { "@type": "Brand", name: "Enzo Design" },
-          offers: { "@type": "AggregateOffer", lowPrice: low, highPrice: high, priceCurrency: "HUF", offerCount: m.ketto ? 3 : 1, availability: "https://schema.org/MadeToOrder", url: `${BASE}${m.href}` },
-        },
-      };
-    }),
+    numberOfItems: models.length,
+    itemListElement: models.map((m, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Product",
+        name: `Ágyazható ${m.name} kanapé`,
+        image: `${BASE}${m.image}`,
+        url: `${BASE}${m.href}`,
+        brand: { "@type": "Brand", name: "Enzo Design" },
+        offers: { "@type": "AggregateOffer", lowPrice: (m.ketto || m.sarok) + m.agy, highPrice: m.sarok + m.agy, priceCurrency: "HUF", offerCount: m.ketto ? 3 : 1, availability: "https://schema.org/MadeToOrder", url: `${BASE}${m.href}` },
+      },
+    })),
   };
   const faqJsonLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
   const breadcrumbJsonLd = {
@@ -104,7 +133,7 @@ export default function AgyazhatoKanapePage() {
 
       {/* HERO */}
       <section className="relative bg-[#f5f0ea] py-16 sm:py-28 overflow-hidden">
-        <Image src="/images/chesterfield-a5.webp" alt="Ágyazható kanapé az Enzo Design műhelyéből" fill priority sizes="100vw" className="object-cover opacity-10" />
+        <Image src={HERO_IMG} alt="Kihúzott ágyazható sarokkanapé az Enzo Design műhelyéből" fill priority sizes="100vw" className="object-cover opacity-10" />
         <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
           <nav className="text-xs text-gray-500 mb-4" aria-label="Morzsamenü">
             <Link href="/" className="hover:text-[#7d6142]">Főoldal</Link> / <Link href="/butoraink/kanapek" className="hover:text-[#7d6142]">Kanapék</Link> / <span className="text-[#7d6142]">Ágyazható kanapé</span>
@@ -113,7 +142,7 @@ export default function AgyazhatoKanapePage() {
             Ágyazható kanapé egyedi méretben, kihúzható ágymechanizmussal
           </h1>
           <p className="text-gray-600 text-lg leading-relaxed">
-            Nappal kanapé, éjjel kb. 140×190 cm-es vendégágy. Bármelyik kollekciónkhoz kérhető, 2 és 3 személyes vagy sarok kivitelben, a helyiséghez méretezve. Tömörfa váz, 100+ szövet vagy valódi bőr, közvetlenül a nagykanizsai gyártótól. 590 310 Ft-tól.
+            Nappal kanapé, éjjel kb. 140×190 cm-es vendégágy. Bármelyik kollekciónkhoz kérhető, 2 és 3 személyes vagy sarok kivitelben, a helyiséghez méretezve. Tömörfa váz, 100+ szövet vagy valódi bőr, közvetlenül a nagykanizsai gyártótól. {from}-tól.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
             <TrackedLink href="/kapcsolat-es-rendeles" event="ajanlatkeres_gomb" label="Ágyazható oldal – Kérek árajánlatot" className="inline-block bg-[#7d6142] hover:bg-[#b8924a] text-white font-bold uppercase tracking-wider px-8 py-3 transition-colors text-sm">
@@ -129,15 +158,15 @@ export default function AgyazhatoKanapePage() {
       {/* HOGYAN MŰKÖDIK */}
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div className="relative aspect-[4/3] order-last md:order-first">
-            <Image src="/images/chesterfield-a5.webp" alt="Ágyazható Chesterfield kanapé nappaliban" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+          <div className="relative aspect-[4/3] order-last md:order-first bg-[#f5f0ea]">
+            <Image src={HERO_IMG} alt="Kihúzott ágyazható sarokkanapé fehér gombolt kárpittal – így nyílik az ágymechanizmus" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
           </div>
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1c1c1c] mb-4" style={{ fontFamily: "var(--font-heading)" }}>
               Hogyan működik az ágyazható kanapénk?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Az ülőrész alá kihúzható ágymechanizmust építünk, ami egy mozdulattal nyílik, és kb. 140×190 cm-es, két személyes fekvőfelületet ad. Összecsukva semmi nem látszik belőle: a kanapé kívülről ugyanaz, mint a fix változat.
+              Az ülőrész alá kihúzható ágymechanizmust építünk, ami egy mozdulattal nyílik, és kb. 140×190 cm-es, két személyes fekvőfelületet ad. Összecsukva semmi nem látszik belőle: a kanapé kívülről ugyanaz, mint a fix változat. A képen egy kihúzott, gombolt sarokkanapénk.
             </p>
             <ul className="space-y-3 text-gray-700">
               {[
@@ -182,7 +211,7 @@ export default function AgyazhatoKanapePage() {
                 </tr>
               </thead>
               <tbody>
-                {MODELS.map((m) => (
+                {models.map((m) => (
                   <tr key={m.name} className="border-b border-gray-100 hover:bg-[#f5f0e8]/60">
                     <td className="px-4 py-3">
                       <Link href={m.href} className="flex items-center gap-3 group">
@@ -192,10 +221,10 @@ export default function AgyazhatoKanapePage() {
                         <span className="font-semibold text-[#1c1c1c] group-hover:text-[#7d6142]">{m.name}</span>
                       </Link>
                     </td>
-                    <td className="px-4 py-3 text-right tabular-nums">+{ft(m.agy)}</td>
+                    <td className="px-4 py-3 text-right tabular-nums">{m.agy ? `+${ft(m.agy)}` : "–"}</td>
                     <td className="px-4 py-3 text-right tabular-nums">{m.ketto ? `${ft(m.ketto + m.agy)}-tól` : <span className="text-gray-300">–</span>}</td>
                     <td className="px-4 py-3 text-right tabular-nums">{m.harom ? `${ft(m.harom + m.agy)}-tól` : <span className="text-gray-300">–</span>}</td>
-                    <td className="px-4 py-3 text-right tabular-nums font-semibold text-[#7d6142]">{ft(m.sarok + m.agy)}-tól</td>
+                    <td className="px-4 py-3 text-right tabular-nums font-semibold text-[#7d6142]">{m.sarok ? `${ft(m.sarok + m.agy)}-tól` : <span className="text-gray-300">–</span>}</td>
                   </tr>
                 ))}
               </tbody>
@@ -228,15 +257,18 @@ export default function AgyazhatoKanapePage() {
         </div>
       </section>
 
+      <StepsSection moduleId="home:steps" isAdmin={false} />
+      <QualitySection />
+
       {/* GYIK */}
-      <section className="py-16 bg-[#f5f0ea]">
+      <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1c1c1c] mb-8 text-center" style={{ fontFamily: "var(--font-heading)" }}>
             Gyakori kérdések az ágyazható kanapéról
           </h2>
           <div className="space-y-4">
             {FAQ.map((f) => (
-              <details key={f.q} className="group bg-white border border-gray-200 p-5">
+              <details key={f.q} className="group bg-[#f5f0ea] border border-gray-200 p-5">
                 <summary className="cursor-pointer font-semibold text-[#1c1c1c] list-none flex justify-between gap-4">
                   {f.q}
                   <span className="text-[#b8924a] group-open:rotate-45 transition-transform">+</span>
