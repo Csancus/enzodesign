@@ -46,7 +46,7 @@ export default function ContactForm() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
-  const { challenge, answer, setAnswer, captchaError, setCaptchaError, refresh, validate, payload } = useCaptcha();
+  const { challenge, answer, setAnswer, captchaError, setCaptchaError, refresh, validate, failReason, payload } = useCaptcha();
   const {
     register,
     handleSubmit,
@@ -74,8 +74,9 @@ export default function ContactForm() {
   const onInvalid = () => track("urlap_hiba", "Kötelező mező hiányzik");
 
   const onSubmit = async (data: FormData) => {
+    if (typeof data.website === "string" && data.website.trim() !== "") track("urlap_hiba", "Rejtett mező kitöltve (bot)");
     if (!validate()) {
-      track("urlap_hiba", challenge ? "Hibás összeadás" : "Ellenőrzés még töltődik");
+      track("urlap_hiba", failReason());
       return;
     }
     setSending(true);

@@ -70,7 +70,7 @@ export const EVENT_DESCRIPTIONS: Record<EventName, string> = {
   termek_kartya: "Kattintás egy termékkártyára a listákon és az összegző oldalon (címke = terméknév).",
   menu_klikk: "Kattintás a fejléc menüpontjaira (címke = menüpont neve).",
   urlap_kuldes: "A látogató megnyomta a Küldés gombot a Kapcsolat űrlapon vagy a Bútorválasztón – még ellenőrzés előtt. Ez a kísérletek száma.",
-  urlap_hiba: "A Küldés után hiba lett: kötelező mező hiányzik, rossz összeadás, lejárt ellenőrzés vagy szerverhiba (címke = ok). Küldés gomb − hiba ≈ sikeres.",
+  urlap_hiba: "A Küldés után hiba lett: kötelező mező hiányzik, üres/nem szám/rossz összeg az ellenőrzésben, lejárt ellenőrzés, szerverhiba; „5 mp-en belül” és „Rejtett mező kitöltve” = szinte biztosan bot (címke = ok). Küldés gomb − hiba ≈ sikeres.",
   urlap_siker: "A szerver visszaigazolta, hogy az e-mail kiment – ez a valós leadott űrlap. Ha ez kisebb, mint a Küldés gomb száma, a különbség elakadt próbálkozás.",
   social_klikk: "Kattintás a Facebook/Instagram ikonra.",
 };

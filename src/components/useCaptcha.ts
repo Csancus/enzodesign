@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export type CaptchaChallenge = {
   a: number;
@@ -15,6 +15,7 @@ export function useCaptcha() {
   const [challenge, setChallenge] = useState<CaptchaChallenge | null>(null);
   const [answer, setAnswer] = useState("");
   const [captchaError, setCaptchaError] = useState<string | null>(null);
+  const mountedAt = useRef(0);
 
   const refresh = useCallback(async () => {
     setAnswer("");
@@ -27,8 +28,22 @@ export function useCaptcha() {
   }, []);
 
   useEffect(() => {
+    mountedAt.current = Date.now();
     refresh();
   }, [refresh]);
+
+  // Mérési címke a sikertelen ellenőrzéshez: segít szétválasztani a botot
+  // (nem szám / pillanatok alatt kitöltve) az elszámoló látogatótól.
+  const failReason = useCallback(() => {
+    const v = answer.trim();
+    let reason: string;
+    if (!challenge) reason = "Ellenőrzés még töltődik";
+    else if (v === "") reason = "Üres ellenőrzés";
+    else if (!/^\d+$/.test(v)) reason = "Nem szám az ellenőrzésben";
+    else reason = "Rossz összeg";
+    if (Date.now() - mountedAt.current < 5000) reason += " (5 mp-en belül)";
+    return reason;
+  }, [challenge, answer]);
 
   // Kliens-oldali gyors ellenőrzés beküldés előtt; false → hibaüzenet kint
   const validate = useCallback(() => {
@@ -47,5 +62,5 @@ export function useCaptcha() {
 
   const payload = challenge ? { ...challenge, answer: answer.trim() } : null;
 
-  return { challenge, answer, setAnswer, captchaError, setCaptchaError, refresh, validate, payload };
+  return { challenge, answer, setAnswer, captchaError, setCaptchaError, refresh, validate, failReason, payload };
 }

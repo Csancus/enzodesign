@@ -116,7 +116,7 @@ export default function ButorvalasztoQuiz() {
   const [sent, setSent] = useState(false);
   const [sendError, setSendError] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const { challenge, answer, setAnswer, captchaError, setCaptchaError, refresh, validate, payload } = useCaptcha();
+  const { challenge, answer, setAnswer, captchaError, setCaptchaError, refresh, validate, failReason, payload } = useCaptcha();
 
   const formRef = useRef<HTMLDivElement>(null);
 
@@ -145,8 +145,9 @@ export default function ButorvalasztoQuiz() {
       return;
     }
     setErrors({});
+    if (typeof website === "string" && website.trim() !== "") track("urlap_hiba", "Rejtett mező kitöltve (bot)");
     if (!validate()) {
-      track("urlap_hiba", challenge ? "Hibás összeadás" : "Ellenőrzés még töltődik");
+      track("urlap_hiba", failReason());
       return;
     }
     setSending(true);
