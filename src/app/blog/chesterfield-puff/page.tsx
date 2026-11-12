@@ -17,7 +17,7 @@ const faqItems = [
   { question: "Mennyi idő alatt készül el egy Chesterfield puff?", answer: "Egyedi megrendelés esetén általában 4–6 hét az átfutási idő. Készletről elérhető daraboknál ennél rövidebb is lehet." },
   { question: "Van-e tisztítható Chesterfield puff?", answer: "Igen – a mikroszálas és az eco bőr kivitel foltálló anyagból készül. Valódi bőr esetén speciális bőrápoló szükséges." },
   { question: "Rendelhető-e matching setben a kanapéval?", answer: "Agen – a puffot ugyanabból az anyagból és színből rendelheted meg, mint a kanapét vagy fotelt. Így egységes, összehangolt enteriőrt kapsz." },
-  { question: "Mekkora a szállítási idő?", answer: "Magyarországra ingyenes szállítás, a kiszállítás a gyártást követő 1–2 héten belül történik." },
+  { question: "Mekkora a szállítási idő?", answer: "A kiszállítás a gyártást követő 1–2 héten belül történik." },
 ];
 
 const jsonLd = [
